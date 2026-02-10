@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handpan Schule des Lebens</title>
+    <title>Handpan Schule des Lebens – Handpan lernen mit Tiefe und Bewusstsein</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Handpan lernen in der Handpan Schule des Lebens. Entdecke einen einzigartigen Weg, Handpan zu spielen – jenseits von Patterns. Handpan Unterricht, Kurse, Retreats und Community mit Nils Caspar in München und online.">
+    <meta name="keywords" content="Handpan, Handpan lernen, Handpan Schule, Handpan Unterricht, Handpan Kurs, Handpan spielen, Handpan München, Handpan online lernen, Handpan Retreat, Handpan Community, Handpan Anfänger, Handpan Mentoring">
+    <meta name="author" content="Nils Caspar">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://handpan.schule/">
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:title" content="Handpan Schule des Lebens – Handpan lernen mit Tiefe">
+    <meta property="og:description" content="Handpan lernen jenseits von Patterns. Handpan Kurse, Retreats und persönliches Mentoring. Entdecke deinen eigenen Klang in der Handpan Schule des Lebens.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://handpan.schule/">
+    <meta property="og:image" content="https://handpan.schule/og-image.jpg">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Handpan Schule des Lebens">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Handpan Schule des Lebens – Handpan lernen mit Tiefe">
+    <meta name="twitter:description" content="Handpan lernen jenseits von Patterns. Kurse, Retreats und Mentoring mit Nils Caspar.">
+    <meta name="twitter:image" content="https://handpan.schule/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="dovelogo.png">
+
     <style>
         /* ============================================
            RESET & GRUNDLAGEN
@@ -24,7 +50,6 @@
             --color-text-muted: #A0A0A0;
             --color-accent: #D4A574;
             --color-accent-dark: #B8956C;
-            --color-blue-deep: #1A2F42;
             
             --font-serif: 'Georgia', 'Times New Roman', serif;
             --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -62,7 +87,15 @@
            LAYOUT
            ============================================ */
         .page-content { display: none; }
-        .page-content.active { display: block; }
+        .page-content.active {
+            display: block;
+            animation: fadeInPage 0.4s ease-out;
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .container {
             max-width: 1200px;
@@ -535,6 +568,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 0;
+            text-align: left;
+            line-height: 1.4;
         }
 
         .faq-question::after {
@@ -690,6 +729,38 @@
 
         .fade-in {
             animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Scroll-reveal: Elemente starten unsichtbar */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           REDUCED MOTION
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .scroll-reveal {
+                opacity: 1;
+                transform: none;
+            }
+
+            .page-content.active {
+                animation: none;
+            }
         }
 
         /* ============================================
@@ -967,27 +1038,136 @@
                 padding: 1rem 1.2rem;
             }
         }
+
+        /* ============================================
+           COOKIE CONSENT BANNER
+           ============================================ */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            background: rgba(10, 14, 20, 0.97);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(212, 165, 116, 0.2);
+            padding: var(--spacing-md) var(--spacing-md);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .cookie-banner.visible {
+            transform: translateY(0);
+        }
+
+        .cookie-banner-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-md);
+        }
+
+        .cookie-banner-text {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .cookie-banner-text a {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+
+        .cookie-banner-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-shrink: 0;
+        }
+
+        .cookie-btn {
+            padding: 0.7rem 1.5rem;
+            border: 1px solid rgba(212, 165, 116, 0.4);
+            background: transparent;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            font-family: var(--font-sans);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+
+        .cookie-btn:hover {
+            border-color: var(--color-accent);
+            color: var(--color-text);
+        }
+
+        .cookie-btn-accept {
+            background: var(--color-accent);
+            color: var(--color-bg);
+            border-color: var(--color-accent);
+        }
+
+        .cookie-btn-accept:hover {
+            background: var(--color-accent-dark);
+            border-color: var(--color-accent-dark);
+            color: var(--color-bg);
+        }
+
+        @media (max-width: 768px) {
+            .cookie-banner-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cookie-banner-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- ============================================
+         COOKIE CONSENT BANNER
+         ============================================ -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen">
+        <div class="cookie-banner-inner">
+            <p class="cookie-banner-text">
+                Wir verwenden Cookies und Google Analytics, um diese Website zu verbessern.
+                Mehr dazu in unserer <a href="#datenschutz">Datenschutzerklärung</a>.
+            </p>
+            <div class="cookie-banner-buttons">
+                <button class="cookie-btn" onclick="cookieConsent('decline')">Nur notwendige</button>
+                <button class="cookie-btn cookie-btn-accept" onclick="cookieConsent('accept')">Alle akzeptieren</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="visually-hidden" style="position:absolute;top:0;left:0;z-index:999;padding:1rem;background:var(--color-accent);color:var(--color-bg);" onfocus="this.style.position='relative'" onblur="this.style.position='absolute'">Zum Inhalt springen</a>
+
+    <!-- ============================================
          NAVIGATION
          ============================================ -->
-    <nav>
+    <nav aria-label="Hauptnavigation">
         <div class="container">
-            <a class="logo" onclick="showPage('home')">
+            <a class="logo" href="#home">
                 <img src="dovelogo.png" alt="Taube Logo" onerror="this.style.display='none'">
                 Handpan Schule des Lebens
             </a>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menü öffnen">☰</button>
             <ul id="nav-menu">
-                <li><a onclick="showPage('home')" class="nav-link active">Start</a></li>
-                <li><a onclick="showPage('philosophie')" class="nav-link">Philosophie</a></li>
-                <li><a onclick="showPage('lernziele')" class="nav-link">Lernziele</a></li>
-                <li><a onclick="showPage('programm')" class="nav-link">Programm</a></li>
-                <li><a onclick="showPage('online-schule')" class="nav-link">Community</a></li>
-                <li><a onclick="showPage('dabei-sein')" class="nav-link">Dabei sein</a></li>
+                <li><a href="#home" class="nav-link active">Start</a></li>
+                <li><a href="#philosophie" class="nav-link">Philosophie</a></li>
+                <li><a href="#lernziele" class="nav-link">Lernziele</a></li>
+                <li><a href="#programm" class="nav-link">Programm</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="#dabei-sein" class="nav-link">Dabei sein</a></li>
             </ul>
         </div>
     </nav>
@@ -995,6 +1175,7 @@
     <!-- ============================================
          HOME PAGE
          ============================================ -->
+    <main id="main-content">
     <div id="page-home" class="page-content active">
 
         <section class="hero">
@@ -1183,7 +1364,7 @@
                     Wenn du bereit bist, dich auf einen Weg einzulassen, der über Technik hinausgeht –
                     wenn du nicht nur spielen, sondern verstehen möchtest –
                 </p>
-                <button class="cta" onclick="showPage('dabei-sein')">Tritt ein</button>
+                <a class="cta" href="#dabei-sein">Tritt ein</a>
             </div>
         </section>
     </div>
@@ -1346,7 +1527,7 @@
                     Wo Angst regiert und die Freiheit des kreativen Geistes beschränkt ist,
                     entsteht hier ein anderer Weg. Finde deinen eigenen Klang.
                 </p>
-                <button class="cta" onclick="showPage('lernziele')">Entdecke unsere Lernziele</button>
+                <a class="cta" href="#lernziele">Entdecke unsere Lernziele</a>
             </div>
         </section>
     </div>
@@ -1464,7 +1645,7 @@
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
                     Entdecke die verschiedenen Wege, auf denen du diese Ziele erreichen kannst.
                 </p>
-                <button class="cta" onclick="showPage('programm')">Zum Programm</button>
+                <a class="cta" href="#programm">Zum Programm</a>
             </div>
         </section>
     </div>
@@ -1488,10 +1669,10 @@
                     Struktur, die Freiheit ermöglicht. Jeder Weg ist so gestaltet, dass er dich zu deinem eigenen Ausdruck führt.
                 </p>
                 <div class="quick-nav">
-                    <a href="#angebote" class="quick-nav-link" onclick="scrollToSection('angebote')">→ Direkt zu den Angeboten</a>
-                    <a href="#unser-ansatz" class="quick-nav-link" onclick="scrollToSection('unser-ansatz')">→ Unser Ansatz</a>
-                    <a href="#drei-schluessel" class="quick-nav-link" onclick="scrollToSection('drei-schluessel')">→ Die vier Schlüssel</a>
-                    <a href="#produktleiter" class="quick-nav-link" onclick="scrollToSection('produktleiter')">→ Der Weg zum Meister</a>
+                    <a href="#angebote" class="quick-nav-link" onclick="scrollToSection('angebote', event)">→ Direkt zu den Angeboten</a>
+                    <a href="#unser-ansatz" class="quick-nav-link" onclick="scrollToSection('unser-ansatz', event)">→ Unser Ansatz</a>
+                    <a href="#vier-schluessel" class="quick-nav-link" onclick="scrollToSection('vier-schluessel', event)">→ Die vier Schlüssel</a>
+                    <a href="#produktleiter" class="quick-nav-link" onclick="scrollToSection('produktleiter', event)">→ Der Weg zum Meister</a>
                 </div>
             </div>
         </section>
@@ -1547,7 +1728,7 @@
         </section>
 
         <!-- Die vier Schlüssel zur Meisterschaft -->
-        <section id="drei-schluessel" class="section-dark">
+        <section id="vier-schluessel" class="section-dark">
             <div class="container">
                 <h2 class="section-title">Die vier Schlüssel zur Meisterschaft</h2>
                 <p class="section-intro">Unsere Programme basieren auf wissenschaftlich fundierten Prinzipien, die von den erfolgreichsten Coaches weltweit angewandt werden:</p>
@@ -1750,32 +1931,29 @@
                 <h2 class="section-title">Häufige Einwände</h2>
                 <div class="faq-container">
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             „Aber ich habe doch gar keine Zeit…"
-                            <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>10–15 Minuten täglich – das ist die empfohlene Praxis-Zeit. Und wenn dein Tag komplett voll ist: 
+                            <p>10–15 Minuten täglich – das ist die empfohlene Praxis-Zeit. Und wenn dein Tag komplett voll ist:
                             Es gibt Mini-5-Minuten-Übungen. 5 Minuten findet jeder.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             „Ich bin viel unterwegs…"
-                            <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Die Übungen lassen sich auf verschiedene Gegenstände übertragen – 
+                            <p>Die Übungen lassen sich auf verschiedene Gegenstände übertragen –
                             so kann dein Training auch unterwegs weitergehen, egal wo du bist und ohne Handpan.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             „Was, wenn ich die Live-Calls verpasse?"
-                            <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>Jeder Call wird aufgezeichnet. Viele Teilnehmer erleben die Aufzeichnungen als genauso wertvoll – 
+                            <p>Jeder Call wird aufgezeichnet. Viele Teilnehmer erleben die Aufzeichnungen als genauso wertvoll –
                             sie machen daraus ihr eigenes Ritual.</p>
                         </div>
                     </div>
@@ -1789,7 +1967,7 @@
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
                     Lass uns gemeinsam herausfinden, wie du am besten lernen und wachsen kannst.
                 </p>
-                <button class="cta" onclick="showPage('dabei-sein')">Gespräch vereinbaren</button>
+                <a class="cta" href="#dabei-sein">Gespräch vereinbaren</a>
             </div>
         </section>
     </div>
@@ -1989,7 +2167,7 @@
                     Werde Teil der Gemeinschaft. Kein Risiko, keine Verpflichtung – nur die Möglichkeit zu wachsen.
                 </p>
                 <a href="https://www.skool.com/handpan-schule-des-lebens-7898/about" target="_blank" class="cta" style="margin-right: var(--spacing-sm);">Zur Skool Community</a>
-                <button class="cta" onclick="showPage('dabei-sein')" style="background: transparent;">Fragen? Kontakt</button>
+                <a class="cta" href="#dabei-sein" style="background: transparent;">Fragen? Kontakt</a>
             </div>
         </section>
     </div>
@@ -2016,11 +2194,11 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <strong>E-Mail</strong>
-                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="254e4a4b51444e51654d444b4155444b0856464d5049400841405608494047404b560b4140">[email&#160;protected]</a></p>
+                        <p><a href="mailto:nils@handpan-schule-des-lebens.de">nils@handpan-schule-des-lebens.de</a></p>
                     </div>
                     <div class="contact-item">
                         <strong>WhatsApp</strong>
-                        <p>+49 151 22964922</p>
+                        <p><a href="https://wa.me/4915122964922" target="_blank" rel="noopener" style="color: var(--color-accent);">+49 151 22964922</a></p>
                     </div>
                     <div class="contact-item">
                         <strong>Ort</strong>
@@ -2063,9 +2241,9 @@
                 <h2 class="section-title">Häufige Fragen</h2>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                         Brauche ich Vorerfahrung?
-                    </div>
+                    </button>
                     <div class="faq-answer">
                         <p style="padding-top: var(--spacing-sm);">
                             Nein. Die Programme sind so gestaltet, dass sie dich dort abholen, wo du stehst. 
@@ -2075,9 +2253,9 @@
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                         Was unterscheidet diese Schule von anderen?
-                    </div>
+                    </button>
                     <div class="faq-answer">
                         <p style="padding-top: var(--spacing-sm);">
                             Hier geht es nicht um das Nachspielen von Patterns. Es geht um echte musikalische Entwicklung – 
@@ -2088,9 +2266,9 @@
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                         Wie viel Zeit muss ich investieren?
-                    </div>
+                    </button>
                     <div class="faq-answer">
                         <p style="padding-top: var(--spacing-sm);">
                             Beim Rhythmus Fundament sind es 10–15 Minuten tägliche Übung plus ein wöchentlicher Call. 
@@ -2100,9 +2278,9 @@
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                         Kann ich auch vor Ort lernen?
-                    </div>
+                    </button>
                     <div class="faq-answer">
                         <p style="padding-top: var(--spacing-sm);">
                             Ja. Nils unterrichtet in München. 1:1 Mentoring-Sessions können online oder vor Ort stattfinden. 
@@ -2112,9 +2290,9 @@
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                         Was kostet die Teilnahme?
-                    </div>
+                    </button>
                     <div class="faq-answer">
                         <p style="padding-top: var(--spacing-sm);">
                             Rhythmus Fundament: 179 €<br>
@@ -2168,13 +2346,241 @@
     </div>
 
     <!-- ============================================
+         IMPRESSUM PAGE
+         ============================================ -->
+    <div id="page-impressum" class="page-content">
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <h1>Impressum</h1>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+
+                <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm);">Angaben gemäß § 5 TMG</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Nils Böhm<br>
+                    Handpan Schule des Lebens<br>
+                    Bahnhofstr. 30<br>
+                    85386 Eching
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Kontakt</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Telefon: <a href="tel:+4915122964922" style="color: var(--color-accent);">+49 151 22964922</a><br>
+                    E-Mail: <a href="mailto:nils@handpan-schule-des-lebens.de" style="color: var(--color-accent);">nils@handpan-schule-des-lebens.de</a>
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Berufsbezeichnung</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Musikpädagoge / Freiberufler<br>
+                    Bundesrepublik Deutschland
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Umsatzsteuer</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Kleinunternehmer gemäß § 19 UStG. Es wird keine Umsatzsteuer ausgewiesen.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Redaktionell verantwortlich</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Nils Böhm<br>
+                    Bahnhofstr. 30<br>
+                    85386 Eching
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">EU-Streitschlichtung</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+                    <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener" style="color: var(--color-accent);">https://ec.europa.eu/consumers/odr/</a>.<br>
+                    Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Haftung für Inhalte</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Haftung für Links</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Urheberrecht</h3>
+                <p style="color: var(--color-text-muted);">
+                    Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         DATENSCHUTZ PAGE
+         ============================================ -->
+    <div id="page-datenschutz" class="page-content">
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <h1>Datenschutzerklärung</h1>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+
+                <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm);">1. Datenschutz auf einen Blick</h2>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Allgemeine Hinweise</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Datenerfassung auf dieser Website</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-xs);">
+                    <strong style="color: var(--color-text);">Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong>
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber:<br><br>
+                    Nils Böhm<br>
+                    Handpan Schule des Lebens<br>
+                    Bahnhofstr. 30<br>
+                    85386 Eching<br>
+                    E-Mail: <a href="mailto:nils@handpan-schule-des-lebens.de" style="color: var(--color-accent);">nils@handpan-schule-des-lebens.de</a>
+                </p>
+
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-xs);">
+                    <strong style="color: var(--color-text);">Wie erfassen wir Ihre Daten?</strong>
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.&nbsp;B. um Daten handeln, die Sie per E-Mail oder WhatsApp an uns senden.<br><br>
+                    Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z.&nbsp;B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.
+                </p>
+
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-xs);">
+                    <strong style="color: var(--color-text);">Wofür nutzen wir Ihre Daten?</strong>
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
+                </p>
+
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-xs);">
+                    <strong style="color: var(--color-text);">Welche Rechte haben Sie bezüglich Ihrer Daten?</strong>
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.
+                </p>
+
+                <!-- Abschnitt 2 -->
+                <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm); margin-top: var(--spacing-lg);">2. Hosting</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Wir hosten die Inhalte unserer Website bei GitHub Pages. Anbieter ist die GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA. Wenn Sie unsere Website besuchen, werden Ihre personenbezogenen Daten auf den Servern von GitHub verarbeitet. Hierbei können auch personenbezogene Daten an die Server von GitHub in die USA übermittelt werden. Details entnehmen Sie der Datenschutzerklärung von GitHub:
+                    <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener" style="color: var(--color-accent);">GitHub Datenschutzerklärung</a>.
+                </p>
+
+                <!-- Abschnitt 3 -->
+                <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm); margin-top: var(--spacing-lg);">3. Allgemeine Hinweise und Pflichtinformationen</h2>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Datenschutz</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Der Betreiber dieser Seiten nimmt den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung. Die Nutzung unserer Website ist in der Regel ohne Angabe personenbezogener Daten möglich. Wir weisen darauf hin, dass die Datenübertragung im Internet (z.&nbsp;B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Hinweis zur verantwortlichen Stelle</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br><br>
+                    Nils Böhm<br>
+                    Handpan Schule des Lebens<br>
+                    E-Mail: <a href="mailto:nils@handpan-schule-des-lebens.de" style="color: var(--color-accent);">nils@handpan-schule-des-lebens.de</a><br>
+                    Telefon: <a href="tel:+4915122964922" style="color: var(--color-accent);">+49 151 22964922</a>
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde zu. Zuständige Aufsichtsbehörde in datenschutzrechtlichen Fragen ist der Landesdatenschutzbeauftragte des Bundeslandes, in dem unser Unternehmen seinen Sitz hat:
+                    <a href="https://www.datenschutz-bayern.de/" target="_blank" rel="noopener" style="color: var(--color-accent);">Bayerisches Landesamt für Datenschutzaufsicht</a>.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Recht auf Datenübertragbarkeit</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Auskunft, Löschung und Berichtigung</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.
+                </p>
+
+                <!-- Abschnitt 4 -->
+                <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm); margin-top: var(--spacing-lg);">4. Datenerfassung auf dieser Website</h2>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Server-Log-Dateien</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Der Provider der Seiten erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:<br><br>
+                    — Browsertyp und Browserversion<br>
+                    — Verwendetes Betriebssystem<br>
+                    — Referrer URL<br>
+                    — Hostname des zugreifenden Rechners<br>
+                    — Uhrzeit der Serveranfrage<br>
+                    — IP-Adresse<br><br>
+                    Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Dateien erfasst werden.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Kontaktaufnahme per E-Mail / WhatsApp</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Wenn Sie uns per E-Mail oder WhatsApp kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage, Telefonnummer) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse (Art. 6 Abs. 1 lit. f DSGVO).
+                </p>
+
+                <!-- Abschnitt 5: Google Analytics -->
+                <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm); margin-top: var(--spacing-lg);">5. Analyse-Tools</h2>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Google Analytics</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Ireland Limited („Google"), Gordon House, Barrow Street, Dublin 4, Irland.<br><br>
+                    Google Analytics ermöglicht es dem Websitebetreiber, das Verhalten der Websitebesucher zu analysieren. Hierbei erhält der Websitebetreiber verschiedene Nutzungsdaten, wie z.&nbsp;B. Seitenaufrufe, Verweildauer, verwendete Betriebssysteme und Herkunft des Nutzers. Diese Daten werden in einem Nutzerprofil zusammengefasst und dem jeweiligen Endgerät des Websitebesuchers zugeordnet.<br><br>
+                    Google Analytics verwendet Technologien, die die Wiedererkennung des Nutzers zum Zwecke der Analyse des Nutzerverhaltens ermöglichen (z.&nbsp;B. Cookies oder Device-Fingerprinting). Die von Google erfassten Informationen über die Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.<br><br>
+                    Die Nutzung dieses Dienstes erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Die Einwilligung ist jederzeit widerrufbar.<br><br>
+                    Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. Details finden Sie unter:
+                    <a href="https://privacy.google.com/businesses/controllerterms/mccs/" target="_blank" rel="noopener" style="color: var(--color-accent);">Google Standardvertragsklauseln</a>.<br><br>
+                    Mehr Informationen zum Umgang mit Nutzerdaten bei Google Analytics finden Sie in der Datenschutzerklärung von Google:
+                    <a href="https://support.google.com/analytics/answer/6004245?hl=de" target="_blank" rel="noopener" style="color: var(--color-accent);">Google Analytics Datenschutz</a>.
+                </p>
+
+                <!-- Abschnitt 6: Externe Links -->
+                <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm); margin-top: var(--spacing-lg);">6. Externe Dienste und Links</h2>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Skool Community</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Unsere Website enthält Links zur Plattform Skool (skool.com). Wenn Sie diesen Links folgen, gelten die Datenschutzbestimmungen von Skool. Wir haben keinen Einfluss auf die Datenverarbeitung durch Skool. Bitte informieren Sie sich auf der Website von Skool über deren Datenschutzpraktiken.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">WhatsApp</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Für die Kontaktaufnahme bieten wir die Möglichkeit, uns über WhatsApp zu erreichen. WhatsApp ist ein Dienst der Meta Platforms Ireland Limited. Wenn Sie uns über WhatsApp kontaktieren, werden Ihre Daten gemäß der Datenschutzrichtlinie von WhatsApp verarbeitet. Weitere Informationen finden Sie unter:
+                    <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener" style="color: var(--color-accent);">WhatsApp Datenschutzrichtlinie</a>.
+                </p>
+
+                <p style="color: var(--color-text-muted); margin-top: var(--spacing-lg); font-style: italic; border-top: 1px solid rgba(212, 165, 116, 0.1); padding-top: var(--spacing-md);">
+                    Stand: Februar 2026
+                </p>
+            </div>
+        </section>
+    </div>
+
+    </main>
+
+    <!-- ============================================
          FOOTER
          ============================================ -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Handpan Schule des Lebens | Nils Caspar</p>
+            <p>&copy; 2026 Handpan Schule des Lebens | Nils Böhm</p>
             <p style="margin-top: var(--spacing-xs);">
-                <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
+                <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a>
             </p>
         </div>
     </footer>
@@ -2182,38 +2588,128 @@
     <!-- ============================================
          JAVASCRIPT
          ============================================ -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Page Navigation
-        function showPage(pageId) {
+    <script>
+        // ============================================
+        // HASH-ROUTING & PAGE NAVIGATION
+        // ============================================
+
+        // Hash-zu-Page-ID Mapping (Hash → Element-ID)
+        const routes = {
+            'home':        { pageId: 'page-home',          title: 'Handpan Schule des Lebens – Handpan lernen mit Tiefe und Bewusstsein' },
+            'philosophie': { pageId: 'page-philosophie',    title: 'Philosophie · Handpan Schule des Lebens' },
+            'lernziele':   { pageId: 'page-lernziele',     title: 'Lernziele · Handpan Schule des Lebens' },
+            'programm':    { pageId: 'page-programm',      title: 'Programm · Handpan Schule des Lebens' },
+            'community':   { pageId: 'page-online-schule', title: 'Community · Handpan Schule des Lebens' },
+            'dabei-sein':  { pageId: 'page-dabei-sein',    title: 'Dabei sein · Handpan Schule des Lebens' },
+            'impressum':   { pageId: 'page-impressum',     title: 'Impressum · Handpan Schule des Lebens' },
+            'datenschutz': { pageId: 'page-datenschutz',   title: 'Datenschutz · Handpan Schule des Lebens' }
+        };
+
+        function navigateTo(hash) {
+            // Normalize hash
+            const routeKey = hash.replace('#', '') || 'home';
+            const route = routes[routeKey] || routes['home'];
+
             // Hide all pages
             document.querySelectorAll('.page-content').forEach(page => {
                 page.classList.remove('active');
             });
-            
-            // Show selected page
-            const targetPage = document.getElementById('page-' + pageId);
+
+            // Show target page
+            const targetPage = document.getElementById(route.pageId);
             if (targetPage) {
                 targetPage.classList.add('active');
             }
-            
+
             // Update nav active state
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
-            });
-            
-            // Find and activate the clicked nav link
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(pageId)) {
+                const linkHash = link.getAttribute('href');
+                if (linkHash === '#' + routeKey) {
                     link.classList.add('active');
                 }
             });
-            
+
+            // Update page title
+            document.title = route.title;
+
             // Close mobile menu
             document.getElementById('nav-menu').classList.remove('active');
-            
-            // Scroll to top smoothly
-            window.scrollTo({top: 0, behavior: 'smooth'});
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Listen for hash changes (back/forward button support)
+        window.addEventListener('hashchange', function() {
+            navigateTo(window.location.hash);
+        });
+
+        // Initial page load: navigate to hash or default to home
+        document.addEventListener('DOMContentLoaded', function() {
+            navigateTo(window.location.hash || '#home');
+
+            // Restore quiz result from localStorage
+            try {
+                const savedQuiz = localStorage.getItem('quiz-result');
+                if (savedQuiz) {
+                    const data = JSON.parse(savedQuiz);
+                    quizAnswers = data.answers || {};
+                    if (data.primary) {
+                        // Show result step instead of step 1
+                        const result = calculateRecommendation();
+                        const resultContainer = document.getElementById('quiz-result');
+                        if (resultContainer) {
+                            resultContainer.innerHTML = result.html;
+                            // Mark all progress dots as completed
+                            document.querySelectorAll('.quiz-progress-dot').forEach(dot => {
+                                dot.classList.remove('active');
+                                dot.classList.add('completed');
+                            });
+                            // Show result step
+                            document.querySelectorAll('.quiz-step').forEach(step => step.classList.remove('active'));
+                            const resultStep = document.querySelector('.quiz-step[data-step="result"]');
+                            if (resultStep) resultStep.classList.add('active');
+                        }
+                    }
+                }
+            } catch(e) {}
+        });
+
+        // Intercept nav link clicks to update hash
+        document.addEventListener('click', function(event) {
+            const link = event.target.closest('a[href^="#"]');
+            if (link) {
+                const hash = link.getAttribute('href');
+                // Check if this is a page route (not an in-page section anchor)
+                const routeKey = hash.replace('#', '');
+                if (routes[routeKey]) {
+                    // Let the browser update the hash naturally, hashchange handles the rest
+                    return;
+                }
+            }
+
+            // Close mobile menu when clicking outside
+            const navMenu = document.getElementById('nav-menu');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            if (navMenu && mobileToggle && !navMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Legacy support: showPage() still works (for quiz result links etc.)
+        function showPage(pageId) {
+            // Map old IDs to route keys
+            const idToRoute = {
+                'home': 'home',
+                'philosophie': 'philosophie',
+                'lernziele': 'lernziele',
+                'programm': 'programm',
+                'online-schule': 'community',
+                'dabei-sein': 'dabei-sein'
+            };
+            const routeKey = idToRoute[pageId] || pageId;
+            window.location.hash = '#' + routeKey;
         }
 
         // Mobile Menu Toggle
@@ -2226,11 +2722,14 @@
         function toggleFaq(element) {
             const faqItem = element.parentElement;
             faqItem.classList.toggle('open');
+            // Update aria-expanded
+            const isOpen = faqItem.classList.contains('open');
+            element.setAttribute('aria-expanded', isOpen);
         }
 
         // Scroll to section within page
-        function scrollToSection(sectionId) {
-            event.preventDefault();
+        function scrollToSection(sectionId, e) {
+            if (e) e.preventDefault();
             const section = document.getElementById(sectionId);
             if (section) {
                 const navHeight = document.querySelector('nav').offsetHeight;
@@ -2242,26 +2741,33 @@
             }
         }
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const navMenu = document.getElementById('nav-menu');
-            const mobileToggle = document.querySelector('.mobile-menu-toggle');
-            
-            if (!navMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
-                navMenu.classList.remove('active');
-            }
-        });
+        // ============================================
+        // SCROLL REVEAL (IntersectionObserver)
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll-reveal class to elements that should animate
+            const selectors = '.card, .feature, .quote-block, .highlight-box, .timeline-item, .price-box, .contact-info, .comparison-column';
+            document.querySelectorAll(selectors).forEach(el => {
+                el.classList.add('scroll-reveal');
+            });
 
-        // Smooth scroll for anchor links (if any)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+            // Respect prefers-reduced-motion
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
             });
         });
 
@@ -2315,14 +2821,25 @@
             // Hide current step
             document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.remove('active');
             document.querySelector(`.quiz-progress-dot[data-step="${currentStep}"]`).classList.add('completed');
-            
+
             // Calculate recommendation
             const result = calculateRecommendation();
-            
+
             // Show result
             const resultContainer = document.getElementById('quiz-result');
             resultContainer.innerHTML = result.html;
             document.querySelector('.quiz-step[data-step="result"]').classList.add('active');
+
+            // Save result to localStorage
+            try {
+                localStorage.setItem('quiz-result', JSON.stringify({
+                    answers: quizAnswers,
+                    primary: result.primary,
+                    secondary: result.secondary,
+                    tertiary: result.tertiary,
+                    date: new Date().toISOString()
+                }));
+            } catch(e) {}
         }
 
         function calculateRecommendation() {
@@ -2460,7 +2977,7 @@
                     </div>
                 </div>
                 
-                <button class="cta" onclick="showPage('dabei-sein')" style="margin-top: var(--spacing-lg);">Jetzt loslegen</button>
+                <a class="cta" href="#dabei-sein" style="margin-top: var(--spacing-lg);">Jetzt loslegen</a>
                 <br>
                 <button class="quiz-restart" onclick="restartQuiz()">Quiz wiederholen</button>
             `;
@@ -2471,6 +2988,7 @@
         function restartQuiz() {
             quizAnswers = {};
             currentStep = 1;
+            localStorage.removeItem('quiz-result');
             
             // Reset all steps
             document.querySelectorAll('.quiz-step').forEach(step => step.classList.remove('active'));
@@ -2483,4 +3001,66 @@
             document.querySelector('.quiz-progress-dot[data-step="1"]').classList.add('active');
             
             // Reset selected options
-            document.querySel
+            document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+        }
+
+        // ============================================
+        // COOKIE CONSENT
+        // ============================================
+
+        // Google Analytics Measurement ID - HIER DEINE GA4-ID EINTRAGEN
+        const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+
+        function cookieConsent(choice) {
+            // Save choice in localStorage
+            localStorage.setItem('cookie-consent', choice);
+            localStorage.setItem('cookie-consent-date', new Date().toISOString());
+
+            // Hide banner
+            document.getElementById('cookie-banner').classList.remove('visible');
+
+            // Load analytics if accepted
+            if (choice === 'accept') {
+                loadGoogleAnalytics();
+            }
+        }
+
+        function loadGoogleAnalytics() {
+            // Don't load if already loaded
+            if (window.gaLoaded) return;
+            window.gaLoaded = true;
+
+            // Load gtag.js script
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+            document.head.appendChild(script);
+
+            // Initialize gtag
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', GA_MEASUREMENT_ID, {
+                anonymize_ip: true
+            });
+        }
+
+        // On page load: check for existing consent
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('cookie-consent');
+
+            if (!consent) {
+                // No choice yet → show banner after short delay
+                setTimeout(function() {
+                    document.getElementById('cookie-banner').classList.add('visible');
+                }, 800);
+            } else if (consent === 'accept') {
+                // Already accepted → load analytics
+                loadGoogleAnalytics();
+            }
+            // If 'decline' → do nothing, no analytics
+        });
+    </script>
+</body>
+</html>
