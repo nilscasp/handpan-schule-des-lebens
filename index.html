@@ -1287,6 +1287,180 @@
         }
 
         /* ============================================
+           PRICE CALCULATOR
+           ============================================ */
+        .price-calc {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+            background: rgba(10, 14, 20, 0.6);
+            border: 1px solid rgba(212, 165, 116, 0.12);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        .price-calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+        .price-calc-row {
+            margin-bottom: 0;
+        }
+        .price-calc-label {
+            display: block;
+            color: var(--color-accent);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        .price-calc-select {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 4px;
+            color: var(--color-text);
+            font-size: 0.9rem;
+            font-family: var(--font-sans);
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            -webkit-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23D4A574' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.8rem center;
+            padding-right: 2.2rem;
+        }
+        .price-calc-select:hover {
+            border-color: rgba(212, 165, 116, 0.5);
+        }
+        .price-calc-select:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+        .price-calc-select option {
+            background: var(--color-bg);
+            color: var(--color-text);
+        }
+        /* Slider */
+        .price-calc-slider {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        .price-calc-slider input[type="range"] {
+            flex: 1;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            background: rgba(212, 165, 116, 0.2);
+            border-radius: 2px;
+            outline: none;
+        }
+        .price-calc-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(212, 165, 116, 0.4);
+            transition: transform 0.2s ease;
+        }
+        .price-calc-slider input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+        .price-calc-slider input[type="range"]::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 8px rgba(212, 165, 116, 0.4);
+        }
+        .price-calc-slider-value {
+            min-width: 90px;
+            text-align: right;
+            color: var(--color-text);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .price-calc-tier-hint {
+            margin-top: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            font-style: italic;
+        }
+        /* Result */
+        .price-calc-result {
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 4px;
+            text-align: center;
+            background: rgba(212, 165, 116, 0.03);
+        }
+        .price-calc-per-session {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+        .price-calc-total {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--color-accent);
+            margin-bottom: 0.2rem;
+            transition: all 0.3s ease;
+        }
+        .price-calc-summary {
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        .price-calc-savings {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(212, 165, 116, 0.12);
+            border-radius: 20px;
+            color: var(--color-accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+        }
+        .price-calc-savings.hidden { display: none; }
+        .price-calc-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+        .price-calc-note {
+            margin-top: var(--spacing-sm);
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+        @media (max-width: 600px) {
+            .price-calc {
+                padding: var(--spacing-md);
+            }
+            .price-calc-grid {
+                grid-template-columns: 1fr;
+            }
+            .price-calc-total {
+                font-size: 2.2rem;
+            }
+            .price-calc-actions {
+                flex-direction: column;
+            }
+        }
+
+        /* ============================================
            FLOATING CTA BUTTON
            ============================================ */
         .floating-cta {
@@ -3078,9 +3252,9 @@
         <section class="section-light">
             <div class="container-narrow">
                 <div class="detail-meta">
-                    <div class="detail-meta-item"><strong>Dauer</strong> 60 Min</div>
-                    <div class="detail-meta-item"><strong>Format</strong> 1:1 vor Ort</div>
-                    <div class="detail-meta-item"><strong>Ort</strong> München-Neuhausen</div>
+                    <div class="detail-meta-item"><strong>Dauer</strong> 30 / 60 / 90 Min</div>
+                    <div class="detail-meta-item"><strong>Format</strong> 1:1 · 1:2 · 1:3</div>
+                    <div class="detail-meta-item"><strong>Ort</strong> München oder Online</div>
                     <div class="detail-meta-item"><strong>Level</strong> Alle Levels</div>
                 </div>
                 <p class="section-intro" style="font-size: 1.2rem;">
@@ -3104,6 +3278,79 @@
                 </div>
                 <div class="highlight-box">
                     <p><strong style="color: var(--color-accent);">Handpan vorhanden:</strong> Du brauchst keine eigene Handpan mitzubringen.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Preisrechner</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md); text-align: center;">
+                    Stelle dir deinen Unterricht zusammen und sieh sofort, was es kostet.
+                </p>
+
+                <div class="price-calc" id="price-calc">
+                    <div class="price-calc-grid">
+                        <div class="price-calc-row">
+                            <label class="price-calc-label" for="pc-duration">Dauer</label>
+                            <select class="price-calc-select" id="pc-duration">
+                                <option value="30">30 Min</option>
+                                <option value="60" selected>60 Min</option>
+                                <option value="90">90 Min</option>
+                            </select>
+                        </div>
+                        <div class="price-calc-row">
+                            <label class="price-calc-label" for="pc-format">Format</label>
+                            <select class="price-calc-select" id="pc-format">
+                                <option value="1:1" selected>1:1 Einzelunterricht</option>
+                                <option value="1:2">1:2 (Preis pro Person)</option>
+                                <option value="1:3">1:3 (Preis pro Person)</option>
+                            </select>
+                        </div>
+                        <div class="price-calc-row">
+                            <label class="price-calc-label" for="pc-location">Ort</label>
+                            <select class="price-calc-select" id="pc-location">
+                                <option value="muenchen" selected>München-Neuhausen</option>
+                                <option value="online">Online</option>
+                            </select>
+                        </div>
+                        <div class="price-calc-row">
+                            <label class="price-calc-label" for="pc-level">Level</label>
+                            <select class="price-calc-select" id="pc-level">
+                                <option value="Neuling" selected>Neuling</option>
+                                <option value="Anfänger">Anfänger</option>
+                                <option value="Kompetent">Kompetent</option>
+                                <option value="Gewandt">Gewandt</option>
+                                <option value="Experte">Experte</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="price-calc-row" style="margin-top: var(--spacing-md);">
+                        <label class="price-calc-label" for="pc-sessions">Anzahl Sessions</label>
+                        <div class="price-calc-slider">
+                            <input type="range" id="pc-sessions" min="1" max="20" value="1">
+                            <span class="price-calc-slider-value" id="pc-sessions-label">1 Session</span>
+                        </div>
+                        <div class="price-calc-tier-hint" id="pc-tier-hint"></div>
+                    </div>
+
+                    <!-- ERGEBNIS -->
+                    <div class="price-calc-result" id="pc-result">
+                        <div class="price-calc-per-session" id="pc-per-session">Preis pro Session: 60 €</div>
+                        <div class="price-calc-total" id="pc-total">60 €</div>
+                        <div class="price-calc-summary" id="pc-summary">1× 60 Min · 1:1 · München-Neuhausen · Neuling</div>
+                        <div class="price-calc-savings hidden" id="pc-savings"></div>
+                        <div class="price-calc-actions">
+                            <a class="cta" id="pc-wa" href="#" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                                💬 Per WhatsApp anfragen
+                            </a>
+                            <a class="cta" id="pc-email" href="#" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                                ✉️ Per E-Mail anfragen
+                            </a>
+                        </div>
+                        <p class="price-calc-note">Alle Preise pro Person · Keine Vertragsbindung</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -3583,6 +3830,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             navigateTo(window.location.hash || '#home');
 
+            // Initialize price calculator
+            initPriceCalc();
+
             // Restore quiz result from localStorage
             try {
                 const savedQuiz = localStorage.getItem('quiz-result');
@@ -4001,6 +4251,144 @@
             
             // Reset selected options
             document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+        }
+
+        // ============================================
+        // PRICE CALCULATOR
+        // ============================================
+
+        function initPriceCalc() {
+            const calc = document.getElementById('price-calc');
+            if (!calc) return;
+
+            // Preistabelle: [1er, ab3, ab5, ab10, ab15] für 60 Min
+            const priceTable = {
+                '1:1': [60, 55, 50, 45, 40],
+                '1:2': [50, 45, 40, 35, 30],
+                '1:3': [40, 35, 30, 25, 20]
+            };
+
+            // Dropdowns
+            const selDuration = document.getElementById('pc-duration');
+            const selFormat   = document.getElementById('pc-format');
+            const selLocation = document.getElementById('pc-location');
+            const selLevel    = document.getElementById('pc-level');
+            const slider      = document.getElementById('pc-sessions');
+
+            // 30min-Option merken
+            const opt30 = selDuration.querySelector('option[value="30"]');
+
+            function getState() {
+                return {
+                    duration: parseInt(selDuration.value),
+                    format:   selFormat.value,
+                    location: selLocation.value,
+                    level:    selLevel.value,
+                    sessions: parseInt(slider.value)
+                };
+            }
+
+            // Format-Wechsel: 30 Min ein-/ausblenden
+            selFormat.addEventListener('change', function() {
+                if (this.value !== '1:1') {
+                    opt30.disabled = true;
+                    if (selDuration.value === '30') {
+                        selDuration.value = '60';
+                    }
+                } else {
+                    opt30.disabled = false;
+                }
+                updatePriceCalc();
+            });
+
+            // Alle Dropdowns
+            selDuration.addEventListener('change', updatePriceCalc);
+            selLocation.addEventListener('change', updatePriceCalc);
+            selLevel.addEventListener('change', updatePriceCalc);
+            slider.addEventListener('input', updatePriceCalc);
+
+            function getStaffelIndex(n) {
+                if (n >= 15) return 4;
+                if (n >= 10) return 3;
+                if (n >= 5) return 2;
+                if (n >= 3) return 1;
+                return 0;
+            }
+
+            function getStaffelLabel(n) {
+                if (n >= 15) return 'ab 15 Sessions';
+                if (n >= 10) return 'ab 10 Sessions';
+                if (n >= 5) return 'ab 5 Sessions';
+                if (n >= 3) return 'ab 3 Sessions';
+                return '';
+            }
+
+            function updatePriceCalc() {
+                const s = getState();
+                let perSession, total;
+
+                if (s.duration === 30) {
+                    perSession = 30;
+                    total = perSession * s.sessions;
+                } else {
+                    const idx = getStaffelIndex(s.sessions);
+                    const base60 = priceTable[s.format][idx];
+                    perSession = s.duration === 90 ? Math.round(base60 * 1.5) : base60;
+                    total = perSession * s.sessions;
+                }
+
+                // Ersparnis
+                let savings = 0;
+                if (s.duration !== 30 && s.sessions > 1) {
+                    const singlePrice = s.duration === 90
+                        ? Math.round(priceTable[s.format][0] * 1.5)
+                        : priceTable[s.format][0];
+                    savings = (singlePrice - perSession) * s.sessions;
+                }
+
+                // Session-Label
+                document.getElementById('pc-sessions-label').textContent =
+                    s.sessions === 1 ? '1 Session' : s.sessions + ' Sessions';
+
+                // Staffel-Hinweis
+                const staffelLabel = getStaffelLabel(s.sessions);
+                document.getElementById('pc-tier-hint').textContent =
+                    staffelLabel ? staffelLabel + ': ' + perSession + ' € pro Session' : '';
+
+                // Ergebnis
+                document.getElementById('pc-per-session').textContent = 'Preis pro Session: ' + perSession + ' €';
+                document.getElementById('pc-total').textContent = total + ' €';
+
+                // Zusammenfassung
+                const ortLabel = s.location === 'muenchen' ? 'München-Neuhausen' : 'Online';
+                document.getElementById('pc-summary').textContent =
+                    s.sessions + '× ' + s.duration + ' Min · ' + s.format + ' · ' + ortLabel + ' · ' + s.level;
+
+                // Ersparnis
+                const savingsEl = document.getElementById('pc-savings');
+                if (savings > 0) {
+                    savingsEl.textContent = 'Du sparst ' + savings + ' € gegenüber Einzelbuchung';
+                    savingsEl.classList.remove('hidden');
+                } else {
+                    savingsEl.classList.add('hidden');
+                }
+
+                // Anfrage-Text
+                const anfrage = 'Hallo, ich interessiere mich für ' + s.sessions + ' Session' + (s.sessions > 1 ? 's' : '') +
+                    ' à ' + s.duration + ' Min im ' + s.format + '-Format' +
+                    (s.location === 'muenchen' ? ' vor Ort in München-Neuhausen' : ' online') +
+                    '. Level: ' + s.level +
+                    '. Gesamtpreis laut Website: ' + total + ' €.' +
+                    ' Ich freue mich auf eine Rückmeldung!';
+
+                document.getElementById('pc-wa').href = 'https://wa.me/4915122964922?text=' + encodeURIComponent(anfrage);
+                document.getElementById('pc-email').href = 'mailto:kontakt@handpan.schule?subject=' +
+                    encodeURIComponent('Anfrage Einzelunterricht – ' + s.sessions + '× ' + s.duration + ' Min ' + s.format) +
+                    '&body=' + encodeURIComponent(anfrage);
+            }
+
+            // Initial
+            updatePriceCalc();
         }
 
         // ============================================
