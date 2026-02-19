@@ -303,17 +303,15 @@
         }
         .hero-image {
             display: block;
-            max-width: 960px;
-            width: 100%;
+            width: 960px;
+            height: 960px;
+            max-width: 90vw;
+            max-height: 90vw;
             margin: var(--spacing-lg) auto 0;
             border-radius: 50%;
+            object-fit: cover;
             opacity: 0.85;
             filter: drop-shadow(0 0 40px rgba(212, 165, 116, 0.2));
-        }
-        @media (max-width: 600px) {
-            .hero-image {
-                max-width: 660px;
-            }
         }
 
         /* ============================================
