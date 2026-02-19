@@ -301,6 +301,20 @@
             margin: 0 auto;
             font-size: 1.1rem;
         }
+        .hero-image {
+            display: block;
+            max-width: 320px;
+            width: 100%;
+            margin: var(--spacing-lg) auto 0;
+            border-radius: 50%;
+            opacity: 0.85;
+            filter: drop-shadow(0 0 40px rgba(212, 165, 116, 0.2));
+        }
+        @media (max-width: 600px) {
+            .hero-image {
+                max-width: 220px;
+            }
+        }
 
         /* ============================================
            PAGE HERO (Unterseiten)
@@ -1618,6 +1632,7 @@
                     Hier verbindet sich das Spiel der Handpan mit der Suche nach Bewusstsein,
                     Stille und dem Verstehen unserer seelischen Herkunft.
                 </p>
+                <img src="LogoHandpanSchule.png" alt="Handpan in einer mystischen Waldlichtung – Einheit mit Allem" class="hero-image">
             </div>
         </section>
 
