@@ -3381,6 +3381,9 @@
                         <div class="price-calc-summary" id="pc-summary">1× 60 Min · 1:1 · München-Neuhausen · Neuling</div>
                         <div class="price-calc-savings hidden" id="pc-savings"></div>
                         <div class="price-calc-actions">
+                            <a class="cta cta-primary" href="#einzelunterricht-buchen" id="pc-book" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                                📅 Online buchen
+                            </a>
                             <a class="cta" id="pc-wa" href="#" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem;">
                                 💬 Per WhatsApp anfragen
                             </a>
@@ -3388,7 +3391,7 @@
                                 ✉️ Per E-Mail anfragen
                             </a>
                         </div>
-                        <p class="price-calc-note">Alle Preise pro Person · Keine Vertragsbindung</p>
+                        <p class="price-calc-note" id="pc-note">Alle Preise pro Person · Keine Vertragsbindung</p>
                     </div>
                 </div>
             </div>
@@ -4394,14 +4397,37 @@
                 document.getElementById('pc-tier-hint').textContent =
                     staffelLabel ? staffelLabel + ': ' + perSession + ' € pro Session' : '';
 
+                // Personenzahl aus Format ableiten
+                const personCount = s.format === '1:1' ? 1 : s.format === '1:2' ? 2 : 3;
+
                 // Ergebnis
-                document.getElementById('pc-per-session').textContent = 'Preis pro Session: ' + perSession + ' €';
-                document.getElementById('pc-total').textContent = total + ' €';
+                const perSessionEl = document.getElementById('pc-per-session');
+                if (personCount > 1) {
+                    perSessionEl.textContent = perSession + ' € pro Person / Session · ' + (perSession * personCount) + ' € pro Session gesamt';
+                } else {
+                    perSessionEl.textContent = 'Preis pro Session: ' + perSession + ' €';
+                }
+
+                // Gesamtpreis
+                const totalEl = document.getElementById('pc-total');
+                if (personCount > 1) {
+                    totalEl.textContent = total + ' € pro Person';
+                } else {
+                    totalEl.textContent = total + ' €';
+                }
 
                 // Zusammenfassung
                 const ortLabel = s.location === 'muenchen' ? 'München-Neuhausen' : 'Online';
                 document.getElementById('pc-summary').textContent =
                     s.sessions + '× ' + s.duration + ' Min · ' + s.format + ' · ' + ortLabel + ' · ' + s.level;
+
+                // Hinweis-Text anpassen
+                const noteEl = document.getElementById('pc-note');
+                if (personCount > 1) {
+                    noteEl.textContent = 'Alle Preise pro Person (' + personCount + ' Personen) · Gesamtpreis für alle: ' + (total * personCount) + ' € · Keine Vertragsbindung';
+                } else {
+                    noteEl.textContent = 'Alle Preise pro Person · Keine Vertragsbindung';
+                }
 
                 // Ersparnis
                 const savingsEl = document.getElementById('pc-savings');
@@ -4428,6 +4454,13 @@
 
             // Initial
             updatePriceCalc();
+
+            // "Online buchen" scrollt zum Kalender-Bereich
+            document.getElementById('pc-book').addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = document.getElementById('einzelunterricht-buchen');
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
         }
 
         // ============================================
