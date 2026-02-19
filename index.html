@@ -6,10 +6,12 @@
     <title>Handpan Schule des Lebens – Handpan lernen mit Tiefe und Bewusstsein</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Handpan lernen in der Handpan Schule des Lebens. Entdecke einen einzigartigen Weg, Handpan zu spielen – jenseits von Patterns. Handpan Unterricht, Kurse, Retreats und Community mit Nils Caspar in München und online.">
-    <meta name="keywords" content="Handpan, Handpan lernen, Handpan Schule, Handpan Unterricht, Handpan Kurs, Handpan spielen, Handpan München, Handpan online lernen, Handpan Retreat, Handpan Community, Handpan Anfänger, Handpan Mentoring">
-    <meta name="author" content="Nils Caspar">
+    <meta name="description" content="Handpan lernen in der Handpan Schule des Lebens bei München. Handpan Unterricht, Handpan Kurse, Retreats und Mentoring mit Nils Böhm. Handpan spielen lernen – online und vor Ort in München. Für Anfänger bis Fortgeschrittene.">
+    <meta name="keywords" content="Handpan, Handpan lernen, Handpan Schule, Handpan Unterricht, Handpan Kurs, Handpan spielen, Handpan München, Handpan Neuhausen, Handpan online lernen, Handpan Retreat, Handpan Community, Handpan Anfänger, Handpan Mentoring, Handpan Lehrer, Handpan Einzelunterricht, Handpan Webinar, Handpan Workshop, Handpan Kurs München, Handpan spielen lernen, Handpan Unterricht München">
+    <meta name="author" content="Nils Böhm">
     <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="DE-BY">
+    <meta name="geo.placename" content="München">
     <link rel="canonical" href="https://handpan.schule/">
 
     <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
@@ -24,11 +26,95 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Handpan Schule des Lebens – Handpan lernen mit Tiefe">
-    <meta name="twitter:description" content="Handpan lernen jenseits von Patterns. Kurse, Retreats und Mentoring mit Nils Caspar.">
+    <meta name="twitter:description" content="Handpan lernen jenseits von Patterns. Kurse, Retreats und Mentoring mit Nils Böhm.">
     <meta name="twitter:image" content="https://handpan.schule/og-image.jpg">
 
+    <!-- Structured Data: LocalBusiness + MusicSchool -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MusicSchool",
+        "name": "Handpan Schule des Lebens",
+        "alternateName": "Handpan Schule",
+        "url": "https://handpan.schule",
+        "description": "Handpan lernen mit Tiefe und Bewusstsein. Handpan Unterricht, Kurse, Retreats und Mentoring in München-Neuhausen und online.",
+        "telephone": "+4915122964922",
+        "email": "kontakt@handpan.schule",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Nederlinger Str. 97",
+            "addressLocality": "München",
+            "postalCode": "80638",
+            "addressRegion": "Bayern",
+            "addressCountry": "DE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.1708,
+            "longitude": 11.5266
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Nils Böhm",
+            "jobTitle": "Handpan-Lehrer"
+        },
+        "areaServed": [
+            { "@type": "City", "name": "München" },
+            { "@type": "Place", "name": "München-Neuhausen" },
+            { "@type": "Country", "name": "Deutschland" }
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Handpan Programme",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Course",
+                        "name": "The Handpan Path",
+                        "description": "6-monatige transformative Handpan-Reise mit 36 Sessions",
+                        "provider": { "@type": "MusicSchool", "name": "Handpan Schule des Lebens" }
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Course",
+                        "name": "Rhythmus Fundament",
+                        "description": "6-wöchiger Handpan-Basiskurs für Anfänger",
+                        "provider": { "@type": "MusicSchool", "name": "Handpan Schule des Lebens" }
+                    },
+                    "price": "179",
+                    "priceCurrency": "EUR"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Handpan Einzelunterricht",
+                        "description": "Persönlicher Handpan-Unterricht in München-Neuhausen",
+                        "provider": { "@type": "MusicSchool", "name": "Handpan Schule des Lebens" }
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Handpan Mentoring",
+                        "description": "1:1 Handpan Mentoring – online oder vor Ort",
+                        "provider": { "@type": "MusicSchool", "name": "Handpan Schule des Lebens" }
+                    },
+                    "price": "149",
+                    "priceCurrency": "EUR"
+                }
+            ]
+        },
+        "sameAs": []
+    }
+    </script>
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="dovelogo.png">
+    <link rel="icon" type="image/png" href="handpan%20schule%20des%20Lebens%20Logo%20klein.png">
 
     <style>
         /* ============================================
@@ -144,9 +230,10 @@
             cursor: pointer;
         }
 
-        nav .logo img {
+        nav .logo img,
+        nav .logo .logo-icon {
             height: 32px;
-            width: auto;
+            width: 32px;
         }
 
         nav ul {
@@ -285,6 +372,72 @@
         }
 
         .card p { color: var(--color-text-muted); line-height: 1.8; }
+
+        /* Klickbare Programm-Karten */
+        a.card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        a.card-link:hover {
+            border-color: var(--color-accent);
+        }
+
+        .card-arrow {
+            display: block;
+            margin-top: var(--spacing-md);
+            color: var(--color-accent);
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            transition: transform 0.3s ease;
+        }
+
+        a.card-link:hover .card-arrow {
+            transform: translateX(6px);
+        }
+
+        /* Detail-Seiten Header */
+        .detail-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-md);
+            transition: transform 0.2s ease;
+        }
+
+        .detail-back:hover {
+            transform: translateX(-4px);
+        }
+
+        .detail-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0 var(--spacing-lg);
+        }
+
+        .detail-meta-item {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: rgba(212, 165, 116, 0.08);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            border-radius: 2px;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        .detail-meta-item strong {
+            color: var(--color-accent);
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
 
         /* ============================================
            QUOTE
@@ -652,7 +805,8 @@
            ============================================ */
         @media (max-width: 768px) {
             nav .logo { font-size: 0.85rem; }
-            nav .logo img { height: 26px; }
+            nav .logo img,
+            nav .logo .logo-icon { height: 26px; width: 26px; }
             
             nav ul {
                 display: none;
@@ -1128,6 +1282,62 @@
                 justify-content: center;
             }
         }
+
+        /* ============================================
+           FLOATING CTA BUTTON
+           ============================================ */
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 90;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 1.5rem;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.4);
+            transition: all 0.3s ease;
+            animation: floatingPulse 3s ease-in-out infinite;
+        }
+
+        .floating-cta:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(212, 165, 116, 0.5);
+            animation: none;
+        }
+
+        .floating-cta-icon {
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        @keyframes floatingPulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(212, 165, 116, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(212, 165, 116, 0.6); }
+        }
+
+        @media (max-width: 768px) {
+            .floating-cta {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.75rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .floating-cta {
+                animation: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1148,6 +1358,12 @@
         </div>
     </div>
 
+    <!-- Floating CTA Button: Einzelunterricht buchen -->
+    <a href="#einzelunterricht" class="floating-cta" aria-label="Einzelunterricht buchen">
+        <span class="floating-cta-icon">🎵</span>
+        Stunde buchen
+    </a>
+
     <!-- Skip Navigation Link -->
     <a href="#main-content" class="visually-hidden" style="position:absolute;top:0;left:0;z-index:999;padding:1rem;background:var(--color-accent);color:var(--color-bg);" onfocus="this.style.position='relative'" onblur="this.style.position='absolute'">Zum Inhalt springen</a>
 
@@ -1157,7 +1373,7 @@
     <nav aria-label="Hauptnavigation">
         <div class="container">
             <a class="logo" href="#home">
-                <img src="dovelogo.png" alt="Taube Logo" onerror="this.style.display='none'">
+                <img src="handpan%20schule%20des%20Lebens%20Logo%20klein.png" alt="Handpan Schule des Lebens Logo">
                 Handpan Schule des Lebens
             </a>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menü öffnen">☰</button>
@@ -1819,21 +2035,21 @@
                 <h2 class="section-title">Unsere Angebote</h2>
                 <div class="card-grid">
                     <!-- The Handpan Path -->
-                    <article class="card">
+                    <a href="#handpan-path" class="card card-link">
                         <p class="card-subtitle">6 Monate • Hybrid</p>
                         <h3 class="card-title">The Handpan Path</h3>
                         <p style="margin-bottom: var(--spacing-md);">
-                            Die transformative Reise. 18 Themen × 2 Sessions = 36 intensive Einheiten. 
+                            Die transformative Reise. 18 Themen × 2 Sessions = 36 intensive Einheiten.
                             Musikalische und spirituelle Transformation: eigener Stil, Präsenz, tiefe Praxis.
                         </p>
                         <p style="font-size: 0.9rem; color: var(--color-accent);">
-                            Für: Kompetent bis Gewandt<br>
-                            Ergebnis: perfektionierte Spielpraxis, Komposition, entwickle deinen eigenen Stil
+                            Für: Kompetent bis Gewandt
                         </p>
-                    </article>
+                        <span class="card-arrow">→ Mehr erfahren</span>
+                    </a>
 
                     <!-- Rhythmus Fundament -->
-                    <article class="card">
+                    <a href="#rhythmus-fundament" class="card card-link">
                         <p class="card-subtitle">6 Wochen • Hybrid</p>
                         <h3 class="card-title">Rhythmus Fundament</h3>
                         <p style="margin-bottom: var(--spacing-md);">
@@ -1841,27 +2057,27 @@
                             Rhythmus als Fundament: Puls, Subdivisions, Handsatz, Struktur.
                         </p>
                         <p style="font-size: 0.9rem; color: var(--color-accent);">
-                            Für: Neuling bis Kompetent<br>
-                            Ergebnis: Eigene Übungen & Variationen, stabiler Groove
+                            Für: Neuling bis Kompetent
                         </p>
-                    </article>
+                        <span class="card-arrow">→ Mehr erfahren</span>
+                    </a>
 
                     <!-- Retreats -->
-                    <article class="card">
+                    <a href="#retreats" class="card card-link">
                         <p class="card-subtitle">3–4 Tage • Live</p>
                         <h3 class="card-title">Retreats</h3>
                         <p style="margin-bottom: var(--spacing-md);">
-                            Immersion in der Natur. Tiefe Praxis, Durchbrüche, Präsenz. 
+                            Immersion in der Natur. Tiefe Praxis, Durchbrüche, Präsenz.
                             Ein Raum für Stille, Transformation und gemeinschaftliches Musizieren.
                         </p>
                         <p style="font-size: 0.9rem; color: var(--color-accent);">
-                            Für: Kompetent bis Experte<br>
-                            Ergebnis: Durchbrüche, vertiefte Präsenz
+                            Für: Kompetent bis Experte
                         </p>
-                    </article>
+                        <span class="card-arrow">→ Mehr erfahren</span>
+                    </a>
 
                     <!-- 1:1 Mentoring -->
-                    <article class="card">
+                    <a href="#mentoring" class="card card-link">
                         <p class="card-subtitle">90–120 Min • 1:1 Online und vor Ort</p>
                         <h3 class="card-title">Mentoring</h3>
                         <p style="margin-bottom: var(--spacing-md);">
@@ -1869,38 +2085,38 @@
                             Persönliche Blockaden lösen und Durchbrüche erzielen.
                         </p>
                         <p style="font-size: 0.9rem; color: var(--color-accent);">
-                            Preis: 149 €<br>
-                            Ergebnis: Individueller Durchbruch
+                            Preis: 149 €
                         </p>
-                    </article>
+                        <span class="card-arrow">→ Mehr erfahren</span>
+                    </a>
 
-                    <!-- Community -->
-                    <article class="card">
-                        <p class="card-subtitle">Monatlich • Online</p>
-                        <h3 class="card-title">Gemeinschaft</h3>
+                    <!-- Einzelunterricht -->
+                    <a href="#einzelunterricht" class="card card-link">
+                        <p class="card-subtitle">60 Min • 1:1 vor Ort</p>
+                        <h3 class="card-title">Einzelunterricht</h3>
                         <p style="margin-bottom: var(--spacing-md);">
-                            Die unabhängige Austauschplattform. Verbinde dich mit gleichgesinnten Spielern,
-                            wachse im Dialog. Flexibel und monatlich kündbar.
+                            Persönlicher Handpan-Unterricht in München-Neuhausen.
+                            Individuell auf dein Level und deine Ziele zugeschnitten.
                         </p>
                         <p style="font-size: 0.9rem; color: var(--color-accent);">
-                            Für: Alle Levels<br>
-                            Community als Lernfeld
+                            Für: Alle Levels
                         </p>
-                    </article>
+                        <span class="card-arrow">→ Mehr erfahren</span>
+                    </a>
 
                     <!-- Webinare -->
-                    <article class="card">
+                    <a href="#webinare" class="card card-link">
                         <p class="card-subtitle">Einmalig • Online</p>
                         <h3 class="card-title">Webinare</h3>
                         <p style="margin-bottom: var(--spacing-md);">
-                            Themenspezifische Deep-Dives. Kompakte Formate zu bestimmten Aspekten 
+                            Themenspezifische Deep-Dives. Kompakte Formate zu bestimmten Aspekten
                             des Handpan-Spiels und der musikalischen Entwicklung.
                         </p>
                         <p style="font-size: 0.9rem; color: var(--color-accent);">
-                            Für: Alle Levels<br>
-                            Fokussierte Vertiefung
+                            Für: Alle Levels
                         </p>
-                    </article>
+                        <span class="card-arrow">→ Mehr erfahren</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1992,7 +2208,7 @@
                 </p>
                 <div class="highlight-box" style="text-align: center; margin-top: var(--spacing-md);">
                     <p style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--color-accent);">
-                        Kostenfrei zugänglich. Persönlich geleitet von Nils Caspar.
+                        Kostenfrei zugänglich. Persönlich geleitet von Nils Böhm.
                     </p>
                 </div>
             </div>
@@ -2154,7 +2370,7 @@
                     </p>
                 </blockquote>
                 <p style="text-align: right; color: var(--color-text-muted); margin-top: var(--spacing-sm);">
-                    — Nils Caspar
+                    — Nils Böhm
                 </p>
             </div>
         </section>
@@ -2194,11 +2410,11 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <strong>E-Mail</strong>
-                        <p><a href="mailto:nils@handpan-schule-des-lebens.de">nils@handpan-schule-des-lebens.de</a></p>
+                        <p><a class="protected-email" href="#" data-n="kontakt" data-d="handpan.schule">E-Mail wird geladen…</a></p>
                     </div>
                     <div class="contact-item">
                         <strong>WhatsApp</strong>
-                        <p><a href="https://wa.me/4915122964922" target="_blank" rel="noopener" style="color: var(--color-accent);">+49 151 22964922</a></p>
+                        <p><a class="protected-phone" href="#" data-p1="4915" data-p2="1229" data-p3="64922" data-type="wa" target="_blank" rel="noopener" style="color: var(--color-accent);">Nummer wird geladen…</a></p>
                     </div>
                     <div class="contact-item">
                         <strong>Ort</strong>
@@ -2359,17 +2575,15 @@
             <div class="container-narrow">
 
                 <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm);">Angaben gemäß § 5 TMG</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    Nils Böhm<br>
-                    Handpan Schule des Lebens<br>
-                    Bahnhofstr. 30<br>
-                    85386 Eching
+                <p class="protected-address" style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);"
+                   data-a1="Nils Böhm" data-a2="Handpan Schule des Lebens" data-a3="Bahnhofstr. 39" data-a4="85386 Eching">
+                    Adresse wird geladen…
                 </p>
 
                 <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Kontakt</h3>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    Telefon: <a href="tel:+4915122964922" style="color: var(--color-accent);">+49 151 22964922</a><br>
-                    E-Mail: <a href="mailto:nils@handpan-schule-des-lebens.de" style="color: var(--color-accent);">nils@handpan-schule-des-lebens.de</a>
+                    Telefon: <a class="protected-phone" href="#" data-p1="4915" data-p2="1229" data-p3="64922" data-type="tel" style="color: var(--color-accent);">Nummer wird geladen…</a><br>
+                    E-Mail: <a class="protected-email" href="#" data-n="kontakt" data-d="handpan.schule" style="color: var(--color-accent);">E-Mail wird geladen…</a>
                 </p>
 
                 <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Berufsbezeichnung</h3>
@@ -2384,10 +2598,9 @@
                 </p>
 
                 <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Redaktionell verantwortlich</h3>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    Nils Böhm<br>
-                    Bahnhofstr. 30<br>
-                    85386 Eching
+                <p class="protected-address" style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);"
+                   data-a1="Nils Böhm" data-a3="Bahnhofstr. 39" data-a4="85386 Eching">
+                    Adresse wird geladen…
                 </p>
 
                 <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">EU-Streitschlichtung</h3>
@@ -2441,11 +2654,8 @@
                 </p>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
                     Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber:<br><br>
-                    Nils Böhm<br>
-                    Handpan Schule des Lebens<br>
-                    Bahnhofstr. 30<br>
-                    85386 Eching<br>
-                    E-Mail: <a href="mailto:nils@handpan-schule-des-lebens.de" style="color: var(--color-accent);">nils@handpan-schule-des-lebens.de</a>
+                    <span class="protected-address-inline" data-a1="Nils Böhm" data-a2="Handpan Schule des Lebens" data-a3="Bahnhofstr. 39" data-a4="85386 Eching">Adresse wird geladen…</span><br>
+                    E-Mail: <a class="protected-email" href="#" data-n="kontakt" data-d="handpan.schule" style="color: var(--color-accent);">E-Mail wird geladen…</a>
                 </p>
 
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-xs);">
@@ -2488,10 +2698,9 @@
                 <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Hinweis zur verantwortlichen Stelle</h3>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
                     Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br><br>
-                    Nils Böhm<br>
-                    Handpan Schule des Lebens<br>
-                    E-Mail: <a href="mailto:nils@handpan-schule-des-lebens.de" style="color: var(--color-accent);">nils@handpan-schule-des-lebens.de</a><br>
-                    Telefon: <a href="tel:+4915122964922" style="color: var(--color-accent);">+49 151 22964922</a>
+                    <span class="protected-address-inline" data-a1="Nils Böhm" data-a2="Handpan Schule des Lebens">Wird geladen…</span><br>
+                    E-Mail: <a class="protected-email" href="#" data-n="kontakt" data-d="handpan.schule" style="color: var(--color-accent);">E-Mail wird geladen…</a><br>
+                    Telefon: <a class="protected-phone" href="#" data-p1="4915" data-p2="1229" data-p3="64922" data-type="tel" style="color: var(--color-accent);">Nummer wird geladen…</a>
                 </p>
 
                 <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
@@ -2571,6 +2780,719 @@
         </section>
     </div>
 
+    <!-- ============================================
+         DETAIL: THE HANDPAN PATH
+         ============================================ -->
+    <div id="page-handpan-path" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <a href="#programm" class="detail-back">← Zurück zum Programm</a>
+                <h1>The Handpan Path</h1>
+                <p class="hero-subtitle">Die transformative Reise zu deinem eigenen Klang</p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <div class="detail-meta">
+                    <div class="detail-meta-item"><strong>Dauer</strong> 6 Monate</div>
+                    <div class="detail-meta-item"><strong>Format</strong> Hybrid (Online + Live)</div>
+                    <div class="detail-meta-item"><strong>Umfang</strong> 36 Sessions</div>
+                    <div class="detail-meta-item"><strong>Level</strong> Kompetent bis Gewandt</div>
+                </div>
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Der Handpan Path ist kein gewöhnlicher Kurs – es ist eine Reise. 18 Themen, jeweils in zwei Sessions vertieft.
+                    Du entwickelst deinen eigenen Stil, deine eigene Stimme auf der Handpan.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Was dich erwartet</h2>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Wöchentliche Live-Calls:</strong> Gemeinsames Üben, Feedback und Austausch in der Gruppe.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Tägliche Praxis:</strong> Strukturierte Übungen (10–15 Min), die zur Routine werden.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">18 Themenblöcke:</strong> Von Rhythmus und Melodie über Komposition bis zur Performance.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Community-Zugang:</strong> Austausch mit Gleichgesinnten und direkter Draht zu Nils.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Für wen ist der Handpan Path?</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Du spielst bereits Handpan und beherrschst die Grundlagen. Du willst mehr als nur Patterns nachspielen –
+                    du willst deinen eigenen musikalischen Ausdruck finden. Du bist bereit, dich für 6 Monate auf eine intensive Reise einzulassen.
+                </p>
+                <blockquote class="quote-block">
+                    <p class="quote-text" style="font-size: 1.3rem;">
+                        „Am Ende des Paths spielst du nicht mehr Handpan. Du sprichst durch sie."
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Bereit für die Reise?</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    Der nächste Handpan Path startet bald. Sichere dir deinen Platz.
+                </p>
+                <a class="cta" href="#dabei-sein">Jetzt Gespräch vereinbaren</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         DETAIL: RHYTHMUS FUNDAMENT
+         ============================================ -->
+    <div id="page-rhythmus-fundament" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <a href="#programm" class="detail-back">← Zurück zum Programm</a>
+                <h1>Rhythmus Fundament</h1>
+                <p class="hero-subtitle">Das Fundament, auf dem alles aufbaut</p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <div class="detail-meta">
+                    <div class="detail-meta-item"><strong>Dauer</strong> 6 Wochen</div>
+                    <div class="detail-meta-item"><strong>Format</strong> Hybrid (Online + Live)</div>
+                    <div class="detail-meta-item"><strong>Preis</strong> 179 €</div>
+                    <div class="detail-meta-item"><strong>Level</strong> Neuling bis Kompetent</div>
+                </div>
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Der Basiskurs, der nicht nur Wissen vermittelt, sondern zeigt, wie du es anwendest.
+                    In 6 Wochen legst du das rhythmische Fundament für alles, was danach kommt.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Was du lernst</h2>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Puls & Timing:</strong> Den inneren Puls finden und halten – die Basis jeder Musik.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Subdivisions:</strong> Rhythmische Unterteilungen verstehen und fühlen.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Handsatz:</strong> Technische Grundlagen für beide Hände – effizient und ergonomisch.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Struktur:</strong> Eigene Übungen und Variationen entwickeln.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Für wen ist das Rhythmus Fundament?</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Du bist neu auf der Handpan oder spielst schon eine Weile, merkst aber, dass dir die rhythmischen Grundlagen fehlen.
+                    Vielleicht spielst du immer die gleichen Patterns und willst verstehen, warum manche Rhythmen grooven und andere nicht.
+                </p>
+                <p style="color: var(--color-text-muted);">
+                    Ergebnis: Eigene Übungen & Variationen, stabiler Groove, und das Selbstvertrauen, frei zu spielen.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Dein Fundament legen</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    Der nächste Kurs startet bald. Melde dich jetzt an.
+                </p>
+                <a class="cta" href="#dabei-sein">Jetzt Gespräch vereinbaren</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         DETAIL: RETREATS
+         ============================================ -->
+    <div id="page-retreats" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <a href="#programm" class="detail-back">← Zurück zum Programm</a>
+                <h1>Retreats</h1>
+                <p class="hero-subtitle">Eintauchen. Loslassen. Durchbrechen.</p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <div class="detail-meta">
+                    <div class="detail-meta-item"><strong>Dauer</strong> 3–4 Tage</div>
+                    <div class="detail-meta-item"><strong>Format</strong> Live / Präsenz</div>
+                    <div class="detail-meta-item"><strong>Ort</strong> Naturumgebung</div>
+                    <div class="detail-meta-item"><strong>Level</strong> Kompetent bis Experte</div>
+                </div>
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Ein Retreat ist mehr als ein Workshop. Es ist ein Raum, in dem du alles loslassen kannst –
+                    Alltag, Gewohnheiten, Erwartungen – und dich ganz der Musik und der Stille hingibst.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Was dich erwartet</h2>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Intensive Praxis:</strong> Mehrere Stunden täglich in geschütztem Rahmen.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Natur & Stille:</strong> Raus aus dem Alltag, rein in die Verbindung mit dir selbst.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Gemeinschaft:</strong> Tiefe Begegnungen mit Gleichgesinnten.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Durchbrüche:</strong> In der Intensität eines Retreats passieren Dinge, die im Alltag Jahre brauchen.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <blockquote class="quote-block">
+                    <p class="quote-text" style="font-size: 1.3rem;">
+                        „In der Stille der Natur hört man die Musik, die schon immer in einem war."
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Nächstes Retreat</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    Termine werden rechtzeitig bekannt gegeben. Trag dich ein, um informiert zu werden.
+                </p>
+                <a class="cta" href="#dabei-sein">Interesse bekunden</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         DETAIL: MENTORING
+         ============================================ -->
+    <div id="page-mentoring" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <a href="#programm" class="detail-back">← Zurück zum Programm</a>
+                <h1>Mentoring</h1>
+                <p class="hero-subtitle">Persönliche Begleitung für deinen Weg</p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <div class="detail-meta">
+                    <div class="detail-meta-item"><strong>Dauer</strong> 90–120 Min</div>
+                    <div class="detail-meta-item"><strong>Format</strong> 1:1 Online oder vor Ort</div>
+                    <div class="detail-meta-item"><strong>Preis</strong> 149 €</div>
+                    <div class="detail-meta-item"><strong>Level</strong> Alle Levels</div>
+                </div>
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Manchmal brauchst du keinen Kurs, sondern einen Menschen, der genau hinschaut.
+                    Im Mentoring arbeiten wir gezielt an deinen individuellen Fragen, Blockaden und Zielen.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Wann ist Mentoring richtig?</h2>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Blockaden lösen:</strong> Du kommst an einer bestimmten Stelle nicht weiter.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Klarheit gewinnen:</strong> Du weißt nicht, wie du weiterüben sollst.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Technik verfeinern:</strong> Du willst gezieltes Feedback zu deinem Spiel.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Vorbereitung:</strong> Du bereitest dich auf einen Auftritt oder ein Projekt vor.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Ablauf</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Wir beginnen mit einem kurzen Vorgespräch, um dein Anliegen zu verstehen. Dann arbeiten wir
+                    90–120 Minuten intensiv an deinem Thema. Du bekommst konkrete Übungen und einen klaren Plan für die Zeit danach.
+                </p>
+                <p style="color: var(--color-text-muted);">
+                    Das Mentoring findet wahlweise online per Video-Call oder vor Ort in München-Neuhausen statt.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Dein persönliches Mentoring</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    Buche jetzt dein 1:1-Mentoring mit Nils.
+                </p>
+                <a class="cta" href="#dabei-sein">Termin vereinbaren</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         DETAIL: EINZELUNTERRICHT
+         ============================================ -->
+    <div id="page-einzelunterricht" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <a href="#programm" class="detail-back">← Zurück zum Programm</a>
+                <h1>Einzelunterricht</h1>
+                <p class="hero-subtitle">Handpan lernen – persönlich und individuell</p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <div class="detail-meta">
+                    <div class="detail-meta-item"><strong>Dauer</strong> 60 Min</div>
+                    <div class="detail-meta-item"><strong>Format</strong> 1:1 vor Ort</div>
+                    <div class="detail-meta-item"><strong>Ort</strong> München-Neuhausen</div>
+                    <div class="detail-meta-item"><strong>Level</strong> Alle Levels</div>
+                </div>
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Der klassische Weg, Handpan zu lernen: persönlich, direkt, und ganz auf dich abgestimmt.
+                    Im Einzelunterricht arbeiten wir an dem, was du gerade brauchst.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Was dich erwartet</h2>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Individueller Aufbau:</strong> Keine festen Lehrpläne – dein Unterricht passt sich dir an.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Direktes Feedback:</strong> Unmittelbare Korrekturen und Tipps für deine Spieltechnik.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Alle Levels:</strong> Vom ersten Ton bis zur fortgeschrittenen Komposition.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Handpan vorhanden:</strong> Du brauchst keine eigene Handpan mitzubringen.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Ort & Anfahrt</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Der Unterricht findet in München-Neuhausen statt
+                    (<span class="protected-address-inline" data-a3="Nederlinger Str. 97" data-a4="80638 München" data-sep=", ">Adresse wird geladen…</span>).
+                    Gut erreichbar mit öffentlichen Verkehrsmitteln und Auto.
+                </p>
+                <div style="margin-top: var(--spacing-md); border-radius: 4px; overflow: hidden; border: 1px solid rgba(212, 165, 116, 0.15);">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.5!2d11.5266!3d48.1708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e75f84f31a3e1%3A0x0!2sNederlinger+Str.+97%2C+80638+M%C3%BCnchen!5e0!3m2!1sde!2sde!4v1"
+                        width="100%"
+                        height="350"
+                        style="border:0; display:block;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Standort Handpan Schule des Lebens – Nederlinger Str. 97, München">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="einzelunterricht-buchen" class="section-dark">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Termin buchen</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Wähle direkt einen freien Termin oder kontaktiere mich persönlich.
+                </p>
+                <div style="display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap; margin-bottom: var(--spacing-lg);">
+                    <a class="cta protected-phone" href="#" data-p1="4915" data-p2="1229" data-p3="64922" data-type="wa" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        💬 WhatsApp schreiben
+                    </a>
+                    <a class="cta protected-email" href="#" data-n="kontakt" data-d="handpan.schule" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        ✉️ E-Mail schreiben
+                    </a>
+                </div>
+            </div>
+            <div class="container" style="max-width: 900px; margin: 0 auto;">
+                <div class="tidycal-embed" data-path="handpanschule" data-bg-color="" data-text-color=""></div>
+                <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         DETAIL: WEBINARE
+         ============================================ -->
+    <div id="page-webinare" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <a href="#programm" class="detail-back">← Zurück zum Programm</a>
+                <h1>Webinare</h1>
+                <p class="hero-subtitle">Fokussierte Deep-Dives zu speziellen Themen</p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <div class="detail-meta">
+                    <div class="detail-meta-item"><strong>Dauer</strong> Einmalig</div>
+                    <div class="detail-meta-item"><strong>Format</strong> Online / Live</div>
+                    <div class="detail-meta-item"><strong>Level</strong> Alle Levels</div>
+                </div>
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Kompakte, themenspezifische Formate zu bestimmten Aspekten des Handpan-Spiels.
+                    Ideal, wenn du dich gezielt in einem Bereich vertiefen möchtest.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Mögliche Themen</h2>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Rhythmische Grundlagen:</strong> Puls, Groove und Timing verstehen.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Melodie & Komposition:</strong> Eigene Stücke entwickeln und strukturieren.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Spieltechnik:</strong> Anschlag, Dynamik und Klangfarben.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Musikalische Präsenz:</strong> Bühnenpräsenz und Performance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <p style="color: var(--color-text-muted);">
+                    Webinare werden regelmäßig zu verschiedenen Themen angeboten. Jedes Webinar ist in sich abgeschlossen
+                    und kann einzeln gebucht werden. Die Aufzeichnungen stehen danach zur Verfügung.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Kommende Webinare</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    Melde dich an, um über kommende Webinar-Termine informiert zu werden.
+                </p>
+                <a class="cta" href="#dabei-sein">Informiert werden</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         GRÜNDER PAGE
+         ============================================ -->
+    <div id="page-gruender" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <h1>Der Gründer</h1>
+                <p class="hero-subtitle">Nils Böhm – Handpan & Seele</p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Die Handpan Schule des Lebens wurde von Nils Böhm gegründet – Musiker, Perkussionist und Lehrer
+                    mit der tiefen Überzeugung, dass Musik und inneres Wachstum untrennbar miteinander verbunden sind.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Philosophie</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Nils' Herangehensweise an Musik ist tief in der Überzeugung verwurzelt, dass Kreativität und spirituelle
+                    Praxis miteinander verwoben sind. Er sieht Kunst nicht nur als Ausdrucksmittel, sondern als einen Weg,
+                    sich mit etwas Größerem als sich selbst zu verbinden.
+                </p>
+                <blockquote class="quote-block">
+                    <p class="quote-text" style="font-size: 1.3rem;">
+                        „Erfahre die Tiefe deiner Seele – durch Klang, durch Rhythmus, durch Verbindung."
+                    </p>
+                </blockquote>
+                <p style="color: var(--color-text-muted); margin-top: var(--spacing-md);">
+                    Seine Arbeit hat eine kontemplative, introspektive Qualität, die den Zuhörer zu einer Reise
+                    ins Innere einlädt. Es geht nicht darum, Patterns nachzuspielen – sondern darum, die eigene
+                    Stimme zu finden und die Handpan als Spiegel der Seele zu erleben.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Der Weg</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Als erfahrener Perkussionist und Handpan-Spieler hat Nils sein Wissen in unzähligen Workshops,
+                    Einzelstunden und Live-Sessions weitergegeben – sowohl in München als auch online.
+                    Gemeinsam mit <a href="#peter-aumueller" style="color: var(--color-accent);">Peter Aumüller</a>
+                    und anderen Musikern bildet er das Lehrteam der Handpan Schule des Lebens.
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Eines seiner Hauptanliegen ist es, anderen zu helfen, ihren eigenen Stil und ihre eigene Stimme
+                    zu entwickeln. Er ist davon überzeugt, dass jeder Mensch etwas Wertvolles zu bieten hat – und
+                    dass durch das Anzapfen der eigenen inneren Quelle der Kreativität wirklich originelle und
+                    bedeutungsvolle Musik entstehen kann.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Die Vision: Handpan Schule des Lebens</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    In der Handpan Schule des Lebens betrachtet Nils das Erlernen der Handpan als einen
+                    alchemistischen Prozess. Es geht um weit mehr als Technik: Vom Denken zum Fühlen lernt man,
+                    den analytischen Verstand dort einzusetzen, wo er hilft – und ihn dort loszulassen,
+                    wo er den Fluss der Musik behindert.
+                </p>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Die Handpan wandelt sich</strong> von einem
+                    Gegenstand „da draußen" zu einer Erweiterung des eigenen Körpers und der emotionalen
+                    Ausdrucksfähigkeit.</p>
+                </div>
+                <p style="color: var(--color-text-muted); margin-top: var(--spacing-md);">
+                    Nils begleitet seine Schüler dabei, die Stufen nicht nur technisch zu erklimmen, sondern
+                    sie als persönlichen Reifeprozess zu erleben – Schritt für Schritt, hin zu einem intuitiven,
+                    freien Spiel.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Lerne Nils kennen</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    In einem persönlichen Gespräch finden wir gemeinsam heraus, welcher Weg für dich passt.
+                </p>
+                <a class="cta" href="#dabei-sein">Gespräch vereinbaren</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         LEHRER PAGE
+         ============================================ -->
+    <div id="page-lehrer" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <h1>Unsere Lehrer</h1>
+                <p class="hero-subtitle">Die Menschen hinter der Musik</p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Hinter der Handpan Schule des Lebens stehen erfahrene Musiker und Perkussionisten,
+                    die ihre Leidenschaft für die Handpan und das Lehren teilen.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container">
+                <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
+
+                    <!-- Nils Böhm -->
+                    <article class="card">
+                        <p class="card-subtitle">Gründer & Hauptlehrer</p>
+                        <h3 class="card-title">Nils Böhm</h3>
+                        <p style="margin-bottom: var(--spacing-sm);">
+                            Erfahrener Perkussionist, Handpan-Spieler und Gründer der Handpan Schule des Lebens.
+                            Nils verbindet musikalische Tiefe mit spiritueller Praxis und begleitet seine Schüler auf
+                            dem Weg zu ihrem eigenen Ausdruck.
+                        </p>
+                        <div class="highlight-box" style="margin-top: var(--spacing-sm);">
+                            <p style="font-size: 0.9rem;">
+                                <strong style="color: var(--color-accent);">Schwerpunkte:</strong>
+                                Handpan Path, Mentoring, Einzelunterricht, Retreats, Rhythmus Fundament
+                            </p>
+                        </div>
+                        <p style="margin-top: var(--spacing-sm);">
+                            <a href="#gruender" style="color: var(--color-accent);">→ Mehr über Nils</a>
+                        </p>
+                    </article>
+
+                    <!-- Peter Aumüller -->
+                    <a href="#peter-aumueller" class="card card-link">
+                        <p class="card-subtitle">Lehrer & Systemischer Coach</p>
+                        <h3 class="card-title">Peter Aumüller</h3>
+                        <p style="margin-bottom: var(--spacing-sm);">
+                            Seit über 25 Jahren Schlagzeuger und Perkussionist. Peter verbindet seine Arbeit
+                            an der Handpan mit systemischen Coaching-Ansätzen und hilft Menschen, mit dem Instrument
+                            schwierige Lebenssituationen zu meistern.
+                        </p>
+                        <div class="highlight-box" style="margin-top: var(--spacing-sm);">
+                            <p style="font-size: 0.9rem;">
+                                <strong style="color: var(--color-accent);">Schwerpunkte:</strong>
+                                Rhythmus, Systemisches Coaching, Perkussion
+                            </p>
+                        </div>
+                        <span class="card-arrow">→ Mehr über Peter</span>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <blockquote class="quote-block">
+                    <p class="quote-text" style="font-size: 1.3rem;">
+                        „Wir glauben: Jeder Mensch hat seinen eigenen Klang. Unsere Aufgabe ist es,
+                        dir zu helfen, ihn zu finden."
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Teil des Teams werden?</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    Du bist Handpan-Spieler und möchtest als Lehrer in der Handpan Schule des Lebens mitwirken?
+                    Wir freuen uns auf deine Nachricht.
+                </p>
+                <a class="cta" href="#dabei-sein">Kontakt aufnehmen</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         DETAIL: PETER AUMÜLLER
+         ============================================ -->
+    <div id="page-peter-aumueller" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <a href="#lehrer" class="detail-back">← Zurück zu Unsere Lehrer</a>
+                <h1>Peter Aumüller</h1>
+                <p class="hero-subtitle">Schlagzeuger, Perkussionist & Systemischer Coach</p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <div class="detail-meta">
+                    <div class="detail-meta-item"><strong>Erfahrung</strong> 25+ Jahre</div>
+                    <div class="detail-meta-item"><strong>Instrumente</strong> Schlagzeug, Perkussion, Handpan</div>
+                    <div class="detail-meta-item"><strong>Fokus</strong> Rhythmus</div>
+                    <div class="detail-meta-item"><strong>Ansatz</strong> Systemisches Coaching</div>
+                </div>
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Peter Aumüller ist seit über 25 Jahren Schlagzeuger und Perkussionist. In seiner Arbeit
+                    an der Handpan Schule des Lebens verbindet er seine tiefe rhythmische Erfahrung mit
+                    systemischen Coaching-Ansätzen – eine einzigartige Kombination, die weit über das rein
+                    Musikalische hinausgeht.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Musik als Weg durch schwierige Zeiten</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Peter hilft Menschen, mit dem Instrument schwierige Lebenssituationen zu meistern.
+                    Sein systemischer Coaching-Ansatz ermöglicht es, Rhythmus nicht nur als musikalisches
+                    Element zu verstehen, sondern als Werkzeug für persönliche Transformation.
+                </p>
+                <blockquote class="quote-block">
+                    <p class="quote-text" style="font-size: 1.3rem;">
+                        „Rhythmus ist die Grundlage allen Lebens. Wer seinen Rhythmus findet,
+                        findet auch seinen Weg."
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Schwerpunkte</h2>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Rhythmus & Perkussion:</strong>
+                    Über 25 Jahre Erfahrung als Schlagzeuger und Perkussionist – ein tiefes Verständnis
+                    für Rhythmus in all seinen Facetten.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Systemisches Coaching:</strong>
+                    Ausgebildeter systemischer Coach mit Expertise in Organisationsentwicklung,
+                    Transformation und persönlichem Wachstum.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Handpan als Lebensbegleiter:</strong>
+                    Die Handpan wird zum Werkzeug, um innere Blockaden zu lösen, Klarheit zu finden
+                    und neue Perspektiven zu entwickeln.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Für wen ist Peters Ansatz?</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Peters Arbeit richtet sich an Menschen, die mehr suchen als nur Musikunterricht.
+                    Wenn du in einer herausfordernden Lebensphase steckst, dich neu orientieren willst oder
+                    einfach einen tieferen Zugang zu dir selbst suchst – Peters Kombination aus Rhythmus
+                    und systemischem Coaching kann dir neue Wege eröffnen.
+                </p>
+                <p style="color: var(--color-text-muted);">
+                    Mehr über Peters Arbeit findest du auf seiner Website:
+                    <a href="https://www.peteraumueller.de/" target="_blank" rel="noopener" style="color: var(--color-accent);">www.peteraumueller.de</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Mit Peter arbeiten</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    Vereinbare ein Gespräch, um herauszufinden, wie Peter dich auf deinem Weg begleiten kann.
+                </p>
+                <a class="cta" href="#dabei-sein">Gespräch vereinbaren</a>
+            </div>
+        </section>
+    </div>
+
     </main>
 
     <!-- ============================================
@@ -2580,7 +3502,7 @@
         <div class="container">
             <p>&copy; 2026 Handpan Schule des Lebens | Nils Böhm</p>
             <p style="margin-top: var(--spacing-xs);">
-                <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a>
+                <a href="#gruender">Zum Gründer</a> · <a href="#lehrer">Unsere Lehrer</a> · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a>
             </p>
         </div>
     </footer>
@@ -2602,7 +3524,16 @@
             'community':   { pageId: 'page-online-schule', title: 'Community · Handpan Schule des Lebens' },
             'dabei-sein':  { pageId: 'page-dabei-sein',    title: 'Dabei sein · Handpan Schule des Lebens' },
             'impressum':   { pageId: 'page-impressum',     title: 'Impressum · Handpan Schule des Lebens' },
-            'datenschutz': { pageId: 'page-datenschutz',   title: 'Datenschutz · Handpan Schule des Lebens' }
+            'datenschutz': { pageId: 'page-datenschutz',   title: 'Datenschutz · Handpan Schule des Lebens' },
+            'handpan-path':        { pageId: 'page-handpan-path',        title: 'The Handpan Path · Handpan Schule des Lebens' },
+            'rhythmus-fundament':  { pageId: 'page-rhythmus-fundament',  title: 'Rhythmus Fundament · Handpan Schule des Lebens' },
+            'retreats':            { pageId: 'page-retreats',            title: 'Retreats · Handpan Schule des Lebens' },
+            'mentoring':           { pageId: 'page-mentoring',           title: 'Mentoring · Handpan Schule des Lebens' },
+            'einzelunterricht':    { pageId: 'page-einzelunterricht',    title: 'Einzelunterricht · Handpan Schule des Lebens' },
+            'webinare':            { pageId: 'page-webinare',            title: 'Webinare · Handpan Schule des Lebens' },
+            'gruender':            { pageId: 'page-gruender',            title: 'Der Gründer · Handpan Schule des Lebens' },
+            'lehrer':              { pageId: 'page-lehrer',              title: 'Unsere Lehrer · Handpan Schule des Lebens' },
+            'peter-aumueller':     { pageId: 'page-peter-aumueller',     title: 'Peter Aumüller · Handpan Schule des Lebens' }
         };
 
         function navigateTo(hash) {
@@ -2768,6 +3699,71 @@
 
             document.querySelectorAll('.scroll-reveal').forEach(el => {
                 observer.observe(el);
+            });
+        });
+
+        // ============================================
+        // EMAIL SPAM PROTECTION
+        // ============================================
+        // E-Mail-Adresse wird erst per JS zusammengesetzt,
+        // damit Bots sie nicht aus dem HTML auslesen können.
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- E-Mail-Schutz ---
+            document.querySelectorAll('.protected-email').forEach(function(el) {
+                var n = el.getAttribute('data-n');
+                var d = el.getAttribute('data-d');
+                if (n && d) {
+                    var addr = n + '@' + d;
+                    el.href = 'mai' + 'lto:' + addr;
+                    if (el.textContent.indexOf('geladen') !== -1) {
+                        el.textContent = addr;
+                    }
+                }
+            });
+
+            // --- Telefon-Schutz ---
+            document.querySelectorAll('.protected-phone').forEach(function(el) {
+                var p1 = el.getAttribute('data-p1');
+                var p2 = el.getAttribute('data-p2');
+                var p3 = el.getAttribute('data-p3');
+                var type = el.getAttribute('data-type');
+                if (p1 && p2 && p3) {
+                    var full = p1 + p2 + p3;
+                    var display = '+' + p1.substring(0,2) + ' ' + p1.substring(2) + ' ' + p2 + p3;
+                    if (type === 'wa') {
+                        el.href = 'https://wa' + '.me/' + full;
+                    } else {
+                        el.href = 'te' + 'l:+' + full;
+                    }
+                    if (el.textContent.indexOf('geladen') !== -1) {
+                        el.textContent = display;
+                    }
+                }
+            });
+
+            // --- Adress-Schutz (Block) ---
+            document.querySelectorAll('.protected-address').forEach(function(el) {
+                var parts = [];
+                for (var i = 1; i <= 5; i++) {
+                    var val = el.getAttribute('data-a' + i);
+                    if (val) parts.push(val);
+                }
+                if (parts.length > 0) {
+                    el.innerHTML = parts.join('<br>');
+                }
+            });
+
+            // --- Adress-Schutz (Inline) ---
+            document.querySelectorAll('.protected-address-inline').forEach(function(el) {
+                var parts = [];
+                for (var i = 1; i <= 5; i++) {
+                    var val = el.getAttribute('data-a' + i);
+                    if (val) parts.push(val);
+                }
+                var sep = el.getAttribute('data-sep') || '<br>';
+                if (parts.length > 0) {
+                    el.innerHTML = parts.join(sep);
+                }
             });
         });
 
