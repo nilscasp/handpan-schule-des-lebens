@@ -413,6 +413,34 @@
             transform: translateX(6px);
         }
 
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .feature-card {
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            border-radius: 2px;
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-card p {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
         /* Detail-Seiten Header */
         .detail-back {
             display: inline-flex;
@@ -1610,6 +1638,7 @@
                 <li><a href="#philosophie" class="nav-link">Philosophie</a></li>
                 <li><a href="#lernziele" class="nav-link">Lernziele</a></li>
                 <li><a href="#programm" class="nav-link">Programm</a></li>
+                <li><a href="#instrumente" class="nav-link">Instrumente</a></li>
                 <li><a href="#community" class="nav-link">Community</a></li>
                 <li><a href="#dabei-sein" class="nav-link">Dabei sein</a></li>
             </ul>
@@ -2368,16 +2397,16 @@
             <div class="container">
                 <h2 class="section-title">Unsere Angebote</h2>
                 <div class="card-grid">
-                    <!-- The Handpan Path -->
-                    <a href="#handpan-path" class="card card-link">
-                        <p class="card-subtitle">6 Monate • Hybrid</p>
-                        <h3 class="card-title">The Handpan Path</h3>
+                    <!-- Einsteigerkurse -->
+                    <a href="#einsteigerkurse" class="card card-link">
+                        <p class="card-subtitle">2 Stunden • Live</p>
+                        <h3 class="card-title">Einsteigerkurse</h3>
                         <p style="margin-bottom: var(--spacing-md);">
-                            Die transformative Reise. 18 Themen × 2 Sessions = 36 intensive Einheiten.
-                            Musikalische und spirituelle Transformation: eigener Stil, Präsenz, tiefe Praxis.
+                            Handpan kennenlernen in 2 Stunden. Grundhaltung, erste Grooves
+                            und Orientierung – ohne Druck, ohne Vorkenntnisse.
                         </p>
                         <p style="font-size: 0.9rem; color: var(--color-accent);">
-                            Für: Kompetent bis Gewandt
+                            Für: Neuling
                         </p>
                         <span class="card-arrow">→ Mehr erfahren</span>
                     </a>
@@ -2392,6 +2421,20 @@
                         </p>
                         <p style="font-size: 0.9rem; color: var(--color-accent);">
                             Für: Neuling bis Kompetent
+                        </p>
+                        <span class="card-arrow">→ Mehr erfahren</span>
+                    </a>
+
+                    <!-- The Handpan Path -->
+                    <a href="#handpan-path" class="card card-link">
+                        <p class="card-subtitle">6 Monate • Hybrid</p>
+                        <h3 class="card-title">The Handpan Path</h3>
+                        <p style="margin-bottom: var(--spacing-md);">
+                            Die transformative Reise. 18 Themen × 2 Sessions = 36 intensive Einheiten.
+                            Musikalische und spirituelle Transformation: eigener Stil, Präsenz, tiefe Praxis.
+                        </p>
+                        <p style="font-size: 0.9rem; color: var(--color-accent);">
+                            Für: Kompetent bis Gewandt
                         </p>
                         <span class="card-arrow">→ Mehr erfahren</span>
                     </a>
@@ -2434,34 +2477,6 @@
                         </p>
                         <p style="font-size: 0.9rem; color: var(--color-accent);">
                             Für: Alle Levels
-                        </p>
-                        <span class="card-arrow">→ Mehr erfahren</span>
-                    </a>
-
-                    <!-- Webinare -->
-                    <a href="#webinare" class="card card-link">
-                        <p class="card-subtitle">Einmalig • Online</p>
-                        <h3 class="card-title">Webinare</h3>
-                        <p style="margin-bottom: var(--spacing-md);">
-                            Themenspezifische Deep-Dives. Kompakte Formate zu bestimmten Aspekten
-                            des Handpan-Spiels und der musikalischen Entwicklung.
-                        </p>
-                        <p style="font-size: 0.9rem; color: var(--color-accent);">
-                            Für: Alle Levels
-                        </p>
-                        <span class="card-arrow">→ Mehr erfahren</span>
-                    </a>
-
-                    <!-- Einsteigerkurse -->
-                    <a href="#einsteigerkurse" class="card card-link">
-                        <p class="card-subtitle">2 Stunden • Live</p>
-                        <h3 class="card-title">Einsteigerkurse</h3>
-                        <p style="margin-bottom: var(--spacing-md);">
-                            Handpan kennenlernen in 2 Stunden. Grundhaltung, erste Grooves
-                            und Orientierung – ohne Druck, ohne Vorkenntnisse.
-                        </p>
-                        <p style="font-size: 0.9rem; color: var(--color-accent);">
-                            Für: Neuling
                         </p>
                         <span class="card-arrow">→ Mehr erfahren</span>
                     </a>
@@ -2677,9 +2692,6 @@
                 </div>
                 <div class="highlight-box">
                     <p style="margin-bottom: var(--spacing-xs);"><strong style="color: var(--color-accent);">Rhythmus Fundament</strong> — Kursbereich und Gruppen-Calls</p>
-                </div>
-                <div class="highlight-box">
-                    <p style="margin-bottom: var(--spacing-xs);"><strong style="color: var(--color-accent);">Webinare</strong> — Aufzeichnungen und Diskussion</p>
                 </div>
                 <div class="highlight-box">
                     <p><strong style="color: var(--color-accent);">Retreat-Nachbereitung</strong> — Integration und Kontakt halten</p>
@@ -3586,178 +3598,13 @@
     </div>
 
     <!-- ============================================
-         DETAIL: WEBINARE
+         ÜBER UNS (Team-Seite)
          ============================================ -->
-    <div id="page-webinare" class="page-content">
+    <div id="page-ueber" class="page-content">
 
         <section class="page-hero">
             <div class="hero-content container-narrow">
-                <a href="#programm" class="detail-back">← Zurück zum Programm</a>
-                <h1>Webinare</h1>
-                <p class="hero-subtitle">Fokussierte Deep-Dives zu speziellen Themen</p>
-            </div>
-        </section>
-
-        <section class="section-light">
-            <div class="container-narrow">
-                <div class="detail-meta">
-                    <div class="detail-meta-item"><strong>Dauer</strong> Einmalig</div>
-                    <div class="detail-meta-item"><strong>Format</strong> Online / Live</div>
-                    <div class="detail-meta-item"><strong>Level</strong> Alle Levels</div>
-                </div>
-                <p class="section-intro" style="font-size: 1.2rem;">
-                    Kompakte, themenspezifische Formate zu bestimmten Aspekten des Handpan-Spiels.
-                    Ideal, wenn du dich gezielt in einem Bereich vertiefen möchtest.
-                </p>
-            </div>
-        </section>
-
-        <section class="section-dark">
-            <div class="container-narrow">
-                <h2 class="section-title">Mögliche Themen</h2>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Rhythmische Grundlagen:</strong> Puls, Groove und Timing verstehen.</p>
-                </div>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Melodie & Komposition:</strong> Eigene Stücke entwickeln und strukturieren.</p>
-                </div>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Spieltechnik:</strong> Anschlag, Dynamik und Klangfarben.</p>
-                </div>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Musikalische Präsenz:</strong> Bühnenpräsenz und Performance.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-light">
-            <div class="container-narrow">
-                <p style="color: var(--color-text-muted);">
-                    Webinare werden regelmäßig zu verschiedenen Themen angeboten. Jedes Webinar ist in sich abgeschlossen
-                    und kann einzeln gebucht werden. Die Aufzeichnungen stehen danach zur Verfügung.
-                </p>
-            </div>
-        </section>
-
-        <section class="section-dark">
-            <div class="container-narrow text-center">
-                <h2 class="mb-lg">Kommende Webinare</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
-                    Melde dich an, um über kommende Webinar-Termine informiert zu werden.
-                </p>
-                <a class="cta" href="#dabei-sein">Informiert werden</a>
-            </div>
-        </section>
-    </div>
-
-    <!-- ============================================
-         GRÜNDER PAGE
-         ============================================ -->
-    <div id="page-gruender" class="page-content">
-
-        <section class="page-hero">
-            <div class="hero-content container-narrow">
-                <h1>Der Gründer</h1>
-                <p class="hero-subtitle">Nils Böhm – Handpan & Seele</p>
-            </div>
-        </section>
-
-        <section class="section-light">
-            <div class="container-narrow">
-                <p class="section-intro" style="font-size: 1.2rem;">
-                    Die Handpan Schule des Lebens wurde von Nils Böhm gegründet – Musiker, Perkussionist und Lehrer
-                    mit der tiefen Überzeugung, dass Musik und inneres Wachstum untrennbar miteinander verbunden sind.
-                </p>
-            </div>
-        </section>
-
-        <section class="section-dark">
-            <div class="container-narrow">
-                <h2 class="section-title">Philosophie</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    Nils' Herangehensweise an Musik ist tief in der Überzeugung verwurzelt, dass Kreativität und spirituelle
-                    Praxis miteinander verwoben sind. Er sieht Kunst nicht nur als Ausdrucksmittel, sondern als einen Weg,
-                    sich mit etwas Größerem als sich selbst zu verbinden.
-                </p>
-                <blockquote class="quote-block">
-                    <p class="quote-text" style="font-size: 1.3rem;">
-                        „Erfahre die Tiefe deiner Seele – durch Klang, durch Rhythmus, durch Verbindung."
-                    </p>
-                </blockquote>
-                <p style="color: var(--color-text-muted); margin-top: var(--spacing-md);">
-                    Seine Arbeit hat eine kontemplative, introspektive Qualität, die den Zuhörer zu einer Reise
-                    ins Innere einlädt. Es geht nicht darum, Patterns nachzuspielen – sondern darum, die eigene
-                    Stimme zu finden und die Handpan als Spiegel der Seele zu erleben.
-                </p>
-            </div>
-        </section>
-
-        <section class="section-light">
-            <div class="container-narrow">
-                <h2 class="section-title">Der Weg</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    Als erfahrener Perkussionist und Handpan-Spieler hat Nils sein Wissen in unzähligen Workshops,
-                    Einzelstunden und Live-Sessions weitergegeben – sowohl in München als auch online.
-                    Gemeinsam mit <a href="#peter-aumueller" style="color: var(--color-accent);">Peter Aumüller</a>
-                    und anderen Musikern bildet er das Lehrteam der Handpan Schule des Lebens.
-                </p>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    Darüber hinaus bringt Nils eine einzigartige Perspektive mit: Durch 1,5 Jahre intensive Arbeit
-                    im Handpan-Ökosystem beim größten Händler im DACH-Raum hat er viele hundert Instrumente
-                    in der Hand gehabt, Bauprozesse studiert und ein tiefes Verständnis für Maker, Qualitätsmerkmale
-                    und die Wahl des richtigen Instruments entwickelt. Diese Erfahrung fließt direkt in seine
-                    <a href="#instrumente" style="color: var(--color-accent);">Beratung zur Instrumentenwahl</a> ein.
-                </p>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    Eines seiner Hauptanliegen ist es, anderen zu helfen, ihren eigenen Stil und ihre eigene Stimme
-                    zu entwickeln. Er ist davon überzeugt, dass jeder Mensch etwas Wertvolles zu bieten hat – und
-                    dass durch das Anzapfen der eigenen inneren Quelle der Kreativität wirklich originelle und
-                    bedeutungsvolle Musik entstehen kann.
-                </p>
-            </div>
-        </section>
-
-        <section class="section-dark">
-            <div class="container-narrow">
-                <h2 class="section-title">Die Vision: Handpan Schule des Lebens</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    In der Handpan Schule des Lebens betrachtet Nils das Erlernen der Handpan als einen
-                    alchemistischen Prozess. Es geht um weit mehr als Technik: Vom Denken zum Fühlen lernt man,
-                    den analytischen Verstand dort einzusetzen, wo er hilft – und ihn dort loszulassen,
-                    wo er den Fluss der Musik behindert.
-                </p>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Die Handpan wandelt sich</strong> von einem
-                    Gegenstand „da draußen" zu einer Erweiterung des eigenen Körpers und der emotionalen
-                    Ausdrucksfähigkeit.</p>
-                </div>
-                <p style="color: var(--color-text-muted); margin-top: var(--spacing-md);">
-                    Nils begleitet seine Schüler dabei, die Stufen nicht nur technisch zu erklimmen, sondern
-                    sie als persönlichen Reifeprozess zu erleben – Schritt für Schritt, hin zu einem intuitiven,
-                    freien Spiel.
-                </p>
-            </div>
-        </section>
-
-        <section class="section-light">
-            <div class="container-narrow text-center">
-                <h2 class="mb-lg">Lerne Nils kennen</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
-                    In einem persönlichen Gespräch finden wir gemeinsam heraus, welcher Weg für dich passt.
-                </p>
-                <a class="cta" href="#dabei-sein">Gespräch vereinbaren</a>
-            </div>
-        </section>
-    </div>
-
-    <!-- ============================================
-         LEHRER PAGE
-         ============================================ -->
-    <div id="page-lehrer" class="page-content">
-
-        <section class="page-hero">
-            <div class="hero-content container-narrow">
-                <h1>Unsere Lehrer</h1>
+                <h1>Über uns</h1>
                 <p class="hero-subtitle">Die Menschen hinter der Musik</p>
             </div>
         </section>
@@ -3791,12 +3638,12 @@
                             </p>
                         </div>
                         <p style="margin-top: var(--spacing-sm);">
-                            <a href="#gruender" style="color: var(--color-accent);">→ Mehr über Nils</a>
+                            <a href="javascript:void(0)" onclick="document.getElementById('ueber-nils').scrollIntoView({behavior:'smooth'})" style="color: var(--color-accent);">→ Mehr über Nils</a>
                         </p>
                     </article>
 
                     <!-- Peter Aumüller -->
-                    <a href="#peter-aumueller" class="card card-link">
+                    <article class="card">
                         <p class="card-subtitle">Lehrer & Systemischer Coach</p>
                         <h3 class="card-title">Peter Aumüller</h3>
                         <p style="margin-bottom: var(--spacing-sm);">
@@ -3810,8 +3657,10 @@
                                 Rhythmus, Systemisches Coaching, Perkussion
                             </p>
                         </div>
-                        <span class="card-arrow">→ Mehr über Peter</span>
-                    </a>
+                        <p style="margin-top: var(--spacing-sm);">
+                            <a href="javascript:void(0)" onclick="document.getElementById('ueber-peter').scrollIntoView({behavior:'smooth'})" style="color: var(--color-accent);">→ Mehr über Peter</a>
+                        </p>
+                    </article>
 
                 </div>
             </div>
@@ -3828,33 +3677,89 @@
             </div>
         </section>
 
-        <section class="section-dark">
-            <div class="container-narrow text-center">
-                <h2 class="mb-lg">Teil des Teams werden?</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
-                    Du bist Handpan-Spieler und möchtest als Lehrer in der Handpan Schule des Lebens mitwirken?
-                    Wir freuen uns auf deine Nachricht.
+        <!-- Nils Böhm im Detail -->
+        <section class="section-dark" id="ueber-nils">
+            <div class="container-narrow">
+                <h2 class="section-title">Nils Böhm</h2>
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Die Handpan Schule des Lebens wurde von Nils Böhm gegründet – Musiker, Perkussionist und Lehrer
+                    mit der tiefen Überzeugung, dass Musik und inneres Wachstum untrennbar miteinander verbunden sind.
                 </p>
-                <a class="cta" href="#dabei-sein">Kontakt aufnehmen</a>
-            </div>
-        </section>
-    </div>
-
-    <!-- ============================================
-         DETAIL: PETER AUMÜLLER
-         ============================================ -->
-    <div id="page-peter-aumueller" class="page-content">
-
-        <section class="page-hero">
-            <div class="hero-content container-narrow">
-                <a href="#lehrer" class="detail-back">← Zurück zu Unsere Lehrer</a>
-                <h1>Peter Aumüller</h1>
-                <p class="hero-subtitle">Schlagzeuger, Perkussionist & Systemischer Coach</p>
             </div>
         </section>
 
         <section class="section-light">
             <div class="container-narrow">
+                <h2 class="section-title">Philosophie</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Nils' Herangehensweise an Musik ist tief in der Überzeugung verwurzelt, dass Kreativität und spirituelle
+                    Praxis miteinander verwoben sind. Er sieht Kunst nicht nur als Ausdrucksmittel, sondern als einen Weg,
+                    sich mit etwas Größerem als sich selbst zu verbinden.
+                </p>
+                <blockquote class="quote-block">
+                    <p class="quote-text" style="font-size: 1.3rem;">
+                        „Erfahre die Tiefe deiner Seele – durch Klang, durch Rhythmus, durch Verbindung."
+                    </p>
+                </blockquote>
+                <p style="color: var(--color-text-muted); margin-top: var(--spacing-md);">
+                    Seine Arbeit hat eine kontemplative, introspektive Qualität, die den Zuhörer zu einer Reise
+                    ins Innere einlädt. Es geht nicht darum, Patterns nachzuspielen – sondern darum, die eigene
+                    Stimme zu finden und die Handpan als Spiegel der Seele zu erleben.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Der Weg</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Als erfahrener Perkussionist und Handpan-Spieler hat Nils sein Wissen in unzähligen Workshops,
+                    Einzelstunden und Live-Sessions weitergegeben – sowohl in München als auch online.
+                    Gemeinsam mit Peter Aumüller
+                    und anderen Musikern bildet er das Lehrteam der Handpan Schule des Lebens.
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Darüber hinaus bringt Nils eine einzigartige Perspektive mit: Durch 1,5 Jahre intensive Arbeit
+                    im Handpan-Ökosystem beim größten Händler im DACH-Raum hat er viele hundert Instrumente
+                    in der Hand gehabt, Bauprozesse studiert und ein tiefes Verständnis für Maker, Qualitätsmerkmale
+                    und die Wahl des richtigen Instruments entwickelt. Diese Erfahrung fließt direkt in seine
+                    <a href="#instrumente" style="color: var(--color-accent);">Beratung zur Instrumentenwahl</a> ein.
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Eines seiner Hauptanliegen ist es, anderen zu helfen, ihren eigenen Stil und ihre eigene Stimme
+                    zu entwickeln. Er ist davon überzeugt, dass jeder Mensch etwas Wertvolles zu bieten hat – und
+                    dass durch das Anzapfen der eigenen inneren Quelle der Kreativität wirklich originelle und
+                    bedeutungsvolle Musik entstehen kann.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Die Vision: Handpan Schule des Lebens</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    In der Handpan Schule des Lebens betrachtet Nils das Erlernen der Handpan als einen
+                    alchemistischen Prozess. Es geht um weit mehr als Technik: Vom Denken zum Fühlen lernt man,
+                    den analytischen Verstand dort einzusetzen, wo er hilft – und ihn dort loszulassen,
+                    wo er den Fluss der Musik behindert.
+                </p>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Die Handpan wandelt sich</strong> von einem
+                    Gegenstand „da draußen" zu einer Erweiterung des eigenen Körpers und der emotionalen
+                    Ausdrucksfähigkeit.</p>
+                </div>
+                <p style="color: var(--color-text-muted); margin-top: var(--spacing-md);">
+                    Nils begleitet seine Schüler dabei, die Stufen nicht nur technisch zu erklimmen, sondern
+                    sie als persönlichen Reifeprozess zu erleben – Schritt für Schritt, hin zu einem intuitiven,
+                    freien Spiel.
+                </p>
+            </div>
+        </section>
+
+        <!-- Peter Aumüller im Detail -->
+        <section class="section-dark" id="ueber-peter">
+            <div class="container-narrow">
+                <h2 class="section-title">Peter Aumüller</h2>
                 <div class="detail-meta">
                     <div class="detail-meta-item"><strong>Erfahrung</strong> 25+ Jahre</div>
                     <div class="detail-meta-item"><strong>Instrumente</strong> Schlagzeug, Perkussion, Handpan</div>
@@ -3870,7 +3775,7 @@
             </div>
         </section>
 
-        <section class="section-dark">
+        <section class="section-light">
             <div class="container-narrow">
                 <h2 class="section-title">Musik als Weg durch schwierige Zeiten</h2>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
@@ -3887,7 +3792,7 @@
             </div>
         </section>
 
-        <section class="section-light">
+        <section class="section-dark">
             <div class="container-narrow">
                 <h2 class="section-title">Schwerpunkte</h2>
                 <div class="highlight-box">
@@ -3908,7 +3813,7 @@
             </div>
         </section>
 
-        <section class="section-dark">
+        <section class="section-light">
             <div class="container-narrow">
                 <h2 class="section-title">Für wen ist Peters Ansatz?</h2>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
@@ -3924,13 +3829,18 @@
             </div>
         </section>
 
-        <section class="section-light">
+        <section class="section-dark">
             <div class="container-narrow text-center">
-                <h2 class="mb-lg">Mit Peter arbeiten</h2>
+                <h2 class="mb-lg">Gespräch vereinbaren</h2>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
-                    Vereinbare ein Gespräch, um herauszufinden, wie Peter dich auf deinem Weg begleiten kann.
+                    In einem persönlichen Gespräch finden wir gemeinsam heraus, welcher Weg für dich passt.
                 </p>
                 <a class="cta" href="#dabei-sein">Gespräch vereinbaren</a>
+                <p style="color: var(--color-text-muted); margin-top: var(--spacing-xl);">
+                    <strong>Teil des Teams werden?</strong><br>
+                    Du bist Handpan-Spieler und möchtest als Lehrer mitwirken?
+                    <a href="#dabei-sein" style="color: var(--color-accent);">Kontakt aufnehmen</a>
+                </p>
             </div>
         </section>
     </div>
@@ -4016,7 +3926,7 @@
         <section class="section-dark">
             <div class="container-narrow">
                 <h2 class="section-title">Rahmen</h2>
-                <div class="features-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="features-grid">
                     <div class="feature-card">
                         <h3>Dauer & Ort</h3>
                         <p>2 Stunden · München-Neuhausen<br>
@@ -4085,7 +3995,7 @@
         <section class="section-dark">
             <div class="container-narrow">
                 <h2 class="section-title">Drei Wege zum Instrument</h2>
-                <div class="features-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="features-grid">
                     <div class="feature-card">
                         <h3>🎵 Leihe</h3>
                         <p>Für <a href="#einsteigerkurse" style="color: var(--color-accent);">Einsteigerkurse</a>
@@ -4139,41 +4049,35 @@
             <div class="container-narrow">
                 <h2 class="section-title">Häufige Fragen</h2>
 
-                <div class="faq-item" style="margin-bottom: var(--spacing-md);">
-                    <h3 style="color: var(--color-text); font-size: 1rem; margin-bottom: var(--spacing-xs); cursor: pointer;"
-                        onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'; this.querySelector('span').textContent = this.nextElementSibling.style.display === 'none' ? '+' : '−'">
-                        <span style="color: var(--color-accent); margin-right: 0.5rem;">+</span>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
                         Muss ich sofort ein Instrument kaufen?
-                    </h3>
-                    <p style="display: none; color: var(--color-text-muted); padding-left: 1.5rem;">
-                        Nein. Für den Unterricht und die Einsteigerkurse stehen Instrumente zur Verfügung.
-                        Nimm dir die Zeit, die du brauchst.
-                    </p>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nein. Für den Unterricht und die Einsteigerkurse stehen Instrumente zur Verfügung.
+                        Nimm dir die Zeit, die du brauchst.</p>
+                    </div>
                 </div>
 
-                <div class="faq-item" style="margin-bottom: var(--spacing-md);">
-                    <h3 style="color: var(--color-text); font-size: 1rem; margin-bottom: var(--spacing-xs); cursor: pointer;"
-                        onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'; this.querySelector('span').textContent = this.nextElementSibling.style.display === 'none' ? '+' : '−'">
-                        <span style="color: var(--color-accent); margin-right: 0.5rem;">+</span>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
                         Was ist die beste Stimmung für Anfänger?
-                    </h3>
-                    <p style="display: none; color: var(--color-text-muted); padding-left: 1.5rem;">
-                        Das kommt auf dein Ziel und deinen Spielstil an. Stimmungen wie Kurd oder Celtic Minor
+                    </button>
+                    <div class="faq-answer">
+                        <p>Das kommt auf dein Ziel und deinen Spielstil an. Stimmungen wie Kurd oder Celtic Minor
                         sind beliebt bei Einsteigern, aber die „beste" Stimmung ist die, die zu dir passt.
-                        In einem Gespräch finden wir das gemeinsam heraus.
-                    </p>
+                        In einem Gespräch finden wir das gemeinsam heraus.</p>
+                    </div>
                 </div>
 
-                <div class="faq-item" style="margin-bottom: var(--spacing-md);">
-                    <h3 style="color: var(--color-text); font-size: 1rem; margin-bottom: var(--spacing-xs); cursor: pointer;"
-                        onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'; this.querySelector('span').textContent = this.nextElementSibling.style.display === 'none' ? '+' : '−'">
-                        <span style="color: var(--color-accent); margin-right: 0.5rem;">+</span>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
                         Kann ich eine persönliche Beratung bekommen?
-                    </h3>
-                    <p style="display: none; color: var(--color-text-muted); padding-left: 1.5rem;">
-                        Ja. Nils berät dich persönlich – basierend auf seiner Erfahrung mit vielen hundert
-                        Instrumenten verschiedener Maker. Vereinbare einfach ein Gespräch.
-                    </p>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ja. Nils berät dich persönlich – basierend auf seiner Erfahrung mit vielen hundert
+                        Instrumenten verschiedener Maker. Vereinbare einfach ein Gespräch.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -4202,7 +4106,7 @@
         <div class="container">
             <p>&copy; 2026 Handpan Schule des Lebens | Nils Böhm</p>
             <p style="margin-top: var(--spacing-xs);">
-                <a href="#gruender">Zum Gründer</a> · <a href="#lehrer">Unsere Lehrer</a> · <a href="#einsteigerkurse">Einsteigerkurse</a> · <a href="#instrumente">Instrumente</a> · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a>
+                <a href="#ueber">Über uns</a> · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a>
             </p>
         </div>
     </footer>
@@ -4230,10 +4134,10 @@
             'retreats':            { pageId: 'page-retreats',            title: 'Retreats · Handpan Schule des Lebens' },
             'mentoring':           { pageId: 'page-mentoring',           title: 'Mentoring · Handpan Schule des Lebens' },
             'einzelunterricht':    { pageId: 'page-einzelunterricht',    title: 'Einzelunterricht · Handpan Schule des Lebens' },
-            'webinare':            { pageId: 'page-webinare',            title: 'Webinare · Handpan Schule des Lebens' },
-            'gruender':            { pageId: 'page-gruender',            title: 'Der Gründer · Handpan Schule des Lebens' },
-            'lehrer':              { pageId: 'page-lehrer',              title: 'Unsere Lehrer · Handpan Schule des Lebens' },
-            'peter-aumueller':     { pageId: 'page-peter-aumueller',     title: 'Peter Aumüller · Handpan Schule des Lebens' },
+            'ueber':               { pageId: 'page-ueber',               title: 'Über uns · Handpan Schule des Lebens' },
+            'gruender':            { redirect: 'ueber' },
+            'lehrer':              { redirect: 'ueber' },
+            'peter-aumueller':     { redirect: 'ueber' },
             'einsteigerkurse':     { pageId: 'page-einsteigerkurse',     title: 'Einsteigerkurse · Handpan Schule des Lebens' },
             'instrumente':         { pageId: 'page-instrumente',         title: 'Instrumente · Handpan Schule des Lebens' }
         };
@@ -4242,6 +4146,12 @@
             // Normalize hash
             const routeKey = hash.replace('#', '') || 'home';
             const route = routes[routeKey] || routes['home'];
+
+            // Handle redirects
+            if (route.redirect) {
+                window.location.hash = '#' + route.redirect;
+                return;
+            }
 
             // Hide all pages
             document.querySelectorAll('.page-content').forEach(page => {
