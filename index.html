@@ -1867,11 +1867,116 @@
                     das Bindeglied zwischen innerem Selbst und Ausdruck.
                 </p>
                 <p style="margin-bottom: var(--spacing-lg); color: var(--color-text-muted);">
-                    Perfektionismus, Vergleich und Kopie führen weg vom Freiheitswesen des Menschen. 
-                    Es braucht ein <strong style="color: var(--color-accent);">Umdenken</strong> in der Lernkultur, 
-                    damit technische Fähigkeiten, Persönlichkeit und seelische Tugenden gemeinsam wachsen können, 
+                    Perfektionismus, Vergleich und Kopie führen weg vom Freiheitswesen des Menschen.
+                    Es braucht ein <strong style="color: var(--color-accent);">Umdenken</strong> in der Lernkultur,
+                    damit technische Fähigkeiten, Persönlichkeit und seelische Tugenden gemeinsam wachsen können,
                     um den Genius in jedem Menschen hervor zu bringen.
                 </p>
+
+                <!-- Genius-Dreieck Grafik -->
+                <div style="display:flex; justify-content:center; margin: var(--spacing-xl) 0;">
+                <svg viewBox="0 0 400 380" width="360" height="340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Genius-Dreieck: Seele oben, Fähigkeiten unten links, Persönlichkeit unten rechts, Genius in der Mitte">
+
+                    <defs>
+                        <!-- Hintergrund-Glow für Strahlen -->
+                        <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+                        </radialGradient>
+                        <!-- Gold-Gradient für Dreieckslinien -->
+                        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#e8c97a"/>
+                            <stop offset="100%" stop-color="#a07830"/>
+                        </linearGradient>
+                        <!-- Innenfüllung -->
+                        <radialGradient id="innerGrad" cx="50%" cy="58%" r="48%">
+                            <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.18"/>
+                            <stop offset="100%" stop-color="#c9a84c" stop-opacity="0.03"/>
+                        </radialGradient>
+                        <!-- Filter für weichen Glow -->
+                        <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="6" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <filter id="rayGlow" x="-80%" y="-80%" width="260%" height="260%">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+
+                    <!-- Dreieck-Eckpunkte: oben (200,28), unten-links (30,330), unten-rechts (370,330) -->
+                    <!-- Mittelpunkt des Dreiecks: ca. (200, 229) -->
+
+                    <!-- Äusserer Glow-Kreis um Mittelpunkt -->
+                    <circle cx="200" cy="229" r="90" fill="url(#glowGrad)"/>
+
+                    <!-- Strahlen aus der Mitte nach aussen (8 Strahlen) -->
+                    <g filter="url(#rayGlow)" opacity="0.7">
+                        <!-- oben -->
+                        <line x1="200" y1="229" x2="200" y2="60" stroke="#e8c97a" stroke-width="1.2" stroke-dasharray="4 6"/>
+                        <!-- oben-rechts -->
+                        <line x1="200" y1="229" x2="320" y2="120" stroke="#e8c97a" stroke-width="1.2" stroke-dasharray="4 6"/>
+                        <!-- rechts -->
+                        <line x1="200" y1="229" x2="370" y2="229" stroke="#e8c97a" stroke-width="1.2" stroke-dasharray="4 6"/>
+                        <!-- unten-rechts -->
+                        <line x1="200" y1="229" x2="320" y2="330" stroke="#e8c97a" stroke-width="1.2" stroke-dasharray="4 6"/>
+                        <!-- unten -->
+                        <line x1="200" y1="229" x2="200" y2="360" stroke="#e8c97a" stroke-width="1.2" stroke-dasharray="4 6"/>
+                        <!-- unten-links -->
+                        <line x1="200" y1="229" x2="80" y2="330" stroke="#e8c97a" stroke-width="1.2" stroke-dasharray="4 6"/>
+                        <!-- links -->
+                        <line x1="200" y1="229" x2="30" y2="229" stroke="#e8c97a" stroke-width="1.2" stroke-dasharray="4 6"/>
+                        <!-- oben-links -->
+                        <line x1="200" y1="229" x2="80" y2="120" stroke="#e8c97a" stroke-width="1.2" stroke-dasharray="4 6"/>
+                    </g>
+
+                    <!-- Dreieck-Innenfüllung -->
+                    <polygon points="200,38 42,322 358,322" fill="url(#innerGrad)"/>
+
+                    <!-- Dreieck-Kontur -->
+                    <polygon points="200,38 42,322 358,322"
+                             fill="none"
+                             stroke="url(#lineGrad)"
+                             stroke-width="2.2"
+                             filter="url(#softGlow)"/>
+
+                    <!-- Mittelpunkt-Kreis (leuchtend) -->
+                    <circle cx="200" cy="229" r="38" fill="#1a1a0e" stroke="#c9a84c" stroke-width="1.8" filter="url(#softGlow)"/>
+                    <circle cx="200" cy="229" r="28" fill="#c9a84c" fill-opacity="0.13"/>
+
+                    <!-- Genius Text in der Mitte -->
+                    <text x="200" y="224" text-anchor="middle" dominant-baseline="middle"
+                          font-family="Georgia, serif" font-size="13" font-style="italic"
+                          fill="#e8c97a" filter="url(#softGlow)" letter-spacing="1">Genius</letter-spacing>
+                    </text>
+                    <text x="200" y="239" text-anchor="middle" dominant-baseline="middle"
+                          font-family="Georgia, serif" font-size="9"
+                          fill="#c9a84c" opacity="0.8">im Menschen</text>
+
+                    <!-- Ecken: Eckkreise -->
+                    <circle cx="200" cy="38" r="7" fill="#c9a84c" opacity="0.5"/>
+                    <circle cx="42" cy="322" r="7" fill="#c9a84c" opacity="0.5"/>
+                    <circle cx="358" cy="322" r="7" fill="#c9a84c" opacity="0.5"/>
+
+                    <!-- Label: Seele (oben) -->
+                    <text x="200" y="16" text-anchor="middle"
+                          font-family="Georgia, serif" font-size="15" font-weight="bold"
+                          fill="#e8c97a" letter-spacing="2">Seele</text>
+
+                    <!-- Label: Fähigkeiten (unten links) -->
+                    <text x="42" y="350" text-anchor="middle"
+                          font-family="Georgia, serif" font-size="13.5"
+                          fill="#d4b86a">Fähigkeiten</text>
+
+                    <!-- Label: Persönlichkeit (unten rechts) -->
+                    <text x="358" y="350" text-anchor="middle"
+                          font-family="Georgia, serif" font-size="13.5"
+                          fill="#d4b86a">Persönlichkeit</text>
+
+                </svg>
+                </div>
+                <!-- Ende Genius-Dreieck -->
+
             </div>
         </section>
 
@@ -2346,6 +2451,20 @@
                         </p>
                         <span class="card-arrow">→ Mehr erfahren</span>
                     </a>
+
+                    <!-- Einsteigerkurse -->
+                    <a href="#einsteigerkurse" class="card card-link">
+                        <p class="card-subtitle">2 Stunden • Live</p>
+                        <h3 class="card-title">Einsteigerkurse</h3>
+                        <p style="margin-bottom: var(--spacing-md);">
+                            Handpan kennenlernen in 2 Stunden. Grundhaltung, erste Grooves
+                            und Orientierung – ohne Druck, ohne Vorkenntnisse.
+                        </p>
+                        <p style="font-size: 0.9rem; color: var(--color-accent);">
+                            Für: Neuling
+                        </p>
+                        <span class="card-arrow">→ Mehr erfahren</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -2400,6 +2519,17 @@
                         <div class="faq-answer">
                             <p>Jeder Call wird aufgezeichnet. Viele Teilnehmer erleben die Aufzeichnungen als genauso wertvoll –
                             sie machen daraus ihr eigenes Ritual.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                            „Brauche ich ein eigenes Instrument?"
+                        </button>
+                        <div class="faq-answer">
+                            <p>Nein. Für den Unterricht und die Einsteigerkurse stehen Instrumente zur Verfügung.
+                            Wenn du ein eigenes suchst, helfen wir dir bei der Orientierung.
+                            <a href="#instrumente" style="color: var(--color-accent);">Mehr dazu →</a></p>
                         </div>
                     </div>
                 </div>
@@ -3572,6 +3702,13 @@
                     und anderen Musikern bildet er das Lehrteam der Handpan Schule des Lebens.
                 </p>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Darüber hinaus bringt Nils eine einzigartige Perspektive mit: Durch 1,5 Jahre intensive Arbeit
+                    im Handpan-Ökosystem beim größten Händler im DACH-Raum hat er viele hundert Instrumente
+                    in der Hand gehabt, Bauprozesse studiert und ein tiefes Verständnis für Maker, Qualitätsmerkmale
+                    und die Wahl des richtigen Instruments entwickelt. Diese Erfahrung fließt direkt in seine
+                    <a href="#instrumente" style="color: var(--color-accent);">Beratung zur Instrumentenwahl</a> ein.
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
                     Eines seiner Hauptanliegen ist es, anderen zu helfen, ihren eigenen Stil und ihre eigene Stimme
                     zu entwickeln. Er ist davon überzeugt, dass jeder Mensch etwas Wertvolles zu bieten hat – und
                     dass durch das Anzapfen der eigenen inneren Quelle der Kreativität wirklich originelle und
@@ -3798,6 +3935,264 @@
         </section>
     </div>
 
+    <!-- ============================================
+         EINSTEIGERKURSE (Detailseite)
+         ============================================ -->
+    <div id="page-einsteigerkurse" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <a href="#programm" class="back-link" style="display: inline-block; margin-bottom: var(--spacing-md); color: var(--color-accent); text-decoration: none; font-size: 0.9rem;">← Zurück zum Programm</a>
+                <h1>Einsteigerkurse</h1>
+                <p class="hero-subtitle">2 Stunden – Handpan kennenlernen, erste Sicherheit spüren</p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <div class="detail-meta-bar">
+                    <div class="detail-meta-item">
+                        <span class="detail-meta-label">Dauer</span>
+                        <span class="detail-meta-value">2 Stunden</span>
+                    </div>
+                    <div class="detail-meta-item">
+                        <span class="detail-meta-label">Format</span>
+                        <span class="detail-meta-value">Kleingruppe</span>
+                    </div>
+                    <div class="detail-meta-item">
+                        <span class="detail-meta-label">Ort</span>
+                        <span class="detail-meta-value">München</span>
+                    </div>
+                    <div class="detail-meta-item">
+                        <span class="detail-meta-label">Level</span>
+                        <span class="detail-meta-value">Neuling</span>
+                    </div>
+                </div>
+
+                <p class="section-intro" style="font-size: 1.1rem;">
+                    Ein klarer, schöner Einstieg ohne Druck. Du lernst die Grundlagen, bekommst Orientierung
+                    – und gehst mit einem ersten spielbaren Flow nach Hause. Keine Vorkenntnisse nötig.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Was du lernst</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Grundhaltung & Anschlag</h3>
+                        <p>Wie du die Handpan richtig hältst und mit sauberem Anschlag die schönsten Klänge erzeugst.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Puls & erste Unterteilungen</h3>
+                        <p>Den inneren Puls finden und einfache rhythmische Strukturen spüren – das Fundament jeder Musik.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Erste Grooves</h3>
+                        <p>1–2 Grooves, die sich gut anfühlen und die du sofort zuhause weiterüben kannst.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Mini-Übestruktur</h3>
+                        <p>Eine einfache Übungsroutine für zuhause, damit du nach dem Kurs eigenständig weitermachen kannst.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Instrument</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Du brauchst keine eigene Handpan mitzubringen – für den Kurs stehen Instrumente zur Verfügung.
+                    Wenn du danach ein eigenes Instrument suchst, helfen wir dir bei der Orientierung.
+                </p>
+                <p style="margin-bottom: 0;">
+                    <a href="#instrumente" style="color: var(--color-accent); text-decoration: none;">→ Mehr zu Leihe, Orientierung und Kauf</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Rahmen</h2>
+                <div class="features-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="feature-card">
+                        <h3>Dauer & Ort</h3>
+                        <p>2 Stunden · München-Neuhausen<br>
+                        <span style="color: var(--color-accent);">{ADRESSE / GENAUER ORT}</span></p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Frequenz</h3>
+                        <p><span style="color: var(--color-accent);">{MONATLICH / BEI BEDARF}</span><br>
+                        Nächster Termin: <span style="color: var(--color-accent);">{DATUM}</span></p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Teilnehmer</h3>
+                        <p>Max. <span style="color: var(--color-accent);">{ANZAHL}</span> Teilnehmer<br>
+                        für persönliche Betreuung</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Preis</h3>
+                        <p><span style="color: var(--color-accent); font-size: 1.3rem; font-weight: 600;">{PREIS} €</span><br>
+                        inkl. Instrument-Leihe</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Dein Einstieg</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    Probiere die Handpan in einem geschützten Rahmen aus – ohne Verpflichtung, ohne Druck.
+                </p>
+                <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                    <a class="cta cta-primary" href="#dabei-sein">Platz sichern</a>
+                    <a class="cta" href="#dabei-sein">Gespräch vereinbaren</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         INSTRUMENTE (Orientierungsseite)
+         ============================================ -->
+    <div id="page-instrumente" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <h1>Instrumente</h1>
+                <p class="hero-subtitle">Leihe, Orientierung, Kauf – ohne Druck</p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Warum das Instrument zählt</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Viele Schwierigkeiten, die wie mangelnde Technik aussehen, sind in Wahrheit ein
+                    Instrument- oder Setup-Problem. Ein hochwertiges Instrument macht das Lernen leichter –
+                    ein schlechtes bremst dich aus, egal wie viel du übst.
+                </p>
+                <p style="color: var(--color-text-muted);">
+                    Ob du noch gar kein Instrument hast, unsicher bist oder gezielt aufrüsten willst –
+                    hier findest du Orientierung.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Drei Wege zum Instrument</h2>
+                <div class="features-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="feature-card">
+                        <h3>🎵 Leihe</h3>
+                        <p>Für <a href="#einsteigerkurse" style="color: var(--color-accent);">Einsteigerkurse</a>
+                        und die Startphase: Handpans stehen im Unterricht zur Verfügung.
+                        So kannst du das Instrument kennenlernen, bevor du dich für einen Kauf entscheidest.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🧭 Orientierung</h3>
+                        <p>Welche Stimmung passt zu dir? Welches Layout? Welcher Maker?
+                        Nils hat viele hundert Instrumente in der Hand gehabt und berät dich
+                        persönlich – basierend auf deinem Spielstil, deinen Vorlieben und deinen Zielen.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🏆 Kauf</h3>
+                        <p>Wenn du bereit bist: Über <strong>Grail Instruments</strong> findest du
+                        handverlesene Handpans höchster Qualität – kuratiert, nicht massenware.
+                        Ein exklusiver Zugang zu den besten Instrumenten.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Grail Instruments</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Grail Instruments ist ein kuratorisches Portal für erlesene Handpans – kein klassischer Shop,
+                    sondern ein exklusiver Zugang zu handverlesenen Instrumenten höchster Qualität.
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Zwei Wege stehen dir offen: Über den <strong>Verteiler</strong> trägst du dich in eine Liste ein
+                    und erhältst kuratierte Angebote, auf die du eingehen kannst. Oder du buchst eine
+                    <strong>persönliche Beratung</strong>, in der Spielstil, Vorlieben und Klangwünsche
+                    erarbeitet werden, um das perfekt passende Instrument und den richtigen Maker zu finden.
+                </p>
+
+                <div style="text-align: center; margin: var(--spacing-lg) 0;">
+                    <a href="https://grailinstruments.com" target="_blank" rel="noopener"
+                       class="cta" style="display: inline-block;">
+                        Zu Grail Instruments →
+                    </a>
+                </div>
+
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); text-align: center; font-style: italic;">
+                    handpan.schule bleibt Schule – Grail Instruments ist der Kaufpfad.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Häufige Fragen</h2>
+
+                <div class="faq-item" style="margin-bottom: var(--spacing-md);">
+                    <h3 style="color: var(--color-text); font-size: 1rem; margin-bottom: var(--spacing-xs); cursor: pointer;"
+                        onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'; this.querySelector('span').textContent = this.nextElementSibling.style.display === 'none' ? '+' : '−'">
+                        <span style="color: var(--color-accent); margin-right: 0.5rem;">+</span>
+                        Muss ich sofort ein Instrument kaufen?
+                    </h3>
+                    <p style="display: none; color: var(--color-text-muted); padding-left: 1.5rem;">
+                        Nein. Für den Unterricht und die Einsteigerkurse stehen Instrumente zur Verfügung.
+                        Nimm dir die Zeit, die du brauchst.
+                    </p>
+                </div>
+
+                <div class="faq-item" style="margin-bottom: var(--spacing-md);">
+                    <h3 style="color: var(--color-text); font-size: 1rem; margin-bottom: var(--spacing-xs); cursor: pointer;"
+                        onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'; this.querySelector('span').textContent = this.nextElementSibling.style.display === 'none' ? '+' : '−'">
+                        <span style="color: var(--color-accent); margin-right: 0.5rem;">+</span>
+                        Was ist die beste Stimmung für Anfänger?
+                    </h3>
+                    <p style="display: none; color: var(--color-text-muted); padding-left: 1.5rem;">
+                        Das kommt auf dein Ziel und deinen Spielstil an. Stimmungen wie Kurd oder Celtic Minor
+                        sind beliebt bei Einsteigern, aber die „beste" Stimmung ist die, die zu dir passt.
+                        In einem Gespräch finden wir das gemeinsam heraus.
+                    </p>
+                </div>
+
+                <div class="faq-item" style="margin-bottom: var(--spacing-md);">
+                    <h3 style="color: var(--color-text); font-size: 1rem; margin-bottom: var(--spacing-xs); cursor: pointer;"
+                        onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'; this.querySelector('span').textContent = this.nextElementSibling.style.display === 'none' ? '+' : '−'">
+                        <span style="color: var(--color-accent); margin-right: 0.5rem;">+</span>
+                        Kann ich eine persönliche Beratung bekommen?
+                    </h3>
+                    <p style="display: none; color: var(--color-text-muted); padding-left: 1.5rem;">
+                        Ja. Nils berät dich persönlich – basierend auf seiner Erfahrung mit vielen hundert
+                        Instrumenten verschiedener Maker. Vereinbare einfach ein Gespräch.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Beratung & Orientierung</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    Unsicher, welches Instrument zu dir passt? Lass uns gemeinsam herausfinden,
+                    was für dich Sinn macht.
+                </p>
+                <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                    <a class="cta cta-primary" href="#dabei-sein">Gespräch vereinbaren</a>
+                    <a class="cta" href="https://www.skool.com/handpan-schule-des-lebens" target="_blank" rel="noopener">Community kostenlos starten</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
     </main>
 
     <!-- ============================================
@@ -3807,7 +4202,7 @@
         <div class="container">
             <p>&copy; 2026 Handpan Schule des Lebens | Nils Böhm</p>
             <p style="margin-top: var(--spacing-xs);">
-                <a href="#gruender">Zum Gründer</a> · <a href="#lehrer">Unsere Lehrer</a> · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a>
+                <a href="#gruender">Zum Gründer</a> · <a href="#lehrer">Unsere Lehrer</a> · <a href="#einsteigerkurse">Einsteigerkurse</a> · <a href="#instrumente">Instrumente</a> · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a>
             </p>
         </div>
     </footer>
@@ -3838,7 +4233,9 @@
             'webinare':            { pageId: 'page-webinare',            title: 'Webinare · Handpan Schule des Lebens' },
             'gruender':            { pageId: 'page-gruender',            title: 'Der Gründer · Handpan Schule des Lebens' },
             'lehrer':              { pageId: 'page-lehrer',              title: 'Unsere Lehrer · Handpan Schule des Lebens' },
-            'peter-aumueller':     { pageId: 'page-peter-aumueller',     title: 'Peter Aumüller · Handpan Schule des Lebens' }
+            'peter-aumueller':     { pageId: 'page-peter-aumueller',     title: 'Peter Aumüller · Handpan Schule des Lebens' },
+            'einsteigerkurse':     { pageId: 'page-einsteigerkurse',     title: 'Einsteigerkurse · Handpan Schule des Lebens' },
+            'instrumente':         { pageId: 'page-instrumente',         title: 'Instrumente · Handpan Schule des Lebens' }
         };
 
         function navigateTo(hash) {
