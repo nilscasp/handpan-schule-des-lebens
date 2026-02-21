@@ -160,8 +160,21 @@
             color: var(--color-text);
             font-family: var(--font-sans);
             font-size: 18px;
-            line-height: 1.8;
+            line-height: 1.85;
             -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle grain overlay for depth */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.028;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
         }
 
         h1, h2, h3 {
@@ -296,6 +309,7 @@
             color: var(--color-accent);
             font-style: italic;
             margin-bottom: var(--spacing-lg);
+            letter-spacing: 0.04em;
         }
 
         .hero-description {
@@ -376,7 +390,30 @@
            SECTIONS
            ============================================ */
         .section-dark { background-color: var(--color-bg); }
-        .section-light { background-color: var(--color-bg-lighter); }
+        .section-light {
+            background-color: var(--color-bg-lighter);
+            position: relative;
+        }
+
+        /* Soft gradient transitions between sections */
+        .section-light::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom, var(--color-bg), transparent);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .section-light::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 80px;
+            background: linear-gradient(to top, var(--color-bg), transparent);
+            pointer-events: none;
+            z-index: 1;
+        }
 
         .section-title {
             text-align: center;
@@ -572,18 +609,20 @@
            ============================================ */
         .quote-block {
             margin: var(--spacing-xl) 0;
-            padding: var(--spacing-lg);
+            padding: var(--spacing-lg) var(--spacing-xl);
             border-left: 2px solid var(--color-accent);
-            background: rgba(212, 165, 116, 0.05);
+            background: rgba(212, 165, 116, 0.04);
+            position: relative;
         }
 
         .quote-text {
             font-family: var(--font-serif);
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-size: clamp(1.6rem, 3.2vw, 2.4rem);
             font-style: italic;
-            line-height: 1.6;
+            line-height: 1.65;
             color: var(--color-text);
             margin-bottom: var(--spacing-sm);
+            opacity: 0.85;
         }
 
         /* ============================================
@@ -918,9 +957,20 @@
         footer {
             padding: var(--spacing-lg) 0;
             text-align: center;
-            border-top: 1px solid rgba(212, 165, 116, 0.1);
+            border-top: none;
             color: var(--color-text-muted);
             font-size: 0.9rem;
+            position: relative;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(200px, 40%);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.3), transparent);
         }
 
         footer a {
@@ -971,7 +1021,18 @@
         .newsletter-signup {
             margin-bottom: var(--spacing-lg);
             padding-bottom: var(--spacing-lg);
-            border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+            border-bottom: none;
+            position: relative;
+        }
+        .newsletter-signup::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(200px, 40%);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.2), transparent);
         }
         .newsletter-title {
             font-family: var(--font-serif);
@@ -1115,13 +1176,68 @@
         /* Scroll-reveal: Elemente starten unsichtbar */
         .scroll-reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .scroll-reveal.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Staggered card animations */
+        .card-grid .scroll-reveal:nth-child(2) { transition-delay: 0.1s; }
+        .card-grid .scroll-reveal:nth-child(3) { transition-delay: 0.2s; }
+        .features-grid .scroll-reveal:nth-child(2) { transition-delay: 0.1s; }
+        .features-grid .scroll-reveal:nth-child(3) { transition-delay: 0.2s; }
+
+        /* ============================================
+           SECTION DIVIDER (organic)
+           ============================================ */
+        .section-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--spacing-lg) 0;
+            opacity: 0.25;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            max-width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-accent));
+        }
+
+        .section-divider::after {
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+        }
+
+        .section-divider-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            margin: 0 var(--spacing-sm);
+        }
+
+        /* ============================================
+           BREATHING ANIMATION (logo + decorative)
+           ============================================ */
+        @keyframes breathe {
+            0%, 100% { opacity: 0.85; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
+        }
+
+        .hero-image-wrapper {
+            animation: breathe 6s ease-in-out infinite;
+        }
+
+        nav .logo .logo-icon {
+            animation: breathe 5s ease-in-out infinite;
         }
 
         /* ============================================
@@ -1140,6 +1256,11 @@
             }
 
             .page-content.active {
+                animation: none;
+            }
+
+            .hero-image-wrapper,
+            nav .logo .logo-icon {
                 animation: none;
             }
         }
@@ -1718,49 +1839,40 @@
             z-index: 90;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            padding: 0.9rem 1.5rem;
-            background: var(--color-accent);
-            color: var(--color-bg);
+            gap: 0.5rem;
+            padding: 0.75rem 1.4rem;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 165, 116, 0.25);
+            color: var(--color-accent);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.03em;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
             border-radius: 50px;
-            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.4);
             transition: all 0.3s ease;
-            animation: floatingPulse 3s ease-in-out infinite;
         }
 
         .floating-cta:hover {
-            background: var(--color-accent-dark);
+            background: rgba(212, 165, 116, 0.12);
+            border-color: rgba(212, 165, 116, 0.5);
             transform: translateY(-2px);
-            box-shadow: 0 6px 28px rgba(212, 165, 116, 0.5);
-            animation: none;
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.15);
         }
 
         .floating-cta-icon {
-            font-size: 1.2rem;
+            font-size: 1rem;
             line-height: 1;
-        }
-
-        @keyframes floatingPulse {
-            0%, 100% { box-shadow: 0 4px 20px rgba(212, 165, 116, 0.4); }
-            50% { box-shadow: 0 4px 30px rgba(212, 165, 116, 0.6); }
+            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
             .floating-cta {
                 bottom: 1rem;
                 right: 1rem;
-                padding: 0.75rem 1.2rem;
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .floating-cta {
-                animation: none;
+                padding: 0.6rem 1.1rem;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -1784,9 +1896,9 @@
     </div>
 
     <!-- Floating CTA Button: Einzelunterricht buchen -->
-    <a href="#einzelunterricht" class="floating-cta" aria-label="Einzelunterricht buchen">
-        <span class="floating-cta-icon">🎵</span>
-        Stunde buchen
+    <a href="#dabei-sein" class="floating-cta" aria-label="Gespräch beginnen">
+        <span class="floating-cta-icon">✦</span>
+        Gespräch beginnen
     </a>
 
     <!-- Skip Navigation Link -->
@@ -1858,6 +1970,8 @@
                 </div>
             </div>
         </section>
+
+        <div class="section-divider"><div class="section-divider-dot"></div></div>
 
         <!-- WEGFINDER QUIZ -->
         <section class="quiz-section" id="wegfinder">
@@ -1985,6 +2099,8 @@
             </div>
         </section>
 
+        <div class="section-divider"><div class="section-divider-dot"></div></div>
+
         <!-- Was hier geschieht -->
         <section class="section-light">
             <div class="container-narrow">
@@ -2035,6 +2151,8 @@
                 </p>
             </div>
         </section>
+
+        <div class="section-divider"><div class="section-divider-dot"></div></div>
 
         <!-- Einladung -->
         <section class="section-dark">
@@ -4729,7 +4847,7 @@
         // ============================================
         document.addEventListener('DOMContentLoaded', function() {
             // Add scroll-reveal class to elements that should animate
-            const selectors = '.card, .feature, .feature-card, .quote-block, .highlight-box, .timeline-item, .price-box, .contact-info, .comparison-column';
+            const selectors = '.card, .feature, .feature-card, .quote-block, .highlight-box, .timeline-item, .price-box, .contact-info, .comparison-column, .section-title, .section-intro, .section-divider, .faq-item, .phase, .detail-meta-bar';
             document.querySelectorAll(selectors).forEach(el => {
                 el.classList.add('scroll-reveal');
             });
@@ -4745,8 +4863,8 @@
                     }
                 });
             }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -40px 0px'
+                threshold: 0.08,
+                rootMargin: '0px 0px -60px 0px'
             });
 
             document.querySelectorAll('.scroll-reveal').forEach(el => {
