@@ -1154,6 +1154,16 @@
             background: var(--color-accent);
         }
 
+        .quiz-teaser {
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+        .quiz-teaser p {
+            color: var(--color-text-muted);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-lg);
+        }
+
         .quiz-container {
             max-width: 700px;
             margin: 0 auto;
@@ -1308,6 +1318,14 @@
 
         .quiz-result-card:hover {
             border-color: rgba(212, 165, 116, 0.3);
+            transform: translateY(-2px);
+        }
+
+        a.quiz-result-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
         }
 
         .quiz-result-card.primary {
@@ -1796,6 +1814,18 @@
         <!-- WEGFINDER QUIZ -->
         <section class="quiz-section" id="wegfinder">
             <div class="container">
+
+                <!-- Quiz Teaser (kompakt, initial sichtbar) -->
+                <div class="quiz-teaser" id="quiz-teaser">
+                    <div class="quiz-header-icon">🧭</div>
+                    <h2 class="section-title" style="margin-bottom: var(--spacing-xs);">Finde deinen Weg</h2>
+                    <p>Welches Programm passt zu dir? Finde es in 4 kurzen Fragen heraus.</p>
+                    <button class="cta" onclick="startQuiz()">Quiz starten</button>
+                </div>
+
+                <!-- Quiz Container (versteckt bis Klick) -->
+                <div class="quiz-container" id="quiz-container" style="display: none;">
+
                 <div class="quiz-header">
                     <div class="quiz-header-icon">🧭</div>
                     <h2 class="section-title" style="margin-bottom: var(--spacing-xs);">Finde deinen Weg</h2>
@@ -1803,8 +1833,6 @@
                         Beantworte 4 kurze Fragen und erfahre, welches Programm am besten zu dir passt.
                     </p>
                 </div>
-
-                <div class="quiz-container">
 
                 <!-- Progress Dots -->
                 <div class="quiz-progress">
@@ -4465,6 +4493,9 @@
                     const data = JSON.parse(savedQuiz);
                     quizAnswers = data.answers || {};
                     if (data.primary) {
+                        // Hide teaser, show quiz container with result
+                        document.getElementById('quiz-teaser').style.display = 'none';
+                        document.getElementById('quiz-container').style.display = 'block';
                         // Show result step instead of step 1
                         const result = calculateRecommendation();
                         const resultContainer = document.getElementById('quiz-result');
@@ -4652,6 +4683,11 @@
         let currentStep = 1;
         const totalSteps = 4;
 
+        function startQuiz() {
+            document.getElementById('quiz-teaser').style.display = 'none';
+            document.getElementById('quiz-container').style.display = 'block';
+        }
+
         function selectOption(element) {
             // Remove selected class from siblings
             const options = element.parentElement.querySelectorAll('.quiz-option');
@@ -4796,31 +4832,36 @@
                     name: 'Rhythmus Fundament',
                     tag: '6 Wochen • 179 €',
                     desc: 'Der ideale Einstieg, um ein solides rhythmisches Fundament aufzubauen. Puls, Subdivisions, Handsatz – die Grundlagen, die alles andere ermöglichen.',
-                    icon: '🎯'
+                    icon: '🎯',
+                    href: '#rhythmus-fundament'
                 },
                 'path': {
                     name: 'The Handpan Path',
                     tag: '6 Monate • Hybrid',
                     desc: 'Die transformative Reise für alle, die ihren eigenen Stil entwickeln und tiefer in die Musik eintauchen wollen. 36 intensive Sessions.',
-                    icon: '🌟'
+                    icon: '🌟',
+                    href: '#handpan-path'
                 },
                 'mentoring': {
                     name: 'Mentoring',
                     tag: '1:1 • 149 €',
                     desc: 'Individuelle Begleitung für deine spezifischen Fragen und Blockaden. Persönlich und auf deine Situation zugeschnitten.',
-                    icon: '🤝'
+                    icon: '🤝',
+                    href: '#mentoring'
                 },
                 'retreat': {
                     name: 'Retreat',
                     tag: '3-4 Tage • Live',
                     desc: 'Intensives Eintauchen in natürlicher Umgebung. Tiefe Praxis, Durchbrüche und gemeinschaftliches Musizieren.',
-                    icon: '🏔️'
+                    icon: '🏔️',
+                    href: '#retreats'
                 },
                 'community': {
                     name: 'Community',
                     tag: 'Kostenfrei',
                     desc: 'Verbinde dich mit Gleichgesinnten, tausche dich aus und wachse im Dialog. Der perfekte Einstieg ohne Risiko.',
-                    icon: '👥'
+                    icon: '👥',
+                    href: '#community'
                 }
             };
             
@@ -4834,26 +4875,24 @@
                 <p class="quiz-result-subtitle">Unsere Empfehlung für dich als ${levelName}</p>
                 
                 <div class="quiz-result-cards">
-                    <div class="quiz-result-card primary">
+                    <a class="quiz-result-card primary" href="${p.href}">
                         <span class="tag">✨ Beste Empfehlung • ${p.tag}</span>
                         <h4>${p.name}</h4>
                         <p>${p.desc}</p>
-                    </div>
-                    <div class="quiz-result-card secondary">
+                    </a>
+                    <a class="quiz-result-card secondary" href="${s.href}">
                         <span class="tag">Auch passend • ${s.tag}</span>
                         <h4>${s.name}</h4>
                         <p>${s.desc}</p>
-                    </div>
-                    <div class="quiz-result-card tertiary">
+                    </a>
+                    <a class="quiz-result-card tertiary" href="${t.href}">
                         <span class="tag">Könnte dich auch interessieren • ${t.tag}</span>
                         <h4>${t.name}</h4>
                         <p>${t.desc}</p>
-                    </div>
+                    </a>
                 </div>
-                
-                <a class="cta" href="#dabei-sein" style="margin-top: var(--spacing-lg);">Jetzt loslegen</a>
-                <br>
-                <button class="quiz-restart" onclick="restartQuiz()">Quiz wiederholen</button>
+
+                <button class="quiz-restart" onclick="restartQuiz()" style="margin-top: var(--spacing-lg);">Quiz wiederholen</button>
             `;
             
             return { html, primary, secondary, tertiary };
@@ -4863,17 +4902,21 @@
             quizAnswers = {};
             currentStep = 1;
             localStorage.removeItem('quiz-result');
-            
+
+            // Show teaser, hide quiz container
+            document.getElementById('quiz-teaser').style.display = '';
+            document.getElementById('quiz-container').style.display = 'none';
+
             // Reset all steps
             document.querySelectorAll('.quiz-step').forEach(step => step.classList.remove('active'));
             document.querySelector('.quiz-step[data-step="1"]').classList.add('active');
-            
+
             // Reset progress dots
             document.querySelectorAll('.quiz-progress-dot').forEach(dot => {
                 dot.classList.remove('active', 'completed');
             });
             document.querySelector('.quiz-progress-dot[data-step="1"]').classList.add('active');
-            
+
             // Reset selected options
             document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
         }
