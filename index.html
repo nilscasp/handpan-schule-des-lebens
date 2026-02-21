@@ -4484,9 +4484,9 @@
             <div class="newsletter-signup">
                 <p class="newsletter-title">Newsletter</p>
                 <p class="newsletter-text">Impulse zu Handpan, Bewusstsein und Community – direkt in dein Postfach.</p>
-                <form class="newsletter-form" id="newsletter-form" action="https://f66d0849.sibforms.com/serve/MUIFAPN93eg9WYcR1uagT5e_vpt7UOB0rjpcvfBZgp-k67OFuWwlmQi--ebh7daQQiSQjQs6GKwVvJO30hnAaYDlq_h6seRaVtLssYLf5GGn1L7czO_WT_w2E_6FeM7ovMOeAcizqv0Vt7NPuXmYQFxsGbX11iJPhQr8OOCf4EjIDs1OQPGaFJ76hna2ksP3UxaZTHpbHMQbDc9M" method="POST" target="newsletter-iframe">
+                <form class="newsletter-form" id="newsletter-form">
                     <div class="newsletter-input-group">
-                        <input type="email" name="EMAIL" placeholder="Deine E-Mail-Adresse" required>
+                        <input type="email" name="EMAIL" id="newsletter-email" placeholder="Deine E-Mail-Adresse" required>
                         <button type="submit">Anmelden</button>
                     </div>
                     <input type="text" name="email_address_check" value="" style="display:none !important;">
@@ -4495,7 +4495,6 @@
                 <p class="newsletter-success" id="newsletter-success" style="display:none; color: var(--color-accent); margin-top: var(--spacing-sm); font-size: 0.95rem;">
                     ✓ Vielen Dank! Bitte bestätige deine Anmeldung in deinem Postfach.
                 </p>
-                <iframe name="newsletter-iframe" style="display:none !important;"></iframe>
             </div>
             <p>&copy; 2026 Handpan Schule des Lebens | Nils Böhm</p>
             <p style="margin-top: var(--spacing-xs);">
@@ -5280,27 +5279,28 @@
         });
     </script>
 
-    <!-- Newsletter: Inline-Submit ohne Redirect -->
+    <!-- Newsletter: Inline-Submit via fetch -->
     <script>
-        document.getElementById('newsletter-form').addEventListener('submit', function() {
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
             var form = this;
-            var success = document.getElementById('newsletter-success');
-            setTimeout(function() {
+            var formData = new FormData(form);
+            var btn = form.querySelector('button');
+            btn.textContent = '...';
+            btn.disabled = true;
+
+            fetch('https://f66d0849.sibforms.com/serve/MUIFAPN93eg9WYcR1uagT5e_vpt7UOB0rjpcvfBZgp-k67OFuWwlmQi--ebh7daQQiSQjQs6GKwVvJO30hnAaYDlq_h6seRaVtLssYLf5GGn1L7czO_WT_w2E_6FeM7ovMOeAcizqv0Vt7NPuXmYQFxsGbX11iJPhQr8OOCf4EjIDs1OQPGaFJ76hna2ksP3UxaZTHpbHMQbDc9M', {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).then(function() {
                 form.style.display = 'none';
-                success.style.display = '';
-            }, 300);
+                document.getElementById('newsletter-success').style.display = '';
+            }).catch(function() {
+                form.style.display = 'none';
+                document.getElementById('newsletter-success').style.display = '';
+            });
         });
     </script>
-
-    <!-- Brevo Newsletter Form -->
-    <script>
-        window.REQUIRED_CODE_ERROR_MESSAGE = 'Wähle bitte einen Ländervorwahl aus.';
-        window.LOCALE = 'de';
-        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
-        window.REQUIRED_ERROR_MESSAGE = "Dieses Feld darf nicht leer sein.";
-        window.GENERIC_INVALID_MESSAGE = "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
-        var AUTOHIDE = Boolean(0);
-    </script>
-    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
