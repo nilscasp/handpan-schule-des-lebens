@@ -4692,6 +4692,7 @@
         function startQuiz() {
             document.getElementById('quiz-teaser').style.display = 'none';
             document.getElementById('quiz-container').style.display = 'block';
+            if (window.gtag) gtag('event', 'quiz_started');
         }
 
         function selectOption(element) {
@@ -4756,6 +4757,19 @@
                     date: new Date().toISOString()
                 }));
             } catch(e) {}
+
+            // GA4 Event: Quiz abgeschlossen mit allen Antworten + Empfehlungen
+            if (window.gtag) {
+                gtag('event', 'quiz_completed', {
+                    quiz_level: quizAnswers['1'],
+                    quiz_challenge: quizAnswers['2'],
+                    quiz_style: quizAnswers['3'],
+                    quiz_goal: quizAnswers['4'],
+                    quiz_primary: result.primary,
+                    quiz_secondary: result.secondary,
+                    quiz_tertiary: result.tertiary
+                });
+            }
         }
 
         function calculateRecommendation() {
@@ -4881,17 +4895,17 @@
                 <p class="quiz-result-subtitle">Unsere Empfehlung für dich als ${levelName}</p>
                 
                 <div class="quiz-result-cards">
-                    <a class="quiz-result-card primary" href="${p.href}">
+                    <a class="quiz-result-card primary" href="${p.href}" onclick="trackQuizClick('${primary}', 'primary')">
                         <span class="tag">✨ Beste Empfehlung • ${p.tag}</span>
                         <h4>${p.name}</h4>
                         <p>${p.desc}</p>
                     </a>
-                    <a class="quiz-result-card secondary" href="${s.href}">
+                    <a class="quiz-result-card secondary" href="${s.href}" onclick="trackQuizClick('${secondary}', 'secondary')">
                         <span class="tag">Auch passend • ${s.tag}</span>
                         <h4>${s.name}</h4>
                         <p>${s.desc}</p>
                     </a>
-                    <a class="quiz-result-card tertiary" href="${t.href}">
+                    <a class="quiz-result-card tertiary" href="${t.href}" onclick="trackQuizClick('${tertiary}', 'tertiary')">
                         <span class="tag">Könnte dich auch interessieren • ${t.tag}</span>
                         <h4>${t.name}</h4>
                         <p>${t.desc}</p>
@@ -4902,6 +4916,15 @@
             `;
             
             return { html, primary, secondary, tertiary };
+        }
+
+        function trackQuizClick(program, rank) {
+            if (window.gtag) {
+                gtag('event', 'quiz_recommendation_click', {
+                    quiz_program: program,
+                    quiz_rank: rank
+                });
+            }
         }
 
         function restartQuiz() {
