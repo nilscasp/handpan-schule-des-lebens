@@ -928,32 +928,44 @@
             text-decoration: none;
         }
 
-        .lang-switch {
+        .lang-badge {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 90;
             display: flex;
             align-items: center;
             gap: 0.4rem;
-            margin-left: var(--spacing-sm);
-        }
-        .lang-switch a {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            padding: 0.55rem 1rem;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50px;
             color: var(--color-text-muted);
-            opacity: 0.5;
             text-decoration: none;
-            padding: 4px 6px;
-        }
-        .lang-switch a.active {
-            color: var(--color-accent);
-            opacity: 1;
-        }
-        .lang-switch a:hover {
-            opacity: 0.8;
-        }
-        .lang-switch .lang-divider {
-            color: var(--color-text-muted);
-            opacity: 0.3;
             font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .lang-badge:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(212, 165, 116, 0.3);
+            color: var(--color-accent);
+        }
+        .lang-badge-icon {
+            font-size: 0.95rem;
+            line-height: 1;
+        }
+        @media (max-width: 768px) {
+            .lang-badge {
+                bottom: 1rem;
+                left: 1rem;
+                padding: 0.45rem 0.85rem;
+                font-size: 0.75rem;
+            }
         }
 
         .newsletter-signup {
@@ -1798,7 +1810,6 @@
                 <li><a href="#instrumente" class="nav-link">Instrumente</a></li>
                 <li><a href="#community" class="nav-link">Community</a></li>
                 <li><a href="#dabei-sein" class="nav-link">Dabei sein</a></li>
-                <li class="lang-switch"><a href="/" class="active">DE</a><span class="lang-divider">|</span><a href="/en/">EN</a></li>
             </ul>
         </div>
     </nav>
@@ -5333,5 +5344,9 @@
             });
         });
     </script>
+
+    <a href="/en/" class="lang-badge" title="Switch to English">
+        <span class="lang-badge-icon">🌐</span> EN
+    </a>
 </body>
 </html>
