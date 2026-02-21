@@ -4484,7 +4484,7 @@
             <div class="newsletter-signup">
                 <p class="newsletter-title">Newsletter</p>
                 <p class="newsletter-text">Impulse zu Handpan, Bewusstsein und Community – direkt in dein Postfach.</p>
-                <form class="newsletter-form" action="https://f66d0849.sibforms.com/serve/MUIFAPN93eg9WYcR1uagT5e_vpt7UOB0rjpcvfBZgp-k67OFuWwlmQi--ebh7daQQiSQjQs6GKwVvJO30hnAaYDlq_h6seRaVtLssYLf5GGn1L7czO_WT_w2E_6FeM7ovMOeAcizqv0Vt7NPuXmYQFxsGbX11iJPhQr8OOCf4EjIDs1OQPGaFJ76hna2ksP3UxaZTHpbHMQbDc9M" method="POST">
+                <form class="newsletter-form" id="newsletter-form" action="https://f66d0849.sibforms.com/serve/MUIFAPN93eg9WYcR1uagT5e_vpt7UOB0rjpcvfBZgp-k67OFuWwlmQi--ebh7daQQiSQjQs6GKwVvJO30hnAaYDlq_h6seRaVtLssYLf5GGn1L7czO_WT_w2E_6FeM7ovMOeAcizqv0Vt7NPuXmYQFxsGbX11iJPhQr8OOCf4EjIDs1OQPGaFJ76hna2ksP3UxaZTHpbHMQbDc9M" method="POST" target="newsletter-iframe">
                     <div class="newsletter-input-group">
                         <input type="email" name="EMAIL" placeholder="Deine E-Mail-Adresse" required>
                         <button type="submit">Anmelden</button>
@@ -4492,6 +4492,10 @@
                     <input type="text" name="email_address_check" value="" style="display:none !important;">
                     <input type="hidden" name="locale" value="de">
                 </form>
+                <p class="newsletter-success" id="newsletter-success" style="display:none; color: var(--color-accent); margin-top: var(--spacing-sm); font-size: 0.95rem;">
+                    ✓ Vielen Dank! Bitte bestätige deine Anmeldung in deinem Postfach.
+                </p>
+                <iframe name="newsletter-iframe" style="display:none !important;"></iframe>
             </div>
             <p>&copy; 2026 Handpan Schule des Lebens | Nils Böhm</p>
             <p style="margin-top: var(--spacing-xs);">
@@ -5273,6 +5277,18 @@
                 loadGoogleAnalytics();
             }
             // If 'decline' → do nothing, no analytics
+        });
+    </script>
+
+    <!-- Newsletter: Inline-Submit ohne Redirect -->
+    <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function() {
+            var form = this;
+            var success = document.getElementById('newsletter-success');
+            setTimeout(function() {
+                form.style.display = 'none';
+                success.style.display = '';
+            }, 300);
         });
     </script>
 
