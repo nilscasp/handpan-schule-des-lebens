@@ -839,28 +839,47 @@
            QUICK NAVIGATION
            ============================================ */
         .quick-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
-            justify-content: center;
-            margin-top: var(--spacing-md);
+            max-width: 360px;
+            margin: var(--spacing-md) auto 0;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            list-style: none;
+            padding: 0;
         }
 
         .quick-nav-link {
-            display: inline-block;
-            padding: 0.6rem 1.2rem;
-            background: rgba(212, 165, 116, 0.1);
-            border: 1px solid rgba(212, 165, 116, 0.3);
-            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.2rem;
+            color: var(--color-text-muted);
             text-decoration: none;
             font-size: 0.9rem;
-            border-radius: 2px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
         }
 
+        .quick-nav-link:last-child {
+            border-bottom: none;
+        }
+
+        .quick-nav-link .nav-arrow {
+            color: var(--color-accent);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
         .quick-nav-link:hover {
-            background: var(--color-accent);
-            color: var(--color-bg);
+            background: rgba(212, 165, 116, 0.08);
+            color: var(--color-text);
+        }
+
+        .quick-nav-link:hover .nav-arrow {
+            transform: translateX(3px);
         }
 
         .feature {
@@ -2696,12 +2715,12 @@
                 <p class="section-intro" style="font-size: 1.2rem; margin-bottom: var(--spacing-md);">
                     Struktur, die Freiheit ermöglicht. Jeder Weg ist so gestaltet, dass er dich zu deinem eigenen Ausdruck führt.
                 </p>
-                <div class="quick-nav">
-                    <a href="#angebote" class="quick-nav-link" onclick="scrollToSection('angebote', event)">→ Direkt zu den Angeboten</a>
-                    <a href="#unser-ansatz" class="quick-nav-link" onclick="scrollToSection('unser-ansatz', event)">→ Unser Ansatz</a>
-                    <a href="#vier-schluessel" class="quick-nav-link" onclick="scrollToSection('vier-schluessel', event)">→ Die vier Schlüssel</a>
-                    <a href="#produktleiter" class="quick-nav-link" onclick="scrollToSection('produktleiter', event)">→ Der Weg zum Meister</a>
-                </div>
+                <nav class="quick-nav" aria-label="Seitennavigation">
+                    <a href="#angebote" class="quick-nav-link" onclick="scrollToSection('angebote', event)"><span class="nav-arrow">→</span> Direkt zu den Angeboten</a>
+                    <a href="#unser-ansatz" class="quick-nav-link" onclick="scrollToSection('unser-ansatz', event)"><span class="nav-arrow">→</span> Unser Ansatz</a>
+                    <a href="#vier-schluessel" class="quick-nav-link" onclick="scrollToSection('vier-schluessel', event)"><span class="nav-arrow">→</span> Die vier Schlüssel</a>
+                    <a href="#produktleiter" class="quick-nav-link" onclick="scrollToSection('produktleiter', event)"><span class="nav-arrow">→</span> Der Weg zum Meister</a>
+                </nav>
             </div>
         </section>
 
