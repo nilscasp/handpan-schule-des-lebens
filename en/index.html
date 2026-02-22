@@ -1246,6 +1246,109 @@
         }
 
         /* ============================================
+           BILDER
+           ============================================ */
+        .section-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .section-image-short {
+            max-height: 300px;
+        }
+
+        .portrait-round {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto var(--spacing-md);
+            display: block;
+            border: 2px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .hero-bg {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .hero-bg .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 14, 20, 0.8) 0%,
+                rgba(10, 14, 20, 0.6) 50%,
+                rgba(10, 14, 20, 0.85) 100%
+            );
+            z-index: 0;
+        }
+
+        .hero-bg > :not(.bg-overlay) {
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-bg {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .quote-bg > .quote-text,
+        .quote-bg > .quote-author {
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 14, 20, 0.85);
+            z-index: 0;
+        }
+
+        .newsletter-bg {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .newsletter-bg > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 14, 20, 0.92),
+                rgba(10, 14, 20, 0.85)
+            );
+            z-index: 0;
+            border-radius: inherit;
+        }
+
+        @media (max-width: 768px) {
+            .section-image {
+                max-height: 250px;
+            }
+            .portrait-round {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        /* ============================================
            BREATHING ANIMATION (logo + decorative)
            ============================================ */
         @keyframes breathe {
@@ -1958,7 +2061,8 @@
     <main id="main-content">
     <div id="page-home" class="page-content active">
 
-        <section class="hero">
+        <section class="hero hero-bg" style="background-image: url('../images/optimized/hero-sonnenuntergang.webp');">
+            <div class="bg-overlay"></div>
             <div class="hero-content container-narrow">
                 <h1>Handpan Schule des Lebens</h1>
                 <p class="hero-subtitle">A Path to Deep Inner Presence</p>
@@ -2132,6 +2236,7 @@
                     It is a space of encounter – with sound, with yourself,
                     with what seeks expression through you.
                 </p>
+                <img src="../images/optimized/natur-wurzeln-pfad.webp" alt="Tree roots and stone path in the forest – a path of encounter" class="section-image section-image-short" loading="lazy">
             </div>
         </section>
 
@@ -2165,7 +2270,7 @@
         <!-- Zitat -->
         <section class="section-light">
             <div class="container-narrow">
-                <blockquote class="quote-block">
+                <blockquote class="quote-block quote-bg" style="background-image: url('../images/optimized/natur-waldlicht.webp');">
                     <p class="quote-text">"The greatest mistake is to forget yourself. Most will never remember."</p>
                 </blockquote>
                 <p class="text-center" style="color: var(--color-text-muted); margin-top: var(--spacing-md);">
@@ -2196,6 +2301,12 @@
             <div class="hero-content container-narrow">
                 <h1>Philosophy</h1>
                 <p class="hero-subtitle">The Art of Seeing Life as a Work of Art</p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <img src="../images/optimized/spielszene-see-profil.webp" alt="Handpan player by the lake – profile in meditative mood" class="section-image" loading="lazy">
             </div>
         </section>
 
@@ -3720,6 +3831,12 @@
             </div>
         </section>
 
+        <section class="section-dark">
+            <div class="container-narrow">
+                <img src="../images/optimized/portrait-handpan.webp" alt="Portrait with handpan – Nils Böhm as mentor" class="section-image" loading="lazy">
+            </div>
+        </section>
+
         <!-- Section 2: Meta + Intro -->
         <section class="section-light">
             <div class="container-narrow">
@@ -3878,6 +3995,12 @@
                 <a href="#programm" class="detail-back">← Back to Programs</a>
                 <h1>Private Lessons</h1>
                 <p class="hero-subtitle">Learn handpan – personal and individual</p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <img src="../images/optimized/spielszene-haende-sw.webp" alt="Hands on the handpan – black and white playing scene" class="section-image" loading="lazy">
             </div>
         </section>
 
@@ -4049,6 +4172,7 @@
 
         <section class="section-light">
             <div class="container-narrow">
+                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Böhm – Founder of Handpan Schule des Lebens" class="portrait-round" loading="lazy">
                 <p class="section-intro" style="font-size: 1.2rem;">
                     Behind the Handpan Schule des Lebens are experienced musicians and percussionists
                     who share their passion for the handpan and teaching.
@@ -4415,6 +4539,12 @@
             </div>
         </section>
 
+        <section class="section-dark">
+            <div class="container-narrow">
+                <img src="../images/optimized/handpan-makro.webp" alt="Handpan macro shot – tone field detail" class="section-image" loading="lazy">
+            </div>
+        </section>
+
         <section class="section-light">
             <div class="container-narrow">
                 <h2 class="section-title">Why Quality Matters</h2>
@@ -4663,7 +4793,7 @@
          ============================================ -->
     <footer>
         <div class="container">
-            <div class="newsletter-signup">
+            <div class="newsletter-signup newsletter-bg" style="background-image: url('../images/optimized/natur-graeser-gold.webp');">
                 <p class="newsletter-title">Newsletter</p>
                 <p class="newsletter-text">Insights on handpan, awareness and community – straight to your inbox.</p>
                 <form class="newsletter-form" id="newsletter-form">
