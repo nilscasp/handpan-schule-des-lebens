@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seite nicht gefunden – Handpan Schule des Lebens</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0A0E14">
+    <link rel="icon" type="image/png" href="handpan%20schule%20des%20Lebens%20Logo%20klein.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --color-bg: #0A0E14;
+            --color-bg-lighter: #141922;
+            --color-text: #E8E6E3;
+            --color-text-muted: #A0A0A0;
+            --color-accent: #D4A574;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.85;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Grain texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.028;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            transition: opacity 0.3s ease;
+        }
+        .logo-link:hover { opacity: 0.8; }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: var(--color-accent);
+        }
+
+        .error-code {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-weight: 400;
+            color: var(--color-accent);
+            opacity: 0.15;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        p {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            max-width: 440px;
+            margin-bottom: 2.5rem;
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 165, 116, 0.25);
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .home-link:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(212, 165, 116, 0.5);
+        }
+
+        /* Lang badge */
+        .lang-badge {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 90;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.55rem 1rem;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50px;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .lang-badge:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(212, 165, 116, 0.3);
+            color: var(--color-accent);
+        }
+        .lang-badge-icon {
+            font-size: 0.95rem;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .lang-badge {
+                bottom: 1rem;
+                left: 1rem;
+                padding: 0.45rem 0.85rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="logo-link">
+        <img src="handpan%20schule%20des%20Lebens%20Logo%20klein.png" alt="Handpan Schule des Lebens Logo" class="logo-icon">
+        <span class="logo-text">Handpan Schule des Lebens</span>
+    </a>
+
+    <div class="error-code">404</div>
+    <h1>Diese Seite gibt es nicht</h1>
+    <p>Vielleicht hat sich der Weg verändert – aber die Musik spielt weiter. Finde zurück zur Startseite.</p>
+    <a href="/" class="home-link">Zur Startseite</a>
+
+    <a href="/en/" class="lang-badge" title="Switch to English">
+        <span class="lang-badge-icon">🌐</span> EN
+    </a>
+</body>
+</html>
