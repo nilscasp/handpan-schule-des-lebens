@@ -1293,6 +1293,95 @@
             transform: translateX(3px);
         }
 
+        .feature-grid--cross {
+            position: relative;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .feature-grid--cross::before,
+        .feature-grid--cross::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Vertical beam */
+        .feature-grid--cross::before {
+            left: 50%;
+            top: 8%;
+            bottom: 8%;
+            width: 1px;
+            transform: translateX(-50%);
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(212, 165, 116, 0.08) 15%,
+                rgba(212, 165, 116, 0.25) 50%,
+                rgba(212, 165, 116, 0.08) 85%,
+                transparent
+            );
+            box-shadow:
+                0 0 15px 4px rgba(212, 165, 116, 0.06),
+                0 0 40px 8px rgba(212, 165, 116, 0.03);
+        }
+
+        /* Horizontal beam */
+        .feature-grid--cross::after {
+            top: 50%;
+            left: 8%;
+            right: 8%;
+            height: 1px;
+            transform: translateY(-50%);
+            background: linear-gradient(
+                to right,
+                transparent,
+                rgba(212, 165, 116, 0.08) 15%,
+                rgba(212, 165, 116, 0.25) 50%,
+                rgba(212, 165, 116, 0.08) 85%,
+                transparent
+            );
+            box-shadow:
+                0 0 15px 4px rgba(212, 165, 116, 0.06),
+                0 0 40px 8px rgba(212, 165, 116, 0.03);
+        }
+
+        /* Center glow at intersection */
+        .feature-grid--cross-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(212, 165, 116, 0.12) 0%,
+                rgba(212, 165, 116, 0.04) 40%,
+                transparent 70%
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .feature-grid--cross .feature {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 600px) {
+            .feature-grid--cross {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid--cross::before,
+            .feature-grid--cross::after,
+            .feature-grid--cross-glow {
+                display: none;
+            }
+        }
+
         .feature {
             padding: var(--spacing-md);
             background: rgba(255, 255, 255, 0.02);
@@ -2688,7 +2777,8 @@
         <section class="section-dark">
             <div class="container-narrow">
                 <h2 class="section-title">Unsere Prinzipien</h2>
-                <div class="feature-grid">
+                <div class="feature-grid feature-grid--cross">
+                    <div class="feature-grid--cross-glow"></div>
                     <div class="feature">
                         <h4>Struktur + Freiheit</h4>
                         <p>Klare Wege, die Raum für deinen eigenen Ausdruck lassen.</p>
