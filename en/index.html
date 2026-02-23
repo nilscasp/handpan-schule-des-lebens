@@ -927,6 +927,231 @@
         }
 
         /* ============================================
+           DREYFUS MODEL / ENTWICKLUNGSWEG
+           ============================================ */
+        .dreyfus-intro {
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .dreyfus-intro strong {
+            color: var(--color-text);
+        }
+
+        .dreyfus-principles {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-md) 0;
+        }
+
+        .dreyfus-principles li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+        }
+
+        .dreyfus-principles li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            opacity: 0.6;
+        }
+
+        .dreyfus-principles li strong {
+            color: var(--color-text);
+        }
+
+        .dreyfus-compass {
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            margin-top: var(--spacing-md);
+            font-style: italic;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .level-card {
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            border-radius: 2px;
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            transition: border-color 0.3s ease;
+        }
+
+        .level-card:hover {
+            border-color: rgba(212, 165, 116, 0.25);
+        }
+
+        .level-card__header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .level-card__number {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--color-accent);
+            opacity: 0.4;
+            line-height: 1;
+        }
+
+        .level-card__title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--color-text);
+            font-weight: 400;
+        }
+
+        .level-card__subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-accent);
+            opacity: 0.7;
+            margin-bottom: var(--spacing-sm);
+            padding-left: 3.5rem;
+        }
+
+        .level-card__body {
+            display: grid;
+            gap: 1.2rem;
+            margin-top: var(--spacing-sm);
+        }
+
+        .level-card__aspect {
+            padding-left: 1rem;
+            border-left: 2px solid rgba(212, 165, 116, 0.15);
+        }
+
+        .level-card__aspect-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            opacity: 0.6;
+            margin-bottom: 0.3rem;
+        }
+
+        .level-card__aspect p {
+            color: var(--color-text-muted);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .self-check {
+            margin-top: 1rem;
+        }
+
+        .self-check__title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
+            margin-bottom: 0.6rem;
+            opacity: 0.7;
+        }
+
+        .self-check__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .self-check__list li {
+            position: relative;
+            padding-left: 1.6rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .self-check__list li::before {
+            content: '○';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            opacity: 0.5;
+        }
+
+        .dev-overview {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--spacing-md);
+        }
+
+        .dev-overview th {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            opacity: 0.7;
+            text-align: left;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+            font-weight: 400;
+        }
+
+        .dev-overview td {
+            padding: 0.7rem 1rem;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            line-height: 1.5;
+        }
+
+        .dev-overview tr:hover td {
+            color: var(--color-text);
+        }
+
+        .dev-overview td:first-child {
+            color: var(--color-text);
+            font-family: var(--font-serif);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .level-card {
+                padding: var(--spacing-md);
+            }
+
+            .level-card__header {
+                gap: 0.6rem;
+            }
+
+            .level-card__number {
+                font-size: 1.5rem;
+            }
+
+            .level-card__title {
+                font-size: 1.2rem;
+            }
+
+            .level-card__subtitle {
+                padding-left: 2.5rem;
+            }
+
+            .dev-overview {
+                font-size: 0.8rem;
+            }
+
+            .dev-overview th,
+            .dev-overview td {
+                padding: 0.5rem 0.5rem;
+            }
+        }
+
+        /* ============================================
            PREISBOX
            ============================================ */
         .price-box {
@@ -3005,35 +3230,241 @@
             </div>
         </section>
 
-        <!-- Der Entwicklungsweg -->
+        <!-- The Alchemy of Learning – Dreyfus Model -->
         <section class="section-light">
             <div class="container-narrow">
-                <h2 class="section-title">The Development Path</h2>
-                <p class="section-intro">
-                    From the first touch to mastery – every stage has its own value.
-                </p>
+                <h2 class="section-title">The Alchemy of Learning</h2>
+                <p class="section-intro">The Dreyfus Model</p>
 
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h4>Novice</h4>
-                        <p>The first encounter with the instrument. This is about discovery, curiosity, and getting to know the fundamental world of sound.</p>
+                <p class="dreyfus-intro">
+                    The model developed by brothers Stuart and Hubert Dreyfus is far more than a simple learning scale; it is a description of human consciousness development in contact with a skill. The central insight: <strong>True mastery does not arise from merely accumulating more knowledge or technical perfection, but through a radical qualitative shift in perception.</strong>
+                </p>
+                <p class="dreyfus-intro">
+                    At the Handpan Schule des Lebens, we view learning the instrument as an alchemical process. While we initially depend on explicit rules and isolated information, we move step by step toward intuitive action. The rules are not forgotten — they become incorporated, so deeply embedded that they become part of our intuition.
+                </p>
+                <p class="dreyfus-intro">
+                    This path is inseparably connected with your personal and psychological development:
+                </p>
+                <ul class="dreyfus-principles">
+                    <li><strong>From thinking to feeling:</strong> You learn to use the analytical mind where it helps, and to let go where it blocks the flow of music.</li>
+                    <li><strong>From separation to unity:</strong> The handpan transforms from an object out there into an extension of your own body and emotional expressiveness.</li>
+                    <li><strong>From seeking to finding:</strong> You develop the ability to enter the state of flow, where time and space dissolve and music flows directly through you.</li>
+                </ul>
+                <p class="dreyfus-compass">
+                    The following self-assessment model serves as your compass. It helps you understand where you stand, which psychological hurdles are natural at each stage, and how to master the next qualitative leap. It's not about checking off stages, but about savouring and integrating each phase in its depth.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">The 5 Stages of Your Handpan Journey</h2>
+
+                <!-- Stage 1: Novice -->
+                <div class="level-card">
+                    <div class="level-card__header">
+                        <span class="level-card__number">1</span>
+                        <h3 class="level-card__title">The Novice</h3>
                     </div>
-                    <div class="timeline-item">
-                        <h4>Beginner</h4>
-                        <p>Fundamentals of rhythm and technique. You learn to play confidently and steadily, developing your first own grooves.</p>
+                    <p class="level-card__subtitle">Novice</p>
+                    <div class="level-card__body">
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">Meaning in the Model</p>
+                            <p>At this stage, the learner is context-free. You don't know the environment yet and need strict, objective rules to be able to act at all.</p>
+                        </div>
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">On the Handpan</p>
+                            <p>You learn the physical principles: Where is the bass? How do I produce a clean tone?</p>
+                        </div>
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">Psychological Aspect</p>
+                            <p>It's about trust and humility. You accept that every beginning is small and create a safe foundation.</p>
+                        </div>
+                        <div class="self-check">
+                            <p class="self-check__title">Self-Check</p>
+                            <ul class="self-check__list">
+                                <li>I concentrate heavily on correct finger position, pattern structure, sequence, coordination.</li>
+                                <li>I need clear instructions and practice sheets.</li>
+                                <li>My goal is simply to produce a clear tone and maintain a steady rhythm.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <h4>Competent</h4>
-                        <p>Independent practice and composing. You understand musical connections and can work freely with the material.</p>
+                </div>
+
+                <!-- Stage 2: Advanced Beginner -->
+                <div class="level-card">
+                    <div class="level-card__header">
+                        <span class="level-card__number">2</span>
+                        <h3 class="level-card__title">The Advanced Beginner</h3>
                     </div>
-                    <div class="timeline-item">
-                        <h4>Proficient</h4>
-                        <p>Deep practice and intuitive response. Music flows through you – technique and expression merge into one.</p>
+                    <p class="level-card__subtitle">Advanced Beginner</p>
+                    <div class="level-card__body">
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">Meaning in the Model</p>
+                            <p>You begin to recognise situational aspects. Rules are supplemented by initial experiences. You realise that a stroke in situation A must sound different than in situation B.</p>
+                        </div>
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">On the Handpan</p>
+                            <p>You master basic strokes and begin playing simple sequences (patterns). You notice that music consists of repetitions and variations.</p>
+                        </div>
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">Psychological Aspect</p>
+                            <p>Here you train your patience. You learn that discipline at the instrument gives you the freedom you seek.</p>
+                        </div>
+                        <div class="self-check">
+                            <p class="self-check__title">Self-Check</p>
+                            <ul class="self-check__list">
+                                <li>I can hold simple rhythms without constantly thinking about it.</li>
+                                <li>I recognise differences in dynamics (loud/soft).</li>
+                                <li>I'm beginning to combine small melodies on my own.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <h4>Expert</h4>
-                        <p>Mastery doesn't mean perfection, but complete presence. You pass on what you have received.</p>
+                </div>
+
+                <!-- Stage 3: Competent -->
+                <div class="level-card">
+                    <div class="level-card__header">
+                        <span class="level-card__number">3</span>
+                        <h3 class="level-card__title">The Competent</h3>
                     </div>
+                    <p class="level-card__subtitle">Competent</p>
+                    <div class="level-card__body">
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">Meaning in the Model</p>
+                            <p>The abundance of information becomes overwhelming. The learner must now consciously choose which rules to apply. They take responsibility for the results of their actions.</p>
+                        </div>
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">On the Handpan</p>
+                            <p>You make conscious decisions. You think: "Today I want to create a melancholic mood" and choose the corresponding tones.</p>
+                        </div>
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">Psychological Aspect</p>
+                            <p>The stage of personal responsibility. You decide how you want to sound and actively engage with your emotional expression.</p>
+                        </div>
+                        <div class="self-check">
+                            <p class="self-check__title">Self-Check</p>
+                            <ul class="self-check__list">
+                                <li>I can play and vary longer pieces, ideas, and patterns.</li>
+                                <li>I understand the structure of a song (intro, main section, ending).</li>
+                                <li>I feel confident enough to play in front of other people.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 4: Proficient -->
+                <div class="level-card">
+                    <div class="level-card__header">
+                        <span class="level-card__number">4</span>
+                        <h3 class="level-card__title">The Proficient</h3>
+                    </div>
+                    <p class="level-card__subtitle">Proficient</p>
+                    <div class="level-card__body">
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">Meaning in the Model</p>
+                            <p>A quantum leap. The learner no longer analyses laboriously but perceives the situation holistically. Action, however, remains a conscious decision.</p>
+                        </div>
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">On the Handpan</p>
+                            <p>A turning point. You no longer "calculate" your playing but perceive the music as a whole. You instantly sense when a stroke doesn't fit the dynamics or mood.</p>
+                        </div>
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">Psychological Aspect</p>
+                            <p>Resonance. You learn to listen to your inner voice. The instrument becomes a mirror of your soul.</p>
+                        </div>
+                        <div class="self-check">
+                            <p class="self-check__title">Self-Check</p>
+                            <ul class="self-check__list">
+                                <li>I no longer think about individual strokes; I "hear" the song in my head already.</li>
+                                <li>I can respond to the energy in the room and adapt my playing.</li>
+                                <li>Technique is merely a means to an end for me, no longer the goal.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 5: Expert -->
+                <div class="level-card">
+                    <div class="level-card__header">
+                        <span class="level-card__number">✦</span>
+                        <h3 class="level-card__title">The Expert</h3>
+                    </div>
+                    <p class="level-card__subtitle">Expert</p>
+                    <div class="level-card__body">
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">Meaning in the Model</p>
+                            <p>The expert simply "knows" what to do. They act intuitively from a deep connection with the subject matter. The rules have become second nature and are transcended.</p>
+                        </div>
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">On the Handpan</p>
+                            <p>Human and instrument merge. There is no separation anymore. Playing happens effortlessly and completely in the moment.</p>
+                        </div>
+                        <div class="level-card__aspect">
+                            <p class="level-card__aspect-label">Psychological Aspect</p>
+                            <p>Self-actualisation and flow. You are entirely in the here and now. Music has become your language to express the inexpressible.</p>
+                        </div>
+                        <div class="self-check">
+                            <p class="self-check__title">Self-Check</p>
+                            <ul class="self-check__list">
+                                <li>I play intuitively, without any conscious planning, yet at a high level.</li>
+                                <li>The instrument feels like an extension of my own body.</li>
+                                <li>In my playing I find deep meditation and absolute freedom.</li>
+                                <li>I compose pieces that feel perfectly aligned with my soul.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Overview -->
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Your Development at a Glance</h2>
+                <div style="overflow-x: auto;">
+                    <table class="dev-overview">
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>Focus in the Model</th>
+                                <th>Handpan Leitmotif</th>
+                                <th>Psychological Anchor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Novice</td>
+                                <td>Rigid Rules</td>
+                                <td>Technical Foundation</td>
+                                <td>Trust</td>
+                            </tr>
+                            <tr>
+                                <td>Beginner</td>
+                                <td>Context Recognition</td>
+                                <td>Pattern & Variation</td>
+                                <td>Patience</td>
+                            </tr>
+                            <tr>
+                                <td>Competent</td>
+                                <td>Conscious Choice</td>
+                                <td>Structure & Planning</td>
+                                <td>Responsibility</td>
+                            </tr>
+                            <tr>
+                                <td>Proficient</td>
+                                <td>Holistic Perception</td>
+                                <td>Intuition & Feeling</td>
+                                <td>Resonance</td>
+                            </tr>
+                            <tr>
+                                <td>Expert</td>
+                                <td>Intuitive Unity</td>
+                                <td>Pure Joy of Playing</td>
+                                <td>Flow & Freedom</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
