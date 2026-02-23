@@ -288,14 +288,13 @@
             color: var(--color-accent);
             outline: 2px solid var(--color-accent);
             outline-offset: 4px;
-            border-radius: 2px;
         }
 
-        nav a.nav-link:focus {
+        nav a.nav-link:focus:not(.active) {
             outline: none;
         }
 
-        nav a.nav-link:focus-visible {
+        nav a.nav-link:focus-visible:not(.active) {
             outline: 2px solid var(--color-accent);
             outline-offset: 4px;
         }
