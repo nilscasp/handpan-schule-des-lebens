@@ -282,8 +282,23 @@
             padding: 6px 10px;
         }
 
-        nav a:hover,
-        nav a.active { color: var(--color-accent); }
+        nav a:hover { color: var(--color-accent); }
+
+        nav a.active {
+            color: var(--color-accent);
+            outline: 2px solid var(--color-accent);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        nav a.nav-link:focus {
+            outline: none;
+        }
+
+        nav a.nav-link:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 4px;
+        }
 
         /* Mobile Navigation */
         .mobile-menu-toggle {
