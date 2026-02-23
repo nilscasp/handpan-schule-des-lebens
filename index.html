@@ -768,6 +768,141 @@
         }
 
         /* ============================================
+           JOURNEY PATH (Hero's Journey)
+           ============================================ */
+        .journey-path {
+            position: relative;
+            padding: var(--spacing-md) 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .journey-path::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(212, 165, 116, 0.2) 5%,
+                rgba(212, 165, 116, 0.4) 50%,
+                rgba(212, 165, 116, 0.8) 95%,
+                var(--color-accent)
+            );
+        }
+
+        .journey-step {
+            position: relative;
+            display: flex;
+            gap: 1.5rem;
+            padding-bottom: 2.5rem;
+        }
+
+        .journey-step:last-child {
+            padding-bottom: 0;
+        }
+
+        .journey-marker {
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--color-bg);
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .journey-step:hover .journey-marker {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.2);
+        }
+
+        .journey-marker--final {
+            border-color: var(--color-accent);
+            background: rgba(212, 165, 116, 0.1);
+            box-shadow: 0 0 25px rgba(212, 165, 116, 0.15);
+        }
+
+        .journey-number {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--color-accent);
+            font-weight: 400;
+        }
+
+        .journey-content {
+            flex: 1;
+            padding-top: 0.3rem;
+        }
+
+        .journey-phase {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-accent);
+            opacity: 0.7;
+            margin-bottom: 0.3rem;
+        }
+
+        .journey-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .journey-desc {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .journey-link {
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: opacity 0.2s;
+        }
+
+        .journey-link:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .journey-path::before {
+                left: 18px;
+            }
+
+            .journey-marker {
+                width: 38px;
+                height: 38px;
+            }
+
+            .journey-number {
+                font-size: 0.95rem;
+            }
+
+            .journey-step {
+                gap: 1rem;
+            }
+
+            .journey-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* ============================================
            PREISBOX
            ============================================ */
         .price-box {
@@ -3151,22 +3286,81 @@
             </div>
         </section>
 
-        <!-- Produktleiter -->
+        <!-- Der Weg zum Meister – Hero's Journey -->
         <section id="produktleiter" class="section-light">
             <div class="container-narrow">
                 <h2 class="section-title">Der Weg zum Meister</h2>
                 <p class="section-intro">
-                    Unsere Angebote bauen aufeinander auf. Jede Stufe bereitet dich auf die nächste vor.
+                    Jede Reise beginnt mit einem ersten Schritt. Unsere Angebote bauen aufeinander auf — wie die Stufen einer Heldenreise.
                 </p>
 
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Einstieg:</strong> Rhythmus Fundament oder kostenlose Community</p>
-                </div>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Vertiefung:</strong> The Handpan Path – 6 Monate intensive Transformation</p>
-                </div>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Meisterschaft:</strong> Retreats, 1:1 Mentoring, fortlaufende Community</p>
+                <div class="journey-path">
+
+                    <!-- Stufe 1: Der Ruf -->
+                    <div class="journey-step">
+                        <div class="journey-marker">
+                            <span class="journey-number">1</span>
+                        </div>
+                        <div class="journey-content">
+                            <p class="journey-phase">Der Ruf</p>
+                            <h3 class="journey-title">Einsteigerkurse</h3>
+                            <p class="journey-desc">Du spürst die Anziehung. In 2 Stunden entdeckst du die Handpan — ohne Druck, ohne Vorkenntnisse. Der Funke springt über.</p>
+                            <a href="#einsteigerkurse" class="journey-link">→ Mehr erfahren</a>
+                        </div>
+                    </div>
+
+                    <!-- Stufe 2: Die Schwelle -->
+                    <div class="journey-step">
+                        <div class="journey-marker">
+                            <span class="journey-number">2</span>
+                        </div>
+                        <div class="journey-content">
+                            <p class="journey-phase">Die Schwelle</p>
+                            <h3 class="journey-title">Rhythmus Fundament</h3>
+                            <p class="journey-desc">Du sagst Ja. 6 Wochen tägliche Praxis, echtes Engagement. Das Fundament, auf dem alles aufbaut — Sicherheit im Spiel, Freiheit im Ausdruck.</p>
+                            <a href="#rhythmus-fundament" class="journey-link">→ Mehr erfahren</a>
+                        </div>
+                    </div>
+
+                    <!-- Stufe 3: Die Prüfung -->
+                    <div class="journey-step">
+                        <div class="journey-marker">
+                            <span class="journey-number">3</span>
+                        </div>
+                        <div class="journey-content">
+                            <p class="journey-phase">Die Prüfung</p>
+                            <h3 class="journey-title">The Handpan Path</h3>
+                            <p class="journey-desc">6 Monate intensive Transformation. Du tauchst tief ein — in Rhythmus, Melodie, Ausdruck und die Begegnung mit dir selbst.</p>
+                            <a href="#handpan-path" class="journey-link">→ Mehr erfahren</a>
+                        </div>
+                    </div>
+
+                    <!-- Stufe 4: Die Verwandlung -->
+                    <div class="journey-step">
+                        <div class="journey-marker">
+                            <span class="journey-number">4</span>
+                        </div>
+                        <div class="journey-content">
+                            <p class="journey-phase">Die Verwandlung</p>
+                            <h3 class="journey-title">Retreats</h3>
+                            <p class="journey-desc">Raus aus dem Alltag. In der Stille der Natur und der Intensität eines Retreats passieren Durchbrüche, die im Alltag Jahre brauchen.</p>
+                            <a href="#retreats" class="journey-link">→ Mehr erfahren</a>
+                        </div>
+                    </div>
+
+                    <!-- Stufe 5: Die Meisterschaft -->
+                    <div class="journey-step journey-step--final">
+                        <div class="journey-marker journey-marker--final">
+                            <span class="journey-number">✦</span>
+                        </div>
+                        <div class="journey-content">
+                            <p class="journey-phase">Die Meisterschaft</p>
+                            <h3 class="journey-title">Mentoring & fortlaufende Praxis</h3>
+                            <p class="journey-desc">Du spielst nicht mehr Handpan — du sprichst durch sie. 1:1 Mentoring, eigener Ausdruck, Weitergabe an andere. Der Kreis schließt sich.</p>
+                            <a href="#mentoring" class="journey-link">→ Mehr erfahren</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
