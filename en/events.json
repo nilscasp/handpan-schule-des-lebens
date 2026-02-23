@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Beginner Workshop",
+    "date": "2026-03-15",
+    "time": "14:00",
+    "type": "workshop",
+    "link": "#einsteigerkurse"
+  },
+  {
+    "title": "Rhythm Foundation – Start",
+    "date": "2026-04-01",
+    "time": "19:00",
+    "type": "kurs",
+    "link": "#rhythmus-fundament"
+  },
+  {
+    "title": "Handpan Retreat Allgäu",
+    "date": "2026-05-10",
+    "time": "10:00",
+    "type": "retreat",
+    "link": "#retreats"
+  },
+  {
+    "title": "1:1 Mentoring – Open Session",
+    "date": "2026-03-22",
+    "time": "17:00",
+    "type": "mentoring",
+    "link": "#einzelunterricht-buchen"
+  }
+]

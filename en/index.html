@@ -2004,10 +2004,12 @@
             border: 1px solid rgba(212, 165, 116, 0.25);
             color: var(--color-accent);
             text-decoration: none;
+            font-family: var(--font-body);
             font-size: 0.85rem;
             font-weight: 500;
             letter-spacing: 0.06em;
             border-radius: 50px;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
@@ -2021,7 +2023,181 @@
         .floating-cta-icon {
             font-size: 1rem;
             line-height: 1;
+        }
+
+        /* ============================================
+           CALENDAR SIDEBAR
+           ============================================ */
+        .calendar-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 99;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .calendar-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .calendar-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 100;
+            width: 380px;
+            max-width: 100vw;
+            background: rgba(14, 18, 26, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(212, 165, 116, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calendar-sidebar.active {
+            transform: translateX(0);
+        }
+
+        .calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 1.5rem 1rem;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        .calendar-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--color-accent);
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .calendar-close {
+            background: none;
+            border: none;
+            color: var(--color-text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            transition: color 0.2s;
+        }
+
+        .calendar-close:hover {
+            color: var(--color-accent);
+        }
+
+        .calendar-events {
+            padding: 1rem 1.5rem;
+            flex: 1;
+        }
+
+        .calendar-event {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .calendar-event:last-child {
+            border-bottom: none;
+        }
+
+        .calendar-event:hover {
             opacity: 0.8;
+        }
+
+        .calendar-date-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 50px;
+            padding: 0.5rem;
+            border-radius: 8px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+        }
+
+        .calendar-date-day {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            line-height: 1;
+        }
+
+        .calendar-date-month {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .calendar-event-info {
+            flex: 1;
+        }
+
+        .calendar-event-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-text);
+            margin: 0 0 0.3rem;
+        }
+
+        .calendar-event-meta {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+
+        .calendar-event-type {
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 500;
+        }
+
+        .calendar-event-type[data-type="workshop"] {
+            background: rgba(212, 165, 116, 0.15);
+            color: var(--color-accent);
+        }
+
+        .calendar-event-type[data-type="kurs"] {
+            background: rgba(100, 180, 130, 0.15);
+            color: #7cc89a;
+        }
+
+        .calendar-event-type[data-type="retreat"] {
+            background: rgba(130, 150, 210, 0.15);
+            color: #a0b0e0;
+        }
+
+        .calendar-event-type[data-type="mentoring"] {
+            background: rgba(200, 130, 160, 0.15);
+            color: #d0a0b8;
+        }
+
+        .calendar-empty {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--color-text-muted);
+            font-style: italic;
         }
 
         @media (max-width: 768px) {
@@ -2052,11 +2228,23 @@
         </div>
     </div>
 
-    <!-- Floating CTA Button: Einzelunterricht buchen -->
-    <a href="#join-us" class="floating-cta" aria-label="Start a conversation">
-        <span class="floating-cta-icon">✦</span>
-        Start a Conversation
-    </a>
+    <!-- Floating Calendar Button -->
+    <button class="floating-cta" id="calendar-toggle" aria-label="Show events" onclick="toggleCalendarSidebar()">
+        <span class="floating-cta-icon">📅</span>
+        Events
+    </button>
+
+    <!-- Calendar Sidebar -->
+    <div class="calendar-backdrop" id="calendar-backdrop" onclick="toggleCalendarSidebar()"></div>
+    <aside class="calendar-sidebar" id="calendar-sidebar" aria-label="Upcoming Events">
+        <div class="calendar-header">
+            <h3 class="calendar-title">Upcoming Events</h3>
+            <button class="calendar-close" onclick="toggleCalendarSidebar()" aria-label="Close">✕</button>
+        </div>
+        <div class="calendar-events" id="calendar-events">
+            <!-- Events loaded via JS -->
+        </div>
+    </aside>
 
     <!-- Skip Navigation Link -->
     <a href="#main-content" class="visually-hidden" style="position:absolute;top:0;left:0;z-index:999;padding:1rem;background:var(--color-accent);color:var(--color-bg);" onfocus="this.style.position='relative'" onblur="this.style.position='absolute'">Skip to content</a>
@@ -5044,6 +5232,81 @@
                     behavior: 'smooth'
                 });
             }
+        }
+
+        // ============================================
+        // CALENDAR SIDEBAR
+        // ============================================
+        const MONTH_NAMES_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const TYPE_LABELS_EN = { workshop: 'Workshop', kurs: 'Course', retreat: 'Retreat', mentoring: 'Mentoring' };
+
+        function toggleCalendarSidebar() {
+            const sidebar = document.getElementById('calendar-sidebar');
+            const backdrop = document.getElementById('calendar-backdrop');
+            const isOpen = sidebar.classList.contains('active');
+
+            if (!isOpen) {
+                sidebar.classList.add('active');
+                backdrop.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                loadEvents();
+            } else {
+                sidebar.classList.remove('active');
+                backdrop.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const sidebar = document.getElementById('calendar-sidebar');
+                if (sidebar.classList.contains('active')) {
+                    toggleCalendarSidebar();
+                }
+            }
+        });
+
+        function loadEvents() {
+            const container = document.getElementById('calendar-events');
+            fetch('events.json')
+                .then(function(r) { return r.json(); })
+                .then(function(events) {
+                    var now = new Date();
+                    now.setHours(0, 0, 0, 0);
+                    var upcoming = events.filter(function(ev) {
+                        return new Date(ev.date) >= now;
+                    }).sort(function(a, b) {
+                        return new Date(a.date) - new Date(b.date);
+                    });
+
+                    if (upcoming.length === 0) {
+                        container.innerHTML = '<div class="calendar-empty">No upcoming events.<br>Check back soon!</div>';
+                        return;
+                    }
+
+                    container.innerHTML = upcoming.map(function(ev) {
+                        var d = new Date(ev.date);
+                        var day = d.getDate();
+                        var month = MONTH_NAMES_EN[d.getMonth()];
+                        var typeLabel = TYPE_LABELS_EN[ev.type] || ev.type;
+                        return '<a href="' + ev.link + '" class="calendar-event" onclick="toggleCalendarSidebar()">' +
+                            '<div class="calendar-date-badge">' +
+                                '<span class="calendar-date-day">' + day + '</span>' +
+                                '<span class="calendar-date-month">' + month + '</span>' +
+                            '</div>' +
+                            '<div class="calendar-event-info">' +
+                                '<p class="calendar-event-title">' + ev.title + '</p>' +
+                                '<div class="calendar-event-meta">' +
+                                    '<span>' + ev.time + '</span>' +
+                                    '<span class="calendar-event-type" data-type="' + ev.type + '">' + typeLabel + '</span>' +
+                                '</div>' +
+                            '</div>' +
+                        '</a>';
+                    }).join('');
+                })
+                .catch(function() {
+                    container.innerHTML = '<div class="calendar-empty">Could not load events.</div>';
+                });
         }
 
         // ============================================
