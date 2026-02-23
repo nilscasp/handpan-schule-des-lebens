@@ -1382,6 +1382,25 @@
             }
         }
 
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-grid img {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+
         .feature {
             padding: var(--spacing-md);
             background: rgba(255, 255, 255, 0.02);
@@ -2829,42 +2848,50 @@
             </div>
         </section>
 
-        <!-- Was hier geschieht -->
+        <!-- Was dich erwartet -->
         <section class="section-dark">
-            <div class="container-narrow">
-                <h2 class="section-title">Was hier geschieht</h2>
-                <p class="section-intro">
-                    Dies ist kein Ort des Lernens im klassischen Sinne.
-                    Es ist ein Raum der Begegnung – mit dem Klang, mit dir selbst,
-                    mit dem, was durch dich hindurch zum Ausdruck kommen möchte.
-                </p>
-                <img src="images/optimized/natur-wurzeln-pfad.webp" alt="Baumwurzeln und Steinpfad im Wald – ein Weg der Begegnung" class="section-image section-image-short" loading="lazy">
+            <div class="container">
+                <h2 class="section-title">Was dich erwartet</h2>
+                <p class="section-intro">Nicht nur spielen lernen — sondern Musiker werden.</p>
+                <div class="feature-grid" style="margin-top: var(--spacing-md);">
+                    <div class="feature">
+                        <h4>Rhythmische Sicherheit</h4>
+                        <p>Stabiler Groove, saubere Technik und die Freiheit, im Moment zu variieren.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Eigener Ausdruck</h4>
+                        <p>Finde deine musikalische Stimme — komponiere, improvisiere, drücke dich authentisch aus.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Tiefe Präsenz</h4>
+                        <p>Lerne, vollständig im Moment zu sein. Die Handpan wird zum Werkzeug für innere Stille.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Gemeinschaft</h4>
+                        <p>Wachse im Dialog mit Gleichgesinnten. Gemeinsames Üben beschleunigt jeden Weg.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Die drei Lebenszeichen -->
+        <!-- Über mich -->
         <section class="section-light">
-            <div class="container">
-                <h2 class="section-title">Die drei Lebenszeichen</h2>
-                <p class="section-intro">
-                    Der Weg folgt einem natürlichen Rhythmus zwischen Struktur, Erkundung und Ausdruck.
-                </p>
-                <div class="card-grid">
-                    <article class="card">
-                        <h3 class="card-title">Meditation</h3>
-                        <p class="card-subtitle">Rhythmus</p>
-                        <p>Struktur und Präsenz. Die stille Gewohnheit, aus der Tiefe heraus Klang zu formen. Hier entsteht der Raum für inneres Hören.</p>
-                    </article>
-                    <article class="card">
-                        <h3 class="card-title">Forschen</h3>
-                        <p class="card-subtitle">Künstlerische Forschung</p>
-                        <p>Das Unbekannte als Lehrer. Fehler als Wegweiser. Sinne für das Unsagbare entwickeln. Hier beginnt wahre Kreativität.</p>
-                    </article>
-                    <article class="card">
-                        <h3 class="card-title">Erinnern</h3>
-                        <p class="card-subtitle">Komposition</p>
-                        <p>Erkenntnis wird zu Ausdruck. Klang wird zu Bedeutung. Deine Erfahrung wird zur bleibenden Form – ein Leuchtfeuer für andere.</p>
-                    </article>
+            <div class="container-narrow">
+                <div class="about-grid">
+                    <div>
+                        <img src="images/optimized/spielszene-see-profil.webp" alt="Nils mit Handpan" style="width: 100%; border-radius: 2px; aspect-ratio: 1; object-fit: cover;" loading="lazy">
+                    </div>
+                    <div>
+                        <p class="journey-phase" style="margin-bottom: 0.5rem;">Dein Begleiter</p>
+                        <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-text); margin-bottom: var(--spacing-sm); font-weight: 400;">Nils</h2>
+                        <p style="color: var(--color-text-muted); line-height: 1.8; margin-bottom: var(--spacing-sm);">
+                            Musiker, Lehrer und Gründer der Handpan Schule des Lebens. Mein Weg mit der Handpan hat mich gelehrt, dass wahre Meisterschaft nicht in der Technik liegt — sondern darin, sich selbst im Klang wiederzufinden.
+                        </p>
+                        <p style="color: var(--color-text-muted); line-height: 1.8;">
+                            Ich begleite dich auf deinem eigenen Weg — mit Struktur, Tiefe und der Überzeugung, dass jeder Mensch eine musikalische Stimme hat, die gehört werden will.
+                        </p>
+                        <a href="#philosophie" class="journey-link" style="display: inline-block; margin-top: var(--spacing-sm);">→ Mehr über die Philosophie</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2886,19 +2913,7 @@
             </div>
         </section>
 
-        <!-- Zitat -->
-        <section class="section-light">
-            <div class="container-narrow">
-                <blockquote class="quote-block quote-bg" style="background-image: url('images/optimized/natur-waldlicht.webp');">
-                    <p class="quote-text">„Der größte Fehler ist, sich selbst zu vergessen. Die Meisten werden sich nie erinnern."</p>
-                </blockquote>
-                <p class="text-center" style="color: var(--color-text-muted); margin-top: var(--spacing-md);">
-                    In einer Welt, die uns lehrt nachzuahmen, schaffen wir einen Raum für das Eigene, das Authentische.
-                </p>
-            </div>
-        </section>
-
-        <!-- Einladung -->
+        <!-- CTA -->
         <section class="section-dark">
             <div class="container-narrow text-center">
                 <h2 class="mb-lg">Bereit für den ersten Schritt?</h2>

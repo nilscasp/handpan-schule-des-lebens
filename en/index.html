@@ -1382,6 +1382,25 @@
             }
         }
 
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-grid img {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+
         .feature {
             padding: var(--spacing-md);
             background: rgba(255, 255, 255, 0.02);
@@ -2839,42 +2858,50 @@
             </div>
         </section>
 
-        <!-- What Happens Here -->
+        <!-- What Awaits You -->
         <section class="section-dark">
-            <div class="container-narrow">
-                <h2 class="section-title">What Happens Here</h2>
-                <p class="section-intro">
-                    This is not a place of learning in the traditional sense.
-                    It is a space of encounter – with sound, with yourself,
-                    with what seeks expression through you.
-                </p>
-                <img src="../images/optimized/natur-wurzeln-pfad.webp" alt="Tree roots and stone path in the forest – a path of encounter" class="section-image section-image-short" loading="lazy">
+            <div class="container">
+                <h2 class="section-title">What Awaits You</h2>
+                <p class="section-intro">Not just learning to play — but becoming a musician.</p>
+                <div class="feature-grid" style="margin-top: var(--spacing-md);">
+                    <div class="feature">
+                        <h4>Rhythmic Confidence</h4>
+                        <p>Solid groove, clean technique and the freedom to vary in the moment.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Personal Expression</h4>
+                        <p>Find your musical voice — compose, improvise, express yourself authentically.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Deep Presence</h4>
+                        <p>Learn to be fully in the moment. The handpan becomes a tool for inner stillness.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Community</h4>
+                        <p>Grow in dialogue with like-minded people. Practicing together accelerates every path.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- The Three Signs of Life -->
+        <!-- About -->
         <section class="section-light">
-            <div class="container">
-                <h2 class="section-title">The Three Signs of Life</h2>
-                <p class="section-intro">
-                    The path follows a natural rhythm between structure, exploration, and expression.
-                </p>
-                <div class="card-grid">
-                    <article class="card">
-                        <h3 class="card-title">Meditation</h3>
-                        <p class="card-subtitle">Rhythm</p>
-                        <p>Structure and presence. The quiet practice of shaping sound from the depths. Here, the space for inner listening is born.</p>
-                    </article>
-                    <article class="card">
-                        <h3 class="card-title">Exploring</h3>
-                        <p class="card-subtitle">Artistic Research</p>
-                        <p>The unknown as teacher. Mistakes as guides. Developing senses for the ineffable. Here, true creativity begins.</p>
-                    </article>
-                    <article class="card">
-                        <h3 class="card-title">Remembering</h3>
-                        <p class="card-subtitle">Composition</p>
-                        <p>Insight becomes expression. Sound becomes meaning. Your experience takes lasting form – a beacon for others.</p>
-                    </article>
+            <div class="container-narrow">
+                <div class="about-grid">
+                    <div>
+                        <img src="../images/optimized/spielszene-see-profil.webp" alt="Nils with Handpan" style="width: 100%; border-radius: 2px; aspect-ratio: 1; object-fit: cover;" loading="lazy">
+                    </div>
+                    <div>
+                        <p class="journey-phase" style="margin-bottom: 0.5rem;">Your Guide</p>
+                        <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-text); margin-bottom: var(--spacing-sm); font-weight: 400;">Nils</h2>
+                        <p style="color: var(--color-text-muted); line-height: 1.8; margin-bottom: var(--spacing-sm);">
+                            Musician, teacher and founder of Handpan Schule des Lebens. My journey with the handpan has taught me that true mastery lies not in technique — but in rediscovering yourself through sound.
+                        </p>
+                        <p style="color: var(--color-text-muted); line-height: 1.8;">
+                            I guide you on your own path — with structure, depth and the conviction that every person has a musical voice that wants to be heard.
+                        </p>
+                        <a href="#philosophie" class="journey-link" style="display: inline-block; margin-top: var(--spacing-sm);">→ More about the philosophy</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2896,19 +2923,7 @@
             </div>
         </section>
 
-        <!-- Quote -->
-        <section class="section-light">
-            <div class="container-narrow">
-                <blockquote class="quote-block quote-bg" style="background-image: url('../images/optimized/natur-waldlicht.webp');">
-                    <p class="quote-text">"The greatest mistake is to forget yourself. Most will never remember."</p>
-                </blockquote>
-                <p class="text-center" style="color: var(--color-text-muted); margin-top: var(--spacing-md);">
-                    In a world that teaches us to imitate, we create a space for what is truly your own, what is authentic.
-                </p>
-            </div>
-        </section>
-
-        <!-- Ready -->
+        <!-- CTA -->
         <section class="section-dark">
             <div class="container-narrow text-center">
                 <h2 class="mb-lg">Ready for the First Step?</h2>
