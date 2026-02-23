@@ -879,6 +879,30 @@
             opacity: 0.7;
         }
 
+        .journey-programs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+        }
+
+        .journey-programs a {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            padding: 0.25rem 0.7rem;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .journey-programs a:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            background: rgba(212, 165, 116, 0.05);
+        }
+
         @media (max-width: 768px) {
             .journey-path::before {
                 left: 18px;
@@ -3300,63 +3324,84 @@
 
                 <div class="journey-path">
 
+                    <!-- Stage 1: The Call -->
                     <div class="journey-step">
                         <div class="journey-marker">
                             <span class="journey-number">1</span>
                         </div>
                         <div class="journey-content">
                             <p class="journey-phase">The Call</p>
-                            <h3 class="journey-title">Beginner Courses</h3>
-                            <p class="journey-desc">You feel the pull. In 2 hours you discover the handpan — no pressure, no prior knowledge. The spark ignites.</p>
-                            <a href="#einsteigerkurse" class="journey-link">→ Learn more</a>
+                            <h3 class="journey-title">You Feel the Pull</h3>
+                            <p class="journey-desc">Something inside you responds to the sound. No prior knowledge needed — just the curiosity to open yourself to it. The spark ignites.</p>
+                            <div class="journey-programs">
+                                <a href="#einsteigerkurse">Beginner Courses</a>
+                                <a href="#einzelunterricht-buchen">Private Lessons</a>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Stage 2: The Threshold -->
                     <div class="journey-step">
                         <div class="journey-marker">
                             <span class="journey-number">2</span>
                         </div>
                         <div class="journey-content">
                             <p class="journey-phase">The Threshold</p>
-                            <h3 class="journey-title">Rhythm Foundation</h3>
-                            <p class="journey-desc">You say yes. 6 weeks of daily practice, real commitment. The foundation on which everything is built — confidence in playing, freedom in expression.</p>
-                            <a href="#rhythmus-fundament" class="journey-link">→ Learn more</a>
+                            <h3 class="journey-title">You Say Yes</h3>
+                            <p class="journey-desc">You commit to daily practice and real engagement. The foundation is built — confidence in playing, freedom in expression.</p>
+                            <div class="journey-programs">
+                                <a href="#rhythmus-fundament">Rhythm Foundation</a>
+                                <a href="#community">Community</a>
+                                <a href="#einzelunterricht-buchen">Private Lessons</a>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Stage 3: The Fellowship -->
                     <div class="journey-step">
                         <div class="journey-marker">
                             <span class="journey-number">3</span>
                         </div>
                         <div class="journey-content">
-                            <p class="journey-phase">The Ordeal</p>
-                            <h3 class="journey-title">The Handpan Path</h3>
-                            <p class="journey-desc">6 months of intensive transformation. You dive deep — into rhythm, melody, expression, and the encounter with yourself.</p>
-                            <a href="#handpan-path" class="journey-link">→ Learn more</a>
+                            <p class="journey-phase">The Fellowship</p>
+                            <h3 class="journey-title">You Take Ownership</h3>
+                            <p class="journey-desc">You become part of the community, begin to take full responsibility for your personal growth, and dive deeper into your soul and your playing.</p>
+                            <div class="journey-programs">
+                                <a href="#community">Community</a>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Stage 4: The Ordeal -->
                     <div class="journey-step">
                         <div class="journey-marker">
                             <span class="journey-number">4</span>
                         </div>
                         <div class="journey-content">
-                            <p class="journey-phase">The Transformation</p>
-                            <h3 class="journey-title">Retreats</h3>
-                            <p class="journey-desc">Step out of everyday life. In the stillness of nature and the intensity of a retreat, breakthroughs happen that would take years in daily life.</p>
-                            <a href="#retreats" class="journey-link">→ Learn more</a>
+                            <p class="journey-phase">The Ordeal</p>
+                            <h3 class="journey-title">You Dive Deep</h3>
+                            <p class="journey-desc">Intensive transformation. You move through rhythm, melody, and expression — and encounter yourself. In retreats, breakthroughs happen that would take years in daily life.</p>
+                            <div class="journey-programs">
+                                <a href="#handpan-path">The Handpan Path</a>
+                                <a href="#retreats">Retreats</a>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Stage 5: Mastery -->
                     <div class="journey-step journey-step--final">
                         <div class="journey-marker journey-marker--final">
                             <span class="journey-number">✦</span>
                         </div>
                         <div class="journey-content">
                             <p class="journey-phase">Mastery</p>
-                            <h3 class="journey-title">Mentoring & Ongoing Practice</h3>
-                            <p class="journey-desc">You no longer play the handpan — you speak through it. 1:1 mentoring, your own expression, passing it on to others. The circle closes.</p>
-                            <a href="#mentoring" class="journey-link">→ Learn more</a>
+                            <h3 class="journey-title">You Speak Through the Handpan</h3>
+                            <p class="journey-desc">You no longer play the handpan — you speak through it. Your own expression, passing it on to others. The circle closes.</p>
+                            <div class="journey-programs">
+                                <a href="#mentoring">Mentoring</a>
+                                <a href="#retreats">Retreats</a>
+                                <a href="#community">Community</a>
+                            </div>
                         </div>
                     </div>
 

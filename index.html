@@ -879,6 +879,30 @@
             opacity: 0.7;
         }
 
+        .journey-programs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+        }
+
+        .journey-programs a {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            padding: 0.25rem 0.7rem;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .journey-programs a:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            background: rgba(212, 165, 116, 0.05);
+        }
+
         @media (max-width: 768px) {
             .journey-path::before {
                 left: 18px;
@@ -3303,9 +3327,12 @@
                         </div>
                         <div class="journey-content">
                             <p class="journey-phase">Der Ruf</p>
-                            <h3 class="journey-title">Einsteigerkurse</h3>
-                            <p class="journey-desc">Du spürst die Anziehung. In 2 Stunden entdeckst du die Handpan — ohne Druck, ohne Vorkenntnisse. Der Funke springt über.</p>
-                            <a href="#einsteigerkurse" class="journey-link">→ Mehr erfahren</a>
+                            <h3 class="journey-title">Du spürst die Anziehung</h3>
+                            <p class="journey-desc">Etwas in dir reagiert auf den Klang. Du brauchst keine Vorkenntnisse — nur die Neugier, dich darauf einzulassen. Der Funke springt über.</p>
+                            <div class="journey-programs">
+                                <a href="#einsteigerkurse">Einsteigerkurse</a>
+                                <a href="#einzelunterricht-buchen">Einzelunterricht</a>
+                            </div>
                         </div>
                     </div>
 
@@ -3316,35 +3343,44 @@
                         </div>
                         <div class="journey-content">
                             <p class="journey-phase">Die Schwelle</p>
-                            <h3 class="journey-title">Rhythmus Fundament</h3>
-                            <p class="journey-desc">Du sagst Ja. 6 Wochen tägliche Praxis, echtes Engagement. Das Fundament, auf dem alles aufbaut — Sicherheit im Spiel, Freiheit im Ausdruck.</p>
-                            <a href="#rhythmus-fundament" class="journey-link">→ Mehr erfahren</a>
+                            <h3 class="journey-title">Du sagst Ja</h3>
+                            <p class="journey-desc">Du entscheidest dich für tägliche Praxis und echtes Engagement. Das Fundament entsteht — Sicherheit im Spiel, Freiheit im Ausdruck.</p>
+                            <div class="journey-programs">
+                                <a href="#rhythmus-fundament">Rhythmus Fundament</a>
+                                <a href="#community">Community</a>
+                                <a href="#einzelunterricht-buchen">Einzelunterricht</a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Stufe 3: Die Prüfung -->
+                    <!-- Stufe 3: Die Gemeinschaft -->
                     <div class="journey-step">
                         <div class="journey-marker">
                             <span class="journey-number">3</span>
                         </div>
                         <div class="journey-content">
-                            <p class="journey-phase">Die Prüfung</p>
-                            <h3 class="journey-title">The Handpan Path</h3>
-                            <p class="journey-desc">6 Monate intensive Transformation. Du tauchst tief ein — in Rhythmus, Melodie, Ausdruck und die Begegnung mit dir selbst.</p>
-                            <a href="#handpan-path" class="journey-link">→ Mehr erfahren</a>
+                            <p class="journey-phase">Die Gemeinschaft</p>
+                            <h3 class="journey-title">Du übernimmst Verantwortung</h3>
+                            <p class="journey-desc">Du bist Teil der Community, beginnst volle Verantwortung für deine persönliche Entwicklung zu übernehmen und tauchst tiefer in deine Seele und dein Spiel ein.</p>
+                            <div class="journey-programs">
+                                <a href="#community">Community</a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Stufe 4: Die Verwandlung -->
+                    <!-- Stufe 4: Die Prüfung -->
                     <div class="journey-step">
                         <div class="journey-marker">
                             <span class="journey-number">4</span>
                         </div>
                         <div class="journey-content">
-                            <p class="journey-phase">Die Verwandlung</p>
-                            <h3 class="journey-title">Retreats</h3>
-                            <p class="journey-desc">Raus aus dem Alltag. In der Stille der Natur und der Intensität eines Retreats passieren Durchbrüche, die im Alltag Jahre brauchen.</p>
-                            <a href="#retreats" class="journey-link">→ Mehr erfahren</a>
+                            <p class="journey-phase">Die Prüfung</p>
+                            <h3 class="journey-title">Du tauchst tief ein</h3>
+                            <p class="journey-desc">Intensive Transformation. Du gehst durch Rhythmus, Melodie und Ausdruck hindurch — und begegnest dir selbst. In Retreats passieren Durchbrüche, die im Alltag Jahre brauchen.</p>
+                            <div class="journey-programs">
+                                <a href="#handpan-path">The Handpan Path</a>
+                                <a href="#retreats">Retreats</a>
+                            </div>
                         </div>
                     </div>
 
@@ -3355,9 +3391,13 @@
                         </div>
                         <div class="journey-content">
                             <p class="journey-phase">Die Meisterschaft</p>
-                            <h3 class="journey-title">Mentoring & fortlaufende Praxis</h3>
-                            <p class="journey-desc">Du spielst nicht mehr Handpan — du sprichst durch sie. 1:1 Mentoring, eigener Ausdruck, Weitergabe an andere. Der Kreis schließt sich.</p>
-                            <a href="#mentoring" class="journey-link">→ Mehr erfahren</a>
+                            <h3 class="journey-title">Du sprichst durch die Handpan</h3>
+                            <p class="journey-desc">Du spielst nicht mehr Handpan — du sprichst durch sie. Eigener Ausdruck, Weitergabe an andere. Der Kreis schließt sich.</p>
+                            <div class="journey-programs">
+                                <a href="#mentoring">Mentoring</a>
+                                <a href="#retreats">Retreats</a>
+                                <a href="#community">Community</a>
+                            </div>
                         </div>
                     </div>
 
