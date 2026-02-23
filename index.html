@@ -2799,138 +2799,38 @@
             </div>
         </section>
 
-        <div class="section-divider"><div class="section-divider-dot"></div></div>
-
-        <!-- WEGFINDER QUIZ -->
-        <section class="quiz-section" id="wegfinder">
+        <!-- Deine Wege -->
+        <section class="section-light">
             <div class="container">
-
-                <!-- Quiz Teaser (kompakt, initial sichtbar) -->
-                <div class="quiz-teaser" id="quiz-teaser">
-                    <div class="quiz-header-icon">🧭</div>
-                    <h2 class="section-title" style="margin-bottom: var(--spacing-xs);">Finde deinen Weg</h2>
-                    <p>Welches Programm passt zu dir? Finde es in 4 kurzen Fragen heraus.</p>
-                    <button class="cta" onclick="startQuiz()">Quiz starten</button>
-                </div>
-
-                <!-- Quiz Container (versteckt bis Klick) -->
-                <div class="quiz-container" id="quiz-container" style="display: none;">
-
-                <div class="quiz-header">
-                    <div class="quiz-header-icon">🧭</div>
-                    <h2 class="section-title" style="margin-bottom: var(--spacing-xs);">Finde deinen Weg</h2>
-                    <p style="color: var(--color-text-muted);">
-                        Beantworte 4 kurze Fragen und erfahre, welches Programm am besten zu dir passt.
-                    </p>
-                </div>
-
-                <!-- Progress Dots -->
-                <div class="quiz-progress">
-                    <div class="quiz-progress-dot active" data-step="1"></div>
-                    <div class="quiz-progress-dot" data-step="2"></div>
-                    <div class="quiz-progress-dot" data-step="3"></div>
-                    <div class="quiz-progress-dot" data-step="4"></div>
-                </div>
-
-                <!-- Step 1: Spielerfahrung (Dreyfus-Level) -->
-                <div class="quiz-step active" data-step="1">
-                    <div class="quiz-question">
-                        <h3>Wie würdest du dein Spiel beschreiben?</h3>
-                        <p>Denke an einen typischen Moment, wenn du zur Handpan greifst.</p>
-                    </div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" data-value="novice" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Ich orientiere mich an Anleitungen und versuche, Patterns nachzuspielen. Oft bin ich unsicher, was ich als nächstes tun soll.</span>
-                        </div>
-                        <div class="quiz-option" data-value="beginner" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Ich kenne einige Grundlagen und erkenne wiederkehrende Muster. Manchmal gelingt mir ein schöner Groove, aber ich verliere ihn oft wieder.</span>
-                        </div>
-                        <div class="quiz-option" data-value="competent" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Ich kann eigenständig üben und habe meine eigenen Routinen entwickelt. Ich plane bewusst, was ich spielen möchte, brauche aber noch Zeit zum Nachdenken.</span>
-                        </div>
-                        <div class="quiz-option" data-value="proficient" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Musik fließt oft intuitiv durch mich. Ich reagiere spontan auf das, was entsteht, und spüre, was der Moment braucht – suche aber nach mehr Tiefe.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 2: Hauptherausforderung -->
-                <div class="quiz-step" data-step="2">
-                    <div class="quiz-question">
-                        <h3>Was hindert dich am meisten daran, so zu spielen, wie du es dir wünschst?</h3>
-                    </div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" data-value="basics" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Mir fehlen die rhythmischen Grundlagen – ich verliere oft den Puls oder weiß nicht, wie ich Variationen aufbauen soll.</span>
-                        </div>
-                        <div class="quiz-option" data-value="expression" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Ich kann Patterns spielen, aber es klingt nicht nach mir. Ich möchte meinen eigenen Ausdruck finden.</span>
-                        </div>
-                        <div class="quiz-option" data-value="depth" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Ich spiele schon länger, aber es fehlt Tiefe. Ich möchte verstehen, was hinter der Musik steckt – nicht nur Technik.</span>
-                        </div>
-                        <div class="quiz-option" data-value="blockade" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Ich habe eine spezifische Blockade oder stehe an einem Punkt, wo ich alleine nicht weiterkomme.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 3: Lernstil -->
-                <div class="quiz-step" data-step="3">
-                    <div class="quiz-question">
-                        <h3>Wie lernst du am liebsten?</h3>
-                    </div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" data-value="self" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Im eigenen Tempo, mit Materialien die ich selbst erkunden kann – ohne feste Termine.</span>
-                        </div>
-                        <div class="quiz-option" data-value="group" onclick="selectOption(this)">
-                            <span class="quiz-option-text">In einer Gruppe mit regelmäßigen Live-Terminen – die Verbindlichkeit und der Austausch helfen mir dranzubleiben.</span>
-                        </div>
-                        <div class="quiz-option" data-value="individual" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Individuell mit persönlicher Begleitung – ich brauche jemanden, der auf meine spezifische Situation eingeht.</span>
-                        </div>
-                        <div class="quiz-option" data-value="immersion" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Durch intensives Eintauchen – mehrtägige Formate, wo ich ganz in die Musik abtauchen kann.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 4: Ziel -->
-                <div class="quiz-step" data-step="4">
-                    <div class="quiz-question">
-                        <h3>Was ist dein größtes Ziel mit der Handpan?</h3>
-                    </div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" data-value="foundation" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Ein solides Fundament aufbauen – saubere Technik, stabiler Rhythmus, die Grundlagen wirklich verstehen.</span>
-                        </div>
-                        <div class="quiz-option" data-value="own-voice" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Meine eigene musikalische Stimme finden – komponieren, improvisieren, authentisch ausdrücken.</span>
-                        </div>
-                        <div class="quiz-option" data-value="presence" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Tiefere Präsenz und Bewusstsein im Spiel – die Musik als Weg zur inneren Entwicklung.</span>
-                        </div>
-                        <div class="quiz-option" data-value="community" onclick="selectOption(this)">
-                            <span class="quiz-option-text">Teil einer Gemeinschaft sein – mich mit anderen Spielern verbinden und voneinander lernen.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Result -->
-                <div class="quiz-step" data-step="result">
-                    <div class="quiz-result" id="quiz-result">
-                        <!-- Will be filled by JavaScript -->
-                    </div>
-                </div>
+                <h2 class="section-title">Deine Wege</h2>
+                <p class="section-intro">
+                    Ob erster Kontakt oder tiefe Reise — es gibt einen Weg, der jetzt zu dir passt.
+                </p>
+                <div class="card-grid">
+                    <article class="card">
+                        <h3 class="card-title">Einsteigen</h3>
+                        <p class="card-subtitle">Workshops & Einzelunterricht</p>
+                        <p>Dein erster Kontakt mit der Handpan. Entdecke den Klang, spüre den Rhythmus — ganz ohne Druck.</p>
+                        <a href="#programm" class="journey-link" style="display: inline-block; margin-top: var(--spacing-sm);">→ Programm entdecken</a>
+                    </article>
+                    <article class="card">
+                        <h3 class="card-title">Vertiefen</h3>
+                        <p class="card-subtitle">Kurse & Community</p>
+                        <p>Baue ein solides Fundament auf. Tägliche Praxis, gemeinsames Wachsen und echtes Engagement.</p>
+                        <a href="#rhythmus-fundament" class="journey-link" style="display: inline-block; margin-top: var(--spacing-sm);">→ Rhythmus Fundament</a>
+                    </article>
+                    <article class="card">
+                        <h3 class="card-title">Meistern</h3>
+                        <p class="card-subtitle">Mentoring & Retreats</p>
+                        <p>Intensive Transformation. Finde deinen eigenen Ausdruck und sprich durch die Handpan.</p>
+                        <a href="#handpan-path" class="journey-link" style="display: inline-block; margin-top: var(--spacing-sm);">→ The Handpan Path</a>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <div class="section-divider"><div class="section-divider-dot"></div></div>
-
         <!-- Was hier geschieht -->
-        <section class="section-light">
+        <section class="section-dark">
             <div class="container-narrow">
                 <h2 class="section-title">Was hier geschieht</h2>
                 <p class="section-intro">
@@ -2943,7 +2843,7 @@
         </section>
 
         <!-- Die drei Lebenszeichen -->
-        <section class="section-dark">
+        <section class="section-light">
             <div class="container">
                 <h2 class="section-title">Die drei Lebenszeichen</h2>
                 <p class="section-intro">
@@ -2969,6 +2869,23 @@
             </div>
         </section>
 
+        <!-- Stimmen -->
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Stimmen</h2>
+                <div style="display: grid; gap: var(--spacing-md); margin-top: var(--spacing-md);">
+                    <blockquote class="quote-block" style="margin: 0;">
+                        <p class="quote-text" style="font-size: 1.05rem;">„Ich habe viele Tutorials gesehen, aber hier habe ich zum ersten Mal verstanden, was Musik wirklich bedeutet."</p>
+                        <p style="text-align: right; color: var(--color-text-muted); margin-top: var(--spacing-xs); font-size: 0.85rem;">— Workshop-Teilnehmer</p>
+                    </blockquote>
+                    <blockquote class="quote-block" style="margin: 0;">
+                        <p class="quote-text" style="font-size: 1.05rem;">„Die Kombination aus Struktur und Freiheit hat mir geholfen, meinen eigenen Klang zu finden."</p>
+                        <p style="text-align: right; color: var(--color-text-muted); margin-top: var(--spacing-xs); font-size: 0.85rem;">— Community-Mitglied</p>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
         <!-- Zitat -->
         <section class="section-light">
             <div class="container-narrow">
@@ -2981,17 +2898,18 @@
             </div>
         </section>
 
-        <div class="section-divider"><div class="section-divider-dot"></div></div>
-
         <!-- Einladung -->
         <section class="section-dark">
             <div class="container-narrow text-center">
-                <h2 class="mb-lg">Eine Einladung</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg); font-size: 1.1rem;">
+                <h2 class="mb-lg">Bereit für den ersten Schritt?</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md); font-size: 1.1rem;">
                     Wenn du bereit bist, dich auf einen Weg einzulassen, der über Technik hinausgeht –
-                    wenn du nicht nur spielen, sondern verstehen möchtest –
+                    wenn du nicht nur spielen, sondern verstehen möchtest.
                 </p>
-                <a class="cta" href="#dabei-sein">Tritt ein</a>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a class="cta" href="#programm">Programm entdecken</a>
+                    <a class="cta" href="#dabei-sein" style="background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Gespräch beginnen</a>
+                </div>
             </div>
         </section>
     </div>
@@ -3922,6 +3840,132 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+        <!-- WEGFINDER QUIZ -->
+        <section class="quiz-section" id="wegfinder">
+            <div class="container">
+
+                <!-- Quiz Teaser (kompakt, initial sichtbar) -->
+                <div class="quiz-teaser" id="quiz-teaser">
+                    <div class="quiz-header-icon">🧭</div>
+                    <h2 class="section-title" style="margin-bottom: var(--spacing-xs);">Finde deinen Weg</h2>
+                    <p>Welches Programm passt zu dir? Finde es in 4 kurzen Fragen heraus.</p>
+                    <button class="cta" onclick="startQuiz()">Quiz starten</button>
+                </div>
+
+                <!-- Quiz Container (versteckt bis Klick) -->
+                <div class="quiz-container" id="quiz-container" style="display: none;">
+
+                <div class="quiz-header">
+                    <div class="quiz-header-icon">🧭</div>
+                    <h2 class="section-title" style="margin-bottom: var(--spacing-xs);">Finde deinen Weg</h2>
+                    <p style="color: var(--color-text-muted);">
+                        Beantworte 4 kurze Fragen und erfahre, welches Programm am besten zu dir passt.
+                    </p>
+                </div>
+
+                <!-- Progress Dots -->
+                <div class="quiz-progress">
+                    <div class="quiz-progress-dot active" data-step="1"></div>
+                    <div class="quiz-progress-dot" data-step="2"></div>
+                    <div class="quiz-progress-dot" data-step="3"></div>
+                    <div class="quiz-progress-dot" data-step="4"></div>
+                </div>
+
+                <!-- Step 1: Spielerfahrung (Dreyfus-Level) -->
+                <div class="quiz-step active" data-step="1">
+                    <div class="quiz-question">
+                        <h3>Wie würdest du dein Spiel beschreiben?</h3>
+                        <p>Denke an einen typischen Moment, wenn du zur Handpan greifst.</p>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="novice" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Ich orientiere mich an Anleitungen und versuche, Patterns nachzuspielen. Oft bin ich unsicher, was ich als nächstes tun soll.</span>
+                        </div>
+                        <div class="quiz-option" data-value="beginner" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Ich kenne einige Grundlagen und erkenne wiederkehrende Muster. Manchmal gelingt mir ein schöner Groove, aber ich verliere ihn oft wieder.</span>
+                        </div>
+                        <div class="quiz-option" data-value="competent" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Ich kann eigenständig üben und habe meine eigenen Routinen entwickelt. Ich plane bewusst, was ich spielen möchte, brauche aber noch Zeit zum Nachdenken.</span>
+                        </div>
+                        <div class="quiz-option" data-value="proficient" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Musik fließt oft intuitiv durch mich. Ich reagiere spontan auf das, was entsteht, und spüre, was der Moment braucht – suche aber nach mehr Tiefe.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Hauptherausforderung -->
+                <div class="quiz-step" data-step="2">
+                    <div class="quiz-question">
+                        <h3>Was hindert dich am meisten daran, so zu spielen, wie du es dir wünschst?</h3>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="basics" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Mir fehlen die rhythmischen Grundlagen – ich verliere oft den Puls oder weiß nicht, wie ich Variationen aufbauen soll.</span>
+                        </div>
+                        <div class="quiz-option" data-value="expression" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Ich kann Patterns spielen, aber es klingt nicht nach mir. Ich möchte meinen eigenen Ausdruck finden.</span>
+                        </div>
+                        <div class="quiz-option" data-value="depth" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Ich spiele schon länger, aber es fehlt Tiefe. Ich möchte verstehen, was hinter der Musik steckt – nicht nur Technik.</span>
+                        </div>
+                        <div class="quiz-option" data-value="blockade" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Ich habe eine spezifische Blockade oder stehe an einem Punkt, wo ich alleine nicht weiterkomme.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Lernstil -->
+                <div class="quiz-step" data-step="3">
+                    <div class="quiz-question">
+                        <h3>Wie lernst du am liebsten?</h3>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="self" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Im eigenen Tempo, mit Materialien die ich selbst erkunden kann – ohne feste Termine.</span>
+                        </div>
+                        <div class="quiz-option" data-value="group" onclick="selectOption(this)">
+                            <span class="quiz-option-text">In einer Gruppe mit regelmäßigen Live-Terminen – die Verbindlichkeit und der Austausch helfen mir dranzubleiben.</span>
+                        </div>
+                        <div class="quiz-option" data-value="individual" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Individuell mit persönlicher Begleitung – ich brauche jemanden, der auf meine spezifische Situation eingeht.</span>
+                        </div>
+                        <div class="quiz-option" data-value="immersion" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Durch intensives Eintauchen – mehrtägige Formate, wo ich ganz in die Musik abtauchen kann.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Ziel -->
+                <div class="quiz-step" data-step="4">
+                    <div class="quiz-question">
+                        <h3>Was ist dein größtes Ziel mit der Handpan?</h3>
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-value="foundation" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Ein solides Fundament aufbauen – saubere Technik, stabiler Rhythmus, die Grundlagen wirklich verstehen.</span>
+                        </div>
+                        <div class="quiz-option" data-value="own-voice" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Meine eigene musikalische Stimme finden – komponieren, improvisieren, authentisch ausdrücken.</span>
+                        </div>
+                        <div class="quiz-option" data-value="presence" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Tiefere Präsenz und Bewusstsein im Spiel – die Musik als Weg zur inneren Entwicklung.</span>
+                        </div>
+                        <div class="quiz-option" data-value="community" onclick="selectOption(this)">
+                            <span class="quiz-option-text">Teil einer Gemeinschaft sein – mich mit anderen Spielern verbinden und voneinander lernen.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result -->
+                <div class="quiz-step" data-step="result">
+                    <div class="quiz-result" id="quiz-result">
+                        <!-- Will be filled by JavaScript -->
+                    </div>
+                </div>
                 </div>
             </div>
         </section>
