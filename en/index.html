@@ -289,8 +289,9 @@
         }
 
         nav a.nav-link.active {
-            outline: 2px solid var(--color-accent);
-            outline-offset: 4px;
+            outline: none;
+            border-bottom: 1px solid var(--color-accent);
+            padding-bottom: 4px;
         }
 
         nav a.nav-link:focus:not(.active) {
@@ -298,7 +299,7 @@
         }
 
         nav a.nav-link:focus-visible:not(.active) {
-            outline: 2px solid var(--color-accent);
+            outline: 1px solid rgba(191, 161, 111, 0.4);
             outline-offset: 4px;
         }
 
@@ -1683,8 +1684,17 @@
            ACCESSIBILITY
            ============================================ */
         :focus {
-            outline: 2px solid var(--color-accent);
-            outline-offset: 4px;
+            outline: 1px solid rgba(191, 161, 111, 0.4);
+            outline-offset: 3px;
+        }
+
+        .mobile-menu-toggle:focus {
+            outline: none;
+        }
+
+        .mobile-menu-toggle:focus-visible {
+            outline: 1px solid rgba(191, 161, 111, 0.3);
+            outline-offset: 3px;
         }
 
         .visually-hidden {
