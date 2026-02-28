@@ -1,0 +1,23 @@
+[
+  {
+    "title": "初学者工作坊",
+    "date": "2026-03-15",
+    "time": "14:00",
+    "type": "workshop",
+    "link": "#einsteigerkurse"
+  },
+  {
+    "title": "节奏基础 – 开课",
+    "date": "2026-04-17",
+    "time": "19:00",
+    "type": "kurs",
+    "link": "#rhythmus-fundament"
+  },
+  {
+    "title": "1:1 导师指导 – 开放咨询",
+    "date": "2026-03-22",
+    "time": "17:00",
+    "type": "mentoring",
+    "link": "#einzelunterricht-buchen"
+  }
+]

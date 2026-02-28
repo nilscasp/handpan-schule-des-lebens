@@ -1,0 +1,23 @@
+[
+  {
+    "title": "初心者ワークショップ",
+    "date": "2026-03-15",
+    "time": "14:00",
+    "type": "workshop",
+    "link": "#einsteigerkurse"
+  },
+  {
+    "title": "リズムの基礎 – キックオフ",
+    "date": "2026-04-17",
+    "time": "19:00",
+    "type": "kurs",
+    "link": "#rhythmus-fundament"
+  },
+  {
+    "title": "1:1 メンタリング – オープンセッション",
+    "date": "2026-03-22",
+    "time": "17:00",
+    "type": "mentoring",
+    "link": "#einzelunterricht-buchen"
+  }
+]

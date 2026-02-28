@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Atelier d\u00e9butants",
+    "date": "2026-03-15",
+    "time": "14:00",
+    "type": "workshop",
+    "link": "#einsteigerkurse"
+  },
+  {
+    "title": "Fondement rythmique \u2013 Lancement",
+    "date": "2026-04-17",
+    "time": "19:00",
+    "type": "kurs",
+    "link": "#rhythmus-fundament"
+  },
+  {
+    "title": "Mentorat 1:1 \u2013 Session ouverte",
+    "date": "2026-03-22",
+    "time": "17:00",
+    "type": "mentoring",
+    "link": "#einzelunterricht-buchen"
+  }
+]
