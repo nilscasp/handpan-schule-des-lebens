@@ -26,7 +26,7 @@
     <meta property="og:description" content="Handpan lernen jenseits von Patterns. Handpan Kurse, Retreats und persönliches Mentoring. Entdecke deinen eigenen Klang in der Handpan Schule des Lebens.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://handpan.schule/">
-    <meta property="og:image" content="https://handpan.schule/handpan%20schule%20des%20Lebens%20Logo%20klein.png">
+    <meta property="og:image" content="https://handpan.schule/handpan-schule-des-lebens-logo-klein.png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
     <meta property="og:image:alt" content="Handpan Schule des Lebens Logo">
@@ -37,10 +37,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Handpan Schule des Lebens – Handpan lernen mit Tiefe">
     <meta name="twitter:description" content="Handpan lernen jenseits von Patterns. Kurse, Retreats und Mentoring mit Nils Böhm.">
-    <meta name="twitter:image" content="https://handpan.schule/handpan%20schule%20des%20Lebens%20Logo%20klein.png">
+    <meta name="twitter:image" content="https://handpan.schule/handpan-schule-des-lebens-logo-klein.png">
     <meta property="og:image:type" content="image/png">
     <meta name="theme-color" content="#0A0E14">
-    <link rel="apple-touch-icon" href="handpan%20schule%20des%20Lebens%20Logo%20klein.png">
+    <link rel="apple-touch-icon" href="handpan-schule-des-lebens-logo-klein.png">
 
     <!-- Structured Data: LocalBusiness + MusicSchool -->
     <script type="application/ld+json">
@@ -131,7 +131,7 @@
     </script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="handpan%20schule%20des%20Lebens%20Logo%20klein.png">
+    <link rel="icon" type="image/png" href="handpan-schule-des-lebens-logo-klein.png">
 
     <!-- Performance: Preconnect to external services -->
     <link rel="preconnect" href="https://asset-tidycal.b-cdn.net" crossorigin>
@@ -1746,6 +1746,40 @@
             .newsletter-form .newsletter-input-group {
                 flex-direction: column;
             }
+
+            /* Mobile Progressive Disclosure */
+            .mobile-collapsible .section-title {
+                cursor: pointer;
+                position: relative;
+                padding-right: 2rem;
+            }
+
+            .mobile-collapsible .section-title::after {
+                content: '▾';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 1.2rem;
+                color: var(--color-accent);
+                transition: transform 0.3s ease;
+            }
+
+            .mobile-collapsible.collapsed .section-title::after {
+                transform: translateY(-50%) rotate(-90deg);
+            }
+
+            .mobile-collapsible .section-collapsible-content {
+                max-height: 5000px;
+                overflow: hidden;
+                transition: max-height 0.4s ease, opacity 0.3s ease;
+                opacity: 1;
+            }
+
+            .mobile-collapsible.collapsed .section-collapsible-content {
+                max-height: 0;
+                opacity: 0;
+            }
         }
 
         /* ============================================
@@ -2833,7 +2867,7 @@
     <nav aria-label="Hauptnavigation">
         <div class="container">
             <a class="logo" href="#home">
-                <img src="handpan%20schule%20des%20Lebens%20Logo%20klein.png" alt="Handpan Schule des Lebens Logo">
+                <img src="handpan-schule-des-lebens-logo-klein.png" alt="Handpan Schule des Lebens Logo">
                 Handpan Schule des Lebens
             </a>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menü öffnen">☰</button>
@@ -2871,9 +2905,10 @@
         </section>
 
         <!-- UNSERE PRINZIPIEN -->
-        <section class="section-dark">
+        <section class="section-dark mobile-collapsible">
             <div class="container-narrow">
                 <h2 class="section-title">Unsere Prinzipien</h2>
+                <div class="section-collapsible-content">
                 <div class="feature-grid feature-grid--cross">
                     <div class="feature-grid--cross-glow"></div>
                     <div class="feature">
@@ -2893,13 +2928,15 @@
                         <p>Es geht nicht um Information, sondern um echte Veränderung.</p>
                     </div>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Deine Wege -->
-        <section class="section-light">
+        <section class="section-light mobile-collapsible">
             <div class="container">
                 <h2 class="section-title">Deine Wege</h2>
+                <div class="section-collapsible-content">
                 <p class="section-intro">
                     Ob erster Kontakt oder tiefe Reise — es gibt einen Weg, der jetzt zu dir passt.
                 </p>
@@ -2923,13 +2960,15 @@
                         <a href="#handpan-path" class="journey-link" style="display: inline-block; margin-top: var(--spacing-sm);">→ The Handpan Path</a>
                     </article>
                 </div>
+                </div>
             </div>
         </section>
 
         <!-- Was dich erwartet -->
-        <section class="section-dark">
+        <section class="section-dark mobile-collapsible">
             <div class="container">
                 <h2 class="section-title">Was dich erwartet</h2>
+                <div class="section-collapsible-content">
                 <p class="section-intro">Nicht nur spielen lernen — sondern Musiker werden.</p>
                 <div class="feature-grid" style="margin-top: var(--spacing-md);">
                     <div class="feature">
@@ -2948,6 +2987,7 @@
                         <h4>Gemeinschaft</h4>
                         <p>Wachse im Dialog mit Gleichgesinnten. Gemeinsames Üben beschleunigt jeden Weg.</p>
                     </div>
+                </div>
                 </div>
             </div>
         </section>
@@ -4326,7 +4366,7 @@
                     Werde Teil der Gemeinschaft. Kein Risiko, keine Verpflichtung – nur die Möglichkeit zu wachsen.
                 </p>
                 <a href="https://www.skool.com/handpan-schule-des-lebens-7898/about" target="_blank" class="cta" style="margin-right: var(--spacing-sm);">Zur Skool Community</a>
-                <a class="cta" href="#dabei-sein" style="background: transparent;">Fragen? Kontakt</a>
+                <a class="cta cta-secondary" href="#dabei-sein">Fragen? Kontakt</a>
             </div>
         </section>
     </div>
@@ -5150,7 +5190,7 @@
                     <a class="cta" href="https://wa.me/4915122964922?text=Hallo%20Nils%2C%20ich%20möchte%20mich%20für%20das%20Rhythmus%20Fundament%20anmelden.%0A%0AMein%20Name%3A%20%0AMeine%20Adresse%3A%20%0AMeine%20E-Mail%3A%20" target="_blank" rel="noopener">
                         💬 Per WhatsApp anmelden
                     </a>
-                    <a class="cta" href="mailto:kontakt@handpan.schule?subject=Anmeldung%20Rhythmus%20Fundament&body=Hallo%20Nils%2C%0A%0Aich%20möchte%20mich%20für%20den%20Rhythmus%20Fundament%20Kurs%20anmelden.%0A%0AMein%20Name%3A%20%0AMeine%20Adresse%3A%20%0AMeine%20E-Mail%3A%20%0A%0AVielen%20Dank%20und%20liebe%20Grüße" style="background: rgba(212, 165, 116, 0.12); border: 1px solid var(--color-accent);">
+                    <a class="cta cta-secondary" href="mailto:kontakt@handpan.schule?subject=Anmeldung%20Rhythmus%20Fundament&body=Hallo%20Nils%2C%0A%0Aich%20möchte%20mich%20für%20den%20Rhythmus%20Fundament%20Kurs%20anmelden.%0A%0AMein%20Name%3A%20%0AMeine%20Adresse%3A%20%0AMeine%20E-Mail%3A%20%0A%0AVielen%20Dank%20und%20liebe%20Grüße">
                         ✉️ Per E-Mail anmelden
                     </a>
                 </div>
@@ -5411,7 +5451,7 @@
                 </p>
                 <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
                     <a class="cta cta-primary" href="#dabei-sein">Gespräch vereinbaren</a>
-                    <a class="cta" href="#dabei-sein">Fragen stellen</a>
+                    <a class="cta cta-secondary" href="#dabei-sein">Fragen stellen</a>
                 </div>
             </div>
         </section>
@@ -6430,6 +6470,23 @@
             const navMenu = document.getElementById('nav-menu');
             navMenu.classList.toggle('active');
         }
+
+        // Mobile Progressive Disclosure
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.mobile-collapsible').forEach(function(section) {
+                    // Start collapsed
+                    section.classList.add('collapsed');
+
+                    var title = section.querySelector('.section-title');
+                    if (title) {
+                        title.addEventListener('click', function() {
+                            section.classList.toggle('collapsed');
+                        });
+                    }
+                });
+            }
+        });
 
         // FAQ Toggle
         function toggleFaq(element) {
