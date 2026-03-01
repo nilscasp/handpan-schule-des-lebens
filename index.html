@@ -97,7 +97,7 @@
                         "description": "6-wöchiger Handpan-Basiskurs für Anfänger",
                         "provider": { "@type": "MusicSchool", "name": "Handpan Schule des Lebens" }
                     },
-                    "price": "179",
+                    "price": "279",
                     "priceCurrency": "EUR"
                 },
                 {
@@ -155,7 +155,7 @@
             --color-bg: #0A0E14;
             --color-bg-lighter: #141922;
             --color-text: #E8E6E3;
-            --color-text-muted: #A0A0A0;
+            --color-text-muted: #B0B0B0;
             --color-accent: #D4A574;
             --color-accent-dark: #B8956C;
             
@@ -178,6 +178,7 @@
             font-family: var(--font-sans);
             font-size: 18px;
             line-height: 1.85;
+            font-weight: 400;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -196,7 +197,7 @@
 
         h1, h2, h3 {
             font-family: var(--font-serif);
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.2;
         }
 
@@ -687,6 +688,29 @@
         .cta:hover {
             background: var(--color-accent);
             color: var(--color-bg);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            border: 1px solid var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(212, 165, 116, 0.1);
+        }
+
+        .cta-tertiary {
+            background: transparent;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            padding: 0.6rem 1.5rem;
+        }
+
+        .cta-tertiary:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
         }
 
         .cta-primary {
@@ -2977,7 +3001,7 @@
                 </p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                     <a class="cta" href="#programm">Programm entdecken</a>
-                    <a class="cta" href="#dabei-sein" style="background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Gespräch beginnen</a>
+                    <a class="cta cta-secondary" href="#dabei-sein">Gespräch beginnen</a>
                 </div>
             </div>
         </section>
@@ -4357,7 +4381,7 @@
                     
                     <article class="card">
                         <h3 class="card-title">Rhythmus Fundament</h3>
-                        <p class="card-subtitle">179 € • 6 Wochen</p>
+                        <p class="card-subtitle">279 € • 6 Wochen</p>
                         <p>Der ideale Einstieg für alle, die eine solide rhythmische Grundlage aufbauen wollen. Nächster Start: 17. April 2026.</p>
                     </article>
                     
@@ -4430,7 +4454,7 @@
                     </button>
                     <div class="faq-answer">
                         <p style="padding-top: var(--spacing-sm);">
-                            Rhythmus Fundament: 179 €<br>
+                            Rhythmus Fundament: 279 €<br>
                             1:1 Mentoring Session: 149 €<br>
                             The Handpan Path und Retreats: Preise auf Anfrage<br>
                             Community-Zugang: Als Bonus bei Kursen inklusive, sonst monatlich kündbar
@@ -6768,7 +6792,7 @@
             const programs = {
                 'rhythmus': {
                     name: 'Rhythmus Fundament',
-                    tag: '6 Wochen • 179 €',
+                    tag: '6 Wochen • 279 €',
                     desc: 'Der ideale Einstieg, um ein solides rhythmisches Fundament aufzubauen. Puls, Subdivisions, Handsatz – die Grundlagen, die alles andere ermöglichen.',
                     icon: '🎯',
                     href: '#rhythmus-fundament'
@@ -7148,5 +7172,14 @@
         }
     });
     </script>
+
+    <noscript>
+        <style>
+            .protected-email::after { content: "kontakt [at] handpan.schule"; }
+            .protected-phone::after { content: "+49 151 22964922"; }
+            .protected-email, .protected-phone { font-size: 0; }
+            .protected-email::after, .protected-phone::after { font-size: 1rem; }
+        </style>
+    </noscript>
 </body>
 </html>
