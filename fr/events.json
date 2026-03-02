@@ -1,23 +1,37 @@
 [
   {
-    "title": "Atelier d\u00e9butants",
+    "title": "Atelier débutants",
     "date": "2026-03-15",
     "time": "14:00",
     "type": "workshop",
     "link": "#einsteigerkurse"
   },
   {
-    "title": "Fondement rythmique \u2013 Lancement",
+    "title": "Mentorat 1:1 – Session ouverte",
+    "date": "2026-03-22",
+    "time": "17:00",
+    "type": "mentoring",
+    "link": "#einzelunterricht-buchen"
+  },
+  {
+    "title": "Fondement rythmique – Lancement",
     "date": "2026-04-17",
     "time": "19:00",
     "type": "kurs",
     "link": "#rhythmus-fundament"
   },
   {
-    "title": "Mentorat 1:1 \u2013 Session ouverte",
-    "date": "2026-03-22",
-    "time": "17:00",
-    "type": "mentoring",
-    "link": "#einzelunterricht-buchen"
+    "title": "Retraite Hand & Mindful",
+    "date": "2026-07-30",
+    "time": "",
+    "type": "retreat",
+    "link": "#retreats"
+  },
+  {
+    "title": "The Handpan Path",
+    "date": "2026-11-01",
+    "time": "",
+    "type": "kurs",
+    "link": "#handpan-path"
   }
 ]

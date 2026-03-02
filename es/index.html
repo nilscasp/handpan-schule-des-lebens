@@ -2608,10 +2608,10 @@
 
         .calendar-sidebar {
             position: fixed;
-            top: 0;
+            top: 60px;
             right: 0;
             bottom: 0;
-            z-index: 100;
+            z-index: 99;
             width: 380px;
             max-width: 100vw;
             background: rgba(14, 18, 26, 0.97);
@@ -2763,6 +2763,32 @@
             font-style: italic;
         }
 
+        .calendar-sidebar-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(212, 165, 116, 0.15);
+            background: rgba(14, 18, 26, 0.97);
+            flex-shrink: 0;
+        }
+
+        .calendar-sidebar-cta {
+            display: block;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            background: rgba(212, 165, 116, 0.12);
+            border: 1px solid rgba(212, 165, 116, 0.25);
+            border-radius: 8px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .calendar-sidebar-cta:hover {
+            background: rgba(212, 165, 116, 0.22);
+            border-color: rgba(212, 165, 116, 0.4);
+        }
+
         @media (max-width: 768px) {
             .floating-cta {
                 bottom: 1rem;
@@ -2806,6 +2832,11 @@
         </div>
         <div class="calendar-events" id="calendar-events">
             <!-- Events loaded via JS -->
+        </div>
+        <div class="calendar-sidebar-footer">
+            <a href="#einzelunterricht-buchen" class="calendar-sidebar-cta" onclick="toggleCalendarSidebar()">
+                🎵 Reservar clase particular
+            </a>
         </div>
     </aside>
 
@@ -6182,7 +6213,7 @@
                             '<div class="calendar-event-info">' +
                                 '<p class="calendar-event-title">' + ev.title + '</p>' +
                                 '<div class="calendar-event-meta">' +
-                                    '<span>' + ev.time + '</span>' +
+                                    (ev.time ? '<span>' + ev.time + '</span>' : '') +
                                     '<span class="calendar-event-type" data-type="' + ev.type + '">' + typeLabel + '</span>' +
                                 '</div>' +
                             '</div>' +

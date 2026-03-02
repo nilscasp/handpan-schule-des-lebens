@@ -1,23 +1,37 @@
 [
   {
-    "title": "初心者ワークショップ",
+    "title": "\u521d\u5fc3\u8005\u30ef\u30fc\u30af\u30b7\u30e7\u30c3\u30d7",
     "date": "2026-03-15",
     "time": "14:00",
     "type": "workshop",
     "link": "#einsteigerkurse"
   },
   {
-    "title": "リズムの基礎 – キックオフ",
+    "title": "1:1 \u30e1\u30f3\u30bf\u30ea\u30f3\u30b0 – \u30aa\u30fc\u30d7\u30f3\u30bb\u30c3\u30b7\u30e7\u30f3",
+    "date": "2026-03-22",
+    "time": "17:00",
+    "type": "mentoring",
+    "link": "#einzelunterricht-buchen"
+  },
+  {
+    "title": "\u30ea\u30ba\u30e0\u306e\u57fa\u790e – \u30ad\u30c3\u30af\u30aa\u30d5",
     "date": "2026-04-17",
     "time": "19:00",
     "type": "kurs",
     "link": "#rhythmus-fundament"
   },
   {
-    "title": "1:1 メンタリング – オープンセッション",
-    "date": "2026-03-22",
-    "time": "17:00",
-    "type": "mentoring",
-    "link": "#einzelunterricht-buchen"
+    "title": "Hand & Mindful \u30ea\u30c8\u30ea\u30fc\u30c8",
+    "date": "2026-07-30",
+    "time": "",
+    "type": "retreat",
+    "link": "#retreats"
+  },
+  {
+    "title": "\u30cf\u30f3\u30c9\u30d1\u30f3\u306e\u9053",
+    "date": "2026-11-01",
+    "time": "",
+    "type": "kurs",
+    "link": "#handpan-path"
   }
 ]

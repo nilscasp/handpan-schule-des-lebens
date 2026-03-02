@@ -7,6 +7,13 @@
     "link": "#einsteigerkurse"
   },
   {
+    "title": "Mentoria 1:1 – Sessão Aberta",
+    "date": "2026-03-22",
+    "time": "17:00",
+    "type": "mentoring",
+    "link": "#einzelunterricht-buchen"
+  },
+  {
     "title": "Fundamento Rítmico – Lançamento",
     "date": "2026-04-17",
     "time": "19:00",
@@ -14,10 +21,17 @@
     "link": "#rhythmus-fundament"
   },
   {
-    "title": "Mentoria 1:1 – Sessão Aberta",
-    "date": "2026-03-22",
-    "time": "17:00",
-    "type": "mentoring",
-    "link": "#einzelunterricht-buchen"
+    "title": "Retiro Hand & Mindful",
+    "date": "2026-07-30",
+    "time": "",
+    "type": "retreat",
+    "link": "#retreats"
+  },
+  {
+    "title": "The Handpan Path",
+    "date": "2026-11-01",
+    "time": "",
+    "type": "kurs",
+    "link": "#handpan-path"
   }
 ]
