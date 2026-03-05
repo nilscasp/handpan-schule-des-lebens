@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="8" fill="#1a1a2e"/>
+  <g transform="translate(32,33) scale(0.036)" fill="none" stroke="#c9a96e" stroke-width="85">
+    <g transform="matrix(-0.456893,0.817985,-0.817985,-0.456893,-3.72973,-408)"><circle cx="0" cy="0" r="381.425"/></g>
+    <g transform="matrix(-0.456893,0.817985,-0.817985,-0.456893,2.71073,311.177)"><circle cx="0" cy="0" r="381.425"/></g>
+    <g transform="matrix(-0.456893,0.817985,-0.817985,-0.456893,359.046,-57.683)"><circle cx="0" cy="0" r="381.425"/></g>
+    <g transform="matrix(-0.456893,0.817985,-0.817985,-0.456893,-360.109,-57.239)"><circle cx="0" cy="0" r="381.425"/></g>
+  </g>
+</svg>
