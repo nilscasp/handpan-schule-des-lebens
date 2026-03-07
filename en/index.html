@@ -413,7 +413,7 @@
             transform: translate(-50%, -50%);
             width: 110%;
             height: 110%;
-            border-radius: 50%;
+            border-radius: 0;
             background: radial-gradient(
                 circle,
                 rgba(212, 165, 116, 0.18) 0%,
@@ -441,12 +441,12 @@
             position: relative;
             z-index: 1;
             display: block;
-            width: 480px;
-            height: 480px;
+            width: 600px;
+            height: 600px;
             max-width: 90vw;
             max-height: 90vw;
-            border-radius: 50%;
-            object-fit: cover;
+            border-radius: 0;
+            object-fit: contain;
             opacity: 0.85;
             filter: drop-shadow(0 0 40px rgba(212, 165, 116, 0.2));
         }
@@ -804,7 +804,7 @@
             width: 10px;
             height: 10px;
             background: var(--color-accent);
-            border-radius: 50%;
+            border-radius: 0;
             transform: translateX(-4px);
         }
 
@@ -866,7 +866,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
+            border-radius: 0;
             background: var(--color-bg);
             border: 2px solid rgba(212, 165, 116, 0.3);
             transition: all 0.3s ease;
@@ -1012,7 +1012,7 @@
             top: 0.6rem;
             width: 6px;
             height: 6px;
-            border-radius: 50%;
+            border-radius: 0;
             background: var(--color-accent);
             opacity: 0.6;
         }
@@ -1406,7 +1406,7 @@
             transform: translate(-50%, -50%);
             width: 80px;
             height: 80px;
-            border-radius: 50%;
+            border-radius: 0;
             background: radial-gradient(
                 circle,
                 rgba(212, 165, 116, 0.12) 0%,
@@ -1877,7 +1877,7 @@
         .section-divider-dot {
             width: 6px;
             height: 6px;
-            border-radius: 50%;
+            border-radius: 0;
             background: var(--color-accent);
             margin: 0 var(--spacing-sm);
         }
@@ -1888,7 +1888,7 @@
         .section-image {
             width: 100%;
             max-height: 400px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 8px;
             margin-bottom: var(--spacing-md);
         }
@@ -1900,8 +1900,8 @@
         .portrait-round {
             width: 200px;
             height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
+            border-radius: 0;
+            object-fit: contain;
             margin: 0 auto var(--spacing-md);
             display: block;
             border: 2px solid rgba(212, 165, 116, 0.2);
@@ -2128,7 +2128,7 @@
         .quiz-progress-dot {
             width: 12px;
             height: 12px;
-            border-radius: 50%;
+            border-radius: 0;
             background: rgba(212, 165, 116, 0.2);
             transition: all 0.3s ease;
         }
@@ -2498,7 +2498,7 @@
             appearance: none;
             width: 22px;
             height: 22px;
-            border-radius: 50%;
+            border-radius: 0;
             background: var(--color-accent);
             cursor: pointer;
             box-shadow: 0 0 8px rgba(212, 165, 116, 0.4);
@@ -2510,7 +2510,7 @@
         .price-calc-slider input[type="range"]::-moz-range-thumb {
             width: 22px;
             height: 22px;
-            border-radius: 50%;
+            border-radius: 0;
             background: var(--color-accent);
             cursor: pointer;
             border: none;
@@ -3045,7 +3045,7 @@
             <div class="container-narrow">
                 <div class="about-grid">
                     <div>
-                        <img src="../images/optimized/spielszene-see-profil.webp" alt="Nils with Handpan" style="width: 100%; border-radius: 2px; aspect-ratio: 1; object-fit: cover;" loading="lazy">
+                        <img src="../images/optimized/spielszene-see-profil.webp" alt="Nils with Handpan" style="width: 100%; border-radius: 2px; aspect-ratio: 1; object-fit: contain;" loading="lazy">
                     </div>
                     <div>
                         <p class="journey-phase" style="margin-bottom: 0.5rem;">Your Guide</p>
