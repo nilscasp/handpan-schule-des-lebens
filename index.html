@@ -410,14 +410,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding-top: 18%;
+            padding-top: 8%;
             padding-bottom: 6%;
             z-index: 2;
             text-align: center;
         }
         .hero-photo .hero-subtitle {
-            margin-top: 16%;
-            color: #1a1a1a;
+            margin-top: 0.5rem;
         }
         .hero-photo .hero-description {
             margin-top: auto;
@@ -488,6 +487,26 @@
             justify-content: center;
             padding: var(--spacing-md) 0;
             background: var(--color-bg);
+        }
+
+        .hero-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 0.5rem var(--spacing-lg);
+            background: var(--color-bg);
+        }
+        .hero-divider__line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(212, 165, 116, 0.4), transparent);
+        }
+        .hero-divider__ornament {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            opacity: 0.7;
         }
 
         .hero-image {
@@ -2988,7 +3007,7 @@
     <div id="page-home" class="page-content active">
 
         <section class="hero-photo">
-            <img src="images/optimized/hero-handpan-makro.jpg" class="hero-photo-img" alt="Handpan Nahaufnahme">
+            <img src="images/optimized/hero-handpan-2.jpg" class="hero-photo-img" alt="Handpan Nahaufnahme">
             <div class="bg-overlay"></div>
             <div class="hero-content container-narrow">
                 <h1>Handpan Schule des Lebens</h1>
@@ -2999,6 +3018,12 @@
                 </p>
             </div>
         </section>
+
+        <div class="hero-divider">
+            <span class="hero-divider__line"></span>
+            <img src="images/logo-ornament.svg" class="hero-divider__ornament" alt="">
+            <span class="hero-divider__line"></span>
+        </div>
 
         <div class="logo-block">
             <div class="hero-image-wrapper">
