@@ -160,8 +160,8 @@
             --color-accent: #D4A574;
             --color-accent-dark: #B8956C;
             
-            --font-serif: 'Georgia', 'Times New Roman', serif;
-            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Spectral', Georgia, serif;
             
             --spacing-xs: 0.5rem;
             --spacing-sm: 1rem;
@@ -177,6 +177,7 @@
             background-color: var(--color-bg);
             color: var(--color-text);
             font-family: var(--font-sans);
+            font-weight: 300;
             font-size: 18px;
             line-height: 1.85;
             -webkit-font-smoothing: antialiased;
@@ -377,6 +378,51 @@
             padding: 120px 0 60px;
         }
 
+        .hero-photo {
+            position: relative;
+            padding-top: 66.67%; /* Seitenverhältnis 6000:4000 = 3:2 */
+            margin-top: 79px; /* Nav-Höhe */
+            overflow: hidden;
+        }
+        .hero-photo-img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+        .hero-photo .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 14, 20, 0.45) 0%,
+                rgba(10, 14, 20, 0.25) 50%,
+                rgba(10, 14, 20, 0.55) 100%
+            );
+            z-index: 1;
+        }
+        .hero-photo .hero-content {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 18%;
+            padding-bottom: 6%;
+            z-index: 2;
+            text-align: center;
+        }
+        .hero-photo .hero-subtitle {
+            margin-top: 16%;
+            color: #1a1a1a;
+        }
+        .hero-photo .hero-description {
+            margin-top: auto;
+        }
+
         .hero-content { max-width: 900px; }
 
         .hero h1 {
@@ -437,14 +483,21 @@
             }
         }
 
+        .logo-block {
+            display: flex;
+            justify-content: center;
+            padding: var(--spacing-md) 0;
+            background: var(--color-bg);
+        }
+
         .hero-image {
             position: relative;
             z-index: 1;
             display: block;
-            width: 600px;
-            height: 600px;
-            max-width: 90vw;
-            max-height: 90vw;
+            width: 320px;
+            height: 320px;
+            max-width: 80vw;
+            max-height: 80vw;
             border-radius: 0;
             object-fit: contain;
             opacity: 0.85;
@@ -460,7 +513,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 100px 0 40px;
+            padding: 150px 0 40px;
         }
 
         #page-programm .page-hero {
@@ -1762,7 +1815,7 @@
             section { padding: var(--spacing-lg) 0; }
 
             .hero { min-height: auto; padding: 120px 0 var(--spacing-xl); }
-            .page-hero { min-height: auto; padding: 120px 0 var(--spacing-lg); }
+            .page-hero { min-height: auto; padding: 150px 0 var(--spacing-lg); }
 
             .newsletter-form .newsletter-input-group {
                 flex-direction: column;
@@ -2834,6 +2887,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="/fonts/fonts.css">
 </head>
 <body>
 
@@ -2933,7 +2987,8 @@
     <main id="main-content">
     <div id="page-home" class="page-content active">
 
-        <section class="hero hero-bg" style="background-image: url('images/optimized/hero-sonnenuntergang.webp');">
+        <section class="hero-photo">
+            <img src="images/optimized/hero-handpan-makro.jpg" class="hero-photo-img" alt="Handpan Nahaufnahme">
             <div class="bg-overlay"></div>
             <div class="hero-content container-narrow">
                 <h1>Handpan Schule des Lebens</h1>
@@ -2942,11 +2997,14 @@
                     Hier verbindet sich das Spiel der Handpan mit der Suche nach Bewusstsein,
                     Stille und dem Verstehen unserer seelischen Herkunft.
                 </p>
-                <div class="hero-image-wrapper">
-                    <img src="LogoHandpanSchule.png" alt="Heilige Geometrie – Logo der Handpan Schule des Lebens" class="hero-image">
-                </div>
             </div>
         </section>
+
+        <div class="logo-block">
+            <div class="hero-image-wrapper">
+                <img src="images/optimized/logo-handpan-schule.jpg" alt="Heilige Geometrie – Logo der Handpan Schule des Lebens" class="hero-image">
+            </div>
+        </div>
 
         <!-- UNSERE PRINZIPIEN -->
         <section class="section-dark">
