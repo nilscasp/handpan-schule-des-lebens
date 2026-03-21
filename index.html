@@ -539,6 +539,60 @@
         }
 
         /* ============================================
+           PAGE HERO PHOTO (Unterseiten mit Hintergrundbild)
+           ============================================ */
+        .page-hero-photo {
+            position: relative;
+            height: 180px;
+            margin-top: 79px;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .page-hero-photo__img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            overflow: hidden;
+        }
+
+        .page-hero-photo .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 14, 20, 0.5) 0%,
+                rgba(10, 14, 20, 0.25) 40%,
+                rgba(10, 14, 20, 0.65) 100%
+            );
+            z-index: 1;
+        }
+
+        .page-hero-photo__content {
+            position: relative;
+            z-index: 2;
+            padding: 0 var(--spacing-lg) 0;
+            margin-bottom: -10px;
+        }
+
+        .page-hero-photo__content h1 {
+            font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+            margin-bottom: 0.4rem;
+            color: #000000;
+        }
+
+        .page-hero-photo__content .hero-subtitle {
+            font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+            color: #111111;
+        }
+
+        /* ============================================
            SECTIONS
            ============================================ */
         .section-dark { background-color: var(--color-bg); }
@@ -1828,6 +1882,7 @@
 
             .hero { min-height: auto; padding: 120px 0 var(--spacing-xl); }
             .page-hero { min-height: auto; padding: 150px 0 var(--spacing-lg); }
+            .page-hero-photo { height: 180px; margin-top: 64px; }
 
             .hero-photo {
                 padding-top: 120%;
@@ -6424,18 +6479,22 @@
          ============================================ -->
     <div id="page-instrumente" class="page-content">
 
-        <section class="page-hero">
-            <div class="hero-content container-narrow">
+        <section class="page-hero-photo">
+            <img
+                src="images/optimized/instrumente-hero.jpg"
+                alt="Nahaufnahme der Handpan – zentrale Öffnung und Tonfelder"
+                class="page-hero-photo__img"
+                loading="eager"
+            >
+            <div class="bg-overlay"></div>
+            <div class="page-hero-photo__content">
                 <h1>Instrumente</h1>
                 <p class="hero-subtitle">Leihe, Orientierung, Kauf – ohne Druck</p>
             </div>
         </section>
-
-        <section class="section-dark">
-            <div class="container-narrow">
-                <img src="images/optimized/handpan-makro.webp" alt="Handpan Makro-Aufnahme – Detail der Tonfelder" class="section-image" loading="lazy">
-            </div>
-        </section>
+        <div class="hero-divider">
+            <span class="hero-divider__line"></span>
+        </div>
 
         <section class="section-light">
             <div class="container-narrow">
