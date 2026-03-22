@@ -543,12 +543,12 @@
            ============================================ */
         .page-hero-photo {
             position: relative;
-            height: 180px;
+            min-height: 50vh;
             margin-top: 79px;
-            padding: 0;
+            padding: 150px 0 40px;
             text-align: center;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
         }
 
@@ -577,18 +577,16 @@
         .page-hero-photo__content {
             position: relative;
             z-index: 2;
-            padding: 0 var(--spacing-lg) 0;
-            margin-bottom: -10px;
+            padding: 0 var(--spacing-lg);
         }
 
         .page-hero-photo__content h1 {
-            font-size: clamp(1.6rem, 3.5vw, 2.8rem);
             margin-bottom: 0.4rem;
             color: #000000;
         }
 
         .page-hero-photo__content .hero-subtitle {
-            font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
             color: #111111;
         }
 
@@ -1882,7 +1880,7 @@
 
             .hero { min-height: auto; padding: 120px 0 var(--spacing-xl); }
             .page-hero { min-height: auto; padding: 150px 0 var(--spacing-lg); }
-            .page-hero-photo { height: 180px; margin-top: 64px; }
+            .page-hero-photo { min-height: 40vh; margin-top: 64px; padding: 120px 0 30px; }
 
             .hero-photo {
                 padding-top: 120%;
