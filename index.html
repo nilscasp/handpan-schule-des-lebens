@@ -138,6 +138,7 @@
     <link rel="preconnect" href="https://asset-tidycal.b-cdn.net" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="https://f66d0849.sibforms.com">
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
     <style>
         /* ============================================
@@ -5439,48 +5440,32 @@
             </div>
         </section>
 
-        <!-- Anmeldung -->
+        <!-- Anmeldung & Bezahlung -->
         <section class="section-dark">
             <div class="container-narrow text-center">
-                <h2 class="section-title">Anmeldung</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    Um dich für den Rhythmus Fundament Kurs anzumelden, schreibe mir bitte deine vollständige Adresse
-                    sowie deine E-Mail-Adresse per WhatsApp oder E-Mail.
-                </p>
+                <h2 class="section-title">Jetzt anmelden</h2>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
-                    Sobald ich deine Anmeldung erhalten habe, sende ich dir alle weiteren Informationen sowie die Zahlungsdetails zu.
+                    Direkt hier anmelden und sicher bezahlen — per Kreditkarte, SEPA-Lastschrift oder Sofortüberweisung.
+                </p>
+
+                <div style="display: flex; justify-content: center; margin-bottom: var(--spacing-lg);">
+                    <stripe-buy-button
+                      buy-button-id="buy_btn_1TFY8GAEDyfR18n4fnWcaidk"
+                      publishable-key="pk_live_51T6U0dAEDyfR18n4N0x7lOZV6STJSZmY7lU2b2sVcOXxp7STH1iRzlXODWIFBHq4SD75fNIx8tyk8bCOVLIGZWYo00ouAf2gpS"
+                    ></stripe-buy-button>
+                </div>
+
+                <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: var(--spacing-md);">
+                    Du bevorzugst eine persönliche Anmeldung?
                 </p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                     <a class="cta" href="https://wa.me/4915122964922?text=Hallo%20Nils%2C%20ich%20möchte%20mich%20für%20das%20Rhythmus%20Fundament%20anmelden.%0A%0AMein%20Name%3A%20%0AMeine%20Adresse%3A%20%0AMeine%20E-Mail%3A%20" target="_blank" rel="noopener">
-                        💬 Per WhatsApp anmelden
+                        💬 Per WhatsApp
                     </a>
                     <a class="cta" href="mailto:kontakt@handpan.schule?subject=Anmeldung%20Rhythmus%20Fundament&body=Hallo%20Nils%2C%0A%0Aich%20möchte%20mich%20für%20den%20Rhythmus%20Fundament%20Kurs%20anmelden.%0A%0AMein%20Name%3A%20%0AMeine%20Adresse%3A%20%0AMeine%20E-Mail%3A%20%0A%0AVielen%20Dank%20und%20liebe%20Grüße" style="background: rgba(212, 165, 116, 0.12); border: 1px solid var(--color-accent);">
-                        ✉️ Per E-Mail anmelden
+                        ✉️ Per E-Mail
                     </a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Bezahlung -->
-        <section class="section-light">
-            <div class="container-narrow">
-                <h2 class="section-title">Bezahlungsmöglichkeiten</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    Die Kursgebühr in Höhe von <strong style="color: var(--color-accent);">279 €</strong> kann auf zwei verschiedene Arten beglichen werden:
-                </p>
-                <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                    <div class="feature-card" style="text-align: center;">
-                        <h3>Banküberweisung</h3>
-                        <p>Klassisch per Überweisung. Kontodaten erhältst du nach der Anmeldung.</p>
-                    </div>
-                    <div class="feature-card" style="text-align: center;">
-                        <h3>PayPal</h3>
-                        <p>Bitte wähle die Option „Freunde und Verwandte", um zusätzliche Gebühren zu vermeiden.</p>
-                    </div>
-                </div>
-                <p style="color: var(--color-text-muted); margin-top: var(--spacing-md); font-size: 0.9rem; text-align: center;">
-                    Die genauen Zahlungsdetails bekommst du von mir direkt nach deiner Anmeldung per Nachricht auf dein Handy zugeschickt.
-                </p>
             </div>
         </section>
 
