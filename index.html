@@ -1706,8 +1706,124 @@
         }
 
         footer a {
-            color: var(--color-accent);
+            color: var(--color-text-muted);
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Footer Grid */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-lg) 0;
+            text-align: left;
+        }
+        .footer-col-heading {
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+        .footer-brand-name {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--color-accent);
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+        .footer-tagline {
+            font-style: italic;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.5;
+        }
+        .footer-brand-credit {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+        }
+        .footer-social {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: var(--spacing-xs);
+        }
+        .footer-social a {
+            color: var(--color-text-muted);
+            display: inline-flex;
+            transition: color 0.3s ease;
+        }
+        .footer-social a:hover {
+            color: var(--color-accent);
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col li {
+            line-height: 2.2;
+        }
+        .footer-col li a {
+            font-size: 0.9rem;
+        }
+        .footer-contact-item {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        .footer-contact-item a {
+            color: var(--color-text-muted);
+        }
+        .footer-contact-item a:hover {
+            color: var(--color-accent);
+        }
+        .footer-address {
+            font-style: normal;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            margin-top: var(--spacing-sm);
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-md);
+            margin-top: var(--spacing-sm);
+            border-top: 1px solid rgba(212, 165, 116, 0.15);
+            font-size: 0.85rem;
+        }
+        .footer-bottom a {
+            color: var(--color-text-muted);
+        }
+        .footer-bottom a:hover {
+            color: var(--color-accent);
+        }
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-md);
+            }
+        }
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
         }
 
         .lang-switcher {
@@ -6616,6 +6732,113 @@
     </div>
 
     <!-- ============================================
+         BIANCA SÁNCHEZ (Detailseite)
+         ============================================ -->
+    <div id="page-bianca-sanchez" class="page-content">
+
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <a href="#ueber" class="detail-back">← Zurück zum Team</a>
+                <h1>Bianca Sánchez</h1>
+                <p class="hero-subtitle">Lehrerin, Yogalehrerin &amp; Musikerin</p>
+            </div>
+        </section>
+
+        <section class="section-meta">
+            <div class="container-narrow">
+                <div class="detail-meta-bar">
+                    <div class="detail-meta-item"><strong>Instrumente</strong> Handpan, Stimme, Gitarre</div>
+                    <div class="detail-meta-item"><strong>Fokus</strong> Stimme &amp; Handpan</div>
+                    <div class="detail-meta-item"><strong>Ansatz</strong> Anusara® Yoga</div>
+                    <div class="detail-meta-item"><strong>Ort</strong> München &amp; Freising</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Bianca verbindet in ihrer Arbeit Handpan, Stimme und Yoga zu einem ganzheitlichen
+                    Erfahrungsraum. Über die tantrische Yogaphilosophie und die universellen Prinzipien
+                    des Anusara® Yoga schafft sie einen Rahmen, in dem Musik zur Brücke zwischen
+                    innerem Erleben und äußerem Ausdruck wird.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Musik als Verbindung</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Von der Songwriterin zur Handpan-Lehrerin — Biancas Weg war immer von der Sehnsucht
+                    geprägt, Menschen durch Musik zusammenzubringen. Nach zwei Alben unter dem Künstlernamen
+                    „Ama Pola", einer Karriere als Flugbegleiterin und Ausbilderin sowie einer tiefen
+                    Yogapraxis fand sie 2023 in der Handpan das Instrument, das all ihre Erfahrungen vereint.
+                </p>
+                <blockquote class="quote-block">
+                    <p class="quote-text" style="font-size: 1.3rem;">
+                        „Eine wohlwollende Haltung sich selbst und dem Leben gegenüber kultivieren
+                        und dadurch anderen ein Leitstern sein."
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Schwerpunkte</h2>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">First Touch Workshops:</strong>
+                    Einführungskurse in kleinen Gruppen bis 8 Personen rund um München — mit
+                    Handpan-Verleih, damit die Erfahrung auch nach dem Workshop weitergehen kann.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Stimme &amp; Handpan:</strong>
+                    Biancas besondere Verbindung: Die Stimme als nächstes Instrument mit der Handpan
+                    vereinen — für einen tieferen, körperlichen Zugang zur Musik.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Retreats &amp; Yoga:</strong>
+                    Retreats rund um Yoga und Handpan, Mantra-Seminare und Anusara® Yoga —
+                    Räume, in denen Prozessarbeit und Selbsterfahrung im Mittelpunkt stehen.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Der Weg des Künstlers:</strong>
+                    Einmal jährlich begleitet Bianca eine geschlossene Gruppe 13 Wochen lang
+                    durch Julia Camerons kreative Selbstfindungsreise.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Für wen ist Biancas Ansatz?</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Für Menschen, die in der Musik mehr suchen als Technik. Wenn du dich über Klang
+                    und Körper mit dir selbst verbinden möchtest, Prozessarbeit statt schnelle Ergebnisse
+                    suchst und offen bist für die Begegnung mit der Musik in all ihren Formen —
+                    dann ist Biancas Ansatz für dich.
+                </p>
+                <p style="color: var(--color-text-muted);">
+                    Mehr über Biancas Arbeit findest du auf ihrer Website:
+                    <a href="https://www.biancasanchez.de/" target="_blank" rel="noopener" style="color: var(--color-accent);">www.biancasanchez.de</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Gespräch vereinbaren</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    In einem persönlichen Gespräch finden wir gemeinsam heraus, welcher Weg für dich passt.
+                </p>
+                <a class="cta" href="#dabei-sein">Gespräch vereinbaren</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ============================================
          EINSTEIGERKURSE (Detailseite)
          ============================================ -->
     <div id="page-einsteigerkurse" class="page-content">
@@ -7024,21 +7247,75 @@
                     ✓ Vielen Dank! Bitte bestätige deine Anmeldung in deinem Postfach.
                 </p>
             </div>
-            <p>&copy; 2026 Handpan Schule des Lebens | Nils Caspar</p>
-            <div style="margin-top: var(--spacing-sm); display: flex; justify-content: center; gap: 1.4rem;">
-                <a href="https://www.facebook.com/nilscasparpoesie" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="color: var(--color-text-muted); text-decoration: none; transition: color 0.3s ease; display: inline-flex;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </a>
-                <a href="https://www.instagram.com/nils_caspar_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="color: var(--color-text-muted); text-decoration: none; transition: color 0.3s ease; display: inline-flex;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                </a>
-                <a href="https://www.youtube.com/@nilscaspar36" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="color: var(--color-text-muted); text-decoration: none; transition: color 0.3s ease; display: inline-flex;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </a>
+            <!-- Footer Grid -->
+            <div class="footer-grid">
+                <!-- Spalte 1: Schule -->
+                <div class="footer-col">
+                    <p class="footer-brand-name">Handpan Schule des Lebens</p>
+                    <p class="footer-tagline">Handpan lernen mit Tiefe<br>und Bewusstsein</p>
+                    <p class="footer-brand-credit">Nils Caspar<br>Musikpädagoge &amp; Musiker</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/nilscasparpoesie" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/nils_caspar_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@nilscaspar36" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Spalte 2: Programm -->
+                <div class="footer-col">
+                    <p class="footer-col-heading">Programm</p>
+                    <ul>
+                        <li><a href="#einsteigerkurse">Einsteigerkurse</a></li>
+                        <li><a href="#rhythmus-fundament">Rhythmus Fundament</a></li>
+                        <li><a href="#handpan-path">Jahreskurs</a></li>
+                        <li><a href="#retreats">Retreats</a></li>
+                        <li><a href="#mentoring">Mentoring</a></li>
+                        <li><a href="#einzelunterricht">Einzelunterricht</a></li>
+                    </ul>
+                </div>
+
+                <!-- Spalte 3: Über uns -->
+                <div class="footer-col">
+                    <p class="footer-col-heading">Über uns</p>
+                    <ul>
+                        <li><a href="#nils-caspar">Nils Caspar</a></li>
+                        <li><a href="#peter-aumueller">Peter Aumüller</a></li>
+                        <li><a href="#bianca-sanchez">Bianca Sánchez</a></li>
+                        <li><a href="#philosophie">Unsere Philosophie</a></li>
+                        <li><a href="#lernziele">Lernziele</a></li>
+                        <li><a href="#dabei-sein">Dabei sein</a></li>
+                    </ul>
+                </div>
+
+                <!-- Spalte 4: Kontakt -->
+                <div class="footer-col">
+                    <p class="footer-col-heading">Kontakt</p>
+                    <p class="footer-contact-item">
+                        <a href="mailto:kontakt@handpan.schule">kontakt@handpan.schule</a>
+                    </p>
+                    <p class="footer-contact-item">
+                        <a href="https://wa.me/message/4CR7IBJCMH7BP1" target="_blank" rel="noopener noreferrer">WhatsApp schreiben &rarr;</a>
+                    </p>
+                    <address class="footer-address">
+                        Nederlinger Str. 97<br>
+                        80638 München
+                    </address>
+                </div>
             </div>
-            <p style="margin-top: var(--spacing-xs);">
-                <a href="#ueber">Über uns</a> · <a href="#dabei-sein">Dabei sein</a> · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a>
-            </p>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Handpan Schule des Lebens</p>
+                <p>
+                    <a href="#impressum">Impressum</a> &middot; <a href="#datenschutz">Datenschutz</a>
+                </p>
+            </div>
         </div>
     </footer>
 
@@ -7068,6 +7345,7 @@
             'ueber':               { pageId: 'page-ueber',               title: 'Über uns · Handpan Schule des Lebens' },
             'nils-caspar':         { pageId: 'page-nils-caspar',         title: 'Nils Caspar · Handpan Schule des Lebens' },
             'peter-aumueller':     { pageId: 'page-peter-aumueller',     title: 'Peter Aumüller · Handpan Schule des Lebens' },
+            'bianca-sanchez':      { pageId: 'page-bianca-sanchez',      title: 'Bianca Sánchez · Handpan Schule des Lebens' },
             'gruender':            { redirect: 'nils-caspar' },
             'lehrer':              { redirect: 'nils-caspar' },
             'einsteigerkurse':     { pageId: 'page-einsteigerkurse',     title: 'Einsteigerkurse · Handpan Schule des Lebens' },
