@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '835283135566622');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=835283135566622&ev=PageView&noscript=1"/></noscript>
+    <!-- End Facebook Pixel Code -->
+
     <title>Handpan Schule des Lebens – Apprendre le handpan en profondeur et en conscience</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="Apprenez le handpan a la Handpan Schule des Lebens pres de Munich. Cours de handpan, stages, retraites et mentorat avec Nils Bohm. Apprendre le handpan – en ligne et en presentiel a Munich. Pour debutants et joueurs avances.">
     <meta name="keywords" content="Handpan, apprendre handpan, ecole handpan, cours handpan, stage handpan, jouer handpan, handpan Munich, handpan en ligne, retraite handpan, communaute handpan, handpan debutant, mentorat handpan, professeur handpan, cours particuliers handpan, atelier handpan">
-    <meta name="author" content="Nils Böhm">
+    <meta name="author" content="Nils Caspar">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="DE-BY">
     <meta name="geo.placename" content="München">
@@ -73,7 +88,7 @@
         },
         "founder": {
             "@type": "Person",
-            "name": "Nils Böhm",
+            "name": "Nils Caspar",
             "jobTitle": "Professeur de Handpan"
         },
         "areaServed": [
@@ -457,6 +472,61 @@
             filter: drop-shadow(0 0 40px rgba(212, 165, 116, 0.2));
         }
 
+        .hero-photo {
+            position: relative;
+            padding-top: 66.67%;
+            margin-top: 79px;
+            overflow: hidden;
+        }
+        .hero-photo-img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+        .hero-photo .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(10, 14, 20, 0.45) 0%, rgba(10, 14, 20, 0.25) 50%, rgba(10, 14, 20, 0.55) 100%);
+            z-index: 1;
+        }
+        .hero-photo .hero-content {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 8%;
+            padding-bottom: 6%;
+            z-index: 2;
+            text-align: center;
+        }
+        .hero-photo .hero-subtitle { margin-top: 0.5rem; }
+        .hero-photo .hero-description { margin-top: auto; }
+
+        .hero-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 0.5rem var(--spacing-lg);
+            background: var(--color-bg);
+        }
+        .hero-divider__line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(212, 165, 116, 0.4), transparent);
+        }
+        .hero-divider__ornament {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
         /* ============================================
            PAGE HERO (Unterseiten)
            ============================================ */
@@ -478,6 +548,24 @@
         .page-hero h1 {
             margin-bottom: var(--spacing-md);
         }
+
+        .page-hero-photo {
+            position: relative; min-height: 50vh; margin-top: 79px;
+            padding: 150px 0 40px; text-align: center;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .page-hero-photo__img {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center center; overflow: hidden;
+        }
+        .page-hero-photo .bg-overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(10,14,20,0.5) 0%, rgba(10,14,20,0.25) 40%, rgba(10,14,20,0.65) 100%);
+            z-index: 1;
+        }
+        .page-hero-photo__content { position: relative; z-index: 2; padding: 0 var(--spacing-lg); }
+        .page-hero-photo__content h1 { margin-bottom: 0.4rem; color: #000000; }
+        .page-hero-photo__content .hero-subtitle { font-size: clamp(1.2rem, 2.5vw, 1.8rem); color: #111111; }
 
         /* ============================================
            SECTIONS
@@ -1791,6 +1879,11 @@
 
             .hero { min-height: auto; padding: 120px 0 var(--spacing-xl); }
             .page-hero { min-height: auto; padding: 150px 0 var(--spacing-lg); }
+            .page-hero-photo { min-height: 40vh; margin-top: 64px; padding: 120px 0 30px; }
+            .hero-photo { padding-top: 120%; margin-top: 64px; }
+            .hero-photo .hero-content { padding-top: 12%; padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+            .hero-photo h1 { font-size: 2.4rem; }
+            .hero-divider__ornament { width: 60px; height: 60px; }
 
             .newsletter-form .newsletter-input-group {
                 flex-direction: column;
@@ -2972,23 +3065,42 @@
     <main id="main-content">
     <div id="page-home" class="page-content active">
 
-        <section class="hero hero-bg" style="background-image: url('../images/optimized/hero-sonnenuntergang.webp');">
+        <section class="hero-photo">
+            <img src="../images/optimized/hero-handpan-2.jpg" class="hero-photo-img" alt="Handpan en gros plan">
             <div class="bg-overlay"></div>
             <div class="hero-content container-narrow">
                 <h1>Handpan Schule des Lebens</h1>
-                <p class="hero-subtitle">Un chemin vers une presence interieure profonde</p>
+                <p class="hero-subtitle">Trouve ton propre son.</p>
                 <p class="hero-description">
-                    Ici, l'art du handpan se mele a la quete de conscience,
-                    de silence et de comprehension de nos origines spirituelles.
+                    Rythmique, harmonique, composition — et le courage de développer ton propre jeu. En direct, en ligne et dans une communauté de personnes qui suivent le même chemin.
                 </p>
-                <div class="hero-image-wrapper">
-                    <img src="../LogoHandpanSchule.png" alt="Géométrie sacrée – Logo de l'École Handpan de la Vie" class="hero-image">
-                </div>
             </div>
         </section>
 
-        <!-- UNSERE PRINZIPIEN -->
+        <div class="hero-divider">
+            <span class="hero-divider__line"></span>
+            <img src="../images/logo-ornament.svg" class="hero-divider__ornament" alt="">
+            <span class="hero-divider__line"></span>
+        </div>
+
+        <!-- CE QUI SE PASSE ICI -->
         <section class="section-dark">
+            <div class="container-narrow" style="text-align: center;">
+                <h2 class="section-title">Ce qui se passe ici</h2>
+                <p class="section-intro" style="margin-bottom: var(--spacing-md);">
+                    Tu connais ça : Tu es assis devant le handpan, tu joues un groove — et le critique intérieur se manifeste. « Ça ne sonne pas assez bien. » « C'était une erreur. » « Les autres le font mieux. »
+                </p>
+                <p class="section-intro" style="margin-bottom: var(--spacing-md);">
+                    Et si tu pouvais lâcher ce critique ? Si tu savais exactement où tu veux aller — et que ta pratique n'était plus un combat, mais un chemin clair ? Quand vient le moment où tes mains jouent ce que ton cœur ressent — sans doute, sans hésitation.
+                </p>
+                <p class="section-intro">
+                    Ce moment n'est pas un hasard. Il naît quand tu apprends à connecter ton jeu avec ce qui vit réellement en toi.
+                </p>
+            </div>
+        </section>
+
+        <!-- NOS PRINCIPES -->
+        <section class="section-light">
             <div class="container-narrow">
                 <h2 class="section-title">Nos principes</h2>
                 <div class="feature-grid feature-grid--cross">
@@ -4334,7 +4446,7 @@
                 </p>
                 <div class="highlight-box" style="text-align: center; margin-top: var(--spacing-md);">
                     <p style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--color-accent);">
-                        Accès gratuit. Dirigée personnellement par Nils Böhm.
+                        Accès gratuit. Dirigée personnellement par Nils Caspar.
                     </p>
                 </div>
             </div>
@@ -4493,7 +4605,7 @@
                     </p>
                 </blockquote>
                 <p style="text-align: right; color: var(--color-text-muted); margin-top: var(--spacing-sm);">
-                    — Nils Böhm
+                    — Nils Caspar
                 </p>
             </div>
         </section>
@@ -4700,7 +4812,7 @@
 
                 <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm);">Angaben gemäß § 5 TMG</h2>
                 <p class="protected-address" style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);"
-                   data-a1="Nils Böhm" data-a2="Handpan Schule des Lebens" data-a3="Bahnhofstr. 39" data-a4="85386 Eching">
+                   data-a1="Nils Caspar" data-a2="Handpan Schule des Lebens" data-a3="Bahnhofstr. 39" data-a4="85386 Eching">
                     Chargement de l'adresse…
                 </p>
 
@@ -4723,7 +4835,7 @@
 
                 <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Redaktionell verantwortlich</h3>
                 <p class="protected-address" style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);"
-                   data-a1="Nils Böhm" data-a3="Bahnhofstr. 39" data-a4="85386 Eching">
+                   data-a1="Nils Caspar" data-a3="Bahnhofstr. 39" data-a4="85386 Eching">
                     Chargement de l'adresse…
                 </p>
 
@@ -4779,7 +4891,7 @@
                 </p>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
                     Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber:<br><br>
-                    <span class="protected-address-inline" data-a1="Nils Böhm" data-a2="Handpan Schule des Lebens" data-a3="Bahnhofstr. 39" data-a4="85386 Eching">Chargement de l'adresse…</span><br>
+                    <span class="protected-address-inline" data-a1="Nils Caspar" data-a2="Handpan Schule des Lebens" data-a3="Bahnhofstr. 39" data-a4="85386 Eching">Chargement de l'adresse…</span><br>
                     E-Mail: <a class="protected-email" href="#" data-n="kontakt" data-d="handpan.schule" style="color: var(--color-accent);">Chargement de l'email…</a>
                 </p>
 
@@ -4823,7 +4935,7 @@
                 <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Hinweis zur verantwortlichen Stelle</h3>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
                     Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br><br>
-                    <span class="protected-address-inline" data-a1="Nils Böhm" data-a2="Handpan Schule des Lebens">Loading…</span><br>
+                    <span class="protected-address-inline" data-a1="Nils Caspar" data-a2="Handpan Schule des Lebens">Loading…</span><br>
                     E-Mail: <a class="protected-email" href="#" data-n="kontakt" data-d="handpan.schule" style="color: var(--color-accent);">Chargement de l'email…</a><br>
                     Telefon: <a class="protected-phone" href="#" data-p1="4915" data-p2="1229" data-p3="64922" data-type="tel" style="color: var(--color-accent);">Chargement du numéro…</a>
                 </p>
@@ -5130,7 +5242,7 @@
 
         <section class="section-dark">
             <div class="container-narrow">
-                <img src="../images/optimized/portrait-handpan.webp" alt="Portrait avec handpan – Nils Böhm en tant que mentor" class="section-image" loading="lazy">
+                <img src="../images/optimized/portrait-handpan.webp" alt="Portrait avec handpan – Nils Caspar en tant que mentor" class="section-image" loading="lazy">
             </div>
         </section>
 
@@ -5680,7 +5792,7 @@
 
         <section class="section-light">
             <div class="container-narrow">
-                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Böhm – Fondateur de Handpan Schule des Lebens" class="portrait-round" loading="lazy">
+                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Caspar – Fondateur de Handpan Schule des Lebens" class="portrait-round" loading="lazy">
                 <p class="section-intro" style="font-size: 1.2rem;">
                     Derrière la Handpan Schule des Lebens se trouvent des musiciens et percussionnistes expérimentés
                     qui partagent leur passion pour le handpan et l'enseignement.
@@ -5692,10 +5804,10 @@
             <div class="container">
                 <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
 
-                    <!-- Nils Böhm -->
+                    <!-- Nils Caspar -->
                     <article class="card">
                         <p class="card-subtitle">Fondateur et enseignant principal</p>
-                        <h3 class="card-title">Nils Böhm</h3>
+                        <h3 class="card-title">Nils Caspar</h3>
                         <p style="margin-bottom: var(--spacing-sm);">
                             Percussionniste expérimenté, joueur de handpan et fondateur de Handpan Schule des Lebens.
                             Nils associe profondeur musicale et pratique spirituelle et guide ses élèves sur
@@ -5708,7 +5820,7 @@
                             </p>
                         </div>
                         <p style="margin-top: var(--spacing-sm);">
-                            <a href="javascript:void(0)" onclick="document.getElementById('ueber-nils').scrollIntoView({behavior:'smooth'})" style="color: var(--color-accent);">→ En savoir plus sur Nils</a>
+                            <a href="#nils-caspar" style="color: var(--color-accent);">→ En savoir plus sur Nils</a>
                         </p>
                     </article>
 
@@ -5728,7 +5840,7 @@
                             </p>
                         </div>
                         <p style="margin-top: var(--spacing-sm);">
-                            <a href="javascript:void(0)" onclick="document.getElementById('ueber-peter').scrollIntoView({behavior:'smooth'})" style="color: var(--color-accent);">→ En savoir plus sur Peter</a>
+                            <a href="#peter-aumueller" style="color: var(--color-accent);">→ En savoir plus sur Peter</a>
                         </p>
                     </article>
 
@@ -5747,12 +5859,12 @@
             </div>
         </section>
 
-        <!-- Nils Böhm im Detail -->
+        <!-- Nils Caspar im Detail -->
         <section class="section-dark" id="ueber-nils">
             <div class="container-narrow">
-                <h2 class="section-title">Nils Böhm</h2>
+                <h2 class="section-title">Nils Caspar</h2>
                 <p class="section-intro" style="font-size: 1.2rem;">
-                    La Handpan Schule des Lebens a été fondée par Nils Böhm – musicien, percussionniste et enseignant
+                    La Handpan Schule des Lebens a été fondée par Nils Caspar – musicien, percussionniste et enseignant
                     avec la conviction profonde que la musique et la croissance intérieure sont inséparablement liées.
                 </p>
             </div>
@@ -5915,6 +6027,154 @@
         </section>
     </div>
 
+
+    <!-- ============================================
+         NILS CASPAR (Page Personnelle)
+         ============================================ -->
+    <div id="page-nils-caspar" class="page-content">
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <a href="#ueber" class="detail-back">← Retour à l'équipe</a>
+                <h1>Nils Caspar</h1>
+                <p class="hero-subtitle">Fondateur et Professeur Principal de Handpan Schule des Lebens</p>
+            </div>
+        </section>
+        <section class="section-light">
+            <div class="container-narrow">
+                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Caspar – Fondateur de Handpan Schule des Lebens" class="portrait-round" loading="lazy">
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Handpan Schule des Lebens a été fondée par Nils Caspar – musicien, percussionniste et professeur
+                    avec la conviction profonde que la musique et la croissance intérieure sont inséparablement liées.
+                </p>
+            </div>
+        </section>
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Philosophie</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    L'approche de Nils envers la musique est profondément enracinée dans la conviction que la créativité et la
+                    pratique spirituelle sont entrelacées. Il voit l'art non seulement comme un moyen d'expression, mais comme un chemin
+                    pour se connecter à quelque chose de plus grand que soi-même.
+                </p>
+                <blockquote class="quote-block">
+                    <p class="quote-text" style="font-size: 1.3rem;">
+                        « Expérimente la profondeur de ton âme – par le son, par le rythme, par la connexion. »
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Le Chemin</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    En tant que percussionniste et joueur de handpan expérimenté, Nils a partagé ses connaissances dans d'innombrables ateliers,
+                    cours particuliers et sessions live – tant à Munich qu'en ligne.
+                    Avec Peter Aumüller et d'autres musiciens, il forme l'équipe enseignante de Handpan Schule des Lebens.
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    De plus, Nils apporte une perspective unique : Grâce à 1,5 an de travail intensif
+                    dans l'écosystème du handpan chez le plus grand revendeur de la région DACH, il a eu des centaines d'instruments
+                    entre les mains et a développé une compréhension profonde des fabricants et du choix du bon instrument.
+                    Cette expérience se retrouve directement dans ses
+                    <a href="#instrumente" style="color: var(--color-accent);">conseils pour le choix d'instrument</a>.
+                </p>
+            </div>
+        </section>
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">La Vision : Handpan Schule des Lebens</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    À Handpan Schule des Lebens, Nils voit l'apprentissage du handpan comme un processus alchimique.
+                    Il s'agit de bien plus que de la technique : Du penser au ressentir, on apprend à utiliser l'esprit analytique
+                    là où il aide – et à le lâcher là où il entrave le flux de la musique.
+                </p>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Le handpan se transforme</strong> d'un
+                    objet « là-dehors » en une extension de ton propre corps et de ta capacité d'expression émotionnelle.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section-light">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Cours avec Nils</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    Découvre les chemins par lesquels tu peux travailler avec Nils.
+                </p>
+                <a class="cta" href="#programm">Voir tous les programmes</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         PETER AUMÜLLER (Page Personnelle)
+         ============================================ -->
+    <div id="page-peter-aumueller" class="page-content">
+        <section class="page-hero">
+            <div class="hero-content container-narrow">
+                <a href="#ueber" class="detail-back">← Retour à l'équipe</a>
+                <h1>Peter Aumüller</h1>
+                <p class="hero-subtitle">Professeur et Coach Systémique</p>
+            </div>
+        </section>
+        <section class="section-meta">
+            <div class="container-narrow">
+                <div class="detail-meta-bar">
+                    <div class="detail-meta-item"><strong>Expérience</strong> 25+ Ans</div>
+                    <div class="detail-meta-item"><strong>Instruments</strong> Batterie, Percussion, Handpan</div>
+                    <div class="detail-meta-item"><strong>Focus</strong> Rythme</div>
+                    <div class="detail-meta-item"><strong>Approche</strong> Coaching Systémique</div>
+                </div>
+                <p class="section-intro" style="font-size: 1.2rem;">
+                    Peter Aumüller est batteur et percussionniste depuis plus de 25 ans. Dans son travail
+                    à Handpan Schule des Lebens, il combine sa profonde expérience rythmique avec des approches de coaching systémique.
+                </p>
+            </div>
+        </section>
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">La Musique comme Chemin à Travers les Moments Difficiles</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Peter aide les gens à traverser les situations difficiles de la vie grâce à l'instrument.
+                </p>
+                <blockquote class="quote-block">
+                    <p class="quote-text" style="font-size: 1.3rem;">
+                        « Le rythme est le fondement de toute vie. Celui qui trouve son rythme trouve aussi son chemin. »
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+        <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Domaines d'Expertise</h2>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Rythme et Percussion :</strong> Plus de 25 ans d'expérience en tant que batteur et percussionniste.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Coaching Systémique :</strong> Coach systémique formé avec une expertise en développement organisationnel.</p>
+                </div>
+                <div class="highlight-box">
+                    <p><strong style="color: var(--color-accent);">Le Handpan comme Compagnon de Vie :</strong> Le handpan devient un outil pour dissoudre les blocages intérieurs et trouver la clarté.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section-dark">
+            <div class="container-narrow">
+                <p style="color: var(--color-text-muted);">
+                    Plus d'informations sur le travail de Peter :
+                    <a href="https://www.peteraumueller.de/" target="_blank" rel="noopener" style="color: var(--color-accent);">www.peteraumueller.de</a>
+                </p>
+            </div>
+        </section>
+        <section class="section-light">
+            <div class="container-narrow text-center">
+                <h2 class="mb-lg">Prendre Rendez-vous</h2>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
+                    Lors d'un entretien personnel, nous trouverons ensemble le chemin qui te convient.
+                </p>
+                <a class="cta" href="#dabei-sein">Prendre Rendez-vous</a>
+            </div>
+        </section>
+    </div>
 
     <!-- ============================================
          BIANCA SÁNCHEZ
@@ -6101,18 +6361,17 @@
          ============================================ -->
     <div id="page-instrumente" class="page-content">
 
-        <section class="page-hero">
-            <div class="hero-content container-narrow">
+        <section class="page-hero-photo">
+            <img src="../images/optimized/instrumente-hero.jpg" alt="Gros plan du handpan – ouverture centrale et champs de tons" class="page-hero-photo__img" loading="eager">
+            <div class="bg-overlay"></div>
+            <div class="page-hero-photo__content">
                 <h1>Instruments</h1>
                 <p class="hero-subtitle">Location, orientation, achat – sans pression</p>
             </div>
         </section>
-
-        <section class="section-dark">
-            <div class="container-narrow">
-                <img src="../images/optimized/handpan-makro.webp" alt="Macro du handpan – détail du champ tonal" class="section-image" loading="lazy">
-            </div>
-        </section>
+        <div class="hero-divider">
+            <span class="hero-divider__line"></span>
+        </div>
 
         <section class="section-light">
             <div class="container-narrow">
@@ -6454,7 +6713,8 @@
             'ueber':               { pageId: 'page-ueber',               title: 'À propos · Handpan Schule des Lebens' },
             'gruender':            { redirect: 'ueber' },
             'lehrer':              { redirect: 'ueber' },
-            'peter-aumueller':     { redirect: 'ueber' },
+            'nils-caspar':         { pageId: 'page-nils-caspar',         title: 'Nils Caspar · Handpan Schule des Lebens' },
+            'peter-aumueller':     { pageId: 'page-peter-aumueller',     title: 'Peter Aumüller · Handpan Schule des Lebens' },
             'bianca-sanchez':      { pageId: 'page-bianca-sanchez',      title: 'Bianca Sánchez · Handpan Schule des Lebens' },
             'einsteigerkurse':     { pageId: 'page-einsteigerkurse',     title: 'Cours débutants · Handpan Schule des Lebens' },
             'instrumente':         { pageId: 'page-instrumente',         title: 'Instruments · Handpan Schule des Lebens' },
