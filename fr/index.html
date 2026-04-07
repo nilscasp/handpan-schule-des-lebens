@@ -6758,6 +6758,17 @@
                 // Update page title
                 document.title = route.title;
 
+                // Facebook Pixel: Track page navigation
+                if (typeof fbq === 'function') {
+                    fbq('track', 'PageView');
+                    if (routeKey === 'rhythmus-fundament') {
+                        fbq('track', 'ViewContent', {
+                            content_name: 'Rhythmus Fundament',
+                            content_type: 'product'
+                        });
+                    }
+                }
+
                 // Close mobile menu
                 document.getElementById('nav-menu').classList.remove('active');
 
