@@ -770,13 +770,18 @@
             color: var(--color-text-muted);
         }
 
-        .detail-meta-item strong {
+        .detail-meta-item strong,
+        .detail-meta-item .detail-meta-label {
             color: var(--color-accent);
             display: block;
             margin-bottom: 0.2rem;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+        }
+
+        .detail-meta-item .detail-meta-value {
+            display: block;
         }
 
         /* Balken-Variante: alle Items in einer Zeile, durchgehender Balken */

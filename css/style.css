@@ -724,13 +724,18 @@
             color: var(--color-text-muted);
         }
 
-        .detail-meta-item strong {
+        .detail-meta-item strong,
+        .detail-meta-item .detail-meta-label {
             color: var(--color-accent);
             display: block;
             margin-bottom: 0.2rem;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+        }
+
+        .detail-meta-item .detail-meta-value {
+            display: block;
         }
 
         /* Balken-Variante: alle Items in einer Zeile, durchgehender Balken */
@@ -754,7 +759,8 @@
         .detail-meta-bar .detail-meta-item:last-child {
             border-right: none;
         }
-        .detail-meta-bar .detail-meta-item strong {
+        .detail-meta-bar .detail-meta-item strong,
+        .detail-meta-bar .detail-meta-item .detail-meta-label {
             margin-bottom: 0.25rem;
             font-size: 0.75rem;
             letter-spacing: 0.12em;
