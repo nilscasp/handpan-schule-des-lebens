@@ -39,8 +39,6 @@
             navLinks.forEach(function(link) {
                 link.classList.remove('active');
             });
-            const dropdownToggle = document.querySelector('#nav-menu .nav-dropdown-toggle');
-            if (dropdownToggle) dropdownToggle.classList.remove('active');
 
             // Main-Nav: passenden Link setzen (nur echte <a>-Tags mit href)
             navLinks.forEach(function(link) {
@@ -49,9 +47,10 @@
                 }
             });
 
-            // Programm-Toggle aktivieren, wenn auf /programm/ oder Unterseite
-            if (dropdownToggle && (path === '/programm/' || isProgrammSubpage)) {
-                dropdownToggle.classList.add('active');
+            // Programm-Link auch auf Programm-Unterseiten aktivieren
+            if (isProgrammSubpage) {
+                const programmLink = document.querySelector('#nav-menu .has-dropdown > .nav-link');
+                if (programmLink) programmLink.classList.add('active');
             }
 
             // Dropdown-Link der aktuellen Seite markieren

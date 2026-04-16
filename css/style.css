@@ -230,18 +230,19 @@
             position: relative;
         }
 
+        .has-dropdown > .nav-link {
+            padding-right: 4px;
+        }
+
         .nav-dropdown-toggle {
             background: none;
             border: none;
-            font-family: inherit;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
             color: var(--color-text-muted);
             cursor: pointer;
-            padding: 6px 10px;
+            padding: 6px 6px 6px 2px;
+            margin-left: -6px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
             transition: color 0.3s ease;
         }
 
@@ -249,10 +250,9 @@
             color: var(--color-accent);
         }
 
-        .nav-dropdown-toggle.active {
+        .has-dropdown.open > .nav-dropdown-toggle,
+        .has-dropdown > .nav-link.active + .nav-dropdown-toggle {
             color: var(--color-accent);
-            border-bottom: 1px solid var(--color-accent);
-            padding-bottom: 4px;
         }
 
         .nav-dropdown-toggle:focus {
@@ -261,7 +261,8 @@
 
         .nav-dropdown-toggle:focus-visible {
             outline: 1px solid rgba(191, 161, 111, 0.4);
-            outline-offset: 4px;
+            outline-offset: 2px;
+            border-radius: 2px;
         }
 
         .nav-dropdown-arrow {
@@ -1966,11 +1967,24 @@
                 width: 100%;
             }
 
+            .has-dropdown {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .has-dropdown > .nav-link {
+                flex: 1;
+            }
+
             .nav-dropdown-toggle {
-                font-size: 1rem;
-                justify-content: space-between;
-                width: 100%;
-                padding: 6px 0;
+                font-size: 1.1rem;
+                padding: 10px 14px;
+                margin-left: 0;
+            }
+
+            .has-dropdown > .nav-dropdown {
+                flex-basis: 100%;
             }
 
             .nav-dropdown-link {
