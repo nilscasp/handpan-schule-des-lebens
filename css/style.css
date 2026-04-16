@@ -224,6 +224,103 @@
         }
 
         /* ============================================
+           NAV DROPDOWN
+           ============================================ */
+        .has-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-toggle {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            padding: 6px 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-dropdown-toggle:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-dropdown-toggle.active {
+            color: var(--color-accent);
+            border-bottom: 1px solid var(--color-accent);
+            padding-bottom: 4px;
+        }
+
+        .nav-dropdown-toggle:focus {
+            outline: none;
+        }
+
+        .nav-dropdown-toggle:focus-visible {
+            outline: 1px solid rgba(191, 161, 111, 0.4);
+            outline-offset: 4px;
+        }
+
+        .nav-dropdown-arrow {
+            font-size: 0.7rem;
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+
+        .has-dropdown.open .nav-dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 230px;
+            background: rgba(10, 14, 20, 0.98);
+            border: 1px solid rgba(191, 161, 111, 0.15);
+            border-radius: 4px;
+            padding: 8px 0;
+            flex-direction: column;
+            gap: 0;
+            list-style: none;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .has-dropdown.open .nav-dropdown {
+            display: flex;
+        }
+
+        .nav-dropdown li {
+            width: 100%;
+        }
+
+        .nav-dropdown-link {
+            display: block;
+            padding: 9px 20px;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            transition: color 0.2s ease, background 0.2s ease;
+        }
+
+        .nav-dropdown-link:hover {
+            color: var(--color-accent);
+            background: rgba(191, 161, 111, 0.06);
+        }
+
+        .nav-dropdown-link.active {
+            color: var(--color-accent);
+        }
+
+        /* ============================================
            HERO
            ============================================ */
         .hero {
@@ -1856,6 +1953,30 @@
             }
 
             nav a { font-size: 1rem; }
+
+            /* Mobile: Dropdown inline statt absolute */
+            .nav-dropdown {
+                position: static;
+                transform: none;
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                padding: 4px 0 4px 14px;
+                min-width: 0;
+                width: 100%;
+            }
+
+            .nav-dropdown-toggle {
+                font-size: 1rem;
+                justify-content: space-between;
+                width: 100%;
+                padding: 6px 0;
+            }
+
+            .nav-dropdown-link {
+                font-size: 0.95rem;
+                padding: 6px 10px;
+            }
 
             .card-grid {
                 grid-template-columns: 1fr;

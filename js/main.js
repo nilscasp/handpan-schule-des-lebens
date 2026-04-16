@@ -31,19 +31,70 @@
                 '/handpan-path/'
             ];
 
-            let activeHref = path;
             const isProgrammSubpage = programmSubpages.some(function(p) {
                 return path.indexOf(p) === 0;
             });
-            if (isProgrammSubpage) {
-                activeHref = '/programm/';
-            }
 
-            // Alle active entfernen, dann beim passenden Link setzen
+            // Alle active entfernen
             navLinks.forEach(function(link) {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === activeHref) {
+            });
+            const dropdownToggle = document.querySelector('#nav-menu .nav-dropdown-toggle');
+            if (dropdownToggle) dropdownToggle.classList.remove('active');
+
+            // Main-Nav: passenden Link setzen (nur echte <a>-Tags mit href)
+            navLinks.forEach(function(link) {
+                if (link.tagName === 'A' && link.getAttribute('href') === path) {
                     link.classList.add('active');
+                }
+            });
+
+            // Programm-Toggle aktivieren, wenn auf /programm/ oder Unterseite
+            if (dropdownToggle && (path === '/programm/' || isProgrammSubpage)) {
+                dropdownToggle.classList.add('active');
+            }
+
+            // Dropdown-Link der aktuellen Seite markieren
+            document.querySelectorAll('.nav-dropdown-link').forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === path) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ============================================
+        // NAV DROPDOWN (Programm) - Click-Toggle
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.querySelector('.nav-dropdown-toggle');
+            if (!toggle) return;
+            const container = toggle.parentElement; // .has-dropdown <li>
+
+            function closeDropdown() {
+                container.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const willOpen = !container.classList.contains('open');
+                container.classList.toggle('open', willOpen);
+                toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+            });
+
+            // Klick außerhalb schließt
+            document.addEventListener('click', function(e) {
+                if (!container.contains(e.target)) {
+                    closeDropdown();
+                }
+            });
+
+            // Escape schließt
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && container.classList.contains('open')) {
+                    closeDropdown();
                 }
             });
         });
