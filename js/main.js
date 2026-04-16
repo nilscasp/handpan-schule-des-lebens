@@ -4,6 +4,50 @@
             navMenu.classList.toggle('active');
         }
 
+        // ============================================
+        // NAV ACTIVE STATE
+        // ============================================
+        // Setzt das richtige Menü-Element als aktiv basierend auf der URL.
+        // Unterseiten von /programm/ (Rhythmus Fundament, Retreats, Mentoring, etc.)
+        // heben den "Programm"-Link hervor.
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('#nav-menu .nav-link');
+            if (!navLinks.length) return;
+
+            // Sprachversionen mit Anker-Navigation (#home etc.) nicht anfassen
+            const firstHref = navLinks[0].getAttribute('href') || '';
+            if (firstHref.charAt(0) === '#') return;
+
+            const path = window.location.pathname;
+
+            // Programm-Unterseiten auf /programm/ mappen
+            const programmSubpages = [
+                '/rhythmus-fundament/',
+                '/einsteigerkurse/',
+                '/einzelunterricht/',
+                '/kinderunterricht/',
+                '/retreats/',
+                '/mentoring/',
+                '/handpan-path/'
+            ];
+
+            let activeHref = path;
+            const isProgrammSubpage = programmSubpages.some(function(p) {
+                return path.indexOf(p) === 0;
+            });
+            if (isProgrammSubpage) {
+                activeHref = '/programm/';
+            }
+
+            // Alle active entfernen, dann beim passenden Link setzen
+            navLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === activeHref) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
         // FAQ Toggle
         function toggleFaq(element) {
             const faqItem = element.parentElement;
