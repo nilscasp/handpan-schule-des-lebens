@@ -438,6 +438,35 @@
             }
         }
 
+        /* Section-Divider: poetisches Ornament zwischen Sektionen.
+           Variante --on-light passt zur section-light-BG, --on-dark zur section-dark. */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg) var(--spacing-md);
+        }
+        .section-divider--on-dark { background: var(--color-bg); }
+        .section-divider--on-light { background: var(--color-bg-lighter); }
+        .section-divider__line {
+            flex: 1;
+            max-width: 200px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(212, 165, 116, 0.4), transparent);
+        }
+        .section-divider__ornament {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            opacity: 0.85;
+        }
+        @media (max-width: 640px) {
+            .section-divider { padding: var(--spacing-md) var(--spacing-sm); gap: var(--spacing-sm); }
+            .section-divider__ornament { width: 60px; height: 60px; }
+            .section-divider__line { max-width: 100px; }
+        }
+
         .hero-divider {
             display: flex;
             align-items: center;
