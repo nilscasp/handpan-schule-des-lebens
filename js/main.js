@@ -742,16 +742,21 @@
         const GA_MEASUREMENT_ID = 'G-4W4KKCH7TR';
 
         function cookieConsent(choice) {
+            // Normalisieren: 'accept' oder 'accepted' sind beide akzeptiert
+            const accepted = (choice === 'accept' || choice === 'accepted');
+            const value = accepted ? 'accepted' : 'declined';
+
             // Save choice in localStorage
-            localStorage.setItem('cookie-consent', choice);
+            localStorage.setItem('cookie-consent', value);
             localStorage.setItem('cookie-consent-date', new Date().toISOString());
 
             // Hide banner
             document.getElementById('cookie-banner').classList.remove('visible');
 
-            // Load analytics if accepted
-            if (choice === 'accept') {
+            // Load tracking if accepted
+            if (accepted) {
                 loadGoogleAnalytics();
+                if (typeof window.hpsLoadFbPixel === 'function') window.hpsLoadFbPixel();
             }
         }
 
@@ -785,9 +790,10 @@
                 setTimeout(function() {
                     document.getElementById('cookie-banner').classList.add('visible');
                 }, 800);
-            } else if (consent === 'accept') {
-                // Already accepted → load analytics
+            } else if (consent === 'accept' || consent === 'accepted') {
+                // Already accepted → load analytics + FB Pixel
                 loadGoogleAnalytics();
+                if (typeof window.hpsLoadFbPixel === 'function') window.hpsLoadFbPixel();
             }
-            // If 'decline' → do nothing, no analytics
+            // If 'decline'/'declined' → do nothing, no tracking
         });

@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Facebook Pixel Code -->
+    <!-- Facebook Pixel – nur nach Cookie-Consent (DSGVO) -->
     <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '835283135566622');
-    fbq('track', 'PageView');
+    window.hpsLoadFbPixel = function() {
+        if (window.fbq) return;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '835283135566622');
+        fbq('track', 'PageView');
+    };
+    try {
+        if (localStorage.getItem('cookie-consent') === 'accepted') window.hpsLoadFbPixel();
+    } catch(e) {}
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=835283135566622&ev=PageView&noscript=1"/></noscript>
-    <!-- End Facebook Pixel Code -->
 
-    <title>Lernziele · Handpan Schule des Lebens</title>
+    <title>Lernziele · Was du als Handpan-Spieler wirklich entwickelst</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Lernziele der Handpan Schule des Lebens. Was du bei uns lernst: Rhythmus, Ausdruck, Improvisation und innere Freiheit.">
+    <meta name="description" content="Rhythmische Sicherheit, eigener Ausdruck, tiefe Präsenz und Gemeinschaft: Was du in der Handpan Schule des Lebens entwickelst — jenseits von Patterns.">
     <meta name="author" content="Nils Caspar">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="DE-BY">
@@ -30,8 +33,8 @@
     <link rel="alternate" hreflang="de" href="https://handpan.schule/lernziele/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Lernziele · Handpan Schule des Lebens">
-    <meta property="og:description" content="Lernziele der Handpan Schule des Lebens. Was du bei uns lernst: Rhythmus, Ausdruck, Improvisation und innere Freiheit.">
+    <meta property="og:title" content="Lernziele · Was du als Handpan-Spieler wirklich entwickelst">
+    <meta property="og:description" content="Rhythmische Sicherheit, eigener Ausdruck, tiefe Präsenz und Gemeinschaft: Was du in der Handpan Schule des Lebens entwickelst — jenseits von Patterns.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://handpan.schule/lernziele/">
     <meta property="og:image" content="https://handpan.schule/handpan%20schule%20des%20Lebens%20Logo%20klein.png">
@@ -43,8 +46,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lernziele · Handpan Schule des Lebens">
-    <meta name="twitter:description" content="Lernziele der Handpan Schule des Lebens. Was du bei uns lernst: Rhythmus, Ausdruck, Improvisation und innere Freiheit.">
+    <meta name="twitter:title" content="Lernziele · Was du als Handpan-Spieler wirklich entwickelst">
+    <meta name="twitter:description" content="Rhythmische Sicherheit, eigener Ausdruck, tiefe Präsenz und Gemeinschaft: Was du in der Handpan Schule des Lebens entwickelst — jenseits von Patterns.">
     <meta name="twitter:image" content="https://handpan.schule/handpan%20schule%20des%20Lebens%20Logo%20klein.png">
     <meta name="theme-color" content="#0A0E14">
     <link rel="apple-touch-icon" href="/handpan%20schule%20des%20Lebens%20Logo%20klein.png">
@@ -57,8 +60,6 @@
     <link rel="preconnect" href="https://asset-tidycal.b-cdn.net" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="https://f66d0849.sibforms.com">
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/fonts/fonts.css">
 </head>
@@ -172,8 +173,6 @@
          HOME PAGE
          ============================================ -->
     <main id="main-content">
-
-    <main id="main-content">
     <div id="page-lernziele" class="page-content active">
 
         <section class="page-hero">
@@ -272,7 +271,7 @@
                         <div class="self-check">
                             <p class="self-check__title">Selbst-Check</p>
                             <ul class="self-check__list">
-                                <li>Ich konzentriere mich stark auf die richtige Fingerhaltung, Patterntruktur, Ablauf, Koordination.</li>
+                                <li>Ich konzentriere mich stark auf die richtige Fingerhaltung, Bewegungsabläufe, Koordination.</li>
                                 <li>Ich brauche klare Anweisungen und Übungsblätter.</li>
                                 <li>Mein Ziel ist es, überhaupt einen klaren Klang und einen durchgängigen Rhythmus zu erzeugen.</li>
                             </ul>

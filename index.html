@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Facebook Pixel Code -->
+    <!-- Facebook Pixel – nur nach Cookie-Consent (DSGVO) -->
     <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '835283135566622');
-    fbq('track', 'PageView');
+    window.hpsLoadFbPixel = function() {
+        if (window.fbq) return;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '835283135566622');
+        fbq('track', 'PageView');
+    };
+    try {
+        if (localStorage.getItem('cookie-consent') === 'accepted') window.hpsLoadFbPixel();
+    } catch(e) {}
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=835283135566622&ev=PageView&noscript=1"/></noscript>
-    <!-- End Facebook Pixel Code -->
 
-    <title>Handpan Schule des Lebens – Handpan lernen mit Tiefe und Bewusstsein</title>
+    <title>Handpan lernen mit Tiefe · Handpan Schule des Lebens München</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Handpan lernen in der Handpan Schule des Lebens bei München. Handpan Unterricht, Handpan Kurse, Retreats und Mentoring mit Nils Caspar. Handpan spielen lernen – online und vor Ort in München. Für Anfänger bis Fortgeschrittene.">
-    <meta name="keywords" content="Handpan, Handpan lernen, Handpan Schule, Handpan Unterricht, Handpan Kurs, Handpan spielen, Handpan München, Handpan Neuhausen, Handpan online lernen, Handpan Retreat, Handpan Community, Handpan Anfänger, Handpan Mentoring, Handpan Lehrer, Handpan Einzelunterricht, Handpan Webinar, Handpan Workshop, Handpan Kurs München, Handpan spielen lernen, Handpan Unterricht München">
+    <meta name="description" content="Handpan lernen jenseits von Tutorials. Kurse, Retreats und Mentoring in München und online — für Menschen, die ihren eigenen Klang finden wollen. Mit Nils Caspar.">
+    <meta name="keywords" content="Handpan lernen, Handpan Schule, Handpan Kurs München, Handpan Unterricht, Handpan online lernen, Handpan Retreat, Handpan Mentoring, Handpan Einzelunterricht, Handpan Anfänger, Handpan Neuhausen, Handpan Workshop">
     <meta name="author" content="Nils Caspar">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="DE-BY">
@@ -153,7 +156,14 @@
     <link rel="preconnect" href="https://asset-tidycal.b-cdn.net" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="https://f66d0849.sibforms.com">
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+    <!-- Preload LCP Hero Image (responsive) -->
+    <link rel="preload" as="image"
+          href="/images/optimized/hero-handpan-2-1920.webp"
+          imagesrcset="/images/optimized/hero-handpan-2-768.webp 768w, /images/optimized/hero-handpan-2-1280.webp 1280w, /images/optimized/hero-handpan-2-1920.webp 1920w"
+          imagesizes="100vw"
+          type="image/webp"
+          fetchpriority="high">
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/fonts/fonts.css">
@@ -199,8 +209,8 @@
         </div>
     </aside>
 
-    <!-- Skip Navigation Link -->
-    <a href="#main-content" class="visually-hidden" style="position:absolute;top:0;left:0;z-index:999;padding:1rem;background:var(--color-accent);color:var(--color-bg);" onfocus="this.style.position='relative'" onblur="this.style.position='absolute'">Zum Inhalt springen</a>
+    <!-- Skip Navigation Link (nur sichtbar bei Tastatur-Fokus) -->
+    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
     <!-- ============================================
          NAVIGATION
@@ -267,25 +277,57 @@
          HOME PAGE
          ============================================ -->
     <main id="main-content">
-
-    <main id="main-content">
     <div id="page-home" class="page-content active">
 
         <section class="hero-photo">
-            <img src="images/optimized/hero-handpan-2.jpg" class="hero-photo-img" alt="Handpan Nahaufnahme">
+            <picture>
+                <source type="image/webp"
+                        srcset="/images/optimized/hero-handpan-2-768.webp 768w, /images/optimized/hero-handpan-2-1280.webp 1280w, /images/optimized/hero-handpan-2-1920.webp 1920w"
+                        sizes="100vw">
+                <img src="/images/optimized/hero-handpan-2-1280.jpg"
+                     srcset="/images/optimized/hero-handpan-2-768.jpg 768w, /images/optimized/hero-handpan-2-1280.jpg 1280w, /images/optimized/hero-handpan-2-1920.jpg 1920w"
+                     sizes="100vw"
+                     width="1920" height="1280"
+                     class="hero-photo-img"
+                     alt="Handpan-Spielerin – Nahaufnahme beim Spiel"
+                     fetchpriority="high"
+                     decoding="async">
+            </picture>
             <div class="bg-overlay"></div>
             <div class="hero-content container-narrow">
-                <h1>Handpan Schule des Lebens</h1>
-                <p class="hero-subtitle">Finde deinen eigenen Klang.</p>
+                <h1>Handpan lernen mit Tiefe.</h1>
+                <p class="hero-subtitle">Finde deinen eigenen Klang — statt Patterns nachzuspielen.</p>
                 <p class="hero-description">
-                    Rhythmik, Harmonik, Komposition — und der Mut, dein eigenes Spiel zu entwickeln. Live, online und in einer Gemeinschaft von Menschen, die den gleichen Weg gehen.
+                    Die einzige Handpan-Schule, die Rhythmik, Harmonik und Komposition mit bewusster Persönlichkeitsentwicklung verbindet. Live in München, online und in einer Community von Menschen, die den gleichen Weg gehen.
                 </p>
+                <div class="hero-cta-row">
+                    <a class="cta cta--primary" href="/dabei-sein/">Kostenlos starten</a>
+                    <a class="cta cta--ghost" href="/programm/">Programm entdecken</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Bar (unter Hero) -->
+        <section class="social-proof-bar" aria-label="Vertrauen auf einen Blick">
+            <div class="container-narrow social-proof-grid social-proof-grid--3">
+                <div class="social-proof-item">
+                    <span class="social-proof-num">4+</span>
+                    <span class="social-proof-label">Jahre Lehrerfahrung</span>
+                </div>
+                <div class="social-proof-item">
+                    <span class="social-proof-num">150+</span>
+                    <span class="social-proof-label">Schüler begleitet</span>
+                </div>
+                <div class="social-proof-item">
+                    <span class="social-proof-num">★ 5,0</span>
+                    <span class="social-proof-label">über alle Portale</span>
+                </div>
             </div>
         </section>
 
         <div class="hero-divider">
             <span class="hero-divider__line"></span>
-            <img src="images/logo-ornament.svg" class="hero-divider__ornament" alt="">
+            <img src="images/logo-ornament.svg" class="hero-divider__ornament" alt="" loading="lazy" decoding="async" width="120" height="120">
             <span class="hero-divider__line"></span>
         </div>
 
@@ -341,20 +383,23 @@
                 <div class="card-grid">
                     <article class="card">
                         <h3 class="card-title">Einsteigen</h3>
-                        <p class="card-subtitle">Workshops & Einzelunterricht</p>
+                        <p class="card-subtitle">Workshops &amp; Einzelunterricht</p>
                         <p>Dein erster Kontakt mit der Handpan. Entdecke den Klang, spüre den Rhythmus — ganz ohne Druck.</p>
+                        <span class="price-badge">60&nbsp;€ pro Einheit</span>
                         <a href="/programm/" class="journey-link" style="display: inline-block; margin-top: var(--spacing-sm);">→ Programm entdecken</a>
                     </article>
                     <article class="card">
                         <h3 class="card-title">Vertiefen</h3>
-                        <p class="card-subtitle">Kurse & Community</p>
+                        <p class="card-subtitle">Rhythmus Fundament · 6 Wochen</p>
                         <p>Baue ein solides Fundament auf. Tägliche Praxis, gemeinsames Wachsen und echtes Engagement.</p>
+                        <span class="price-badge">179&nbsp;€</span>
                         <a href="/rhythmus-fundament/" class="journey-link" style="display: inline-block; margin-top: var(--spacing-sm);">→ Rhythmus Fundament</a>
                     </article>
                     <article class="card">
                         <h3 class="card-title">Meistern</h3>
-                        <p class="card-subtitle">Mentoring & Retreats</p>
+                        <p class="card-subtitle">The Handpan Path · 6 Monate</p>
                         <p>Intensive Transformation. Finde deinen eigenen Ausdruck und sprich durch die Handpan.</p>
+                        <span class="price-badge">149&nbsp;€ / Monat · Mentoring</span>
                         <a href="/handpan-path/" class="journey-link" style="display: inline-block; margin-top: var(--spacing-sm);">→ The Handpan Path</a>
                     </article>
                 </div>
@@ -392,7 +437,11 @@
             <div class="container-narrow">
                 <div class="about-grid">
                     <div>
-                        <img src="images/optimized/spielszene-see-profil.webp" alt="Nils Caspar mit Handpan" style="width: 100%; border-radius: 2px; aspect-ratio: 4/5; object-fit: cover;" loading="lazy">
+                        <img src="/images/optimized/spielszene-see-profil.webp"
+                             alt="Nils Caspar mit Handpan am See"
+                             width="600" height="750"
+                             style="width: 100%; border-radius: 2px; aspect-ratio: 4/5; object-fit: cover;"
+                             loading="lazy" decoding="async">
                     </div>
                     <div>
                         <p class="journey-phase" style="margin-bottom: 0.5rem;">Dein Begleiter</p>
@@ -411,17 +460,87 @@
 
         <!-- Stimmen -->
         <section class="section-light">
-            <div class="container-narrow">
-                <h2 class="section-title">Stimmen</h2>
-                <div style="display: grid; gap: var(--spacing-md); margin-top: var(--spacing-md);">
-                    <blockquote class="quote-block" style="margin: 0;">
-                        <p class="quote-text" style="font-size: 1.05rem;">„Ich habe viele Tutorials gesehen, aber hier habe ich zum ersten Mal verstanden, was Musik wirklich bedeutet."</p>
-                        <p style="text-align: right; color: var(--color-text-muted); margin-top: var(--spacing-xs); font-size: 0.85rem;">— Workshop-Teilnehmer</p>
+            <div class="container">
+                <h2 class="section-title">Stimmen aus der Community</h2>
+                <p class="section-intro" style="text-align:center;">Wie sich der Weg anfühlt — in den Worten derer, die ihn gehen.</p>
+
+                <!-- Hero-Testimonial: die tiefste Stimme zuerst -->
+                <blockquote class="testimonial-hero">
+                    <p class="testimonial-pull-quote">
+                        „HandPanPath ist für mich kein Kurs. Es ist ein Erinnern. An Freude. An Vertrauen. An den eigenen inneren Klang."
+                    </p>
+                    <p class="testimonial-body">
+                        Meine Handpan stand fast zwei Jahre still bei mir. Nicht, weil sie nichts in mir berührt hätte, sondern weil ein alter, leiser Glaubenssatz zwischen uns stand: „Ich bin nicht musikalisch." Schon in den ersten drei Sitzungen mit Nils begann sich genau dieser Satz aufzulösen. Nicht durch Druck, nicht durch Technik, nicht durch „Üben", sondern durch seine feine, ruhige und zutiefst menschliche Art.
+                    </p>
+                    <footer class="testimonial-meta">
+                        <span class="testimonial-name">Petra B.</span>
+                        <span class="testimonial-source">
+                            <span class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</span>
+                            <span>Stadtbranchenbuch München</span>
+                        </span>
+                    </footer>
+                </blockquote>
+
+                <!-- 3-Grid mit den weiteren Stimmen -->
+                <div class="testimonial-grid testimonial-grid--3">
+                    <blockquote class="testimonial-card">
+                        <p class="testimonial-pull-quote">
+                            „Vertrautheit in Rhythmik schafft Freiheit im Spiel."
+                        </p>
+                        <p class="testimonial-body">
+                            Mein Wunsch war es, intuitiv zu spielen, und dennoch ein Gerüst zu haben, das mich trägt, leitet und orientiert. Dieses Gerüst sollte jedoch aus mir selbst heraus wachsen dürfen. Was es bildet, ist der Rhythmus.
+                        </p>
+                        <footer class="testimonial-meta">
+                            <span class="testimonial-name">Franziska H.</span>
+                            <span class="testimonial-source">
+                                <span class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</span>
+                                <span>Google · Local Guide</span>
+                            </span>
+                        </footer>
                     </blockquote>
-                    <blockquote class="quote-block" style="margin: 0;">
-                        <p class="quote-text" style="font-size: 1.05rem;">„Die Kombination aus Struktur und Freiheit hat mir geholfen, meinen eigenen Klang zu finden."</p>
-                        <p style="text-align: right; color: var(--color-text-muted); margin-top: var(--spacing-xs); font-size: 0.85rem;">— Community-Mitglied</p>
+
+                    <blockquote class="testimonial-card">
+                        <p class="testimonial-pull-quote">
+                            „Er erklärt das Wesen der Musik — und übt mit uns, unsere Seele mit ihr schwingen zu lassen."
+                        </p>
+                        <p class="testimonial-body">
+                            Nils ist ein sensibler und empathischer Lehrer. Er holt mich weg von dem Glauben, ich könnte keine persönliche Entwicklung mit der Handpan machen, weil ich ja keine Musikerin bin. Sehr befreiend!
+                        </p>
+                        <footer class="testimonial-meta">
+                            <span class="testimonial-name">Birgit</span>
+                            <span class="testimonial-source">
+                                <span class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</span>
+                                <span>Stadtbranchenbuch München</span>
+                            </span>
+                        </footer>
                     </blockquote>
+
+                    <blockquote class="testimonial-card">
+                        <p class="testimonial-pull-quote">
+                            „Technik, Rhythmus und musikalisches Gefühl werden sehr gut vermittelt."
+                        </p>
+                        <p class="testimonial-body">
+                            Ein großartiger Handpan-Lehrer mit viel Fachwissen und Feingefühl. Der Unterricht ist inspirierend, individuell angepasst und nie trocken. Absolute Empfehlung für Anfänger und Fortgeschrittene!
+                        </p>
+                        <footer class="testimonial-meta">
+                            <span class="testimonial-name">Ülkü</span>
+                            <span class="testimonial-source">
+                                <span class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</span>
+                                <span>Stadtbranchenbuch München</span>
+                            </span>
+                        </footer>
+                    </blockquote>
+                </div>
+
+                <!-- Link zu allen Bewertungen -->
+                <div class="testimonials-see-all">
+                    <span class="testimonials-see-all-label">Alle Rezensionen lesen:</span>
+                    <a href="https://share.google/2qSeZnqStI3XGKuOd" target="_blank" rel="noopener" class="testimonials-see-all-link">
+                        Google →
+                    </a>
+                    <a href="https://branchenbuch.portal.muenchen.de/mhp/1382569/#bewertungen" target="_blank" rel="noopener" class="testimonials-see-all-link">
+                        Stadtbranchenbuch München →
+                    </a>
                 </div>
             </div>
         </section>
@@ -430,13 +549,13 @@
         <section class="section-dark">
             <div class="container-narrow text-center">
                 <h2 class="mb-lg">Bereit für den ersten Schritt?</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md); font-size: 1.1rem;">
-                    Wenn du bereit bist, dich auf einen Weg einzulassen, der über Technik hinausgeht –
+                <p class="cta-lead">
+                    Wenn du bereit bist, dich auf einen Weg einzulassen, der über Technik hinausgeht —
                     wenn du nicht nur spielen, sondern verstehen möchtest.
                 </p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a class="cta" href="/programm/">Programm entdecken</a>
-                    <a class="cta" href="/dabei-sein/" style="background: transparent; border: 1px solid var(--color-accent); color: var(--color-accent);">Gespräch beginnen</a>
+                <div class="hero-cta-row">
+                    <a class="cta cta--primary" href="/programm/">Programm entdecken</a>
+                    <a class="cta cta--ghost" href="/dabei-sein/">Gespräch beginnen</a>
                 </div>
             </div>
         </section>

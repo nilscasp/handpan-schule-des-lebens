@@ -3095,3 +3095,260 @@
                 font-size: 0.8rem;
             }
         }
+
+        /* ============================================
+           SKIP LINK (A11y)
+           ============================================ */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            z-index: 10000;
+            padding: 0.9rem 1.25rem;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            border-radius: 2px;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 1rem;
+            outline: 2px solid var(--color-bg);
+            outline-offset: 2px;
+        }
+
+        /* ============================================
+           HERO CTA ROW + CTA VARIANTS
+           ============================================ */
+        .hero-cta-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        .cta--primary {
+            background: var(--color-accent);
+            color: var(--color-bg);
+            border-color: var(--color-accent);
+        }
+        .cta--primary:hover {
+            background: var(--color-accent-dark);
+            border-color: var(--color-accent-dark);
+            color: var(--color-bg);
+        }
+        .cta--ghost {
+            background: transparent;
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+        }
+
+        /* ============================================
+           SOCIAL PROOF BAR
+           ============================================ */
+        .social-proof-bar {
+            background: var(--color-bg-lighter);
+            border-top: 1px solid rgba(212, 165, 116, 0.12);
+            border-bottom: 1px solid rgba(212, 165, 116, 0.12);
+            padding: var(--spacing-md) 0;
+        }
+        .social-proof-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-sm);
+            text-align: center;
+        }
+        .social-proof-grid--3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .social-proof-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .social-proof-num {
+            font-family: var(--font-serif);
+            font-size: 1.85rem;
+            color: var(--color-accent);
+            line-height: 1;
+            font-weight: 400;
+        }
+        .social-proof-label {
+            font-size: 0.78rem;
+            color: var(--color-text-muted);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        @media (max-width: 640px) {
+            .social-proof-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+            .social-proof-grid--3 {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--spacing-sm);
+            }
+            .social-proof-num { font-size: 1.35rem; }
+            .social-proof-label { font-size: 0.68rem; }
+        }
+
+        .cta-lead {
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+
+        /* ============================================
+           TESTIMONIALS — Hero + Grid
+           ============================================ */
+        .testimonial-hero {
+            margin: var(--spacing-lg) auto var(--spacing-md);
+            max-width: 760px;
+            padding: var(--spacing-lg) var(--spacing-md);
+            background: rgba(212, 165, 116, 0.05);
+            border-top: 2px solid var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+            border-radius: 2px;
+            text-align: center;
+        }
+        .testimonial-hero .testimonial-pull-quote {
+            font-family: var(--font-serif);
+            font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+            line-height: 1.45;
+            color: var(--color-accent);
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.005em;
+        }
+        .testimonial-hero .testimonial-body {
+            font-size: 1.0rem;
+            line-height: 1.8;
+            color: var(--color-text-muted);
+            max-width: 620px;
+            margin: 0 auto var(--spacing-md);
+            text-align: left;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+        .testimonial-grid--3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .testimonial-card {
+            margin: 0;
+            padding: var(--spacing-md);
+            background: rgba(212, 165, 116, 0.04);
+            border-left: 2px solid var(--color-accent);
+            border-radius: 2px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        .testimonial-card .testimonial-pull-quote {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: var(--color-accent);
+            font-style: italic;
+            margin: 0;
+        }
+        .testimonial-card .testimonial-body {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: var(--color-text-muted);
+            flex: 1;
+            margin: 0;
+        }
+
+        .testimonial-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid rgba(212, 165, 116, 0.15);
+        }
+        .testimonial-name {
+            color: var(--color-text);
+            font-size: 0.95rem;
+            font-family: var(--font-serif);
+        }
+        .testimonial-source {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-text-muted);
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .testimonial-hero .testimonial-source {
+            justify-content: center;
+        }
+        .testimonial-stars {
+            color: var(--color-accent);
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+        }
+
+        .testimonials-see-all {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+        }
+        .testimonials-see-all-label {
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .testimonials-see-all-link {
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.3);
+            padding-bottom: 0.25rem;
+            transition: border-color 0.2s ease;
+        }
+        .testimonials-see-all-link:hover {
+            border-color: var(--color-accent);
+        }
+
+        @media (max-width: 900px) {
+            .testimonial-grid--3 {
+                grid-template-columns: 1fr;
+            }
+            .testimonial-hero .testimonial-body { text-align: left; }
+        }
+
+        /* ============================================
+           PRICE BADGE (auf Karten)
+           ============================================ */
+        .price-badge {
+            display: inline-block;
+            font-family: var(--font-serif);
+            color: var(--color-accent);
+            font-size: 0.95rem;
+            margin-top: 0.4rem;
+            opacity: 0.9;
+            letter-spacing: 0.02em;
+        }
+        .price-badge::before {
+            content: "ab ";
+            color: var(--color-text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }

@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Facebook Pixel Code -->
+    <!-- Facebook Pixel – only after cookie consent (GDPR) -->
     <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '835283135566622');
-    fbq('track', 'PageView');
+    window.hpsLoadFbPixel = function() {
+        if (window.fbq) return;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '835283135566622');
+        fbq('track', 'PageView');
+    };
+    try {
+        if (localStorage.getItem('cookie-consent') === 'accepted') window.hpsLoadFbPixel();
+    } catch(e) {}
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=835283135566622&ev=PageView&noscript=1"/></noscript>
-    <!-- End Facebook Pixel Code -->
 
     <title>Handpan Schule des Lebens – 用深度与觉知学习手碟</title>
 
@@ -2961,6 +2964,14 @@
         }
     </style>
     <link rel="stylesheet" href="/fonts/fonts.css">
+
+    <!-- Preload LCP Hero Image -->
+    <link rel="preload" as="image"
+          href="/images/optimized/hero-handpan-2-1920.webp"
+          imagesrcset="/images/optimized/hero-handpan-2-768.webp 768w, /images/optimized/hero-handpan-2-1280.webp 1280w, /images/optimized/hero-handpan-2-1920.webp 1920w"
+          imagesizes="100vw"
+          type="image/webp"
+          fetchpriority="high">
 </head>
 <body>
 
@@ -3062,7 +3073,19 @@
     <div id="page-home" class="page-content active">
 
         <section class="hero-photo">
-            <img src="../images/optimized/hero-handpan-2.jpg" class="hero-photo-img" alt="手碟特写">
+            <picture>
+                <source type="image/webp"
+                        srcset="/images/optimized/hero-handpan-2-768.webp 768w, /images/optimized/hero-handpan-2-1280.webp 1280w, /images/optimized/hero-handpan-2-1920.webp 1920w"
+                        sizes="100vw">
+                <img src="/images/optimized/hero-handpan-2-1280.jpg"
+                     srcset="/images/optimized/hero-handpan-2-768.jpg 768w, /images/optimized/hero-handpan-2-1280.jpg 1280w, /images/optimized/hero-handpan-2-1920.jpg 1920w"
+                     sizes="100vw"
+                     width="1920" height="1280"
+                     class="hero-photo-img"
+                     alt="手碟特写"
+                     fetchpriority="high"
+                     decoding="async">
+            </picture>
             <div class="bg-overlay"></div>
             <div class="hero-content container-narrow">
                 <h1>Handpan Schule des Lebens</h1>
@@ -3075,7 +3098,7 @@
 
         <div class="hero-divider">
             <span class="hero-divider__line"></span>
-            <img src="../images/logo-ornament.svg" class="hero-divider__ornament" alt="">
+            <img src="../images/logo-ornament.svg" class="hero-divider__ornament" alt="" loading="lazy" decoding="async" width="120" height="120">
             <span class="hero-divider__line"></span>
         </div>
 
@@ -3182,7 +3205,7 @@
             <div class="container-narrow">
                 <div class="about-grid">
                     <div>
-                        <img src="../images/optimized/spielszene-see-profil.webp" alt="Nils 与手碟" style="width: 100%; border-radius: 2px; aspect-ratio: 1; object-fit: contain;" loading="lazy">
+                        <img src="../images/optimized/spielszene-see-profil.webp" alt="Nils 与手碟" style="width: 100%; border-radius: 2px; aspect-ratio: 1; object-fit: contain;" loading="lazy" decoding="async" width="533" height="800">
                     </div>
                     <div>
                         <p class="journey-phase" style="margin-bottom: 0.5rem;">你的导师</p>
@@ -3242,7 +3265,7 @@
                 <h1>理念</h1>
                 <p class="hero-subtitle">将生命视为艺术作品的智慧</p>
                 <figure style="margin: var(--spacing-lg) auto 0; max-width: 400px;">
-                    <img src="../images/optimized/spielszene-see-profil.webp" alt="湖畔手碟演奏者 – 冥想中的侧影" style="width: 100%; display: block; border-radius: 8px;" loading="lazy">
+                    <img src="../images/optimized/spielszene-see-profil.webp" alt="湖畔手碟演奏者 – 冥想中的侧影" style="width: 100%; display: block; border-radius: 8px;" loading="lazy" decoding="async" width="533" height="800">
                     <figcaption style="text-align: center; color: var(--color-text-muted); font-style: italic; font-size: 0.9rem; margin-top: var(--spacing-sm);">灵魂与声音之间的对话。</figcaption>
                 </figure>
             </div>
@@ -5236,7 +5259,7 @@
 
         <section class="section-dark">
             <div class="container-narrow">
-                <img src="../images/optimized/portrait-handpan.webp" alt="手碟肖像——导师Nils Caspar" class="section-image" loading="lazy">
+                <img src="../images/optimized/portrait-handpan.webp" alt="手碟肖像——导师Nils Caspar" class="section-image" loading="lazy" decoding="async" width="800" height="533">
             </div>
         </section>
 
@@ -5403,7 +5426,7 @@
 
         <section class="section-dark">
             <div class="container-narrow">
-                <img src="../images/optimized/spielszene-haende-sw.webp" alt="手碟上的双手——黑白演奏场景" class="section-image" loading="lazy">
+                <img src="../images/optimized/spielszene-haende-sw.webp" alt="手碟上的双手——黑白演奏场景" class="section-image" loading="lazy" decoding="async" width="533" height="800">
             </div>
         </section>
 
@@ -5786,7 +5809,7 @@
 
         <section class="section-light">
             <div class="container-narrow">
-                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Caspar——Handpan Schule des Lebens 创始人" class="portrait-round" loading="lazy">
+                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Caspar——Handpan Schule des Lebens 创始人" class="portrait-round" loading="lazy" decoding="async" width="480" height="320">
                 <p class="section-intro" style="font-size: 1.2rem;">
                     Handpan Schule des Lebens 的背后，是经验丰富的音乐家和打击乐手，
                     他们共同分享对手碟和教学的热爱。
@@ -6031,7 +6054,7 @@
         </section>
         <section class="section-light">
             <div class="container-narrow">
-                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Caspar – Handpan Schule des Lebens 创始人" class="portrait-round" loading="lazy">
+                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Caspar – Handpan Schule des Lebens 创始人" class="portrait-round" loading="lazy" decoding="async" width="480" height="320">
                 <p class="section-intro" style="font-size: 1.2rem;">
                     Handpan Schule des Lebens 由 Nils Caspar 创立——他是一位音乐家、打击乐手和教师，深信音乐与内在成长是密不可分的。
                 </p>
@@ -6318,7 +6341,19 @@
     <div id="page-instrumente" class="page-content">
 
         <section class="page-hero-photo">
-            <img src="../images/optimized/instrumente-hero.jpg" alt="手碟特写——中央开口与音场" class="page-hero-photo__img" loading="eager">
+            <picture>
+                <source type="image/webp"
+                        srcset="/images/optimized/instrumente-hero-768.webp 768w, /images/optimized/instrumente-hero-1280.webp 1280w, /images/optimized/instrumente-hero-1920.webp 1920w"
+                        sizes="100vw">
+                <img src="/images/optimized/instrumente-hero-1280.jpg"
+                     srcset="/images/optimized/instrumente-hero-768.jpg 768w, /images/optimized/instrumente-hero-1280.jpg 1280w, /images/optimized/instrumente-hero-1920.jpg 1920w"
+                     sizes="100vw"
+                     width="1920" height="1280"
+                     class="page-hero-photo__img"
+                     alt="手碟特写——中央开口与音场"
+                     fetchpriority="high"
+                     decoding="async">
+            </picture>
             <div class="bg-overlay"></div>
             <div class="page-hero-photo__content">
                 <h1>乐器</h1>

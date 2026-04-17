@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Facebook Pixel Code -->
+    <!-- Facebook Pixel – only after cookie consent (GDPR) -->
     <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '835283135566622');
-    fbq('track', 'PageView');
+    window.hpsLoadFbPixel = function() {
+        if (window.fbq) return;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '835283135566622');
+        fbq('track', 'PageView');
+    };
+    try {
+        if (localStorage.getItem('cookie-consent') === 'accepted') window.hpsLoadFbPixel();
+    } catch(e) {}
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=835283135566622&ev=PageView&noscript=1"/></noscript>
-    <!-- End Facebook Pixel Code -->
 
     <title>Handpan Schule des Lebens – 深みと気づきのハンドパン教室</title>
 
@@ -2961,6 +2964,14 @@
         }
     </style>
     <link rel="stylesheet" href="/fonts/fonts.css">
+
+    <!-- Preload LCP Hero Image -->
+    <link rel="preload" as="image"
+          href="/images/optimized/hero-handpan-2-1920.webp"
+          imagesrcset="/images/optimized/hero-handpan-2-768.webp 768w, /images/optimized/hero-handpan-2-1280.webp 1280w, /images/optimized/hero-handpan-2-1920.webp 1920w"
+          imagesizes="100vw"
+          type="image/webp"
+          fetchpriority="high">
 </head>
 <body>
 
@@ -3062,7 +3073,19 @@
     <div id="page-home" class="page-content active">
 
         <section class="hero-photo">
-            <img src="../images/optimized/hero-handpan-2.jpg" class="hero-photo-img" alt="ハンドパンのクローズアップ">
+            <picture>
+                <source type="image/webp"
+                        srcset="/images/optimized/hero-handpan-2-768.webp 768w, /images/optimized/hero-handpan-2-1280.webp 1280w, /images/optimized/hero-handpan-2-1920.webp 1920w"
+                        sizes="100vw">
+                <img src="/images/optimized/hero-handpan-2-1280.jpg"
+                     srcset="/images/optimized/hero-handpan-2-768.jpg 768w, /images/optimized/hero-handpan-2-1280.jpg 1280w, /images/optimized/hero-handpan-2-1920.jpg 1920w"
+                     sizes="100vw"
+                     width="1920" height="1280"
+                     class="hero-photo-img"
+                     alt="ハンドパンのクローズアップ"
+                     fetchpriority="high"
+                     decoding="async">
+            </picture>
             <div class="bg-overlay"></div>
             <div class="hero-content container-narrow">
                 <h1>Handpan Schule des Lebens</h1>
@@ -3075,7 +3098,7 @@
 
         <div class="hero-divider">
             <span class="hero-divider__line"></span>
-            <img src="../images/logo-ornament.svg" class="hero-divider__ornament" alt="">
+            <img src="../images/logo-ornament.svg" class="hero-divider__ornament" alt="" loading="lazy" decoding="async" width="120" height="120">
             <span class="hero-divider__line"></span>
         </div>
 
@@ -3182,7 +3205,7 @@
             <div class="container-narrow">
                 <div class="about-grid">
                     <div>
-                        <img src="../images/optimized/spielszene-see-profil.webp" alt="Nilsとハンドパン" style="width: 100%; border-radius: 2px; aspect-ratio: 1; object-fit: contain;" loading="lazy">
+                        <img src="../images/optimized/spielszene-see-profil.webp" alt="Nilsとハンドパン" style="width: 100%; border-radius: 2px; aspect-ratio: 1; object-fit: contain;" loading="lazy" decoding="async" width="533" height="800">
                     </div>
                     <div>
                         <p class="journey-phase" style="margin-bottom: 0.5rem;">あなたのガイド</p>
@@ -3242,7 +3265,7 @@
                 <h1>哲学</h1>
                 <p class="hero-subtitle">人生を芸術作品として見る技法</p>
                 <figure style="margin: var(--spacing-lg) auto 0; max-width: 400px;">
-                    <img src="../images/optimized/spielszene-see-profil.webp" alt="湖畔のハンドパン奏者 – 瞑想的な横顔" style="width: 100%; display: block; border-radius: 8px;" loading="lazy">
+                    <img src="../images/optimized/spielszene-see-profil.webp" alt="湖畔のハンドパン奏者 – 瞑想的な横顔" style="width: 100%; display: block; border-radius: 8px;" loading="lazy" decoding="async" width="533" height="800">
                     <figcaption style="text-align: center; color: var(--color-text-muted); font-style: italic; font-size: 0.9rem; margin-top: var(--spacing-sm);">魂と音の対話。</figcaption>
                 </figure>
             </div>
@@ -5237,7 +5260,7 @@
 
         <section class="section-dark">
             <div class="container-narrow">
-                <img src="../images/optimized/portrait-handpan.webp" alt="Portrait with handpan – Nils Caspar as mentor" class="section-image" loading="lazy">
+                <img src="../images/optimized/portrait-handpan.webp" alt="Portrait with handpan – Nils Caspar as mentor" class="section-image" loading="lazy" decoding="async" width="800" height="533">
             </div>
         </section>
 
@@ -5404,7 +5427,7 @@
 
         <section class="section-dark">
             <div class="container-narrow">
-                <img src="../images/optimized/spielszene-haende-sw.webp" alt="Hands on the handpan – black and white playing scene" class="section-image" loading="lazy">
+                <img src="../images/optimized/spielszene-haende-sw.webp" alt="Hands on the handpan – black and white playing scene" class="section-image" loading="lazy" decoding="async" width="533" height="800">
             </div>
         </section>
 
@@ -5787,7 +5810,7 @@
 
         <section class="section-light">
             <div class="container-narrow">
-                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Caspar – Founder of Handpan Schule des Lebens" class="portrait-round" loading="lazy">
+                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Caspar – Founder of Handpan Schule des Lebens" class="portrait-round" loading="lazy" decoding="async" width="480" height="320">
                 <p class="section-intro" style="font-size: 1.2rem;">
                     Handpan Schule des Lebensの背後には、ハンドパンと教育への情熱を分かち合う
                     経験豊かな音楽家とパーカッショニストがいます。
@@ -6033,7 +6056,7 @@
         </section>
         <section class="section-light">
             <div class="container-narrow">
-                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Caspar – Handpan Schule des Lebens 創設者" class="portrait-round" loading="lazy">
+                <img src="../images/optimized/portrait-frontal.webp" alt="Nils Caspar – Handpan Schule des Lebens 創設者" class="portrait-round" loading="lazy" decoding="async" width="480" height="320">
                 <p class="section-intro" style="font-size: 1.2rem;">
                     Handpan Schule des Lebens は Nils Caspar によって設立されました——音楽家、パーカッショニスト、そして教師として、
                     音楽と内なる成長は切り離せないという深い信念を持っています。
@@ -6322,7 +6345,19 @@
     <div id="page-instrumente" class="page-content">
 
         <section class="page-hero-photo">
-            <img src="../images/optimized/instrumente-hero.jpg" alt="ハンドパンのクローズアップ——中央の開口部と音場" class="page-hero-photo__img" loading="eager">
+            <picture>
+                <source type="image/webp"
+                        srcset="/images/optimized/instrumente-hero-768.webp 768w, /images/optimized/instrumente-hero-1280.webp 1280w, /images/optimized/instrumente-hero-1920.webp 1920w"
+                        sizes="100vw">
+                <img src="/images/optimized/instrumente-hero-1280.jpg"
+                     srcset="/images/optimized/instrumente-hero-768.jpg 768w, /images/optimized/instrumente-hero-1280.jpg 1280w, /images/optimized/instrumente-hero-1920.jpg 1920w"
+                     sizes="100vw"
+                     width="1920" height="1280"
+                     class="page-hero-photo__img"
+                     alt="ハンドパンのクローズアップ——中央の開口部と音場"
+                     fetchpriority="high"
+                     decoding="async">
+            </picture>
             <div class="bg-overlay"></div>
             <div class="page-hero-photo__content">
                 <h1>楽器</h1>
