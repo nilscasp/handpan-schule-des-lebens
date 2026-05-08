@@ -185,6 +185,7 @@
                                 '<p class="calendar-event-title">' + ev.title + '</p>' +
                                 '<div class="calendar-event-meta">' +
                                     (ev.time ? '<span>' + ev.time + ' Uhr</span>' : '') +
+                                    (ev.location ? '<span>' + ev.location + '</span>' : '') +
                                     '<span class="calendar-event-type" data-type="' + ev.type + '">' + typeLabel + '</span>' +
                                 '</div>' +
                             '</div>' +
