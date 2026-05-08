@@ -4,27 +4,27 @@
     "date": "2026-07-19",
     "time": "12:00",
     "type": "workshop",
-    "link": "#einsteigerkurse"
+    "link": "/einsteigerkurse/"
   },
   {
     "title": "1:1 Mentoring – Offene Sprechstunde",
     "date": "2026-03-22",
     "time": "17:00",
     "type": "mentoring",
-    "link": "#einzelunterricht-buchen"
+    "link": "/einzelunterricht/#einzelunterricht-buchen"
   },
   {
     "title": "Rhythmus Fundament – Kick-off",
     "date": "2026-04-17",
     "time": "19:00",
     "type": "kurs",
-    "link": "#rhythmus-fundament"
+    "link": "/rhythmus-fundament/"
   },
   {
     "title": "The Handpan Path",
     "date": "2026-11-01",
     "time": "",
     "type": "kurs",
-    "link": "#handpan-path"
+    "link": "/handpan-path/"
   }
 ]
