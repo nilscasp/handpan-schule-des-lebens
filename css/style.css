@@ -2026,22 +2026,23 @@
                 background: rgba(212, 165, 116, 0.06);
                 transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
             }
-            /* Einzelner Punkt mittig im Kreis */
+            /* Drei Punkte horizontal mittig im Kreis (mittlerer Punkt + box-shadow links/rechts) */
             .mobile-menu-toggle::before {
                 content: '';
                 display: block;
-                width: 8px;
-                height: 8px;
+                width: 4px;
+                height: 4px;
                 border-radius: 50%;
                 background: currentColor;
-                transition: transform 0.25s ease, width 0.25s ease, height 0.25s ease;
+                box-shadow: -9px 0 0 currentColor, 9px 0 0 currentColor;
+                transition: transform 0.25s ease;
             }
             .mobile-menu-toggle:hover {
                 border-color: var(--color-accent);
                 background: rgba(212, 165, 116, 0.15);
             }
             .mobile-menu-toggle:hover::before {
-                transform: scale(1.25);
+                transform: scale(1.2);
             }
             .mobile-menu-toggle:active {
                 transform: translateY(-50%) scale(0.95);
