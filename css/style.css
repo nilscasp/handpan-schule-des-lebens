@@ -1965,27 +1965,30 @@
            RESPONSIVE
            ============================================ */
         @media (max-width: 768px) {
-            /* Logo mittig, Toggle als runder Button rechts */
+            /* Logo absolut zentriert (Text auf der Achse), Toggle rechts */
             nav .container {
                 position: relative;
-                justify-content: center;
+                justify-content: flex-start;
+                min-height: 56px;
             }
             nav .logo {
-                font-size: 0.8rem;
+                /* Absolute Positionierung: Logo aus dem Flex-Flow nehmen
+                   und so verschieben, dass nicht der Logo-Block, sondern
+                   das Text-Zentrum auf der Viewport-Achse sitzt.
+                   Offset = (Flipper-Breite + Gap) / 2 = (24px + 8px) / 2 = 16px */
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(calc(-50% - 16px), -50%);
+                font-size: 0.78rem;
                 margin: 0;
-                /* Vertikaler Stack: Icon ueber Text, beides perfekt zentriert auf der Achse */
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
-                gap: 0.35rem;
-                /* Lass Platz fuer den Toggle rechts */
-                max-width: calc(100% - 110px);
-                text-align: center;
-                line-height: 1.1;
+                gap: 0.5rem;
                 white-space: nowrap;
-                padding-top: 0;
-                padding-bottom: 0;
+                line-height: 1.1;
             }
-            .logo-flipper { width: 28px; height: 28px; }
+            .logo-flipper { width: 24px; height: 24px; }
 
             nav ul {
                 display: none;
