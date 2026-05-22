@@ -1973,13 +1973,19 @@
             nav .logo {
                 font-size: 0.8rem;
                 margin: 0;
-                /* Lass Platz fuer den Toggle rechts, damit Text nicht ueberlappt */
+                /* Vertikaler Stack: Icon ueber Text, beides perfekt zentriert auf der Achse */
+                flex-direction: column;
+                align-items: center;
+                gap: 0.35rem;
+                /* Lass Platz fuer den Toggle rechts */
                 max-width: calc(100% - 110px);
                 text-align: center;
-                line-height: 1.25;
-                gap: 0.55rem;
+                line-height: 1.1;
+                white-space: nowrap;
+                padding-top: 0;
+                padding-bottom: 0;
             }
-            .logo-flipper { width: 32px; height: 32px; }
+            .logo-flipper { width: 28px; height: 28px; }
 
             nav ul {
                 display: none;
