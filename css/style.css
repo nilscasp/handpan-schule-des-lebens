@@ -2026,15 +2026,14 @@
                 background: rgba(212, 165, 116, 0.06);
                 transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
             }
-            /* Drei Punkte horizontal mittig im Kreis (mittlerer Punkt + box-shadow links/rechts) */
+            /* Drei feine horizontale Linien (mittlere Linie + box-shadow oben/unten) */
             .mobile-menu-toggle::before {
                 content: '';
                 display: block;
-                width: 4px;
-                height: 4px;
-                border-radius: 50%;
+                width: 18px;
+                height: 1px;
                 background: currentColor;
-                box-shadow: -9px 0 0 currentColor, 9px 0 0 currentColor;
+                box-shadow: 0 -5px 0 currentColor, 0 5px 0 currentColor;
                 transition: transform 0.25s ease;
             }
             .mobile-menu-toggle:hover {
@@ -2042,7 +2041,7 @@
                 background: rgba(212, 165, 116, 0.15);
             }
             .mobile-menu-toggle:hover::before {
-                transform: scale(1.2);
+                transform: scaleX(1.15);
             }
             .mobile-menu-toggle:active {
                 transform: translateY(-50%) scale(0.95);
