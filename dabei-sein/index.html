@@ -62,6 +62,249 @@
     <link rel="dns-prefetch" href="https://f66d0849.sibforms.com">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/fonts/fonts.css">
+
+    <!-- Dabei-sein page-specific styles -->
+    <style>
+        /* Hero quick-jump links */
+        .hero-jump-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            justify-content: center;
+            margin-top: var(--spacing-md);
+        }
+        .hero-jump-link {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.3);
+            padding-bottom: 2px;
+            transition: border-color 0.2s ease;
+        }
+        .hero-jump-link:hover { border-color: var(--color-accent); }
+
+        /* Section eyebrow */
+        .section-eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            text-align: center;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Quickstart cards */
+        .quickstart-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .quickstart-badge {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-sm);
+            background: rgba(212, 165, 116, 0.12);
+            color: var(--color-accent);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 2px;
+            border: 1px solid rgba(212, 165, 116, 0.25);
+        }
+        .quickstart-badge--accent {
+            background: var(--color-accent);
+            color: var(--color-bg);
+            border-color: var(--color-accent);
+        }
+        .quickstart-card--featured {
+            border-color: rgba(212, 165, 116, 0.4);
+            background: rgba(212, 165, 116, 0.04);
+        }
+
+        /* Level selector */
+        .level-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+        }
+        .level-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.4rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            border-radius: 2px;
+            padding: var(--spacing-md);
+            cursor: pointer;
+            color: inherit;
+            font-family: inherit;
+            transition: all 0.25s ease;
+        }
+        .level-card:hover {
+            border-color: rgba(212, 165, 116, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-2px);
+        }
+        .level-card.is-active {
+            border-color: var(--color-accent);
+            background: rgba(212, 165, 116, 0.08);
+            box-shadow: 0 0 0 1px var(--color-accent);
+        }
+        .level-card-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+        .level-card-title {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+        .level-card-desc {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+        }
+
+        /* Level result panel */
+        .level-result {
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            border-left: 3px solid var(--color-accent);
+            border-radius: 2px;
+            animation: fadeInUp 0.4s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .level-result-headline {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-xs);
+        }
+        .level-result-intro {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-md);
+        }
+        .level-result-primary {
+            display: block;
+            background: rgba(212, 165, 116, 0.06);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 2px;
+            padding: var(--spacing-md);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s ease;
+        }
+        .level-result-primary:hover {
+            border-color: var(--color-accent);
+            background: rgba(212, 165, 116, 0.1);
+            transform: translateY(-2px);
+        }
+        .level-result-primary-tag {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 2px;
+            margin-bottom: var(--spacing-sm);
+        }
+        .level-result-primary-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            margin: 0 0 0.3rem;
+        }
+        .level-result-primary-meta {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--spacing-sm);
+        }
+        .level-result-primary-desc {
+            color: var(--color-text-muted);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-sm);
+        }
+        .level-result-primary-arrow {
+            color: var(--color-accent);
+            font-size: 0.95rem;
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+        .level-result-primary:hover .level-result-primary-arrow {
+            transform: translateX(6px);
+        }
+        .level-result-alternatives {
+            margin-top: var(--spacing-md);
+        }
+        .level-result-alt-label {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-sm);
+        }
+        .level-result-alt-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-sm);
+        }
+        .level-result-alt {
+            display: block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            border-radius: 2px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+        .level-result-alt:hover {
+            border-color: var(--color-accent);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .level-result-alt-title {
+            color: var(--color-accent);
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .level-result-alt-desc {
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 640px) {
+            .level-card { padding: var(--spacing-sm); }
+            .level-card-title { font-size: 1rem; }
+            .level-result { padding: var(--spacing-md); }
+            .level-result-headline { font-size: 1.35rem; }
+            .quickstart-badge {
+                position: static;
+                align-self: flex-start;
+                margin-bottom: var(--spacing-sm);
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -175,18 +418,167 @@
     <main id="main-content">
     <div id="page-dabei-sein" class="page-content active">
 
+        <!-- ============================================
+             HERO
+             ============================================ -->
         <section class="page-hero">
             <div class="hero-content container-narrow">
                 <h1>Dabei sein</h1>
-                <p class="hero-subtitle">Der erste Schritt</p>
+                <p class="hero-subtitle">Wir treffen dich genau dort, wo du gerade stehst — und zeigen dir den nächsten Schritt.</p>
+                <div class="hero-jump-row" aria-label="Schnellnavigation">
+                    <a href="#sofort-starten" class="hero-jump-link">Sofort starten ↓</a>
+                    <a href="#dein-level" class="hero-jump-link">Dein Level finden ↓</a>
+                </div>
             </div>
         </section>
 
-        <section class="section-light">
+        <!-- ============================================
+             SECTION 1: SOFORT STARTEN
+             ============================================ -->
+        <section class="section-light" id="sofort-starten">
+            <div class="container">
+                <p class="section-eyebrow">In den nächsten 5 Minuten</p>
+                <h2 class="section-title">Sofort starten</h2>
+                <p class="section-intro">Drei Wege, die du heute noch gehen kannst — kostenlos oder mit niedrigem Einstieg, ohne Verpflichtung.</p>
+
+                <div class="card-grid quickstart-grid">
+                    <a href="/community/" class="card card-link quickstart-card">
+                        <span class="quickstart-badge">Kostenlos</span>
+                        <p class="card-subtitle">Online · Sofort</p>
+                        <h3 class="card-title">Community beitreten</h3>
+                        <p>Tritt der Community bei, lerne Mitspieler kennen, stelle Fragen, wachse im Dialog. Keine Karte nötig.</p>
+                        <span class="card-arrow">Jetzt beitreten →</span>
+                    </a>
+
+                    <a href="/einsteigerkurse/" class="card card-link quickstart-card quickstart-card--featured">
+                        <span class="quickstart-badge quickstart-badge--accent">Nächster Termin: 19.7.</span>
+                        <p class="card-subtitle">2 Stunden · Live · München</p>
+                        <h3 class="card-title">Einsteigerkurs</h3>
+                        <p>Erste Berührung mit der Handpan. Grundhaltung, erste Grooves, Orientierung — ohne Druck.</p>
+                        <span class="card-arrow">Platz sichern →</span>
+                    </a>
+
+                    <a href="/einzelunterricht/#einzelunterricht-buchen" class="card card-link quickstart-card">
+                        <span class="quickstart-badge">15 Min · Persönlich</span>
+                        <p class="card-subtitle">Online oder vor Ort</p>
+                        <h3 class="card-title">Gespräch buchen</h3>
+                        <p>Unsicher, was zu dir passt? Lass uns kurz reden. Direkt einen Termin im Kalender wählen.</p>
+                        <span class="card-arrow">Termin wählen →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 2: DEIN LEVEL
+             ============================================ -->
+        <section class="section-dark" id="dein-level">
+            <div class="container">
+                <p class="section-eyebrow">Personalisiert in 1 Klick</p>
+                <h2 class="section-title">Wo stehst du gerade?</h2>
+                <p class="section-intro">Wähle, was am besten passt — und sieh sofort, welcher Weg für dich der richtige ist.</p>
+
+                <div class="level-selector" role="tablist" aria-label="Spielerfahrung wählen">
+                    <button type="button" class="level-card is-active" data-level="novice" role="tab" aria-selected="true" aria-controls="level-result">
+                        <span class="level-card-icon" aria-hidden="true">🌱</span>
+                        <span class="level-card-title">Noch nie gespielt</span>
+                        <span class="level-card-desc">Du hast die Handpan gehört oder gesehen, aber noch nicht selbst gespielt.</span>
+                    </button>
+                    <button type="button" class="level-card" data-level="beginner" role="tab" aria-selected="false" aria-controls="level-result">
+                        <span class="level-card-icon" aria-hidden="true">🌿</span>
+                        <span class="level-card-title">Erste Schritte gemacht</span>
+                        <span class="level-card-desc">Du hast schon mal gespielt, kennst Grundlagen, willst jetzt Struktur.</span>
+                    </button>
+                    <button type="button" class="level-card" data-level="competent" role="tab" aria-selected="false" aria-controls="level-result">
+                        <span class="level-card-icon" aria-hidden="true">🌳</span>
+                        <span class="level-card-title">Spiele regelmäßig</span>
+                        <span class="level-card-desc">Du übst eigenständig und willst dein Spiel auf das nächste Level bringen.</span>
+                    </button>
+                    <button type="button" class="level-card" data-level="proficient" role="tab" aria-selected="false" aria-controls="level-result">
+                        <span class="level-card-icon" aria-hidden="true">✦</span>
+                        <span class="level-card-title">Will Tiefe & Meisterschaft</span>
+                        <span class="level-card-desc">Du spielst seit Jahren und suchst echte Transformation, eigenen Ausdruck.</span>
+                    </button>
+                </div>
+
+                <div class="level-result" id="level-result" role="tabpanel" aria-live="polite">
+                    <!-- Inhalt wird per JS gerendert -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 3: ALLE WEGE
+             ============================================ -->
+        <section class="section-light" id="alle-wege">
+            <div class="container">
+                <p class="section-eyebrow">Komplette Übersicht</p>
+                <h2 class="section-title">Alle Wege im Überblick</h2>
+                <p class="section-intro">Sieben Angebote — alle einzeln buchbar, alle aufeinander aufbauend.</p>
+
+                <div class="card-grid overview-grid">
+                    <a href="/einsteigerkurse/" class="card card-link overview-card">
+                        <p class="card-subtitle">2 Stunden · Live · München</p>
+                        <h3 class="card-title">Einsteigerkurs</h3>
+                        <p>Erste Berührung mit der Handpan. Grundhaltung, erste Grooves.</p>
+                        <p class="overview-meta"><span class="overview-meta-label">Für:</span> Alle Levels · Erstkontakt</p>
+                        <span class="card-arrow">Mehr erfahren →</span>
+                    </a>
+                    <a href="/rhythmus-fundament/" class="card card-link overview-card">
+                        <p class="card-subtitle">6 Wochen · 179 € · Hybrid</p>
+                        <h3 class="card-title">Rhythmus Fundament</h3>
+                        <p>Der Basiskurs: Puls, Subdivisions, Handsatz, Struktur — wirklich anwenden.</p>
+                        <p class="overview-meta"><span class="overview-meta-label">Für:</span> Anfänger mit ersten Schritten</p>
+                        <span class="card-arrow">Mehr erfahren →</span>
+                    </a>
+                    <a href="/handpan-path/" class="card card-link overview-card">
+                        <p class="card-subtitle">6 Monate · Hybrid · 36 Einheiten</p>
+                        <h3 class="card-title">The Handpan Path</h3>
+                        <p>Die transformative Reise. 18 Themen × 2 Sessions. Musikalische und spirituelle Transformation.</p>
+                        <p class="overview-meta"><span class="overview-meta-label">Für:</span> Engagierte Spieler:innen</p>
+                        <span class="card-arrow">Mehr erfahren →</span>
+                    </a>
+                    <a href="/retreats/" class="card card-link overview-card">
+                        <p class="card-subtitle">3–4 Tage · Live · Natur</p>
+                        <h3 class="card-title">Retreats</h3>
+                        <p>Immersion in der Natur. Tiefe Praxis, Durchbrüche, Präsenz.</p>
+                        <p class="overview-meta"><span class="overview-meta-label">Für:</span> Alle, die tief eintauchen wollen</p>
+                        <span class="card-arrow">Mehr erfahren →</span>
+                    </a>
+                    <a href="/mentoring/" class="card card-link overview-card">
+                        <p class="card-subtitle">90–120 Min · 149 € · 1:1</p>
+                        <h3 class="card-title">Mentoring</h3>
+                        <p>Individuelle Begleitung. Persönliche Blockaden lösen, Durchbrüche erzielen.</p>
+                        <p class="overview-meta"><span class="overview-meta-label">Für:</span> Fortgeschrittene</p>
+                        <span class="card-arrow">Mehr erfahren →</span>
+                    </a>
+                    <a href="/einzelunterricht/" class="card card-link overview-card">
+                        <p class="card-subtitle">60 Min · ab 40 €/h · 1:1 · München</p>
+                        <h3 class="card-title">Einzelunterricht</h3>
+                        <p>Persönlicher Unterricht in München-Neuhausen. Auf dein Level zugeschnitten.</p>
+                        <p class="overview-meta"><span class="overview-meta-label">Für:</span> Alle Levels</p>
+                        <span class="card-arrow">Mehr erfahren →</span>
+                    </a>
+                    <a href="/kinderunterricht/" class="card card-link overview-card">
+                        <p class="card-subtitle">60 Min · 7–12 Jahre</p>
+                        <h3 class="card-title">Kinderunterricht</h3>
+                        <p>Musik als Erfahrungsraum für Kinder. Klang, Bewegung, Ausdruck.</p>
+                        <p class="overview-meta"><span class="overview-meta-label">Für:</span> Kinder 7–12 Jahre</p>
+                        <span class="card-arrow">Mehr erfahren →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 4: KONTAKT
+             ============================================ -->
+        <section class="section-dark" id="kontakt">
             <div class="container-narrow">
+                <p class="section-eyebrow text-center" style="text-align:center;">Persönlich erreichbar</p>
+                <h2 class="section-title">Schreib mir direkt</h2>
                 <p class="text-center mb-lg" style="color: var(--color-text-muted); font-size: 1.1rem;">
-                    Wenn du Fragen hast oder bereit bist, deinen Weg zu beginnen –
-                    schreib mir. Ich antworte persönlich.
+                    Wenn du Fragen hast oder bereit bist, deinen Weg zu beginnen — schreib mir. Ich antworte persönlich.
                 </p>
 
                 <div class="contact-info">
@@ -206,35 +598,10 @@
             </div>
         </section>
 
-        <!-- Einstiegsmöglichkeiten -->
-        <section class="section-dark">
-            <div class="container">
-                <h2 class="section-title">Dein Einstieg</h2>
-                
-                <div class="card-grid">
-                    <article class="card">
-                        <h3 class="card-title">Kostenlos starten</h3>
-                        <p class="card-subtitle">Community</p>
-                        <p>Tritt der Community bei und lerne Gleichgesinnte kennen. Tausche dich aus, stelle Fragen, wachse im Dialog.</p>
-                    </article>
-                    
-                    <article class="card">
-                        <h3 class="card-title">Rhythmus Fundament</h3>
-                        <p class="card-subtitle">179 € • 6 Wochen</p>
-                        <p>Der ideale Einstieg für alle, die eine solide rhythmische Grundlage aufbauen wollen. Nächster Start: 17. April 2026.</p>
-                    </article>
-                    
-                    <article class="card">
-                        <h3 class="card-title">Gespräch vereinbaren</h3>
-                        <p class="card-subtitle">Persönlich</p>
-                        <p>Unsicher, welcher Weg zu dir passt? Schreib mir und wir finden gemeinsam heraus, wie du am besten lernen kannst.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section class="section-light">
+        <!-- ============================================
+             SECTION 5: FAQ
+             ============================================ -->
+        <section class="section-light" id="faq">
             <div class="container-narrow">
                 <h2 class="section-title">Häufige Fragen</h2>
 
@@ -244,21 +611,8 @@
                     </button>
                     <div class="faq-answer">
                         <p style="padding-top: var(--spacing-sm);">
-                            Nein. Die Programme sind so gestaltet, dass sie dich dort abholen, wo du stehst. 
+                            Nein. Die Programme sind so gestaltet, dass sie dich dort abholen, wo du stehst.
                             Ob du noch nie eine Handpan berührt hast oder schon Jahre spielst – es gibt einen passenden Weg für dich.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                        Was unterscheidet diese Schule von anderen?
-                    </button>
-                    <div class="faq-answer">
-                        <p style="padding-top: var(--spacing-sm);">
-                            Hier geht es nicht um das Nachspielen von Pattern. Es geht um echte musikalische Entwicklung – 
-                            um das Verstehen, nicht nur das Können. Die Philosophie verbindet Technik mit Bewusstsein, 
-                            Struktur mit Freiheit.
                         </p>
                     </div>
                 </div>
@@ -269,7 +623,7 @@
                     </button>
                     <div class="faq-answer">
                         <p style="padding-top: var(--spacing-sm);">
-                            Beim Rhythmus Fundament sind es 10–15 Minuten tägliche Übung plus ein wöchentlicher Call. 
+                            Beim Rhythmus Fundament sind es 10–15 Minuten tägliche Übung plus ein wöchentlicher Call.
                             Beim Handpan Path variiert es je nach Phase. Das Wichtigste ist Regelmäßigkeit, nicht Dauer.
                         </p>
                     </div>
@@ -281,7 +635,7 @@
                     </button>
                     <div class="faq-answer">
                         <p style="padding-top: var(--spacing-sm);">
-                            Ja. Nils unterrichtet in München. 1:1 Mentoring-Sessions können online oder vor Ort stattfinden. 
+                            Ja. Nils unterrichtet in München. 1:1 Mentoring-Sessions können online oder vor Ort stattfinden.
                             Außerdem gibt es regelmäßig Retreats an besonderen Orten.
                         </p>
                     </div>
@@ -295,57 +649,29 @@
                         <p style="padding-top: var(--spacing-sm);">
                             Rhythmus Fundament: 179 €<br>
                             1:1 Mentoring Session: 149 €<br>
+                            Einzelunterricht: 60 € (im Paket ab 40 €)<br>
                             The Handpan Path und Retreats: Preise auf Anfrage<br>
-                            Community-Zugang: Als Bonus bei Kursen inklusive, sonst monatlich kündbar
+                            Community-Zugang: Bei Kursen inklusive, sonst monatlich kündbar
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                        Was unterscheidet diese Schule von anderen?
+                    </button>
+                    <div class="faq-answer">
+                        <p style="padding-top: var(--spacing-sm);">
+                            Hier geht es nicht um das Nachspielen von Pattern. Es geht um echte musikalische Entwicklung —
+                            um das Verstehen, nicht nur das Können. Die Philosophie verbindet Technik mit Bewusstsein,
+                            Struktur mit Freiheit.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Prinzipien -->
-        <section class="section-dark">
-            <div class="container-narrow">
-                <h2 class="section-title">Unsere Prinzipien</h2>
-                
-                <div class="feature-grid">
-                    <div class="feature">
-                        <h4>Struktur + Freiheit</h4>
-                        <p>Klare Wege, die Raum für deinen eigenen Ausdruck lassen.</p>
-                    </div>
-                    <div class="feature">
-                        <h4>Autonomie</h4>
-                        <p>Du lernst nicht abhängig zu werden, sondern selbstständig zu wachsen.</p>
-                    </div>
-                    <div class="feature">
-                        <h4>Community als Lernfeld</h4>
-                        <p>Gemeinsames Wachsen beschleunigt individuelle Entwicklung.</p>
-                    </div>
-                    <div class="feature">
-                        <h4>Transformation > Content</h4>
-                        <p>Es geht nicht um Information, sondern um echte Veränderung.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-light">
-            <div class="container-narrow text-center">
-                <blockquote class="quote-block" style="border-left-color: var(--color-accent);">
-                    <p class="quote-text" style="font-size: 1.5rem;">
-                        „Musik als Weg zu tiefer innerer Präsenz und Bewusstsein über unsere seelische Herkunft."
-                    </p>
-                </blockquote>
-                <p style="color: var(--color-text-muted); margin-top: var(--spacing-lg);">
-                    — Die Mission der Handpan Schule des Lebens
-                </p>
-            </div>
-        </section>
     </div>
 
-    <!-- ============================================
-         IMPRESSUM PAGE
-         ============================================ -->
     </main>
 
     <footer>
@@ -438,6 +764,140 @@
     </footer>
 
     <script src="/js/main.js"></script>
+
+    <!-- Level-Selector Logik -->
+    <script>
+    (function() {
+        const LEVEL_DATA = {
+            novice: {
+                headline: 'Dein perfekter Einstieg',
+                intro: 'Du hast die Handpan noch nicht selbst in den Händen gehalten — und das ist genau der richtige Moment, einfach anzufangen. Wir empfehlen einen weichen, niedrigschwelligen Einstieg ohne Vorwissen.',
+                primary: {
+                    tag: 'Beste Empfehlung',
+                    title: 'Einsteigerkurs',
+                    meta: '2 Stunden · Live in München · Nächster Termin: 19.7.2026',
+                    desc: 'Zwei Stunden, in denen du die Handpan zum ersten Mal selbst spielst. Grundhaltung, erste Grooves, Orientierung — alles ohne Druck. Du gehst raus und weißt: Das ist meins. Oder eben nicht.',
+                    link: '/einsteigerkurse/',
+                    cta: 'Einsteigerkurs ansehen →'
+                },
+                alternatives: [
+                    { title: 'Community (kostenlos)', desc: 'Lerne die Welt kennen, bevor du Geld investierst.', link: '/community/' },
+                    { title: 'Einzelunterricht', desc: 'Lieber 1:1 von Anfang an? Komm nach München.', link: '/einzelunterricht/' }
+                ]
+            },
+            beginner: {
+                headline: 'Zeit für ein echtes Fundament',
+                intro: 'Du hast die ersten Berührungen hinter dir und spürst: Da geht mehr. Jetzt brauchst du Struktur, eine klare Methode und jemanden, der dich durch die Grundlagen führt — damit du nicht jahrelang im Kreis spielst.',
+                primary: {
+                    tag: 'Beste Empfehlung',
+                    title: 'Rhythmus Fundament',
+                    meta: '6 Wochen · 179 € · Hybrid · Kick-off 17.4.2026',
+                    desc: 'Der Basiskurs, der nicht nur Wissen vermittelt, sondern zeigt, wie du es anwendest. Puls, Subdivisions, Handsatz, Struktur — 10–15 Min tägliche Übung plus wöchentlicher Live-Call. Danach hast du ein Fundament, auf dem alles weitere wächst.',
+                    link: '/rhythmus-fundament/',
+                    cta: 'Rhythmus Fundament ansehen →'
+                },
+                alternatives: [
+                    { title: 'Einzelunterricht', desc: 'Persönliche Korrektur in München-Neuhausen.', link: '/einzelunterricht/' },
+                    { title: 'Community', desc: 'Übe nicht alleine — finde Gleichgesinnte.', link: '/community/' }
+                ]
+            },
+            competent: {
+                headline: 'Die transformative Reise',
+                intro: 'Du übst eigenständig, hast deine Routinen, kannst Grooves. Aber irgendwas fehlt — Tiefe, Ausdruck, dein eigener Stil. Jetzt geht es darum, vom Können zum Verstehen zu kommen. Vom Pattern zur Musik.',
+                primary: {
+                    tag: 'Beste Empfehlung',
+                    title: 'The Handpan Path',
+                    meta: '6 Monate · Hybrid · 36 Einheiten · Start 1.11.2026',
+                    desc: '18 Themen × 2 Sessions = 36 intensive Einheiten. Die wirklich transformative Reise: Technik, Ausdruck, Präsenz, eigener Stil. Wenn du es ernst meinst mit deinem Spiel — das ist der Weg.',
+                    link: '/handpan-path/',
+                    cta: 'The Handpan Path entdecken →'
+                },
+                alternatives: [
+                    { title: 'Mentoring 1:1', desc: 'Spezifische Blockade? Eine Session genügt oft.', link: '/mentoring/' },
+                    { title: 'Retreats', desc: '3–4 Tage Immersion in der Natur.', link: '/retreats/' }
+                ]
+            },
+            proficient: {
+                headline: 'Tiefe, Durchbruch, Meisterschaft',
+                intro: 'Du spielst seit Jahren. Die Musik fließt oft intuitiv. Aber du suchst etwas, das im Alltag nicht passiert: echte Durchbrüche, Begegnung mit dir selbst, ein tieferes Verständnis dessen, was Musik wirklich ist.',
+                primary: {
+                    tag: 'Beste Empfehlung',
+                    title: 'Retreats',
+                    meta: '3–4 Tage · Live · in der Natur',
+                    desc: 'Immersive Tage in besonderer Umgebung. Tiefe Praxis, Stille, gemeinschaftliches Musizieren. In Retreats passieren Durchbrüche, die im Alltag Jahre brauchen. Klein, intim, intensiv.',
+                    link: '/retreats/',
+                    cta: 'Retreats entdecken →'
+                },
+                alternatives: [
+                    { title: 'Mentoring 1:1', desc: '90–120 Min · 149 € · für gezielte Tiefen-Arbeit.', link: '/mentoring/' },
+                    { title: 'The Handpan Path', desc: 'Falls du strukturierte Tiefe über 6 Monate willst.', link: '/handpan-path/' }
+                ]
+            }
+        };
+
+        function renderLevel(level) {
+            const data = LEVEL_DATA[level];
+            if (!data) return;
+            const altsHtml = data.alternatives.map(function(alt) {
+                return '<a class="level-result-alt" href="' + alt.link + '">' +
+                    '<span class="level-result-alt-title">' + alt.title + '</span>' +
+                    '<span class="level-result-alt-desc">' + alt.desc + '</span>' +
+                '</a>';
+            }).join('');
+
+            const resultEl = document.getElementById('level-result');
+            if (!resultEl) return;
+            resultEl.innerHTML =
+                '<p class="level-result-headline">' + data.headline + '</p>' +
+                '<p class="level-result-intro">' + data.intro + '</p>' +
+                '<a class="level-result-primary" href="' + data.primary.link + '">' +
+                    '<span class="level-result-primary-tag">✨ ' + data.primary.tag + '</span>' +
+                    '<h3 class="level-result-primary-title">' + data.primary.title + '</h3>' +
+                    '<p class="level-result-primary-meta">' + data.primary.meta + '</p>' +
+                    '<p class="level-result-primary-desc">' + data.primary.desc + '</p>' +
+                    '<span class="level-result-primary-arrow">' + data.primary.cta + '</span>' +
+                '</a>' +
+                '<div class="level-result-alternatives">' +
+                    '<p class="level-result-alt-label">Auch interessant für dich</p>' +
+                    '<div class="level-result-alt-grid">' + altsHtml + '</div>' +
+                '</div>';
+
+            // Restart animation
+            resultEl.style.animation = 'none';
+            // eslint-disable-next-line no-unused-expressions
+            resultEl.offsetHeight;
+            resultEl.style.animation = '';
+        }
+
+        function selectLevel(button) {
+            const cards = document.querySelectorAll('.level-card');
+            cards.forEach(function(c) {
+                c.classList.remove('is-active');
+                c.setAttribute('aria-selected', 'false');
+            });
+            button.classList.add('is-active');
+            button.setAttribute('aria-selected', 'true');
+            renderLevel(button.dataset.level);
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'level_selector_click', {
+                    event_category: 'dabei_sein',
+                    level: button.dataset.level
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.level-card');
+            cards.forEach(function(card) {
+                card.addEventListener('click', function() { selectLevel(card); });
+            });
+            // Initial render with first level
+            const initial = document.querySelector('.level-card.is-active');
+            if (initial) renderLevel(initial.dataset.level);
+        });
+    })();
+    </script>
 
     <!-- Newsletter: Inline-Submit via fetch -->
     <script>
