@@ -2039,16 +2039,66 @@
             .page-hero-photo { min-height: 40vh; margin-top: 64px; padding: 120px 0 30px; }
 
             .hero-photo {
-                padding-top: 120%;
+                padding-top: 140%;
                 margin-top: 64px;
             }
+            .hero-photo .hero-photo-img {
+                object-position: center center;
+                filter: brightness(1.02) saturate(1.08);
+            }
+            .hero-photo .bg-overlay {
+                background: linear-gradient(
+                    to bottom,
+                    rgba(10, 14, 20, 0.70) 0%,
+                    rgba(10, 14, 20, 0.45) 18%,
+                    rgba(10, 14, 20, 0.20) 40%,
+                    rgba(10, 14, 20, 0.65) 65%,
+                    rgba(10, 14, 20, 0.92) 100%
+                );
+            }
+            .hero-photo .hero-description {
+                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.6);
+            }
+            .hero-photo h1,
+            .hero-photo .hero-subtitle {
+                text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+            }
             .hero-photo .hero-content {
-                padding-top: 12%;
+                padding-top: 16%;
                 padding-left: var(--spacing-md);
                 padding-right: var(--spacing-md);
             }
             .hero-photo h1 {
-                font-size: 2.4rem;
+                font-size: 2rem;
+                margin-bottom: var(--spacing-sm);
+            }
+            .hero-photo .hero-subtitle {
+                font-size: 1.05rem;
+                line-height: 1.35;
+                margin-bottom: var(--spacing-sm);
+            }
+            .hero-photo .hero-description {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+            .hero-photo .hero-cta-row {
+                margin-top: var(--spacing-sm);
+                gap: 0.5rem;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .hero-photo .hero-cta-row a.cta--primary {
+                padding: 0.7rem 1.8rem;
+                font-size: 0.78rem;
+                letter-spacing: 0.08em;
+                width: auto;
+                min-width: 220px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            .hero-photo .hero-cta-row a.cta--ghost {
+                display: none;
             }
             .hero-divider__ornament {
                 width: 60px;

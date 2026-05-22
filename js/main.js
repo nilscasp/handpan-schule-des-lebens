@@ -125,7 +125,7 @@
         // CALENDAR SIDEBAR
         // ============================================
         const MONTH_NAMES_DE = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
-        const TYPE_LABELS_DE = { workshop: 'Workshop', kurs: 'Kurs', retreat: 'Retreat', mentoring: 'Mentoring' };
+        const TYPE_LABELS_DE = { workshop: 'Workshop', kurs: 'Kurs', retreat: 'Retreat', mentoring: 'Mentoring', fest: 'Fest' };
 
         function toggleCalendarSidebar() {
             const sidebar = document.getElementById('calendar-sidebar');
