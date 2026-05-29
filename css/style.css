@@ -626,6 +626,61 @@
             font-size: 1.1rem;
         }
 
+        /* ── "Was hier geschieht" — Moment-Sektion ── */
+        .moment-title { margin-bottom: var(--spacing-md); }
+        .moment-title::after {
+            content: "";
+            display: block;
+            width: 56px;
+            height: 1px;
+            margin: var(--spacing-md) auto 0;
+            background: var(--color-accent);
+            opacity: 0.5;
+        }
+        .moment-lead {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-md);
+            color: var(--color-text-muted);
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+        .moment-critic {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin: 0 auto var(--spacing-lg);
+        }
+        .moment-critic span {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.25rem;
+            color: #6B6E74;
+        }
+        .moment-vision {
+            max-width: 640px;
+            margin: 0 auto var(--spacing-lg);
+            color: var(--color-text);
+            font-size: 1.2rem;
+            line-height: 1.95;
+        }
+        .moment-promise {
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            line-height: 1.55;
+            color: var(--color-text);
+        }
+        .moment-promise em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+        @media (max-width: 600px) {
+            .moment-critic span { font-size: 1.1rem; }
+            .moment-vision { font-size: 1.1rem; }
+            .moment-promise { font-size: 1.3rem; }
+        }
+
         /* ============================================
            CARDS / GRID
            ============================================ */
