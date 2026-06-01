@@ -1,3 +1,6 @@
 *.DS_Store
 .idea/
 *.log
+
+# Roh-Feedback-Screenshots mit personenbezogenen Daten (Telefonnummern/Namen) — niemals veröffentlichen
+rhythmus-fundament/Rhythmus Fundament Feedbacks/
