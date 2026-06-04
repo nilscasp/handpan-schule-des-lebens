@@ -2210,6 +2210,17 @@
                 min-width: 220px;
                 text-align: center;
                 white-space: nowrap;
+                /* Visuelle Leichtigkeit: weicher Glas-Look statt voller Goldblock */
+                background: rgba(212, 165, 116, 0.14);
+                border: 1px solid rgba(212, 165, 116, 0.65);
+                color: var(--color-accent);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+            }
+            .hero-photo .hero-cta-row a.cta--primary:hover {
+                background: rgba(212, 165, 116, 0.28);
+                border-color: var(--color-accent);
+                color: var(--color-accent);
             }
             .hero-photo .hero-cta-row a.cta--ghost {
                 display: none;
@@ -3376,6 +3387,7 @@
             text-transform: uppercase;
         }
         @media (max-width: 640px) {
+            .social-proof-bar { padding: var(--spacing-sm) 0; }
             .social-proof-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: var(--spacing-md);
@@ -3384,6 +3396,7 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: var(--spacing-sm);
             }
+            .social-proof-item { gap: 0.15rem; }
             .social-proof-num { font-size: 1.35rem; }
             .social-proof-label { font-size: 0.68rem; }
         }
