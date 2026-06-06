@@ -740,7 +740,7 @@
         // 4. Kopiere die Mess-ID (Format: G-XXXXXXXXXX)
         // 5. Ersetze den Platzhalter unten durch deine echte ID
         // ══════════════════════════════════════════════════
-        const GA_MEASUREMENT_ID = 'G-S2SGY0WZ9P';
+        const GA_MEASUREMENT_ID = 'G-4W4KKCH7TR';
 
         function cookieConsent(choice) {
             // Normalisieren: 'accept' oder 'accepted' sind beide akzeptiert
