@@ -583,6 +583,201 @@
         }
 
         /* ============================================
+           SEITEN-HEROES — RESONANZ-FAMILIE
+           Jede Seite ein eigenes, inhalts-symbolisches Motiv.
+           Gleiche Sprache wie Rhythmus Fundament: Navy, Gold,
+           dünne Linien (1.25), Opazität 0.03–0.18, ein Glühen.
+           ============================================ */
+        #page-programm .page-hero,
+        #page-einsteigerkurse .page-hero,
+        #page-einzelunterricht .page-hero,
+        #page-kinderunterricht .page-hero,
+        #page-mentoring .page-hero,
+        #page-retreats .page-hero,
+        #page-handpan-path .page-hero,
+        #page-philosophie .page-hero,
+        #page-ueber .page-hero,
+        #page-nils-caspar .page-hero,
+        #page-lernziele .page-hero,
+        #page-online-schule .page-hero,
+        #page-dabei-sein .page-hero,
+        #page-blog .page-hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #page-programm .page-hero::before,
+        #page-einsteigerkurse .page-hero::before,
+        #page-einzelunterricht .page-hero::before,
+        #page-kinderunterricht .page-hero::before,
+        #page-mentoring .page-hero::before,
+        #page-retreats .page-hero::before,
+        #page-handpan-path .page-hero::before,
+        #page-philosophie .page-hero::before,
+        #page-ueber .page-hero::before,
+        #page-nils-caspar .page-hero::before,
+        #page-lernziele .page-hero::before,
+        #page-online-schule .page-hero::before,
+        #page-dabei-sein .page-hero::before,
+        #page-blog .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #page-programm .page-hero .hero-content,
+        #page-einsteigerkurse .page-hero .hero-content,
+        #page-einzelunterricht .page-hero .hero-content,
+        #page-kinderunterricht .page-hero .hero-content,
+        #page-mentoring .page-hero .hero-content,
+        #page-retreats .page-hero .hero-content,
+        #page-handpan-path .page-hero .hero-content,
+        #page-philosophie .page-hero .hero-content,
+        #page-ueber .page-hero .hero-content,
+        #page-nils-caspar .page-hero .hero-content,
+        #page-lernziele .page-hero .hero-content,
+        #page-online-schule .page-hero .hero-content,
+        #page-dabei-sein .page-hero .hero-content,
+        #page-blog .page-hero .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* === Programm: Orbits — Wege der Vertiefung um ein Zentrum === */
+        #page-programm .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 60% 70% at 50% 48%,
+                    rgba(212, 165, 116, 0.12) 0%,
+                    rgba(212, 165, 116, 0.04) 42%,
+                    transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Cellipse cx='700' cy='430' rx='300' ry='100' stroke-opacity='0.13' transform='rotate(22 700 430)'/%3E%3Cellipse cx='700' cy='430' rx='420' ry='140' stroke-opacity='0.10' transform='rotate(-18 700 430)'/%3E%3Cellipse cx='700' cy='430' rx='540' ry='180' stroke-opacity='0.06' transform='rotate(5 700 430)'/%3E%3C/g%3E%3Cg fill='%23D4A574'%3E%3Ccircle cx='1099' cy='300' r='4.5' fill-opacity='0.6'/%3E%3Ccircle cx='422' cy='318' r='4.5' fill-opacity='0.55'/%3E%3Ccircle cx='684' cy='609' r='4.5' fill-opacity='0.5'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Einsteigerkurse: Sonnenaufgang — der Anfang, die erste Welle === */
+        #page-einsteigerkurse .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 65% 55% at 50% 68%,
+                    rgba(212, 165, 116, 0.14) 0%,
+                    rgba(212, 165, 116, 0.05) 45%,
+                    transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Cline x1='0' y1='620' x2='1400' y2='620' stroke-opacity='0.09'/%3E%3Ccircle cx='700' cy='640' r='140' stroke-opacity='0.14'/%3E%3Cpath d='M 480 560 A 220 220 0 0 1 920 560' stroke-opacity='0.11'/%3E%3Cpath d='M 380 600 A 320 320 0 0 1 1020 600' stroke-opacity='0.07'/%3E%3Cpath d='M 280 640 A 420 420 0 0 1 1120 640' stroke-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Einzelunterricht: Vesica Piscis — zwei Menschen in Resonanz === */
+        #page-einzelunterricht .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 35% 50% at 40% 47%,
+                    rgba(212, 165, 116, 0.09) 0%,
+                    transparent 70%),
+                radial-gradient(ellipse 35% 50% at 60% 47%,
+                    rgba(212, 165, 116, 0.09) 0%,
+                    transparent 70%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Ccircle cx='560' cy='430' r='190' stroke-opacity='0.12'/%3E%3Ccircle cx='560' cy='430' r='300' stroke-opacity='0.06'/%3E%3Ccircle cx='560' cy='430' r='410' stroke-opacity='0.035'/%3E%3Ccircle cx='840' cy='430' r='190' stroke-opacity='0.12'/%3E%3Ccircle cx='840' cy='430' r='300' stroke-opacity='0.06'/%3E%3Ccircle cx='840' cy='430' r='410' stroke-opacity='0.035'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Mentoring: Goldene Spirale — Wachstum über Zeit === */
+        #page-mentoring .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 55% 65% at 54% 44%,
+                    rgba(212, 165, 116, 0.12) 0%,
+                    rgba(212, 165, 116, 0.04) 42%,
+                    transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Cpath d='M 760 430 A 60 60 0 0 1 700 490 A 97 97 0 0 1 603 393 A 157 157 0 0 1 760 236 A 254 254 0 0 1 1014 490 A 411 411 0 0 1 603 901' stroke-opacity='0.11'/%3E%3Ccircle cx='700' cy='430' r='300' stroke-opacity='0.05'/%3E%3Ccircle cx='700' cy='430' r='480' stroke-opacity='0.03'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Handpan Path: Punktierter Pfad — 6 Meilensteine, 6 Monate === */
+        #page-handpan-path .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 55% 65% at 50% 47%,
+                    rgba(212, 165, 116, 0.10) 0%,
+                    rgba(212, 165, 116, 0.04) 42%,
+                    transparent 72%),
+                radial-gradient(circle 180px at 84% 22%,
+                    rgba(212, 165, 116, 0.07) 0%,
+                    transparent 100%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cpath d='M 100 780 C 400 700 350 480 700 430 S 1100 280 1300 160' fill='none' stroke='%23D4A574' stroke-width='2.5' stroke-opacity='0.2' stroke-dasharray='0.1 16' stroke-linecap='round'/%3E%3Cg fill='%23D4A574'%3E%3Ccircle cx='160' cy='765' r='5' fill-opacity='0.5'/%3E%3Ccircle cx='350' cy='640' r='5' fill-opacity='0.5'/%3E%3Ccircle cx='520' cy='510' r='5' fill-opacity='0.55'/%3E%3Ccircle cx='700' cy='430' r='5' fill-opacity='0.55'/%3E%3Ccircle cx='930' cy='350' r='5' fill-opacity='0.6'/%3E%3Ccircle cx='1180' cy='225' r='5' fill-opacity='0.65'/%3E%3C/g%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Ccircle cx='1180' cy='225' r='40' stroke-opacity='0.1'/%3E%3Ccircle cx='1180' cy='225' r='70' stroke-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Philosophie: Seed of Life — das Leben als Werk === */
+        #page-philosophie .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 55% 65% at 50% 47%,
+                    rgba(212, 165, 116, 0.11) 0%,
+                    rgba(212, 165, 116, 0.04) 42%,
+                    transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25' stroke-opacity='0.09'%3E%3Ccircle cx='700' cy='430' r='120'/%3E%3Ccircle cx='820' cy='430' r='120'/%3E%3Ccircle cx='760' cy='534' r='120'/%3E%3Ccircle cx='640' cy='534' r='120'/%3E%3Ccircle cx='580' cy='430' r='120'/%3E%3Ccircle cx='640' cy='326' r='120'/%3E%3Ccircle cx='760' cy='326' r='120'/%3E%3C/g%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Ccircle cx='700' cy='430' r='240' stroke-opacity='0.05'/%3E%3Ccircle cx='700' cy='430' r='360' stroke-opacity='0.03'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Über uns: Drei Resonanzzentren — die Menschen hinter der Musik === */
+        #page-ueber .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 55% 65% at 50% 47%,
+                    rgba(212, 165, 116, 0.11) 0%,
+                    rgba(212, 165, 116, 0.04) 42%,
+                    transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Ccircle cx='520' cy='360' r='70' stroke-opacity='0.12'/%3E%3Ccircle cx='520' cy='360' r='130' stroke-opacity='0.07'/%3E%3Ccircle cx='520' cy='360' r='190' stroke-opacity='0.04'/%3E%3Ccircle cx='880' cy='360' r='70' stroke-opacity='0.12'/%3E%3Ccircle cx='880' cy='360' r='130' stroke-opacity='0.07'/%3E%3Ccircle cx='880' cy='360' r='190' stroke-opacity='0.04'/%3E%3Ccircle cx='700' cy='560' r='70' stroke-opacity='0.12'/%3E%3Ccircle cx='700' cy='560' r='130' stroke-opacity='0.07'/%3E%3Ccircle cx='700' cy='560' r='190' stroke-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Nils Caspar: Strahlender Kern === */
+        #page-nils-caspar .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 50% 60% at 50% 45%,
+                    rgba(212, 165, 116, 0.13) 0%,
+                    rgba(212, 165, 116, 0.05) 42%,
+                    transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Ccircle cx='700' cy='415' r='90' stroke-opacity='0.14'/%3E%3Ccircle cx='700' cy='415' r='170' stroke-opacity='0.08'/%3E%3Cg stroke-opacity='0.07'%3E%3Cline x1='700' y1='190' x2='700' y2='120'/%3E%3Cline x1='700' y1='190' x2='700' y2='120' transform='rotate(30 700 415)'/%3E%3Cline x1='700' y1='190' x2='700' y2='120' transform='rotate(60 700 415)'/%3E%3Cline x1='700' y1='190' x2='700' y2='120' transform='rotate(90 700 415)'/%3E%3Cline x1='700' y1='190' x2='700' y2='120' transform='rotate(120 700 415)'/%3E%3Cline x1='700' y1='190' x2='700' y2='120' transform='rotate(150 700 415)'/%3E%3Cline x1='700' y1='190' x2='700' y2='120' transform='rotate(180 700 415)'/%3E%3Cline x1='700' y1='190' x2='700' y2='120' transform='rotate(210 700 415)'/%3E%3Cline x1='700' y1='190' x2='700' y2='120' transform='rotate(240 700 415)'/%3E%3Cline x1='700' y1='190' x2='700' y2='120' transform='rotate(270 700 415)'/%3E%3Cline x1='700' y1='190' x2='700' y2='120' transform='rotate(300 700 415)'/%3E%3Cline x1='700' y1='190' x2='700' y2='120' transform='rotate(330 700 415)'/%3E%3C/g%3E%3Cg stroke-opacity='0.04'%3E%3Cline x1='700' y1='130' x2='700' y2='-5' transform='rotate(45 700 415)'/%3E%3Cline x1='700' y1='130' x2='700' y2='-5' transform='rotate(135 700 415)'/%3E%3Cline x1='700' y1='130' x2='700' y2='-5' transform='rotate(225 700 415)'/%3E%3Cline x1='700' y1='130' x2='700' y2='-5' transform='rotate(315 700 415)'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Lernziele: Zielscheibe — Ziele mit Etappen === */
+        #page-lernziele .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 55% 65% at 50% 46%,
+                    rgba(212, 165, 116, 0.12) 0%,
+                    rgba(212, 165, 116, 0.04) 42%,
+                    transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Ccircle cx='700' cy='420' r='80' stroke-opacity='0.16'/%3E%3Ccircle cx='700' cy='420' r='160' stroke-opacity='0.12'/%3E%3Ccircle cx='700' cy='420' r='250' stroke-opacity='0.08'/%3E%3Ccircle cx='700' cy='420' r='350' stroke-opacity='0.05'/%3E%3Ccircle cx='700' cy='420' r='460' stroke-opacity='0.03'/%3E%3Cg stroke-opacity='0.12'%3E%3Cline x1='700' y1='178' x2='700' y2='162'/%3E%3Cline x1='700' y1='178' x2='700' y2='162' transform='rotate(45 700 420)'/%3E%3Cline x1='700' y1='178' x2='700' y2='162' transform='rotate(90 700 420)'/%3E%3Cline x1='700' y1='178' x2='700' y2='162' transform='rotate(135 700 420)'/%3E%3Cline x1='700' y1='178' x2='700' y2='162' transform='rotate(180 700 420)'/%3E%3Cline x1='700' y1='178' x2='700' y2='162' transform='rotate(225 700 420)'/%3E%3Cline x1='700' y1='178' x2='700' y2='162' transform='rotate(270 700 420)'/%3E%3Cline x1='700' y1='178' x2='700' y2='162' transform='rotate(315 700 420)'/%3E%3C/g%3E%3C/g%3E%3Ccircle cx='700' cy='420' r='6' fill='%23D4A574' fill-opacity='0.35'/%3E%3C/svg%3E");
+        }
+
+        /* === Retreats: Horizont + Bergkamm — Natur, Stille === */
+        #page-retreats .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 60% 70% at 50% 64%, rgba(212, 165, 116, 0.12) 0%, rgba(212, 165, 116, 0.04) 42%, transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Ccircle cx='700' cy='620' r='150' stroke-opacity='0.1'/%3E%3Cpath d='M0 560 Q700 530 1400 560' stroke-opacity='0.06'/%3E%3Cpath d='M0 640 Q700 600 1400 640' stroke-opacity='0.04'/%3E%3Cpolyline points='0,640 180,600 340,650 520,590 700,630 880,580 1060,640 1240,600 1400,650' stroke-opacity='0.12'/%3E%3Cpolyline points='0,710 220,665 430,720 640,660 860,715 1080,665 1300,715 1400,690' stroke-opacity='0.08'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Kinderunterricht: Bläschen — Spiel, Leichtigkeit === */
+        #page-kinderunterricht .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 60% 70% at 50% 46%, rgba(212, 165, 116, 0.12) 0%, rgba(212, 165, 116, 0.04) 42%, transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Ccircle cx='210' cy='200' r='58' stroke-opacity='0.13'/%3E%3Ccircle cx='400' cy='320' r='30' stroke-opacity='0.11'/%3E%3Ccircle cx='150' cy='470' r='42' stroke-opacity='0.1'/%3E%3Ccircle cx='320' cy='620' r='22' stroke-opacity='0.12'/%3E%3Ccircle cx='1180' cy='180' r='50' stroke-opacity='0.13'/%3E%3Ccircle cx='1010' cy='300' r='26' stroke-opacity='0.1'/%3E%3Ccircle cx='1250' cy='470' r='38' stroke-opacity='0.11'/%3E%3Ccircle cx='1080' cy='640' r='18' stroke-opacity='0.12'/%3E%3Ccircle cx='560' cy='150' r='14' stroke-opacity='0.09'/%3E%3Ccircle cx='860' cy='700' r='34' stroke-opacity='0.08'/%3E%3Ccircle cx='700' cy='415' r='44' stroke-opacity='0.05'/%3E%3C/g%3E%3Cg fill='%23D4A574'%3E%3Ccircle cx='470' cy='460' r='5' fill-opacity='0.45'/%3E%3Ccircle cx='980' cy='540' r='4' fill-opacity='0.4'/%3E%3Ccircle cx='250' cy='340' r='4' fill-opacity='0.35'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Community (Online-Schule): Netzwerk — viele Zentren, ein Raum === */
+        #page-online-schule .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 60% 70% at 52% 50%, rgba(212, 165, 116, 0.12) 0%, rgba(212, 165, 116, 0.04) 42%, transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Cline x1='250' y1='230' x2='560' y2='200' stroke-opacity='0.05'/%3E%3Cline x1='560' y1='200' x2='1140' y2='250' stroke-opacity='0.05'/%3E%3Cline x1='250' y1='230' x2='330' y2='660' stroke-opacity='0.05'/%3E%3Cline x1='560' y1='200' x2='760' y2='640' stroke-opacity='0.04'/%3E%3Cline x1='1140' y1='250' x2='1090' y2='660' stroke-opacity='0.05'/%3E%3Cline x1='330' y1='660' x2='760' y2='640' stroke-opacity='0.05'/%3E%3Cline x1='760' y1='640' x2='1090' y2='660' stroke-opacity='0.04'/%3E%3Ccircle cx='250' cy='230' r='24' stroke-opacity='0.14'/%3E%3Ccircle cx='250' cy='230' r='42' stroke-opacity='0.07'/%3E%3Ccircle cx='560' cy='200' r='20' stroke-opacity='0.13'/%3E%3Ccircle cx='560' cy='200' r='36' stroke-opacity='0.06'/%3E%3Ccircle cx='560' cy='200' r='54' stroke-opacity='0.03'/%3E%3Ccircle cx='1140' cy='250' r='26' stroke-opacity='0.13'/%3E%3Ccircle cx='1140' cy='250' r='44' stroke-opacity='0.06'/%3E%3Ccircle cx='330' cy='660' r='18' stroke-opacity='0.12'/%3E%3Ccircle cx='330' cy='660' r='34' stroke-opacity='0.06'/%3E%3Ccircle cx='760' cy='640' r='22' stroke-opacity='0.1'/%3E%3Ccircle cx='760' cy='640' r='40' stroke-opacity='0.05'/%3E%3Ccircle cx='1090' cy='660' r='20' stroke-opacity='0.12'/%3E%3Ccircle cx='1090' cy='660' r='36' stroke-opacity='0.06'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Dabei sein: Konvergenz — alle Wege führen zum nächsten Schritt === */
+        #page-dabei-sein .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 60% 70% at 50% 48%, rgba(212, 165, 116, 0.12) 0%, rgba(212, 165, 116, 0.04) 42%, transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Cpath d='M0 180 Q300 280 700 430' stroke-opacity='0.07' stroke-dasharray='2 12'/%3E%3Cpath d='M1400 200 Q1080 300 700 430' stroke-opacity='0.07' stroke-dasharray='2 12'/%3E%3Cpath d='M120 900 Q360 680 700 430' stroke-opacity='0.06' stroke-dasharray='2 12'/%3E%3Cpath d='M1280 900 Q1040 680 700 430' stroke-opacity='0.06' stroke-dasharray='2 12'/%3E%3Cpath d='M0 470 Q360 470 700 430' stroke-opacity='0.05' stroke-dasharray='2 12'/%3E%3Ccircle cx='700' cy='430' r='30' stroke-opacity='0.09'/%3E%3Ccircle cx='700' cy='430' r='52' stroke-opacity='0.05'/%3E%3Ccircle cx='700' cy='430' r='78' stroke-opacity='0.03'/%3E%3C/g%3E%3Cg fill='%23D4A574'%3E%3Ccircle cx='700' cy='430' r='5' fill-opacity='0.4'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* === Blog: Schriftlinien — geschriebene Zeilen === */
+        #page-blog .page-hero::before {
+            background-image:
+                radial-gradient(ellipse 60% 70% at 50% 47%, rgba(212, 165, 116, 0.10) 0%, rgba(212, 165, 116, 0.04) 42%, transparent 72%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Cline x1='85' y1='360' x2='340' y2='360' stroke-opacity='0.09'/%3E%3Cline x1='85' y1='425' x2='290' y2='425' stroke-opacity='0.07'/%3E%3Cline x1='85' y1='490' x2='320' y2='490' stroke-opacity='0.08'/%3E%3Cline x1='1125' y1='390' x2='1370' y2='390' stroke-opacity='0.08'/%3E%3Cline x1='1125' y1='455' x2='1390' y2='455' stroke-opacity='0.07'/%3E%3Cline x1='1125' y1='520' x2='1350' y2='520' stroke-opacity='0.06'/%3E%3C/g%3E%3Cg fill='%23D4A574'%3E%3Ccircle cx='62' cy='360' r='5' fill-opacity='0.45'/%3E%3Ccircle cx='62' cy='425' r='5' fill-opacity='0.4'/%3E%3Ccircle cx='62' cy='490' r='5' fill-opacity='0.42'/%3E%3Ccircle cx='1102' cy='390' r='5' fill-opacity='0.42'/%3E%3Ccircle cx='1102' cy='455' r='5' fill-opacity='0.4'/%3E%3Ccircle cx='1102' cy='520' r='5' fill-opacity='0.38'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* ============================================
            PAGE HERO PHOTO (Unterseiten mit Hintergrundbild)
            ============================================ */
         .page-hero-photo {
