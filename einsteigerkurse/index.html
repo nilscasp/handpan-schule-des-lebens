@@ -63,6 +63,58 @@
     <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <link rel="stylesheet" href="/css/style.css?v=2026-06-13a">
     <link rel="stylesheet" href="/fonts/fonts.css">
+
+    <!-- "Der Weg zum ersten Klang" — Pfad-Motiv + leuchtende Ankunft (nur Einsteigerkurse) -->
+    <style>
+    #page-einsteigerkurse .section-light > .container-narrow,
+    #page-einsteigerkurse .section-dark > .container-narrow { position: relative; }
+
+    /* durchgehender goldener Faden */
+    #page-einsteigerkurse .section-light > .container-narrow::before,
+    #page-einsteigerkurse .section-dark > .container-narrow::before {
+        content: ''; position: absolute; left: 50%;
+        top: calc(-1 * var(--spacing-xl)); bottom: calc(-1 * var(--spacing-xl));
+        width: 1px; transform: translateX(-50%);
+        background: rgba(212, 165, 116, 0.13);
+        pointer-events: none; z-index: 2;
+    }
+    /* Meilenstein-Knoten an jeder Nahtstelle */
+    #page-einsteigerkurse .section-light > .container-narrow::after,
+    #page-einsteigerkurse .section-dark > .container-narrow::after {
+        content: ''; position: absolute; left: 50%;
+        top: calc(-1 * var(--spacing-xl)); width: 9px; height: 9px;
+        transform: translate(-50%, -50%); border-radius: 50%;
+        background: var(--color-accent);
+        box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.10), 0 0 11px rgba(212, 165, 116, 0.5);
+        pointer-events: none; z-index: 5;
+    }
+    /* Inhalt über dem Faden */
+    #page-einsteigerkurse .section-light > .container-narrow > *,
+    #page-einsteigerkurse .section-dark > .container-narrow > * { position: relative; z-index: 3; }
+
+    /* "Dein Einstieg" = leuchtende Ankunft (Hero-Resonanz + größerer Knoten) */
+    #page-einsteigerkurse #anmelden {
+        background-image:
+            radial-gradient(ellipse 80% 62% at 50% 54%, rgba(212,165,116,0.15) 0%, rgba(212,165,116,0.05) 44%, transparent 72%),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='760' viewBox='0 0 1200 760'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1'%3E%3Ccircle cx='600' cy='400' r='80' stroke-opacity='0.15'/%3E%3Ccircle cx='600' cy='400' r='150' stroke-opacity='0.11'/%3E%3Ccircle cx='600' cy='400' r='230' stroke-opacity='0.08'/%3E%3Ccircle cx='600' cy='400' r='320' stroke-opacity='0.055'/%3E%3Ccircle cx='600' cy='400' r='420' stroke-opacity='0.035'/%3E%3C/g%3E%3C/svg%3E");
+        background-position: center 54%, center 54%;
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover, 1100px 700px;
+    }
+    #page-einsteigerkurse #anmelden > .container-narrow::after {
+        width: 14px; height: 14px;
+        box-shadow: 0 0 0 6px rgba(212,165,116,0.16), 0 0 24px rgba(212,165,116,0.62);
+    }
+
+    @media (max-width: 600px) {
+        #page-einsteigerkurse .section-light > .container-narrow::before,
+        #page-einsteigerkurse .section-dark > .container-narrow::before { bottom: calc(-1 * var(--spacing-lg)); }
+        #page-einsteigerkurse .section-light > .container-narrow::before,
+        #page-einsteigerkurse .section-dark > .container-narrow::before,
+        #page-einsteigerkurse .section-light > .container-narrow::after,
+        #page-einsteigerkurse .section-dark > .container-narrow::after { top: calc(-1 * var(--spacing-lg)); }
+    }
+    </style>
 </head>
 <body>
 
