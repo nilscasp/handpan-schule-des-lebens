@@ -1109,13 +1109,22 @@
             }
             .detail-meta-bar .detail-meta-item {
                 flex: 1 1 50%;
-                border-bottom: 1px solid rgba(212, 165, 116, 0.12);
-            }
-            .detail-meta-bar .detail-meta-item:nth-child(2) {
                 border-right: none;
+                border-bottom: 1px solid rgba(212, 165, 116, 0.15);
+                padding-top: var(--spacing-md);
+                padding-bottom: var(--spacing-md);
             }
-            .detail-meta-bar .detail-meta-item:nth-child(3),
-            .detail-meta-bar .detail-meta-item:nth-child(4) {
+            /* Vertikale Trennlinie nur zwischen linker und rechter Spalte */
+            .detail-meta-bar .detail-meta-item:nth-child(odd):not(:last-child) {
+                border-right: 1px solid rgba(212, 165, 116, 0.18);
+            }
+            /* Alleinstehendes letztes Item (ungerade Anzahl, z. B. Lehrer) auf volle Breite */
+            .detail-meta-bar .detail-meta-item:last-child:nth-child(odd) {
+                flex-basis: 100%;
+            }
+            /* Keine Trennlinie unter der letzten Reihe (1 oder 2 Items) */
+            .detail-meta-bar .detail-meta-item:last-child,
+            .detail-meta-bar .detail-meta-item:nth-last-child(2):nth-child(odd) {
                 border-bottom: none;
             }
         }
