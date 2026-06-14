@@ -503,6 +503,35 @@
         /* Stat-Card: auf Mobil vertikal stapeln, Pfeile zeigen nach unten */
         #page-rhythmus-fundament .rf-stats { flex-direction: column; gap: 0.15rem; }
         #page-rhythmus-fundament .rf-stat-arrow { transform: rotate(90deg); }
+
+        /* === 390px-Durchgang: Lesbarkeit & Abstände === */
+
+        /* Boxen-Padding: die globalen 64px (spacing-lg) ersticken den Text auf schmalen
+           Screens (nur ~198px Textbreite, 7-Wort-Zeilen). Großzügige, lesbare Zeilenlänge
+           herstellen — betrifft alle feature-cards (So läuft's ab, Konzeption, Boni),
+           den "Das Ziel"-Rahmen und schrumpft sonst auch das Web-App-Mockup. */
+        #page-rhythmus-fundament .feature-card { padding: 1.7rem 1.4rem; }
+        #page-rhythmus-fundament [data-tone="ziel-frame"] { padding: 1.9rem 1.4rem; }
+        /* verschachtelte highlight-boxes in den Karten kompakter halten */
+        #page-rhythmus-fundament .feature-card .highlight-box { padding: 1.1rem 1.2rem; }
+
+        /* Meta-Leiste: horizontales Zellen-Padding zähmen, damit "Video-Kurs +
+           Live-Zoom-Calls" in 2 statt 3 Zeilen passt und die Reihe nicht so hoch wird. */
+        #page-rhythmus-fundament .detail-meta-bar .detail-meta-item {
+            padding: 1.2rem 0.55rem;
+        }
+        #page-rhythmus-fundament .rf-ic-meta { margin-bottom: 0.4rem; }
+
+        /* Gewohnheitskurve: SVG-Labels rendern bei voller Skalierung nur ~7,5px →
+           unlesbar. font-size in User-Units anheben (skaliert auf ~11px gerendert). */
+        #page-rhythmus-fundament svg[role="img"] text { font-size: 17px; }
+
+        /* Stimmen-Galerie: Karten breiter → die WhatsApp-Screenshots werden lesbar
+           (Inline-width:230px der figure muss überschrieben werden) */
+        #page-rhythmus-fundament [data-rhythm="stimmen"] figure { width: 300px !important; }
+
+        /* Geld-zurück-Siegel: bei Umbruch (Kreis oben, Text darunter) Text zentrieren */
+        #page-rhythmus-fundament .rf-guarantee-text { text-align: center !important; }
     }
     </style>
 </head>
@@ -1020,7 +1049,7 @@
         <section class="section-dark">
             <div class="container-narrow">
                 <h2 class="section-title">Stimmen aus der letzten Runde</h2>
-                <p style="text-align: center; color: var(--color-text-muted); font-style: italic; margin-top: -0.5rem; margin-bottom: var(--spacing-lg);">Das schreiben mir Teilnehmer unaufgefordert nach dem Kurs.</p>
+                <p style="text-align: center; color: var(--color-text-muted); font-style: italic; margin-top: -0.5rem; margin-bottom: var(--spacing-lg);"><strong style="color: var(--color-accent); font-weight: 700; font-style: normal; font-size: 1.2em; letter-spacing: 0.01em;">34&nbsp;Menschen</strong> sind die letzten 6,5&nbsp;Wochen mit mir gegangen — das schreiben sie mir unaufgefordert danach.</p>
 
                 <!-- Screenshot-Galerie: Bilddateien in /images/testimonials/ ablegen (Telefonnummern vorher schwärzen!) -->
                 <h3 style="text-align: center; color: var(--color-text); margin-top: var(--spacing-lg); margin-bottom: 0.4rem;">Echte Nachrichten aus der Kurs-Gruppe</h3>
@@ -1149,7 +1178,7 @@
                             <span style="font-size: 0.6rem; letter-spacing: 0.14em; color: var(--color-accent); font-weight: 700;">14 TAGE</span>
                         </span>
                     </div>
-                    <div style="flex: 1 1 250px; min-width: 230px; text-align: left;">
+                    <div class="rf-guarantee-text" style="flex: 1 1 250px; min-width: 230px; text-align: left;">
                         <p style="margin: 0 0 0.35rem; font-family: var(--font-serif); font-size: 1.15rem; color: var(--color-accent);">100&nbsp;% Geld-zurück-Garantie</p>
                         <p style="margin: 0; color: var(--color-text); font-size: 0.92rem; line-height: 1.55;">Teste den Kurs ohne Risiko. Merkst du in den ersten 14&nbsp;Tagen, dass es nicht für dich passt, schreib mir kurz — du bekommst 100&nbsp;% zurück.</p>
                     </div>
