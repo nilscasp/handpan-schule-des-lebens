@@ -137,6 +137,336 @@
       ]
     }
     </script>
+
+    <!-- "Der Taktfaden" — der goldene Faden als sichtbar gewordener Rhythmus + leuchtende Auflösung (nur Rhythmus Fundament) -->
+    <!-- Konzept: Der Hero-Puls (Punkt-Reihe, jeder 4. = Betonung) wird aufgestellt und durch die Seite gezogen.
+         Der durchgehende 1px-Faden trägt eine zarte Takt-Spur; jede Nahtstelle ist ein betonter Schlag (9px-Knoten).
+         An den beiden Theorie-Sektionen verdichtet sich der Puls (Viertel→Achtel→Sechzehntel) genau dort, wo der Text es benennt.
+         #anmelden = Auflösung: die Takt-Spur bremst (ritardando) in eine Schluss-Kadenz, der Ankunfts-Knoten atmet einmal langsam. -->
+    <style>
+    /* --- Page-scoped Takt-Tokens (keine Hardcodes außerhalb) --- */
+    #page-rhythmus-fundament {
+        --rf-thread:   rgba(212,165,116,0.13);   /* der bewährte Faden-Ton  */
+        --rf-tick:     rgba(212,165,116,0.20);   /* zarte Takt-Striche       */
+        --rf-tick-lo:  rgba(212,165,116,0.05);   /* die "Pause" dazwischen   */
+        --rf-period:   64px;                       /* Viertel — ruhiger Puls  */
+    }
+
+    /* --- Stacking-Context je Sektion --- */
+    #page-rhythmus-fundament .section-light > .container-narrow,
+    #page-rhythmus-fundament .section-dark  > .container-narrow { position: relative; }
+
+    /* --- Inhalt über dem Faden (unveränderter Vertrag) --- */
+    #page-rhythmus-fundament .section-light > .container-narrow > *,
+    #page-rhythmus-fundament .section-dark  > .container-narrow > * { position: relative; z-index: 3; }
+
+    /* --- DER TAKTFADEN: durchgehende 1px-Linie + zarte Takt-Spur --- */
+    #page-rhythmus-fundament .section-light > .container-narrow::before,
+    #page-rhythmus-fundament .section-dark  > .container-narrow::before {
+        content: ''; position: absolute; left: 50%;
+        top: calc(-1 * var(--spacing-xl)); bottom: calc(-1 * var(--spacing-xl));
+        width: 1px; transform: translateX(-50%);
+        background-image:
+            repeating-linear-gradient(to bottom,
+                var(--rf-tick) 0, var(--rf-tick) 5px,
+                var(--rf-tick-lo) 5px, var(--rf-tick-lo) var(--rf-period)),
+            linear-gradient(var(--rf-thread), var(--rf-thread));
+        background-repeat: repeat-y, no-repeat;
+        background-size: 1px var(--rf-period), 1px 100%;
+        background-position: center top, center top;
+        pointer-events: none; z-index: 2;
+    }
+
+    /* --- DER BETONTE SCHLAG: Knoten an jeder Nahtstelle (Zwilling des Hero-Akzents) + statischer Resonanz-Ring --- */
+    #page-rhythmus-fundament .section-light > .container-narrow::after,
+    #page-rhythmus-fundament .section-dark  > .container-narrow::after {
+        content: ''; position: absolute; left: 50%;
+        top: calc(-1 * var(--spacing-xl)); width: 9px; height: 9px;
+        transform: translate(-50%, -50%); border-radius: 50%;
+        background: var(--color-accent);
+        box-shadow:
+            0 0 0 1px rgba(212,165,116,0.22),
+            0 0 0 4px rgba(212,165,116,0.10),
+            0 0 11px rgba(212,165,116,0.50);
+        pointer-events: none; z-index: 5;
+    }
+
+    /* --- LEAD-IN: der horizontale Hero-Puls biegt unter der Meta-Leiste in den vertikalen Faden ab --- */
+    #page-rhythmus-fundament .section-meta > .container-narrow { position: relative; }
+    #page-rhythmus-fundament .section-meta > .container-narrow::after {
+        content: ''; position: absolute; left: 50%;
+        bottom: calc(-1 * var(--spacing-xl)); height: var(--spacing-xl);
+        width: 1px; transform: translateX(-50%);
+        background-image:
+            repeating-linear-gradient(to bottom,
+                var(--rf-tick) 0, var(--rf-tick) 5px,
+                var(--rf-tick-lo) 5px, var(--rf-tick-lo) var(--rf-period)),
+            linear-gradient(transparent, var(--rf-thread) 45%);
+        background-repeat: repeat-y, no-repeat;
+        background-size: 1px var(--rf-period), 1px 100%;
+        background-position: center 8px, center top;
+        -webkit-mask-image: linear-gradient(to bottom, transparent, #000 55%);
+                mask-image: linear-gradient(to bottom, transparent, #000 55%);
+        pointer-events: none; z-index: 2;
+    }
+
+    /* === WACHSENDE UNTERTEILUNG — der Puls verdichtet sich nur an den zwei Theorie-Sektionen === */
+    /* Konzeption (Basisstrukturen → komplexere Strukturen) = Achtel */
+    #page-rhythmus-fundament section:has(> .container-narrow [data-rhythm="konzeption"]) > .container-narrow::before,
+    #page-rhythmus-fundament [data-rhythm="konzeption-spine"] > .container-narrow::before {
+        --rf-period: 34px;
+    }
+    /* Was du zusätzlich lernst (Viertel → Achtel → Sechzehntel) = Sechzehntel */
+    #page-rhythmus-fundament [data-rhythm="subdivision"]::before {
+        --rf-period: 20px;
+    }
+
+    /* === TOUCH 1 — DIE 7 TERMINE = 7 SCHLÄGE IN DER ZEIT === */
+    #page-rhythmus-fundament [data-rhythm="termine"] { position: relative; }
+    #page-rhythmus-fundament [data-rhythm="termine"]::before {
+        content: ''; position: absolute; left: 50%; top: -0.4rem; bottom: -0.4rem;
+        width: 1px; transform: translateX(-50%);
+        background: linear-gradient(to bottom,
+            transparent 0,
+            rgba(212,165,116,0.24) 8%,
+            rgba(212,165,116,0.24) 92%,
+            transparent 100%);
+        pointer-events: none; z-index: 0;
+    }
+    #page-rhythmus-fundament [data-rhythm="termine"] > div { position: relative; justify-content: flex-start !important; column-gap: 0.65rem; }
+    /* Datum links, Zeit + Label rechts gruppiert → die Mitte bleibt frei für den Schlag auf dem Faden */
+    #page-rhythmus-fundament [data-rhythm="termine"] > div > span:first-child { margin-right: auto; }
+    #page-rhythmus-fundament [data-rhythm="termine"] > div::before {
+        content: ''; position: absolute; left: 50%; top: 50%;
+        width: 6px; height: 6px; transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: var(--color-accent); opacity: 0.85;
+        box-shadow: 0 0 0 3px rgba(212,165,116,0.08), 0 0 7px rgba(212,165,116,0.40);
+        pointer-events: none; z-index: 1;
+    }
+    /* erste (Kick-off) & letzte (Abschluss) Zeile = betonte Schläge */
+    #page-rhythmus-fundament [data-rhythm="termine"] > div:first-child::before,
+    #page-rhythmus-fundament [data-rhythm="termine"] > div:last-child::before {
+        width: 9px; height: 9px; opacity: 1;
+        box-shadow:
+            0 0 0 1px rgba(212,165,116,0.22),
+            0 0 0 4px rgba(212,165,116,0.10),
+            0 0 11px rgba(212,165,116,0.50);
+    }
+    /* Zeilen-Inhalt (Datum/Zeit/Label) liegt über dem zentrierten Knoten */
+    #page-rhythmus-fundament [data-rhythm="termine"] > div > span { position: relative; z-index: 2; }
+
+    /* === TOUCH 2 — SUBDIVISION (Viertel → Achtel → Sechzehntel) ===
+       Die 3 highlight-boxes: der vorhandene 3px-Goldrand wird neutralisiert und durch
+       eine eigene Takt-Schiene ersetzt, deren Segmentzahl sich verdoppelt: 1 → 2 → 4. */
+    #page-rhythmus-fundament [data-rhythm="subdivision"] > .highlight-box {
+        position: relative;
+        border-left-color: transparent;
+    }
+    #page-rhythmus-fundament [data-rhythm="subdivision"] > .highlight-box::before {
+        content: ''; position: absolute; left: -3px; top: 0; bottom: 0; width: 3px;
+        pointer-events: none; z-index: 4;
+        background-repeat: no-repeat; background-position: center;
+    }
+    /* Box 1 — Viertel: ein durchgehendes Segment (der ganze Puls) */
+    #page-rhythmus-fundament [data-rhythm="subdivision"] > .highlight-box:nth-of-type(1)::before {
+        background-image: linear-gradient(to bottom,
+            transparent 0, var(--color-accent) 6%, var(--color-accent) 94%, transparent 94%);
+        opacity: 0.9;
+    }
+    /* Box 2 — Achtel: zwei Segmente */
+    #page-rhythmus-fundament [data-rhythm="subdivision"] > .highlight-box:nth-of-type(2)::before {
+        background-image: repeating-linear-gradient(to bottom,
+            var(--color-accent) 0, var(--color-accent) 42%,
+            transparent 42%, transparent 50%);
+        opacity: 0.92;
+    }
+    /* Box 3 — Sechzehntel: vier Segmente (am dichtesten) */
+    #page-rhythmus-fundament [data-rhythm="subdivision"] > .highlight-box:nth-of-type(3)::before {
+        background-image: repeating-linear-gradient(to bottom,
+            var(--color-accent) 0, var(--color-accent) 19%,
+            transparent 19%, transparent 25%);
+        opacity: 0.95;
+    }
+
+    /* === TOUCH 3 — KONZEPTION (Basisstrukturen → komplexere Strukturen) ===
+       1px-Gold-Oberkante je Karte, von Karte zu Karte heller: einfach → komplex.
+       Direkt-Kind (>) trifft NUR die feature-cards, nie die darin verschachtelten highlight-boxes. */
+    #page-rhythmus-fundament [data-rhythm="konzeption"] > .feature-card { position: relative; }
+    #page-rhythmus-fundament [data-rhythm="konzeption"] > .feature-card::after {
+        content: ''; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+        pointer-events: none; z-index: 1;
+    }
+    #page-rhythmus-fundament [data-rhythm="konzeption"] > .feature-card:nth-of-type(1)::after {
+        background: linear-gradient(to right, transparent, rgba(212,165,116,0.18), transparent);
+    }
+    #page-rhythmus-fundament [data-rhythm="konzeption"] > .feature-card:nth-of-type(2)::after {
+        background: linear-gradient(to right, transparent, rgba(212,165,116,0.30), transparent);
+    }
+    #page-rhythmus-fundament [data-rhythm="konzeption"] > .feature-card:nth-of-type(3)::after {
+        background: linear-gradient(to right, transparent, rgba(212,165,116,0.46), transparent);
+    }
+
+    /* === TOUCH 4 — ANKUNFT (#anmelden) = leuchtende Auflösung ===
+       Bewährtes Resonanz-Glühen + konzentrische Kreise unverändert. Ergänzt:
+       (a) die einlaufende Takt-Spur bremst (ritardando-Maske) in den Schlag,
+       (b) das letzte Segment wird zur soliden Schluss-Kadenz (closing barline),
+       (c) der 14px-Ankunfts-Knoten atmet einmal langsam (motion-guarded). */
+    #page-rhythmus-fundament #anmelden {
+        background-image:
+            radial-gradient(ellipse 80% 62% at 50% 54%, rgba(212,165,116,0.15) 0%, rgba(212,165,116,0.05) 44%, transparent 72%),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='760' viewBox='0 0 1200 760'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1'%3E%3Ccircle cx='600' cy='400' r='80' stroke-opacity='0.15'/%3E%3Ccircle cx='600' cy='400' r='150' stroke-opacity='0.11'/%3E%3Ccircle cx='600' cy='400' r='230' stroke-opacity='0.08'/%3E%3Ccircle cx='600' cy='400' r='320' stroke-opacity='0.055'/%3E%3Ccircle cx='600' cy='400' r='420' stroke-opacity='0.035'/%3E%3C/g%3E%3C/svg%3E");
+        background-position: center 54%, center 54%;
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover, 1100px 700px;
+    }
+    /* Schluss-Kadenz: das finale Segment wird eine solide, ausklingende Gold-Linie statt Takt-Striche */
+    #page-rhythmus-fundament #anmelden > .container-narrow::before {
+        bottom: 46%;
+        background-image: linear-gradient(to bottom,
+            rgba(212,165,116,0.22) 0%, rgba(212,165,116,0.26) 60%, rgba(212,165,116,0.10) 100%);
+        background-repeat: no-repeat;
+        background-size: 1px 100%;
+        -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 68%, transparent 100%);
+                mask-image: linear-gradient(to bottom, #000 0, #000 68%, transparent 100%);
+    }
+    /* Eintritts-Knoten oben: ruhiger — der große, atmende Knoten sitzt jetzt am Button */
+    #page-rhythmus-fundament #anmelden > .container-narrow::after {
+        width: 11px; height: 11px;
+        box-shadow:
+            0 0 0 1px rgba(212,165,116,0.26),
+            0 0 0 5px rgba(212,165,116,0.12),
+            0 0 13px rgba(212,165,116,0.55);
+    }
+    /* Der Schluss-Faden dockt direkt in den "Jetzt anmelden & bezahlen"-Button ein */
+    #page-rhythmus-fundament [data-rhythm="ziel"] { position: relative; }
+    #page-rhythmus-fundament [data-rhythm="ziel"]::before {
+        content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+        width: 1px; bottom: 100%; top: calc(-1 * 96px);
+        background: linear-gradient(to bottom, rgba(212,165,116,0.06), rgba(212,165,116,0.30) 55%, rgba(212,165,116,0.60));
+        pointer-events: none; z-index: 2;
+    }
+    /* Der finale, atmende Ankunfts-Schlag — direkt am Button */
+    #page-rhythmus-fundament [data-rhythm="ziel"]::after {
+        content: ''; position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%);
+        width: 14px; height: 14px; border-radius: 50%;
+        background: var(--color-accent);
+        box-shadow:
+            0 0 0 1px rgba(212,165,116,0.30),
+            0 0 0 6px rgba(212,165,116,0.16),
+            0 0 26px rgba(212,165,116,0.72);
+        pointer-events: none; z-index: 4;
+    }
+    /* ein langsamer Auflösungs-Atem auf dem Ankunfts-Knoten — motion-guarded */
+    @media (prefers-reduced-motion: no-preference) {
+        #page-rhythmus-fundament [data-rhythm="ziel"]::after {
+            animation: rf-arrival-pulse 4.2s ease-in-out infinite;
+        }
+        @keyframes rf-arrival-pulse {
+            0%, 100% { box-shadow:
+                0 0 0 1px rgba(212,165,116,0.30),
+                0 0 0 6px rgba(212,165,116,0.16),
+                0 0 24px rgba(212,165,116,0.62); }
+            50%      { box-shadow:
+                0 0 0 1px rgba(212,165,116,0.30),
+                0 0 0 9px rgba(212,165,116,0.10),
+                0 0 34px rgba(212,165,116,0.78); }
+        }
+    }
+
+    /* === ICON-SYSTEM (Gold-Liniensymbole, Strichstärke passend zum Faden) === */
+    #page-rhythmus-fundament .rf-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+    #page-rhythmus-fundament .rf-ic {
+        width: 1.15em; height: 1.15em; vertical-align: -0.16em;
+        fill: none; stroke: currentColor; stroke-width: 1.6;
+        stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;
+    }
+    #page-rhythmus-fundament .feature-card h3 { display: flex; align-items: center; flex-wrap: wrap; }
+    #page-rhythmus-fundament .feature-card h3 .rf-ic { width: 1.5rem; height: 1.5rem; margin-right: 0.6rem; color: var(--color-accent); }
+    #page-rhythmus-fundament .rf-ic-meta {
+        display: block; width: 1.6rem; height: 1.6rem; margin: 0 auto 0.5rem;
+        color: var(--color-accent); opacity: 0.92; stroke-width: 1.5;
+    }
+    #page-rhythmus-fundament .rf-check-list { max-width: 560px; margin: 0 auto; }
+    #page-rhythmus-fundament .rf-check-item { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid rgba(212,165,116,0.1); }
+    #page-rhythmus-fundament .rf-check-item:last-child { border-bottom: none; }
+    #page-rhythmus-fundament .rf-check-item .rf-ic { width: 1.35rem; height: 1.35rem; margin-top: 0.15rem; color: var(--color-accent); }
+
+    /* === DER FADEN VERBINDET DIE KÄSTEN ===
+       Der Faden soll nicht hinter den Kästen durchscheinen, sondern von Kasten zu Kasten
+       führen. Jeder Kasten bekommt einen DECKENDEN Sektions-Hintergrund unter seinem
+       vorhandenen Gold-/Weiß-Ton — dadurch verdeckt der Kasten den dahinterliegenden Faden,
+       das Aussehen des Kastens bleibt identisch, und der Faden ist nur noch in den
+       Zwischenräumen sichtbar: er „dockt" oben am Kasten an und läuft unten weiter zum nächsten.
+       (Die Termine-Timeline und der Faden selbst bleiben unberührt.) */
+    #page-rhythmus-fundament .section-dark .highlight-box {
+        background-color: var(--color-bg);
+        background-image: linear-gradient(rgba(212,165,116,0.08), rgba(212,165,116,0.08));
+    }
+    #page-rhythmus-fundament .section-light .highlight-box {
+        background-color: var(--color-bg-lighter);
+        background-image: linear-gradient(rgba(212,165,116,0.08), rgba(212,165,116,0.08));
+    }
+    #page-rhythmus-fundament .section-dark .feature-card {
+        background-color: var(--color-bg);
+        background-image: linear-gradient(rgba(255,255,255,0.02), rgba(255,255,255,0.02));
+    }
+    #page-rhythmus-fundament .section-light .feature-card {
+        background-color: var(--color-bg-lighter);
+        background-image: linear-gradient(rgba(255,255,255,0.02), rgba(255,255,255,0.02));
+    }
+
+    /* === BONI-BADGE ("im Preis enthalten") === */
+    #page-rhythmus-fundament .rf-badge {
+        display: inline-block;
+        font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--color-accent);
+        border: 1px solid rgba(212,165,116,0.4); border-radius: 999px;
+        padding: 0.22rem 0.7rem; margin-bottom: 0.9rem;
+        background: rgba(212,165,116,0.06);
+    }
+
+    /* === KONZEPTION STAT-CARD (45 Tage → 540 Min → 9 Std reine Spielzeit) === */
+    #page-rhythmus-fundament .rf-stats { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.4rem 0.6rem; margin-top: 1.1rem; }
+    #page-rhythmus-fundament .rf-stat { text-align: center; padding: 0.4rem 0.6rem; }
+    #page-rhythmus-fundament .rf-stat-num { display: block; font-size: 1.7rem; font-weight: 700; color: var(--color-accent); line-height: 1.05; }
+    #page-rhythmus-fundament .rf-stat-num small { font-size: 1rem; font-weight: 500; }
+    #page-rhythmus-fundament .rf-stat-label { display: block; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.25rem; }
+    #page-rhythmus-fundament .rf-stat-arrow { color: rgba(212,165,116,0.5); font-size: 1.1rem; line-height: 1; }
+    #page-rhythmus-fundament .rf-stat--accent .rf-stat-num { font-size: 2.2rem; text-shadow: 0 0 18px rgba(212,165,116,0.45); }
+
+    /* === FAQ: aktiver Eintrag erhält Gold-Akzent (Indikator +/× existiert bereits global) === */
+    #page-rhythmus-fundament .faq-item.open .faq-question { color: var(--color-accent); }
+
+    /* === MOBILE (≤600px) — Offsets auf spacing-lg; Takt-Periode etwas lockerer === */
+    @media (max-width: 600px) {
+        #page-rhythmus-fundament { --rf-period: 52px; }
+
+        #page-rhythmus-fundament .section-light > .container-narrow::before,
+        #page-rhythmus-fundament .section-dark  > .container-narrow::before { bottom: calc(-1 * var(--spacing-lg)); }
+        #page-rhythmus-fundament .section-light > .container-narrow::before,
+        #page-rhythmus-fundament .section-dark  > .container-narrow::before,
+        #page-rhythmus-fundament .section-light > .container-narrow::after,
+        #page-rhythmus-fundament .section-dark  > .container-narrow::after { top: calc(-1 * var(--spacing-lg)); }
+
+        #page-rhythmus-fundament .section-meta > .container-narrow::after {
+            bottom: calc(-1 * var(--spacing-lg)); height: var(--spacing-lg);
+        }
+
+        #page-rhythmus-fundament [data-rhythm="konzeption-spine"] > .container-narrow::before { --rf-period: 30px; }
+        #page-rhythmus-fundament [data-rhythm="subdivision"]::before { --rf-period: 24px; }
+
+        /* Termine: auf Mobil das natürliche Layout behalten — die Zeilen-Schläge entfallen,
+           der durchgehende zentrale Faden + die Nahtknoten tragen hier den Rhythmus. */
+        #page-rhythmus-fundament [data-rhythm="termine"] > div { justify-content: space-between !important; column-gap: 0; }
+        #page-rhythmus-fundament [data-rhythm="termine"] > div > span:first-child { margin-right: 0; }
+        #page-rhythmus-fundament [data-rhythm="termine"] > div::before { content: none; }
+
+        /* Stat-Card: auf Mobil vertikal stapeln, Pfeile zeigen nach unten */
+        #page-rhythmus-fundament .rf-stats { flex-direction: column; gap: 0.15rem; }
+        #page-rhythmus-fundament .rf-stat-arrow { transform: rotate(90deg); }
+    }
+    </style>
 </head>
 <body>
 
@@ -240,6 +570,25 @@
     <main id="main-content">
     <div id="page-rhythmus-fundament" class="page-content active">
 
+        <!-- Gold-Liniensymbol-Set (Sprite) — alle Icons stroke-basiert, erben Faden-Gold via currentColor -->
+        <svg class="rf-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <symbol id="rf-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><line x1="12" y1="13" x2="12" y2="8.5"/><line x1="12" y1="13" x2="15" y2="14.5"/><line x1="9.5" y1="3" x2="14.5" y2="3"/><line x1="12" y1="3" x2="12" y2="5"/></symbol>
+            <symbol id="rf-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><line x1="9" y1="21" x2="15" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+            <symbol id="rf-levels" viewBox="0 0 24 24"><line x1="6" y1="20" x2="6" y2="14"/><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="5"/></symbol>
+            <symbol id="rf-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/></symbol>
+            <symbol id="rf-phone" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><line x1="10.5" y1="6" x2="13.5" y2="6"/></symbol>
+            <symbol id="rf-video" viewBox="0 0 24 24"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3z"/></symbol>
+            <symbol id="rf-voice" viewBox="0 0 24 24"><path d="M4 5.5h16a1 1 0 0 1 1 1V15a1 1 0 0 1-1 1H9.5L5.5 20v-4H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1z"/><line x1="9" y1="10.7" x2="9" y2="11.3"/><line x1="12" y1="9.3" x2="12" y2="12.7"/><line x1="15" y1="10.2" x2="15" y2="11.8"/></symbol>
+            <symbol id="rf-people" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17" cy="9.5" r="2.2"/><path d="M16 13.6c2.5.4 4.4 2.6 4.4 5.1"/></symbol>
+            <symbol id="rf-sliders" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+            <symbol id="rf-check" viewBox="0 0 24 24"><path d="M4.5 12.5l4.5 4.5L19.5 6.5"/></symbol>
+            <symbol id="rf-waves" viewBox="0 0 24 24"><path d="M4 13a8 8 0 0 1 16 0"/><path d="M7.5 13a4.5 4.5 0 0 1 9 0"/><circle cx="12" cy="13" r="1.2"/></symbol>
+            <symbol id="rf-note" viewBox="0 0 24 24"><circle cx="8" cy="17.5" r="2.6"/><line x1="10.6" y1="17.5" x2="10.6" y2="6"/><path d="M10.6 6c3 .6 4.6 2.4 4.4 5"/></symbol>
+            <symbol id="rf-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-3 7.6-7 8.5-4-.9-7-4.2-7-8.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+            <symbol id="rf-flag" viewBox="0 0 24 24"><line x1="6" y1="21" x2="6" y2="3.5"/><path d="M6 4.5h11l-2.5 3.4L17 11.3H6z"/></symbol>
+            <symbol id="rf-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.2l6 3.8-6 3.8z"/></symbol>
+        </svg>
+
         <!-- Hero -->
         <section class="page-hero">
             <div class="hero-content container-narrow">
@@ -258,10 +607,10 @@
         <section class="section-meta">
             <div class="container-narrow">
                 <div class="detail-meta-bar">
-                    <div class="detail-meta-item"><strong>Dauer</strong> 6,5 Wochen</div>
-                    <div class="detail-meta-item"><strong>Format</strong> Hybrid (Online + Live)</div>
-                    <div class="detail-meta-item"><strong>Level</strong> Anfänger bis Kompetent</div>
-                    <div class="detail-meta-item"><strong>Lehrer</strong> Nils Caspar</div>
+                    <div class="detail-meta-item"><svg class="rf-ic rf-ic-meta"><use href="#rf-clock"/></svg><strong>Dauer</strong> 6,5 Wochen</div>
+                    <div class="detail-meta-item"><svg class="rf-ic rf-ic-meta"><use href="#rf-monitor"/></svg><strong>Format</strong> Hybrid (Online + Live)</div>
+                    <div class="detail-meta-item"><svg class="rf-ic rf-ic-meta"><use href="#rf-levels"/></svg><strong>Level</strong> Anfänger bis Kompetent</div>
+                    <div class="detail-meta-item"><svg class="rf-ic rf-ic-meta"><use href="#rf-person"/></svg><strong>Lehrer</strong> Nils Caspar</div>
                 </div>
             </div>
         </section>
@@ -311,20 +660,20 @@
                 <div class="features-grid" style="grid-template-columns: 1fr;">
 
                     <div class="feature-card">
-                        <h3>📱 Tägliche Übungen — in deinem Tempo</h3>
+                        <h3><svg class="rf-ic"><use href="#rf-phone"/></svg>Tägliche Übungen — in deinem Tempo</h3>
                         <p>Die Übungen stehen dir als Online-Kurs zur Verfügung. Kein fester Zeitpunkt, kein Live-Zwang.
                             Du übst, wann es in deinen Tag passt — morgens vor der Arbeit, in der Mittagspause, abends auf dem Sofa. Du entscheidest.</p>
-                        <p style="margin-top: 0.8rem; color: var(--color-accent); font-style: italic;">⏱️ Dauer: 10–15 Minuten. Und wenn's mal eng wird? Es gibt Mini-Übungen von nur 5 Minuten. Die findet jeder.</p>
+                        <p style="margin-top: 0.8rem; color: var(--color-accent); font-style: italic;"><svg class="rf-ic" style="margin-right: 0.4rem;"><use href="#rf-clock"/></svg>Dauer: 10–15 Minuten. Und wenn's mal eng wird? Es gibt Mini-Übungen von nur 5 Minuten. Die findet jeder.</p>
                     </div>
 
                     <div class="feature-card">
-                        <h3>📹 7 Live-Gruppencalls — alle ~10 Tage</h3>
+                        <h3><svg class="rf-ic"><use href="#rf-video"/></svg>7 Live-Gruppencalls — alle ~10 Tage</h3>
                         <p>Hier kommen wir zusammen: Fragen, Feedback, gemeinsames Üben.
                             Jeder Call wird aufgezeichnet — wenn du mal nicht live dabei sein kannst, schaust du dir die Aufzeichnung an, wann es dir passt.</p>
                     </div>
 
                     <div class="feature-card">
-                        <h3>🤝 Dein Accountability Partner</h3>
+                        <h3><svg class="rf-ic"><use href="#rf-voice"/></svg>Dein Accountability Partner</h3>
                         <p>Du bekommst einen Übungspartner an die Seite. Ganz unkompliziert: Einmal am Tag eine kurze Sprachnachricht —
                             was hast du geübt, wie fühlt es sich an? Kein Call, kein Meeting. Einfach dranbleiben, zusammen.</p>
                         <p style="margin-top: 0.8rem; color: var(--color-text-muted); font-style: italic;">Und wer weiß — vielleicht wird eine neue Freundschaft daraus?</p>
@@ -338,23 +687,33 @@
         <section class="section-light">
             <div class="container-narrow">
                 <h2 class="section-title">Dein täglicher Aufwand — ehrlich und realistisch</h2>
-                <div style="max-width: 500px; margin: 0 auto;">
-                    <div style="display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid rgba(212, 165, 116, 0.1);">
-                        <span style="color: var(--color-text-muted);">Tägliche Übung (eigenes Tempo)</span>
-                        <span style="color: var(--color-accent); font-weight: 500;">10–15 Min.</span>
+                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-lg); align-items: center; justify-content: center; max-width: 580px; margin: 0 auto;">
+                    <!-- 15-Min-Ring -->
+                    <div style="position: relative; width: 150px; height: 150px; flex-shrink: 0;">
+                        <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; transform: rotate(-90deg);" aria-hidden="true">
+                            <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(212,165,116,0.14)" stroke-width="4"/>
+                            <circle cx="50" cy="50" r="44" fill="none" stroke="var(--color-accent)" stroke-width="4" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="234" style="filter: drop-shadow(0 0 4px rgba(212,165,116,0.5));"/>
+                        </svg>
+                        <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                            <span style="font-size: 2.3rem; font-weight: 700; color: var(--color-accent); line-height: 1;">~15</span>
+                            <span style="font-size: 0.8rem; color: var(--color-text-muted); letter-spacing: 0.06em;">Min / Tag</span>
+                        </div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid rgba(212, 165, 116, 0.1);">
-                        <span style="color: var(--color-text-muted);">Sprachnachricht an deinen Partner</span>
-                        <span style="color: var(--color-accent); font-weight: 500;">1–2 Min.</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 0.8rem 0;">
-                        <span style="color: var(--color-text); font-weight: 500;">Gesamt</span>
-                        <span style="color: var(--color-accent); font-weight: 600; font-size: 1.1rem;">ca. 15 Minuten</span>
+                    <!-- Aufschlüsselung -->
+                    <div style="flex: 1 1 250px; min-width: 230px;">
+                        <div style="display: flex; justify-content: space-between; padding: 0.7rem 0; border-bottom: 1px solid rgba(212, 165, 116, 0.12);">
+                            <span style="color: var(--color-text-muted);">Tägliche Übung (eigenes Tempo)</span>
+                            <span style="color: var(--color-accent); font-weight: 500;">10–15 Min.</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 0.7rem 0;">
+                            <span style="color: var(--color-text-muted);">Sprachnachricht an deinen Partner</span>
+                            <span style="color: var(--color-accent); font-weight: 500;">1–2 Min.</span>
+                        </div>
+                        <p style="margin: 0.9rem 0 0; color: var(--color-text); font-style: italic;">
+                            Kein extra Zeitdruck. Kein starrer Stundenplan.
+                        </p>
                     </div>
                 </div>
-                <p style="text-align: center; color: var(--color-text-muted); margin-top: var(--spacing-md); font-style: italic;">
-                    Kein extra Zeitdruck. Kein starrer Stundenplan.
-                </p>
             </div>
         </section>
 
@@ -376,11 +735,21 @@
         <section class="section-light">
             <div class="container-narrow">
                 <h2 class="section-title">Für wen ist das?</h2>
-                <p style="color: var(--color-text-muted);">
-                    Für dich, wenn du spürst: Da geht mehr. Wenn du nicht länger orientierungslos Pattern nachspielen willst,
-                    sondern wirklich verstehen möchtest, was du tust.
-                    Wenn du bereit bist, 15 Minuten am Tag zu investieren — und dafür ein Fundament aufzubauen, das bleibt.
-                </p>
+                <p style="color: var(--color-text-muted); text-align: center; margin-bottom: var(--spacing-md);">Für dich, wenn …</p>
+                <div class="rf-check-list">
+                    <div class="rf-check-item">
+                        <svg class="rf-ic"><use href="#rf-check"/></svg>
+                        <span style="color: var(--color-text);">… du spürst: <strong style="color: var(--color-text);">Da geht mehr.</strong></span>
+                    </div>
+                    <div class="rf-check-item">
+                        <svg class="rf-ic"><use href="#rf-check"/></svg>
+                        <span style="color: var(--color-text);">… du nicht länger orientierungslos Pattern nachspielen, sondern wirklich <strong style="color: var(--color-text);">verstehen</strong> willst, was du tust.</span>
+                    </div>
+                    <div class="rf-check-item">
+                        <svg class="rf-ic"><use href="#rf-check"/></svg>
+                        <span style="color: var(--color-text);">… du bereit bist, <strong style="color: var(--color-text);">15 Minuten am Tag</strong> zu investieren — für ein Fundament, das bleibt.</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -388,11 +757,11 @@
         <section class="section-dark">
             <div class="container-narrow">
                 <h2 class="section-title">Die Gruppencall-Termine</h2>
-                <div style="max-width: 520px; margin: 0 auto;">
+                <div data-rhythm="termine" style="max-width: 520px; margin: 0 auto;">
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(212, 165, 116, 0.1);">
                         <span style="color: var(--color-text);">Fr, 11.09.2026</span>
                         <span style="color: var(--color-text-muted);">19:00–20:00</span>
-                        <span style="color: var(--color-accent); font-size: 0.85rem;">🚀 Kick-off</span>
+                        <span style="color: var(--color-accent); font-size: 0.85rem;"><svg class="rf-ic" style="width: 0.95em; height: 0.95em; margin-right: 0.25rem;"><use href="#rf-play"/></svg>Kick-off</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(212, 165, 116, 0.1);">
                         <span style="color: var(--color-text);">Fr, 18.09.2026</span>
@@ -422,7 +791,7 @@
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0;">
                         <span style="color: var(--color-text);">So, 25.10.2026</span>
                         <span style="color: var(--color-text-muted);">11:00–12:30</span>
-                        <span style="color: var(--color-accent); font-size: 0.85rem;">🎉 Abschluss</span>
+                        <span style="color: var(--color-accent); font-size: 0.85rem;"><svg class="rf-ic" style="width: 0.95em; height: 0.95em; margin-right: 0.25rem;"><use href="#rf-flag"/></svg>Abschluss</span>
                     </div>
                 </div>
             </div>
@@ -476,17 +845,26 @@
                         Ich möchte, dass du frei bist.
                     </p>
                 </div>
-                <p style="color: var(--color-text-muted); margin-top: var(--spacing-md); margin-bottom: var(--spacing-md);">
-                    Ich komme ursprünglich vom Schlagzeug. Der Einstieg in die Handpan war für mich technisch kein Hindernis.
-                    Erst beim Unterrichten wurde mir klar, wie groß die Lücke ist, die viele mit sich tragen:
-                    Es fehlt nicht an Gefühl — sondern an rhythmischer Orientierung.
-                </p>
-                <p style="color: var(--color-text-muted);">
-                    Nach dem der intensive Abschnitt meines Einjahres Programms, dem Handpan Path, Mitte April zu Ende geht,
-                    entwickle ich nun dieses Format um den Bedürfnissen und Wünschen der Handpan-Lernenden dienen zu können.
-                    Ein 6,5-wöchiges Rhythmus-Praxis-Programm, das genau dort ansetzt, wo Online-Kurse meist scheitern:
-                    <strong style="color: var(--color-accent);">Commitment + echte Rhythmuslehre.</strong>
-                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-lg); align-items: center; justify-content: center; margin-top: var(--spacing-md);">
+                    <img src="/images/optimized/portrait-duene.webp" alt="Nils Caspar in den Dünen" loading="lazy"
+                         style="width: 300px; max-width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(212, 165, 116, 0.3); display: block;">
+                    <div style="flex: 1 1 320px; min-width: 280px;">
+                        <p style="color: var(--color-text-muted); margin-top: 0; margin-bottom: var(--spacing-md);">
+                            Ich komme ursprünglich vom Schlagzeug. Der Einstieg in die Handpan war für mich technisch kein Hindernis.
+                            Erst beim Unterrichten wurde mir klar, wie groß die Lücke ist, die viele mit sich tragen:
+                            Es fehlt nicht an Gefühl — sondern an rhythmischer Orientierung.
+                        </p>
+                        <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                            Nach dem der intensive Abschnitt meines Einjahres Programms, dem Handpan Path, Mitte April zu Ende geht,
+                            entwickle ich nun dieses Format um den Bedürfnissen und Wünschen der Handpan-Lernenden dienen zu können.
+                            Ein 6,5-wöchiges Rhythmus-Praxis-Programm, das genau dort ansetzt, wo Online-Kurse meist scheitern:
+                            <strong style="color: var(--color-accent);">Commitment + echte Rhythmuslehre.</strong>
+                        </p>
+                        <p style="margin-bottom: 0;">
+                            <a href="/nils-caspar/" style="color: var(--color-accent); text-decoration: none;">→ Mehr über mich</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -505,17 +883,17 @@
         </section>
 
         <!-- Meine Konzeption -->
-        <section class="section-dark">
+        <section class="section-dark" data-rhythm="konzeption-spine">
             <div class="container-narrow">
                 <h2 class="section-title">Meine Konzeption ist anders</h2>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg); text-align: center;">
                     Auf echtem Engagement, Immersion und klassischer Rhythmuslehre aufgebaut.
                 </p>
 
-                <div class="features-grid" style="grid-template-columns: 1fr;">
+                <div class="features-grid" data-rhythm="konzeption" style="grid-template-columns: 1fr;">
 
                     <div class="feature-card">
-                        <h3>Immersion</h3>
+                        <h3><svg class="rf-ic"><use href="#rf-waves"/></svg>Immersion</h3>
                         <p>Vielen Tätigkeiten, die wir erlernen wollen, widmen wir nur bruchstückhaft unsere Aufmerksamkeit.
                             Ein fundamentales Verstehen braucht jedoch eine tief gehende Auseinandersetzung —
                             mit bruchstückhaften Übungsphasen ist es nicht möglich, in die Tiefe zu gehen.
@@ -526,14 +904,20 @@
                         <div class="highlight-box">
                             <p>Pro Woche findet ein Gruppen-Übungscall statt, in dem ich auf deine Fragen, Herausforderungen und die Integration in dein Spiel eingehe — sowie auf den kreativen, intuitiven Aspekt.</p>
                         </div>
-                        <p style="margin-top: 1rem; text-align: center; color: var(--color-accent); font-style: italic;">
-                            Wiederholung ist die Mutter des Erfolgs.<br>
-                            45 Tage → ca. 540 Min. → 9 Stunden reine Spielzeit
+                        <p style="margin-top: 1rem; text-align: center; color: var(--color-text-muted); font-style: italic;">
+                            Wiederholung ist die Mutter des Erfolgs.
                         </p>
+                        <div class="rf-stats">
+                            <div class="rf-stat"><span class="rf-stat-num">45</span><span class="rf-stat-label">Tage</span></div>
+                            <span class="rf-stat-arrow">→</span>
+                            <div class="rf-stat"><span class="rf-stat-num">540</span><span class="rf-stat-label">Minuten</span></div>
+                            <span class="rf-stat-arrow">→</span>
+                            <div class="rf-stat rf-stat--accent"><span class="rf-stat-num">9 <small>Std</small></span><span class="rf-stat-label">reine Spielzeit</span></div>
+                        </div>
                     </div>
 
                     <div class="feature-card">
-                        <h3>Engagement</h3>
+                        <h3><svg class="rf-ic"><use href="#rf-people"/></svg>Engagement</h3>
                         <p><strong style="color: var(--color-accent);">Problematik:</strong> Nur wer jeden Tag dabei ist, hat den maximalen Nutzen aus der Übungsserie.</p>
                         <p style="margin-top: 0.8rem;"><strong style="color: var(--color-accent);">Lösung:</strong> Jeder Teilnehmer bekommt einen persönlichen Partner, mit dem er, im Geiste, jeden Tag der Übungsserie durchgeht.
                             Auch wenn ihr nicht zur gleichen Zeit und am gleichen Ort übt — ihr steht euch gegenseitig als Unterstützer zur Verfügung
@@ -544,7 +928,7 @@
                     </div>
 
                     <div class="feature-card">
-                        <h3>Klassische Rhythmuslehre</h3>
+                        <h3><svg class="rf-ic"><use href="#rf-note"/></svg>Klassische Rhythmuslehre</h3>
                         <p>Ich führe euch Schritt für Schritt in die Grundlagen der klassischen Rhythmuslehre ein.
                             Die tägliche Übungsserie ist so gestaltet, dass ihr jeden Tag neue theoretische Inhalte kennenlernt
                             und diese direkt in der Praxis anwendet. So entwickelt ihr nach und nach ein tiefes Verständnis für rhythmische Zusammenhänge.</p>
@@ -560,7 +944,7 @@
 
         <!-- Was du zusätzlich lernst -->
         <section class="section-light">
-            <div class="container-narrow">
+            <div class="container-narrow" data-rhythm="subdivision">
                 <h2 class="section-title">Was du zusätzlich lernst</h2>
                 <div class="highlight-box">
                     <p><strong style="color: var(--color-accent);">Rhythmen zählen und variieren:</strong> Jeden Rhythmus mit etwas Zeit und Geduld zählen, spielen und variieren — egal welches Stück du hörst.</p>
@@ -636,14 +1020,16 @@
                 <div class="features-grid" style="grid-template-columns: 1fr;">
 
                     <div class="feature-card">
-                        <h3>🎛️ Zugang zur eigens entwickelten Web-App</h3>
+                        <span class="rf-badge">Im Preis enthalten</span>
+                        <h3><svg class="rf-ic"><use href="#rf-sliders"/></svg>Zugang zur eigens entwickelten Web-App</h3>
                         <p>Eine Bibliothek mit hunderten Rhythmen, in jedem Stil. Du wählst einen, der dich heute trifft,
                             passt das Tempo deinem an – und spielst dazu. Auch alle Kursübungen sind hier verfügbar,
                             in dem Tempo, das du brauchst.</p>
                     </div>
 
                     <div class="feature-card">
-                        <h3>👥 Voller Community-Zugang während der Kurszeit</h3>
+                        <span class="rf-badge">Im Preis enthalten</span>
+                        <h3><svg class="rf-ic"><use href="#rf-people"/></svg>Voller Community-Zugang während der Kurszeit</h3>
                         <p>Solange du im Kurs bist, schenke ich dir den vollen Zugang zur School-Community:
                             2 Live-Sessions pro Monat und wöchentliche Lehrvideos zu wechselnden Themen.</p>
                     </div>
@@ -671,13 +1057,13 @@
                     <p style="margin: 0.4rem 0 0; color: var(--color-text-muted); font-size: 0.95rem;">einmalig — Live-Sessions, Aufzeichnungen &amp; Übungsmaterial bleiben dauerhaft deins · Community-Zugang während der Kurszeit</p>
                 </div>
 
-                <div style="display: flex; justify-content: center; margin-bottom: var(--spacing-lg);">
+                <div data-rhythm="ziel" style="display: flex; justify-content: center; margin-bottom: var(--spacing-lg);">
                     <a href="https://buy.stripe.com/28E28q0zg1Vf8654aP1ZS02" class="cta cta--primary">Jetzt anmelden &amp; bezahlen</a>
                 </div>
 
                 <div class="highlight-box" style="max-width: 480px; margin: var(--spacing-lg) auto 0; text-align: center;">
                     <p style="margin: 0; color: var(--color-text);">
-                        <span style="font-size: 1.2rem;">🛡️</span>
+                        <svg class="rf-ic" style="width: 1.35rem; height: 1.35rem; color: var(--color-accent); vertical-align: -0.25em;"><use href="#rf-shield"/></svg>
                         <strong style="color: var(--color-accent);">14-Tage-Geld-zurück-Garantie</strong><br>
                         Teste den Kurs ohne Risiko. Merkst du in den ersten 14&nbsp;Tagen, dass es nicht für dich passt, schreib mir kurz — du bekommst 100&nbsp;% zurück.
                     </p>
