@@ -420,10 +420,10 @@
 
                 <!-- Preis-Anzeige (Stil wie Rhythmus Fundament) -->
                 <div style="max-width: 460px; margin: 0 auto var(--spacing-lg); padding: 1.3rem 1.6rem; border: 1px solid rgba(212, 165, 116, 0.35); border-radius: 16px; background: rgba(212, 165, 116, 0.06);">
-                    <p style="margin: 0; font-size: 2.4rem; font-weight: 700; color: var(--color-accent); line-height: 1.1;">65&nbsp;€</p>
+                    <p id="price-amount" style="margin: 0; font-size: 2.4rem; font-weight: 700; color: var(--color-accent); line-height: 1.1;">65&nbsp;€</p>
                     <p style="margin: 0.4rem 0 0; color: var(--color-text-muted); font-size: 0.95rem;">einmalig — alles oben ist enthalten</p>
                     <p style="margin: 0.45rem 0 0; color: var(--color-accent); font-size: 0.9rem; font-weight: 600;">inkl. Kaufbegleitung im Wert von 240 € (50 € + 190 €) — geschenkt</p>
-                    <p style="margin: 0.5rem 0 0; color: var(--color-text-muted); font-size: 0.85rem;">Ab August steigt der Preis auf <span style="color: var(--color-accent); font-weight: 600;">105&nbsp;€</span> &ndash; jetzt noch günstiger sichern.</p>
+                    <p id="price-august-note" style="margin: 0.5rem 0 0; color: var(--color-text-muted); font-size: 0.85rem;">Ab August steigt der Preis auf <span style="color: var(--color-accent); font-weight: 600;">105&nbsp;€</span> &ndash; jetzt noch günstiger sichern.</p>
                 </div>
 
                 <!-- Termin-Auswahl: direkt über dem Button, da die Auswahl den Bezahl-Link setzt.
@@ -432,8 +432,8 @@
                     <label for="termin-select" style="display:block; color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Termin wählen</label>
                     <select id="termin-select" onchange="updateTerminCheckout(this)"
                             style="width:100%; padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(212,165,116,0.4); background: var(--color-bg); color: var(--color-text); font-size: 1rem; cursor: pointer;">
-                        <option value="https://buy.stripe.com/aFabJ0fuafM5dqpePt1ZS03">Samstag, 19.7.2026 · 12–14 Uhr</option>
-                        <option value="https://buy.stripe.com/aFa5kCchY1Vfeutazd1ZS04">Samstag, 16.8.2026 · 11–13 Uhr</option>
+                        <option value="https://buy.stripe.com/aFabJ0fuafM5dqpePt1ZS03" data-price="65">Samstag, 19.7.2026 · 12–14 Uhr</option>
+                        <option value="https://buy.stripe.com/aFa7sKeq67fzcml0YD1ZS06" data-price="105">Samstag, 16.8.2026 · 11–13 Uhr</option>
                     </select>
                 </div>
 
@@ -450,7 +450,14 @@
 
                 <script>
                     function updateTerminCheckout(sel) {
+                        var opt = sel.options[sel.selectedIndex];
                         document.getElementById('paymentlink-btn').setAttribute('href', sel.value);
+                        var price = opt.getAttribute('data-price');
+                        if (price) {
+                            document.getElementById('price-amount').innerHTML = price + ' €';
+                            var note = document.getElementById('price-august-note');
+                            if (note) note.style.display = (price === '105') ? 'none' : '';
+                        }
                     }
                     document.addEventListener('DOMContentLoaded', function () {
                         var sel = document.getElementById('termin-select');
