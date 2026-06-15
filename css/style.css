@@ -3521,6 +3521,11 @@
             color: #d0a0b8;
         }
 
+        .calendar-event-type[data-type="community"] {
+            background: rgba(110, 190, 185, 0.15);
+            color: #7fc8c0;
+        }
+
         .calendar-empty {
             text-align: center;
             padding: 3rem 1rem;
