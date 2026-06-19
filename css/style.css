@@ -342,6 +342,7 @@
             /* Foto unverändert (kein Zoom). Das Logo sitzt auf der
                natürlichen Position des Doms ("Ding") der Handpan. */
             --ding-top: 54%;
+            --hero-pos-x: 54%; /* Foto ~8px (≈2mm) nach links */
         }
         .hero-photo-img {
             position: absolute;
@@ -349,7 +350,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center center;
+            /* Horizontaler Bild-Versatz: >50% schiebt das Foto nach links
+               (nutzt den ~96px Cover-Beschnitt, daher kein freier Rand). */
+            object-position: var(--hero-pos-x, 50%) center;
         }
         .hero-photo .bg-overlay {
             position: absolute;
