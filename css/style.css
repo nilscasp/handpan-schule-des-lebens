@@ -342,7 +342,7 @@
             /* Foto unverändert (kein Zoom). Das Logo sitzt auf der
                natürlichen Position des Doms ("Ding") der Handpan. */
             --ding-top: 54%;
-            --hero-pos-x: 56.8%; /* Foto ~13px nach links */
+            --hero-pos-x: 58.4%; /* Foto ~16px nach links */
         }
         .hero-photo-img {
             position: absolute;
