@@ -339,6 +339,9 @@
             padding-top: 66.67%; /* Seitenverhältnis 6000:4000 = 3:2 */
             margin-top: 79px; /* Nav-Höhe */
             overflow: hidden;
+            /* Foto unverändert (kein Zoom). Das Logo sitzt auf der
+               natürlichen Position des Doms ("Ding") der Handpan. */
+            --ding-top: 54%;
         }
         .hero-photo-img {
             position: absolute;
@@ -367,8 +370,8 @@
             align-items: center;
             justify-content: flex-start;
             padding-top: 8%;
-            padding-bottom: 6%;
-            z-index: 2;
+            padding-bottom: 2%;
+            z-index: 3;
             text-align: center;
         }
         .hero-photo .hero-subtitle {
@@ -376,6 +379,82 @@
         }
         .hero-photo .hero-description {
             margin-top: auto;
+        }
+
+        /* ============================================================
+           HERO LOGO GLOW — Grail-Logo leuchtet auf dem Dom der Handpan.
+           left/top/width/height von #heroDing werden per JS gesetzt
+           (Inline-Script am Body-Ende der index.html), damit das Logo
+           dem object-fit:cover-Ausschnitt des Fotos folgt.
+           ============================================================ */
+        @property --glow-r { syntax: '<percentage>'; inherits: false; initial-value: 0%; }
+
+        .hero-photo .ding {
+            position: absolute;
+            left: var(--ding-left, 50%);
+            top: var(--ding-top, 50%);
+            width: var(--ding-size, clamp(150px, 30vw, 440px));
+            height: var(--ding-size, clamp(150px, 30vw, 440px));
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 2;
+            --wave-dur: 8s; /* Tempo der Glow-Welle (größer = langsamer) */
+        }
+        .hero-photo .ding__logo {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: contain;
+        }
+        /* Dauerhaft sichtbares Logo mit sanftem, atmendem Gold-Schein */
+        .hero-photo .ding__base {
+            opacity: .92;
+            animation: hp-logo-breath 5s ease-in-out infinite;
+        }
+        /* Zwei Kopien: heller Ring wandert entlang der Linien von innen nach außen.
+           Die radiale Maske zeigt jeweils nur einen schmalen Ring bei --glow-r. */
+        .hero-photo .ding__glow {
+            mix-blend-mode: screen;
+            filter: brightness(2.3) saturate(1.15)
+                drop-shadow(0 0 2px rgba(255, 233, 200, 1))
+                drop-shadow(0 0 7px rgba(212, 165, 116, .95))
+                drop-shadow(0 0 20px rgba(212, 165, 116, .55));
+            -webkit-mask-image: radial-gradient(circle at center,
+                transparent calc(var(--glow-r, 0%) - 11%),
+                #fff calc(var(--glow-r, 0%) - 3%), #fff calc(var(--glow-r, 0%) + 3%),
+                transparent calc(var(--glow-r, 0%) + 11%));
+                    mask-image: radial-gradient(circle at center,
+                transparent calc(var(--glow-r, 0%) - 11%),
+                #fff calc(var(--glow-r, 0%) - 3%), #fff calc(var(--glow-r, 0%) + 3%),
+                transparent calc(var(--glow-r, 0%) + 11%));
+            -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+            -webkit-mask-position: center; mask-position: center;
+            animation: hp-sweep var(--wave-dur, 5.5s) linear infinite;
+        }
+        /* Zweite Welle, um halben Zyklus versetzt — immer Bewegung sichtbar */
+        .hero-photo .ding__glow--b { animation-delay: calc(var(--wave-dur, 5.5s) / -2); }
+
+        @keyframes hp-logo-breath {
+            0%, 100% { filter: drop-shadow(0 0 2px rgba(212, 165, 116, .35)) drop-shadow(0 0 7px rgba(212, 165, 116, .16)); }
+            50%      { filter: drop-shadow(0 0 4px rgba(212, 165, 116, .5))  drop-shadow(0 0 12px rgba(212, 165, 116, .26)); }
+        }
+        @keyframes hp-sweep {
+            0%   { --glow-r: 4%;  opacity: 0; }
+            12%  { --glow-r: 13%; opacity: 1; }
+            88%  { --glow-r: 62%; opacity: 1; }
+            100% { --glow-r: 74%; opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-photo .ding__base { animation: none; }
+            .hero-photo .ding__glow { animation: none; opacity: 0; }
+        }
+
+        /* Tablet/schmaler Desktop: Hero ist kürzer + Fließtext bricht mehr um.
+           Logo etwas höher und kompakter, damit der Text darunter passt. */
+        @media (min-width: 769px) and (max-width: 1100px) {
+            .hero-photo {
+                --ding-top: 48%;
+                --ding-size: 27vw;
+            }
         }
 
         .hero-content { max-width: 900px; }
@@ -2418,6 +2497,8 @@
             .hero-photo {
                 padding-top: 140%;
                 margin-top: 64px;
+                --ding-top: 47%;
+                --ding-size: clamp(140px, 42vw, 230px);
             }
             .hero-photo .hero-photo-img {
                 object-position: center center;

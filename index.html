@@ -165,7 +165,7 @@
           type="image/webp"
           fetchpriority="high">
 
-    <link rel="stylesheet" href="/css/style.css?v=2026-06-14a">
+    <link rel="stylesheet" href="/css/style.css?v=2026-06-19a">
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-05-22">
 </head>
 <body>
@@ -282,6 +282,12 @@
                      decoding="async">
             </picture>
             <div class="bg-overlay"></div>
+            <!-- Animiertes Grail-Logo, leuchtet auf dem Dom der Handpan; Position/Größe via CSS (.ding + --ding-*) -->
+            <div class="ding" id="heroDing" aria-hidden="true">
+                <img class="ding__logo ding__base" src="/images/logo-grail.svg" alt="" loading="eager" decoding="async">
+                <img class="ding__logo ding__glow" src="/images/logo-grail.svg" alt="" loading="eager" decoding="async">
+                <img class="ding__logo ding__glow ding__glow--b" src="/images/logo-grail.svg" alt="" loading="eager" decoding="async">
+            </div>
             <div class="hero-content container-narrow">
                 <h1>Handpan leben</h1>
                 <p class="hero-subtitle">Werde zur Inspiration.</p>
