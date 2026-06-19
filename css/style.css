@@ -2500,8 +2500,10 @@
             .hero-photo {
                 padding-top: 140%;
                 margin-top: 64px;
-                --ding-top: 47%;
-                --ding-size: clamp(140px, 42vw, 230px);
+            }
+            /* Mobile: animiertes Grail-Logo ausblenden (nur Desktop/Tablet) */
+            .hero-photo .ding {
+                display: none;
             }
             .hero-photo .hero-photo-img {
                 object-position: center center;
