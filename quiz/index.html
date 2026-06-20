@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       META / SEO / SOCIAL
+       👉 Hier kannst du Titel, Beschreibung und Vorschaubild ändern.
+       ============================================================ -->
+  <title>Passt deine Handpan wirklich zu dir? – Der ehrliche Selbsttest</title>
+  <meta name="description" content="Mach den ehrlichen 2-Minuten-Selbsttest: Passt deine Handpan wirklich zu dir – oder steckst du in der D-Kurd-Falle? 6 Fragen, eine ehrliche Einschätzung." />
+  <meta name="author" content="Nils Caspar · Handpan Schule des Lebens" />
+  <meta name="robots" content="index, follow" />
+  <!-- theme-color = dunkler Marken-Hintergrund (passend zur Website) -->
+  <meta name="theme-color" content="#0A0E14" />
+  <link rel="canonical" href="https://handpan.schule/quiz/" />
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Passt deine Handpan wirklich zu dir? – Der ehrliche Selbsttest" />
+  <meta property="og:description" content="6 Fragen, eine ehrliche Einschätzung: Seid ihr ein Team – oder steckst du in der D-Kurd-Falle?" />
+  <meta property="og:url" content="https://handpan.schule/quiz/" />
+  <!-- 👉 VORSCHAUBILD: Pfad/URL hier ersetzen (idealerweise 1200×630 px). Platzhalter = Logo. -->
+  <meta property="og:image" content="https://handpan.schule/handpan%20schule%20des%20Lebens%20Logo%20klein.png" />
+  <meta property="og:image:alt" content="Handpan Schule des Lebens" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="Handpan Schule des Lebens" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Passt deine Handpan wirklich zu dir? – Der ehrliche Selbsttest" />
+  <meta name="twitter:description" content="6 Fragen, eine ehrliche Einschätzung – in unter 2 Minuten." />
+  <meta name="twitter:image" content="https://handpan.schule/handpan%20schule%20des%20Lebens%20Logo%20klein.png" />
+
+  <!-- Inline-Favicon (keine externe Datei nötig) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230A0E14'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23D4A574' stroke-width='1.4'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%23D4A574'/%3E%3C/svg%3E" />
+
+  <style>
+    /* ============================================================
+       MARKEN-SCHRIFTEN (Fraunces + Spectral)
+       Werden von handpan.schule geladen, damit der Test exakt wie
+       die Website aussieht. Das ist die EINZIGE externe Verbindung.
+       👉 Für 100 % offline: diesen @font-face-Block löschen –
+          dann greifen automatisch die Georgia-Fallbacks.
+       ============================================================ */
+    @font-face { font-family:'Fraunces'; font-style:normal; font-weight:300 700; font-display:swap;
+      src:url('https://handpan.schule/fonts/fraunces-regular-latin.woff2') format('woff2'); }
+    @font-face { font-family:'Fraunces'; font-style:italic; font-weight:300 500; font-display:swap;
+      src:url('https://handpan.schule/fonts/fraunces-italic-latin.woff2') format('woff2'); }
+    @font-face { font-family:'Spectral'; font-style:normal; font-weight:300; font-display:swap;
+      src:url('https://handpan.schule/fonts/spectral-regular-300-latin.woff2') format('woff2'); }
+    @font-face { font-family:'Spectral'; font-style:normal; font-weight:400; font-display:swap;
+      src:url('https://handpan.schule/fonts/spectral-regular-400-latin.woff2') format('woff2'); }
+    @font-face { font-family:'Spectral'; font-style:italic; font-weight:300; font-display:swap;
+      src:url('https://handpan.schule/fonts/spectral-italic-300-latin.woff2') format('woff2'); }
+
+    /* ============================================================
+       1) FARBEN & DESIGN-TOKENS  (1:1 von handpan.schule übernommen)
+       👉 Alle Farben an EINER Stelle. Hier gefahrlos anpassen.
+       ============================================================ */
+    :root {
+      --bg:            #0A0E14;  /* Seitenhintergrund – dunkles Marken-Anthrazit  */
+      --surface:       rgba(255,255,255,0.02); /* Karten-Flächen (wie .card)      */
+      --surface-soft:  rgba(255,255,255,0.04);
+      --ink:           #E8E6E3;  /* Haupttext – warmes Off-White                  */
+      --ink-soft:      #A0A0A0;  /* gedämpfter Text                               */
+      --line:          rgba(212,165,116,0.10); /* feine Gold-Haarlinien            */
+      --line-strong:   rgba(212,165,116,0.30);
+
+      --accent:        #D4A574;  /* Marken-Gold (Akzent, Buttons, Auswahl)        */
+      --accent-dark:   #B8956C;  /* Hover                                         */
+      --accent-tint:   rgba(212,165,116,0.10); /* zarte Gold-Fläche (Auswahl)     */
+
+      /* Ergebnis-Farben – auf dunklem Grund gut lesbar */
+      --good:          #A6C28A;  /* „Volltreffer" – warmes Salbeigrün             */
+      --mid:           #D4A574;  /* „Luft nach oben" – Marken-Gold                */
+      --warn:          #E0966B;  /* „D-Kurd-Falle" – warmes Terrakotta            */
+
+      --focus:         #D4A574;  /* Fokusring (Gold, mit Abstand auf dunklem BG)  */
+      --radius:        2px;      /* Marken-Signatur: scharfe, editoriale Ecken    */
+
+      --font-head: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-body: 'Spectral', Georgia, 'Times New Roman', serif;
+    }
+
+    /* ============================================================
+       2) GRUNDLAYOUT
+       ============================================================ */
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 1.0625rem; /* ~17px, ruhig wie die Website (dort 18px) */
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: clamp(0.75rem, 3vw, 2.5rem);
+    }
+
+    /* Feiner Film-Korn-Overlay – exakt wie auf handpan.schule */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      z-index: 9999; pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+    }
+
+    .quiz { width: 100%; max-width: 620px; }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(1.5rem, 5vw, 2.8rem);
+    }
+
+    .screen { display: none; }
+    .screen.is-active { display: block; animation: fade 0.5s ease both; }
+    @keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+    /* ============================================================
+       3) TYPOGRAFIE  (Fraunces 300, ruhig, enge Laufweite)
+       ============================================================ */
+    h1, h2 {
+      font-family: var(--font-head);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--ink);
+      margin: 0 0 0.7rem;
+    }
+    h1 { font-size: clamp(1.9rem, 6vw, 2.8rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.55rem, 5vw, 2.1rem); letter-spacing: -0.01em; }
+    p  { margin: 0 0 1rem; }
+    .lead { color: var(--ink); font-size: 1.08rem; opacity: 0.92; }
+    em { font-style: italic; }
+
+    /* Eyebrow / Marke (uppercase, gesperrt – wie die Website) */
+    .brand {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .brand .ring {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      display: grid; place-items: center; flex: 0 0 auto;
+    }
+    .brand .ring::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+
+    /* ============================================================
+       4) BUTTONS  (uppercase, gesperrt, scharfe Ecken – Marken-Stil)
+       ============================================================ */
+    .btn {
+      font-family: var(--font-body);
+      font-size: 0.9rem; font-weight: 400;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      padding: 0.95rem 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+      line-height: 1.25;
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn--primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .btn--primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .btn--ghost { background: transparent; color: var(--accent); border-color: var(--accent); }
+    .btn--ghost:hover { background: var(--accent); color: var(--bg); }
+    /* Volle Breite: lange Labels dürfen umbrechen statt über den Rand zu laufen
+       (die schmalen Nav-Buttons behalten white-space:nowrap aus .btn). */
+    .btn--block { width: 100%; white-space: normal; }
+    .btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .btn:not(:disabled):hover { transform: translateY(-2px); }
+
+    /* Sichtbarer Tastatur-Fokus: Gold-Ring im Abstand auf dunklem Grund */
+    :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: var(--radius); }
+    /* Überschriften bekommen beim Wechsel den Fokus (Screenreader) – kein Rahmen nötig */
+    #q-title:focus, #result-title:focus { outline: none; }
+
+    /* ============================================================
+       5) STARTBILDSCHIRM
+       ============================================================ */
+    .start-meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem;
+      color: var(--ink-soft); font-size: 0.9rem;
+      margin: 0 0 1.8rem;
+    }
+    .start-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .start-actions { margin-top: 1.8rem; }
+    .fineprint { font-size: 0.82rem; color: var(--ink-soft); margin-top: 1.1rem; }
+
+    /* ============================================================
+       6) FRAGEN-BILDSCHIRM
+       ============================================================ */
+    .progress-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 0.65rem;
+    }
+    .progress-track {
+      height: 4px; background: rgba(212,165,116,0.14); border-radius: 999px; overflow: hidden; /* dezenter Track */
+      margin-bottom: 1.9rem;
+    }
+    .progress-fill {
+      height: 100%; width: 0;
+      background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+      transition: width 0.45s ease;
+    }
+
+    .question { margin-bottom: 1.4rem; }
+
+    .options { border: 0; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+    .option {
+      position: relative;
+      display: flex; align-items: flex-start; gap: 0.85rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      cursor: pointer;
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.18s ease;
+    }
+    .option:hover { border-color: var(--line-strong); background: var(--surface-soft); transform: translateY(-2px); }
+    .option input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; }
+    .option .marker {
+      flex: 0 0 auto; margin-top: 0.2rem;
+      width: 21px; height: 21px; border-radius: 50%;
+      border: 1.5px solid rgba(232,230,227,0.45);
+      display: grid; place-items: center;
+      transition: border-color 0.25s ease;
+    }
+    .option .marker::after {
+      content: ""; width: 11px; height: 11px; border-radius: 50%;
+      background: var(--accent); transform: scale(0); transition: transform 0.25s ease;
+    }
+    .option .label { color: var(--ink); min-width: 0; overflow-wrap: anywhere; }
+
+    /* Ausgewählter Zustand (.is-selected per JS + :has() als Ergänzung) */
+    .option.is-selected { border-color: var(--accent); background: var(--accent-tint); }
+    .option.is-selected .marker { border-color: var(--accent); }
+    .option.is-selected .marker::after { transform: scale(1); }
+    .option:has(input:checked) { border-color: var(--accent); background: var(--accent-tint); }
+    .option:has(input:checked) .marker { border-color: var(--accent); }
+    .option:has(input:checked) .marker::after { transform: scale(1); }
+    .option:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 1.9rem; }
+
+    /* ============================================================
+       7) ERGEBNIS-BILDSCHIRM
+       ============================================================ */
+    .result-badge {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-soft);
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 0.4rem 0.9rem; margin-bottom: 1.2rem;
+    }
+    .result-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+    .result-title { color: var(--result-color, var(--accent)); }
+    .result-score { font-size: 0.92rem; color: var(--ink-soft); margin: -0.2rem 0 1.2rem; }
+    .result-text { font-size: 1.1rem; color: var(--ink); }
+    .result-nudge {
+      background: var(--surface);
+      border-left: 2px solid var(--result-color, var(--accent));
+      padding: 1rem 1.2rem; color: var(--ink-soft); margin: 1.4rem 0 0;
+    }
+    .result-cta { display: grid; gap: 0.75rem; margin-top: 2rem; }
+    .cta-hint { font-size: 0.78rem; color: var(--ink-soft); text-align: center; margin: -0.35rem 0 0.25rem; line-height: 1.5; }
+
+    /* Video-Hinweis: dezenter Kasten, der sich selbst „adressiert" (nur Nicht-Seher) */
+    .video-aside {
+      margin-top: 1.4rem;
+      padding: 1rem 1.2rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .video-aside__text { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 0.7rem; line-height: 1.6; }
+    .video-aside__text strong { color: var(--ink); font-weight: 400; }
+    .video-aside__link {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      color: var(--accent); text-decoration: none;
+      font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em;
+      min-height: 44px; /* bequeme Touch-Größe */
+    }
+    .video-aside__link:hover { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 4px; }
+
+    .result-secondary { display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; align-items: center; margin-top: 1.4rem; }
+    .link-quiet {
+      background: none; border: 0; cursor: pointer;
+      padding: 0.4rem 0; min-height: 44px; /* bequeme Touch-Größe (WCAG 2.5.8) */
+      display: inline-flex; align-items: center;
+      color: var(--ink-soft); font-family: var(--font-body); font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-decoration: underline; text-underline-offset: 3px;
+    }
+    .link-quiet:hover { color: var(--accent); }
+
+    /* ============================================================
+       8) TOAST („Link kopiert")
+       ============================================================ */
+    .toast {
+      position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(20px);
+      background: var(--accent); color: var(--bg);
+      padding: 0.7rem 1.3rem; border-radius: var(--radius); font-size: 0.9rem; font-weight: 400;
+      opacity: 0; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease; z-index: 50;
+    }
+    .toast.is-visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .footnote { text-align: center; font-size: 0.78rem; color: var(--ink-soft); margin: 1.4rem 0 0; }
+    .footnote a { color: var(--ink-soft); }
+    .footnote a:hover { color: var(--accent); }
+
+    .visually-hidden {
+      position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+
+    /* Auf schmalen Handys: Zurück/Weiter untereinander, volle Breite
+       (verhindert, dass „Auswerten →" über den Kartenrand läuft). */
+    @media (max-width: 480px) {
+      .nav { flex-wrap: wrap; }
+      .nav .btn { flex: 1 1 100%; }
+    }
+
+    /* ============================================================
+       9) BEWEGUNG REDUZIEREN (Barrierefreiheit)
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="quiz">
+    <!-- Dezente Live-Region nur für Screenreader: meldet Frage & Ergebnis knapp an -->
+    <div id="sr-status" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- ========================================================
+         STARTBILDSCHIRM  (👉 Titel/Intro/Button frei anpassbar)
+         ======================================================== -->
+    <section id="screen-start" class="screen is-active card" aria-labelledby="start-title">
+      <p class="brand"><span class="ring" aria-hidden="true"></span> Handpan Schule des Lebens</p>
+
+      <h1 id="start-title">Passt deine Handpan wirklich zu dir?</h1>
+      <p class="lead"><em>Der ehrliche Selbsttest.</em> 6 kurze Fragen, eine ehrliche Einschätzung –
+        ob du und deine Pan ein Team seid, oder ob das Instrument vielleicht gar nicht zu dir passt.</p>
+
+      <div class="start-meta" aria-hidden="true">
+        <span>◷ ca. 2 Minuten</span>
+        <span>✦ 6 Fragen</span>
+        <span>♡ ehrlich, ohne Wertung</span>
+      </div>
+
+      <div class="start-actions">
+        <button class="btn btn--primary btn--block" id="btn-start" type="button">Quiz starten</button>
+        <p class="fineprint">Anonym &amp; ohne Anmeldung. Es werden keine Daten gespeichert.</p>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         FRAGEN-BILDSCHIRM (wird dynamisch befüllt)
+         ======================================================== -->
+    <section id="screen-question" class="screen card" aria-labelledby="q-title" hidden>
+      <div class="progress-head">
+        <span id="progress-label">Frage 1 von 6</span>
+        <span id="progress-pct" aria-hidden="true">17 %</span>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="6" aria-valuenow="1" id="progressbar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <h2 class="question" id="q-title" tabindex="-1">Frage</h2>
+
+      <fieldset class="options" id="options">
+        <legend class="visually-hidden">Wähle die Antwort, die am besten passt</legend>
+        <!-- Optionen werden per JavaScript eingefügt -->
+      </fieldset>
+
+      <div class="nav">
+        <button class="btn btn--ghost" id="btn-back" type="button">← Zurück</button>
+        <button class="btn btn--primary" id="btn-next" type="button" disabled>Weiter →</button>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         ERGEBNIS-BILDSCHIRM (wird dynamisch befüllt)
+         ======================================================== -->
+    <section id="screen-result" class="screen card" aria-labelledby="result-title" hidden>
+      <p class="result-badge"><span class="result-dot" id="result-dot"></span> Dein Ergebnis</p>
+
+      <h2 class="result-title" id="result-title" tabindex="-1">Ergebnis</h2>
+      <p class="result-score" id="result-score"></p>
+      <p class="result-text" id="result-text"></p>
+      <p class="result-nudge" id="result-nudge" hidden></p>
+
+      <!-- Nochmal / Teilen – direkt unter dem Ergebnis -->
+      <div class="result-secondary">
+        <button class="link-quiet" id="btn-restart" type="button">↻ Nochmal machen</button>
+        <button class="link-quiet" id="btn-share" type="button">↗ Ergebnis teilen</button>
+      </div>
+
+      <!-- ====================================================
+           CTA-BUTTONS  (👉 Links hier ändern)
+           ==================================================== -->
+      <div class="result-cta">
+        <!-- 👉 PRIMÄR: Ergebnis direkt an Nils senden + unverbindlich Beratung anfragen.
+             href wird per JS gesetzt (öffnet WhatsApp/E-Mail mit vorausgefülltem Ergebnis). -->
+        <a class="btn btn--primary btn--block" id="cta-consult"
+           href="#" target="_blank" rel="noopener">Ergebnis senden &amp; Beratung anfragen →</a>
+        <p class="cta-hint">Unverbindlich &amp; direkt per WhatsApp an Nils – du schickst nur dein Ergebnis.</p>
+      </div>
+
+      <!-- ====================================================
+           VIDEO-HINWEIS – nur für alle, die das Video noch NICHT
+           gesehen haben (wer es kennt, überliest den Block einfach).
+           👉 Text an den Inhalt DEINES Videos anpassen + Link setzen.
+           ==================================================== -->
+      <aside class="video-aside">
+        <p class="video-aside__text">Du bist hier gelandet, <strong>ohne</strong> mein Video gesehen zu haben?
+          Darin gehe ich der „D-Kurd-Falle“ in Ruhe auf den Grund – woran du hörst, ob es wirklich
+          <em>deine</em> Scale ist, und was du tun kannst, wenn der Funke fehlt.</p>
+        <a class="video-aside__link" id="cta-video"
+           href="https://www.youtube.com/@handpanschuledeslebens" target="_blank" rel="noopener">▶ Video ansehen</a>
+      </aside>
+
+      <!-- Community-Einladung – unter dem Video-Hinweis -->
+      <div class="result-cta">
+        <a class="btn btn--ghost btn--block" id="cta-community"
+           href="https://handpan.schule/community/" target="_blank" rel="noopener">Werde Teil der Community →</a>
+      </div>
+    </section>
+
+    <p class="footnote">Ein kleines Geschenk der
+      <a href="https://handpan.schule" target="_blank" rel="noopener">Handpan Schule des Lebens</a>.</p>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+  (function () {
+    "use strict";
+
+    /* ============================================================
+       INHALT — HIER kannst du Fragen, Antworten und Punkte ändern.
+       Die Zahl hinter jeder Antwort = Punkte (werden NICHT angezeigt).
+       ============================================================ */
+    var QUESTIONS = [
+      {
+        q: "Wenn du dich an deine Pan setzt, was passiert meistens?",
+        options: [
+          { text: "Musik kommt fast von allein, ich vergesse die Zeit", points: 0 },
+          { text: "Ich übe brav, aber so richtig fließt es selten", points: 2 },
+          { text: "Ich weiß oft nicht, was ich spielen soll, und höre schnell auf", points: 3 }
+        ]
+      },
+      {
+        q: "Warum hast du genau deine Scale gewählt?",
+        options: [
+          { text: "Sie hat mich beim Hören sofort berührt", points: 0 },
+          { text: "Sie wurde überall für Einsteiger empfohlen", points: 2 },
+          { text: "Ehrlich? Ich hatte vorher nie eine andere gehört", points: 3 }
+        ]
+      },
+      {
+        q: "Hattest du dein Instrument vor dem Kauf in der Hand?",
+        options: [
+          { text: "Ja, mehrere ausprobiert", points: 0 },
+          { text: "Nur kurz / nur über Videos", points: 2 },
+          { text: "Nein, einfach bestellt", points: 3 }
+        ]
+      },
+      {
+        q: "Wie fühlt sich Üben für dich an?",
+        options: [
+          { text: "Neugierig – ich will etwas Bestimmtes ausdrücken", points: 0 },
+          { text: "Pflicht – ich sollte ja Technik lernen", points: 2 },
+          { text: "Frust – ich vergesse Patterns so schnell, wie ich sie lerne", points: 3 }
+        ]
+      },
+      {
+        q: "Wo steht deine Pan gerade?",
+        options: [
+          { text: "Griffbereit, ich spiele oft spontan im Vorbeigehen", points: 0 },
+          { text: "Da, aber ich greife seltener zu als früher", points: 2 },
+          { text: "Eingestaubt im Eck", points: 3 }
+        ]
+      },
+      {
+        q: "Hand aufs Herz – das Gefühl beim Spielen ist …",
+        options: [
+          { text: "„Heimkommen“, bei mir selbst ankommen", points: 0 },
+          { text: "Okay, aber der Funke fehlt", points: 2 },
+          { text: "„Was soll ich mit dem Ding eigentlich?“", points: 3 }
+        ]
+      }
+    ];
+
+    /* ============================================================
+       AUSWERTUNG — HIER Titel, Texte und den „neugierig-machen"-Satz
+       (nudge) pro Ergebnis anpassen. min/max = Punktbereich (0–18).
+       ============================================================ */
+    var RESULTS = [
+      {
+        min: 0, max: 4,
+        title: "Volltreffer",
+        color: "var(--good)",
+        text: "Du und deine Pan seid ein Team. Die Musik kommt aus dir, nicht von außen. " +
+              "Genau dieser forschende, neugierige Zugang ist der Goldstandard – mach weiter so.",
+        nudge: "" // bei „Volltreffer" kein Verkaufs-Hinweis
+      },
+      {
+        min: 5, max: 10,
+        title: "Luft nach oben",
+        color: "var(--mid)",
+        text: "Bei dir ist der Funke da, stockt aber. Das muss nicht an der Scale liegen – oft fehlt " +
+              "nur eine Technik oder ein anderer Übe-Ansatz, um auszudrücken, was du spürst.",
+        nudge: "Genau hier setze ich an: Wenn du magst, zeige ich dir in der Handpan Schule, " +
+               "wie aus „brav üben“ wieder freies Spielen wird."
+      },
+      {
+        min: 11, max: 18,
+        title: "Achtung, D-Kurd-Falle möglich",
+        color: "var(--warn)",
+        text: "Vielleicht liegt es nicht an dir und nicht am Üben – sondern daran, dass das Instrument " +
+              "nicht zu dir passt. Bevor du aufgibst: andere Scales anhören und ausprobieren.",
+        nudge: "Du musst das nicht allein herausfinden. Ich helfe dir, ehrlich " +
+               "einzuschätzen, ob es die Scale ist – oder etwas, das sich leicht lösen lässt."
+      }
+    ];
+
+    /* ============================================================
+       AB HIER: Logik. Normalerweise nichts mehr zu ändern.
+       ============================================================ */
+    var AUTO_ADVANCE = true;   // Antwort antippen springt automatisch weiter (true/false)
+    var AUTO_DELAY   = 480;    // Verzögerung in Millisekunden
+
+    /* ============================================================
+       DIREKTE BERATUNGSANFRAGE — 👉 hier anpassen.
+       Der „Ergebnis senden"-Button öffnet vorausgefüllt diesen Kanal.
+       CONTACT_CHANNEL: "whatsapp" (Standard) oder "email".
+       ============================================================ */
+    var CONTACT_CHANNEL   = "whatsapp";              // "whatsapp" | "email"
+    var CONTACT_WHATSAPP  = "4915122964922";         // Nils' WhatsApp (international, ohne + / Leerzeichen)
+    var CONTACT_EMAIL     = "kontakt@handpan.schule";
+
+    // Maximalpunktzahl einmal berechnen (für Ergebnis-Anzeige + Nachricht)
+    var MAX_SCORE = QUESTIONS.reduce(function (m, q) {
+      return m + Math.max.apply(null, q.options.map(function (o) { return o.points; }));
+    }, 0);
+
+    var answers = new Array(QUESTIONS.length).fill(null);
+    var current = 0;
+    var advanceTimer = null;
+    var lastInputWasPointer = false; // Auto-Weiter NUR bei Maus/Touch, nicht bei Tastatur
+
+    var reduceMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var screens = {
+      start:    document.getElementById("screen-start"),
+      question: document.getElementById("screen-question"),
+      result:   document.getElementById("screen-result")
+    };
+    var el = {
+      start:        document.getElementById("btn-start"),
+      back:         document.getElementById("btn-back"),
+      next:         document.getElementById("btn-next"),
+      restart:      document.getElementById("btn-restart"),
+      share:        document.getElementById("btn-share"),
+      options:      document.getElementById("options"),
+      qTitle:       document.getElementById("q-title"),
+      progLabel:    document.getElementById("progress-label"),
+      progPct:      document.getElementById("progress-pct"),
+      progBar:      document.getElementById("progressbar"),
+      progFill:     document.getElementById("progress-fill"),
+      resultTitle:  document.getElementById("result-title"),
+      resultScore:  document.getElementById("result-score"),
+      resultText:   document.getElementById("result-text"),
+      resultNudge:  document.getElementById("result-nudge"),
+      resultDot:    document.getElementById("result-dot"),
+      consult:      document.getElementById("cta-consult"),
+      toast:        document.getElementById("toast"),
+      srStatus:     document.getElementById("sr-status")
+    };
+
+    function showScreen(name) {
+      Object.keys(screens).forEach(function (key) {
+        var s = screens[key];
+        var active = key === name;
+        s.classList.toggle("is-active", active);
+        if (active) { s.removeAttribute("hidden"); } else { s.setAttribute("hidden", ""); }
+      });
+      try { window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); } catch (e) {}
+      notifyHeight();
+    }
+
+    function renderQuestion(index) {
+      clearTimeout(advanceTimer);
+      current = index;
+      var data = QUESTIONS[index];
+      var total = QUESTIONS.length;
+
+      el.qTitle.textContent = data.q;
+
+      var pct = Math.round(((index + 1) / total) * 100);
+      el.progLabel.textContent = "Frage " + (index + 1) + " von " + total;
+      el.progPct.textContent = pct + " %";
+      el.progFill.style.width = pct + "%";
+      el.progBar.setAttribute("aria-valuenow", String(index + 1));
+      if (el.srStatus) { el.srStatus.textContent = "Frage " + (index + 1) + " von " + total + ": " + data.q; }
+
+      el.options.innerHTML = "";
+      data.options.forEach(function (opt, i) {
+        var id = "q" + index + "o" + i;
+        var label = document.createElement("label");
+        label.className = "option";
+        label.setAttribute("for", id);
+
+        var input = document.createElement("input");
+        input.type = "radio";
+        input.name = "answer";
+        input.id = id;
+        input.value = String(i);
+        if (answers[index] === i) { input.checked = true; label.classList.add("is-selected"); }
+
+        var marker = document.createElement("span");
+        marker.className = "marker";
+        marker.setAttribute("aria-hidden", "true");
+
+        var span = document.createElement("span");
+        span.className = "label";
+        span.textContent = opt.text;
+
+        label.appendChild(input);
+        label.appendChild(marker);
+        label.appendChild(span);
+
+        input.addEventListener("change", function () {
+          answers[index] = i;
+          el.next.disabled = false;
+          var labels = el.options.querySelectorAll(".option");
+          for (var k = 0; k < labels.length; k++) { labels[k].classList.remove("is-selected"); }
+          label.classList.add("is-selected");
+          // Tastatur-Nutzer: Pfeiltasten wählen Radios aus → NICHT automatisch weiter.
+          // Sie nutzen den „Weiter"-Button. Auto-Weiter nur bei Tippen/Klicken.
+          if (AUTO_ADVANCE && lastInputWasPointer) {
+            clearTimeout(advanceTimer);
+            advanceTimer = setTimeout(goNext, AUTO_DELAY);
+          }
+        });
+
+        el.options.appendChild(label);
+      });
+
+      el.next.disabled = answers[index] === null;
+      el.back.disabled = false;
+      el.next.textContent = index === total - 1 ? "Auswerten →" : "Weiter →";
+
+      el.qTitle.focus();
+      notifyHeight();
+    }
+
+    function goNext() {
+      clearTimeout(advanceTimer);
+      if (answers[current] === null) { return; }
+      if (current < QUESTIONS.length - 1) { renderQuestion(current + 1); }
+      else { showResult(); }
+    }
+
+    function goBack() {
+      clearTimeout(advanceTimer);
+      if (current === 0) { showScreen("start"); el.start.focus(); }
+      else { renderQuestion(current - 1); }
+    }
+
+    function calcScore() {
+      return answers.reduce(function (sum, choice, qi) {
+        if (choice === null) { return sum; }
+        return sum + QUESTIONS[qi].options[choice].points;
+      }, 0);
+    }
+
+    function resultFor(score) {
+      for (var i = 0; i < RESULTS.length; i++) {
+        if (score >= RESULTS[i].min && score <= RESULTS[i].max) { return RESULTS[i]; }
+      }
+      return RESULTS[RESULTS.length - 1];
+    }
+
+    function showResult() {
+      var score = calcScore();
+      var maxScore = MAX_SCORE;
+      var res = resultFor(score);
+
+      screens.result.style.setProperty("--result-color", res.color);
+      el.resultDot.style.background = res.color;
+      el.resultTitle.textContent = res.title;
+      el.resultScore.textContent = "Du hast " + score + " von " + maxScore + " Punkten.";
+      el.resultText.textContent = res.text;
+      if (el.srStatus) { el.srStatus.textContent = res.title + ". Du hast " + score + " von " + maxScore + " Punkten."; }
+
+      // „Ergebnis senden & Beratung anfragen": Link mit vorausgefülltem Ergebnis bauen
+      if (el.consult) { el.consult.setAttribute("href", buildConsultUrl(res, score, maxScore)); }
+
+      if (res.nudge && res.nudge.trim() !== "") {
+        el.resultNudge.textContent = res.nudge;
+        el.resultNudge.removeAttribute("hidden");
+      } else {
+        el.resultNudge.setAttribute("hidden", "");
+      }
+
+      showScreen("result");
+      el.resultTitle.focus();
+    }
+
+    function restart() {
+      answers = new Array(QUESTIONS.length).fill(null);
+      current = 0;
+      showScreen("start");
+      el.start.focus();
+    }
+
+    /* Baut den vorausgefüllten Link (WhatsApp oder E-Mail) für die Beratungsanfrage.
+       👉 Den Nachrichtentext kannst du hier frei umformulieren. */
+    function buildConsultUrl(res, score, maxScore) {
+      var msg = "Hallo Nils! Ich habe gerade deinen Handpan-Selbsttest gemacht.\n"
+              + "Mein Ergebnis: „" + res.title + "“ (" + score + " von " + maxScore + " Punkten).\n\n"
+              + "Ich würde gern unverbindlich eine Instrument-Beratung anfragen – "
+              + "magst du mir helfen einzuschätzen, ob meine Scale wirklich zu mir passt?";
+      if (CONTACT_CHANNEL === "email") {
+        return "mailto:" + CONTACT_EMAIL +
+               "?subject=" + encodeURIComponent("Handpan-Selbsttest: unverbindliche Beratungsanfrage") +
+               "&body=" + encodeURIComponent(msg);
+      }
+      return "https://wa.me/" + CONTACT_WHATSAPP + "?text=" + encodeURIComponent(msg);
+    }
+
+    function shareResult() {
+      var score = calcScore();
+      var res = resultFor(score);
+      var shareData = {
+        title: "Passt deine Handpan wirklich zu dir?",
+        text: "Mein Ergebnis: „" + res.title + "“. Mach den ehrlichen Handpan-Selbsttest:",
+        url: window.location.href
+      };
+      if (navigator.share) {
+        navigator.share(shareData).catch(function (err) {
+          if (err && err.name === "AbortError") { return; } // Nutzer hat abgebrochen – ok
+          copyLink(shareData.url); // echter Fehler → auf „Link kopieren" zurückfallen
+        });
+      } else {
+        copyLink(shareData.url);
+      }
+    }
+
+    function copyLink(url) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          showToast("Link kopiert ✓");
+        }).catch(function () { showToast(url); });
+      } else {
+        showToast(url);
+      }
+    }
+
+    var toastTimer = null;
+    function showToast(msg) {
+      el.toast.textContent = msg;
+      el.toast.classList.add("is-visible");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { el.toast.classList.remove("is-visible"); }, 2600);
+    }
+
+    /* Optional: Höhe an Eltern-Seite melden (für <iframe>-Einbettung).
+       Harmlos, wenn niemand zuhört. */
+    function notifyHeight() {
+      try {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({ handpanQuizHeight: document.body.scrollHeight }, "*");
+        }
+      } catch (e) {}
+    }
+    window.addEventListener("resize", notifyHeight);
+
+    el.start.addEventListener("click", function () { showScreen("question"); renderQuestion(0); });
+    el.next.addEventListener("click", goNext);
+    el.back.addEventListener("click", goBack);
+    el.restart.addEventListener("click", restart);
+    el.share.addEventListener("click", shareResult);
+
+    // Eingabe-Modus merken (steuert das Auto-Weiterspringen)
+    document.addEventListener("pointerdown", function () { lastInputWasPointer = true; }, true);
+    document.addEventListener("keydown", function () { lastInputWasPointer = false; }, true);
+
+    notifyHeight();
+  })();
+  </script>
+</body>
+</html>
