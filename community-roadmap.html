@@ -317,25 +317,15 @@ em { font-style: italic; color: var(--color-text); }
 .scroll-hint.is-faded { opacity: 0; }
 @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
 
-/* Klangwellen: Kreise rippeln aus der Logo-Mitte nach außen (vom Leuchten angestoßen) */
-.ripple { transform-origin: center; animation: ripple 8s ease-out infinite; }
-.ripple.d2 { animation-delay: 2s; }
-.ripple.d3 { animation-delay: 4s; }
-.ripple.d4 { animation-delay: 6s; }
-@keyframes ripple {
-  0%   { transform: scale(0.7); opacity: 0; }
-  14%  { opacity: 0.5; }
-  100% { transform: scale(2.1); opacity: 0; }
-}
 /* Handpan-Schule-Logo im Hero: leuchtet aus der Mitte (wie Startseite), pulsierender Glow */
 .hero-logo-mandala {
-  transform-origin: center; opacity: 0.5;
-  filter: drop-shadow(0 0 16px rgba(212,165,116,0.45));
+  transform-origin: center; opacity: 0.3;
+  filter: drop-shadow(0 0 12px rgba(212,165,116,0.28));
   animation: logoGlow 8s ease-in-out infinite;
 }
 @keyframes logoGlow {
-  0%,100% { opacity: 0.42; filter: drop-shadow(0 0 10px rgba(212,165,116,0.30)); }
-  50%     { opacity: 0.64; filter: drop-shadow(0 0 28px rgba(212,165,116,0.60)); }
+  0%,100% { opacity: 0.24; filter: drop-shadow(0 0 8px rgba(212,165,116,0.20)); }
+  50%     { opacity: 0.38; filter: drop-shadow(0 0 18px rgba(212,165,116,0.38)); }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 .hero-glow { transform-origin: center; animation: breathe 8s ease-in-out infinite; }
@@ -708,14 +698,6 @@ footer a { color: var(--color-accent); text-decoration: none; }
 
     <!-- weicher Lichtschimmer hinter allem -->
     <circle class="hero-glow" cx="400" cy="400" r="320" fill="url(#glow)"/>
-
-    <!-- Klangwellen: Kreise rippeln aus der Logo-Mitte nach außen (vom Leuchten angestoßen) -->
-    <g fill="none" stroke="#D4A574" stroke-width="1">
-      <circle class="ripple"    cx="400" cy="400" r="180" opacity="0"/>
-      <circle class="ripple d2" cx="400" cy="400" r="180" opacity="0"/>
-      <circle class="ripple d3" cx="400" cy="400" r="180" opacity="0"/>
-      <circle class="ripple d4" cx="400" cy="400" r="180" opacity="0"/>
-    </g>
 
     <!-- Handpan-Schule-Logo (Grail-Mandala) als zart leuchtendes Hintergrund-Motiv -->
     <image class="hero-logo-mandala" href="/images/logo-grail.svg" xlink:href="/images/logo-grail.svg"
