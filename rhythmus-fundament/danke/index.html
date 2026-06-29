@@ -19,10 +19,20 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1509510120659478');
 fbq('track', 'PageView');
-fbq('track', 'Purchase', {value: 359.00, currency: 'EUR', content_name: 'Rhythmus Fundament'});
+// Purchase NUR nach echtem Stripe-Kauf: feuert ausschließlich, wenn Stripe die session_id mitschickt
+// (Redirect-URL muss ?session_id={CHECKOUT_SESSION_ID} enthalten), und pro Kauf nur einmal
+// (localStorage verhindert Doppelzählung bei Seiten-Reload). eventID = session_id für spätere CAPI-Deduplizierung.
+(function(){
+  var sid = new URLSearchParams(window.location.search).get('session_id');
+  if (!sid) return;
+  var key = 'hps_purchase_' + sid;
+  try { if (localStorage.getItem(key)) return; } catch(e) {}
+  fbq('track', 'Purchase', {value: 359.00, currency: 'EUR', content_name: 'Rhythmus Fundament'}, {eventID: sid});
+  try { localStorage.setItem(key, '1'); } catch(e) {}
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1509510120659478&ev=Purchase&cd[value]=359.00&cd[currency]=EUR&noscript=1"
+src="https://www.facebook.com/tr?id=1509510120659478&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
