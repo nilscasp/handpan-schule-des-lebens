@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Willkommen im Rhythmus Fundament · handpan.schule</title>
+<meta name="description" content="Danke für deine Anmeldung zum Rhythmus Fundament. Werde Teil unserer Community — kostenlos.">
+<meta name="theme-color" content="#0A0E14">
+<!-- Diese Seite wird nur nach erfolgreichem Kauf über Stripe angezeigt, daher nicht indexieren. -->
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://handpan.schule/rhythmus-fundament/danke/">
+<meta property="og:site_name" content="handpan.schule">
+<meta property="og:title" content="Willkommen im Rhythmus Fundament">
+<meta property="og:description" content="Danke, dass du dabei bist. Werde Teil unserer Community — kostenlos.">
+
+<!-- Schriften: identisch zur Website (Fraunces für Headlines, Spectral für Fließtext). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=Spectral:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS  — exakt aus css/style.css der Website übernommen
+   ============================================================ */
+:root {
+  --color-bg:        #0A0E14;
+  --color-bg-lighter:#141922;
+  --color-text:      #E8E6E3;
+  --color-text-muted:#A0A0A0;
+  --color-accent:    #D4A574;
+  --color-accent-dark:#B8956C;
+  --line:  rgba(212, 165, 116, 0.12);
+  --line-soft: rgba(212, 165, 116, 0.06);
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans:  'Spectral', Georgia, serif;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sanfter, konzentrischer Goldschein im Hintergrund — Klangwellen-Anmutung */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(212,165,116,0.10), transparent 55%),
+    radial-gradient(circle at 50% 38%, rgba(212,165,116,0.05), transparent 75%);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 9vh, 7rem) var(--spacing-md) var(--spacing-lg);
+  text-align: center;
+}
+
+/* ============================================================
+   LEUCHTENDES LOGO  (wie Startseite — pulsierender Glow)
+   ============================================================ */
+.logo-mandala {
+  width: 104px; height: 104px;
+  margin: 0 auto var(--spacing-md);
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(212,165,116,0.45));
+  animation: logoGlow 8s ease-in-out infinite;
+}
+@keyframes logoGlow {
+  0%, 100% { filter: drop-shadow(0 0 14px rgba(212,165,116,0.30)); }
+  50%      { filter: drop-shadow(0 0 30px rgba(212,165,116,0.60)); }
+}
+
+/* Kleiner Bestätigungs-Pill über der Headline */
+.confirm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.45rem 1.1rem;
+  margin-bottom: var(--spacing-md);
+}
+.confirm-pill svg { width: 14px; height: 14px; }
+
+h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--spacing-sm);
+}
+h1 em { font-style: italic; color: var(--color-accent); }
+
+.lead {
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  color: var(--color-text);
+  max-width: 56ch;
+  margin: 0 auto var(--spacing-md);
+}
+
+.note {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 52ch;
+  margin: 0 auto var(--spacing-lg);
+}
+
+/* Hairline-Trenner */
+.divider {
+  width: 64px; height: 1px;
+  background: var(--color-accent);
+  opacity: 0.4;
+  margin: var(--spacing-lg) auto;
+}
+
+/* ============================================================
+   COMMUNITY-EINLADUNG
+   ============================================================ */
+.community {
+  background: var(--color-bg-lighter);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+.community .kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+}
+.community h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+}
+.community p {
+  color: var(--color-text-muted);
+  max-width: 50ch;
+  margin: 0 auto var(--spacing-md);
+}
+.community .free-hint {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-top: var(--spacing-sm);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   BUTTONS  (Border-Radius 2px, gesperrt, Großbuchstaben — Website-Stil)
+   ============================================================ */
+.btn-row { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; justify-content: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.95rem 2.1rem;
+  border-radius: 2px;
+  border: 1px solid var(--color-accent);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-dark); border-color: var(--color-accent-dark); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(212,165,116,0.25); }
+.btn-secondary { background: transparent; color: var(--color-accent); }
+.btn-secondary:hover { background: rgba(212,165,116,0.08); transform: translateY(-3px); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: var(--spacing-md);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--line-soft);
+}
+footer a { color: var(--color-accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .community { padding: var(--spacing-md) var(--spacing-sm); }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<main>
+  <img class="logo-mandala" src="/LogoHandpanSchule.png" alt="Handpan Schule des Lebens">
+
+  <span class="confirm-pill">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+    Anmeldung bestätigt
+  </span>
+
+  <h1>Du bist <em>dabei</em>.</h1>
+
+  <p class="lead">
+    Danke für dein Vertrauen — deine Anmeldung zum <strong>Rhythmus Fundament</strong> ist eingegangen.
+    Ich freue mich riesig, dich auf den nächsten Wochen deiner Handpan-Reise zu begleiten.
+  </p>
+
+  <p class="note">
+    Alle Details zum Start, deinen Zugängen und den Live-Terminen bekommst du in den nächsten Minuten
+    per E-Mail. Schau gern auch in deinen Spam-Ordner, falls nichts ankommt.
+  </p>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <section class="community">
+    <p class="kicker">Komm näher</p>
+    <h2>Werde Teil unserer Community</h2>
+    <p>
+      Du musst diesen Weg nicht allein gehen. In unserer Community triffst du andere Spielende,
+      teilst deine Fortschritte und bist nah dran an allem, was hier entsteht — persönlich begleitet von mir.
+    </p>
+    <div class="btn-row">
+      <a href="https://www.skool.com/handpan-schule-des-lebens-7898/about" target="_blank" rel="noopener" class="btn btn-primary">Kostenlos beitreten</a>
+    </div>
+    <span class="free-hint">Reinschauen ist und bleibt kostenlos.</span>
+  </section>
+</main>
+
+<footer>
+  Handpan Schule des Lebens · Nils Caspar &nbsp;·&nbsp;
+  <a href="https://handpan.schule/">handpan.schule</a>
+</footer>
+
+</body>
+</html>
