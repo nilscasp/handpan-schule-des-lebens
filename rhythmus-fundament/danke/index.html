@@ -9,6 +9,23 @@
 <!-- Diese Seite wird nur nach erfolgreichem Kauf über Stripe angezeigt, daher nicht indexieren. -->
 <meta name="robots" content="noindex, nofollow">
 
+<!-- Meta Pixel – Purchase-Conversion. Feuert NUR auf dieser Bestätigungsseite (nach erfolgreicher Stripe-Zahlung),
+     daher ist dies das eigentliche Kauf-Signal für Meta. Gleicher Pixel wie auf der Landingpage. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1509510120659478');
+fbq('track', 'PageView');
+fbq('track', 'Purchase', {value: 359.00, currency: 'EUR', content_name: 'Rhythmus Fundament'});
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1509510120659478&ev=Purchase&cd[value]=359.00&cd[currency]=EUR&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://handpan.schule/rhythmus-fundament/danke/">
