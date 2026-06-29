@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Facebook Pixel – nur nach Cookie-Consent (DSGVO) -->
+    <!-- Meta Pixel Code – feuert sofort beim Seitenaufruf -->
     <script>
     window.hpsLoadFbPixel = function() {
         if (window.fbq) return;
@@ -13,13 +13,15 @@
         n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
         t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
         document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '835283135566622');
+        fbq('init', '1509510120659478');
         fbq('track', 'PageView');
     };
-    try {
-        if (localStorage.getItem('cookie-consent') === 'accepted') window.hpsLoadFbPixel();
-    } catch(e) {}
+    window.hpsLoadFbPixel();
     </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1509510120659478&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <title>Rhythmus Fundament · 6,5 Wochen Handpan-Grundkurs · 359&nbsp;€</title>
 
