@@ -375,6 +375,11 @@
     #page-rhythmus-fundament .rf-check-item { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid rgba(212,165,116,0.1); }
     #page-rhythmus-fundament .rf-check-item:last-child { border-bottom: none; }
     #page-rhythmus-fundament .rf-check-item .rf-ic { width: 1.35rem; height: 1.35rem; margin-top: 0.15rem; color: var(--color-accent); }
+    #page-rhythmus-fundament .rf-check-item .rf-feat { flex: 1; }
+    #page-rhythmus-fundament .rf-check-item .rf-price { margin-left: auto; padding-left: 1rem; white-space: nowrap; color: var(--color-accent); font-weight: 600; font-variant-numeric: tabular-nums; }
+    #page-rhythmus-fundament .rf-check-total { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 1rem 0 0.2rem; margin-top: 0.3rem; border-top: 2px solid rgba(212,165,116,0.3); }
+    #page-rhythmus-fundament .rf-check-total .rf-total-label { font-family: var(--font-serif); font-size: 1.15rem; color: var(--color-text); }
+    #page-rhythmus-fundament .rf-check-total .rf-total-value { font-weight: 700; font-size: 1.35rem; color: var(--color-accent); font-variant-numeric: tabular-nums; }
 
     /* === DER FADEN VERBINDET DIE KÄSTEN ===
        Der Faden soll nicht hinter den Kästen durchscheinen, sondern von Kasten zu Kasten
@@ -1160,20 +1165,22 @@
                 <!-- Value-Stack: alles, was enthalten ist -->
                 <div class="rf-check-list" style="text-align: left; margin-bottom: var(--spacing-lg);">
                     <p style="text-align: center; color: var(--color-text); font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: var(--spacing-sm);">Das ist alles dabei:</p>
-                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span style="color: var(--color-text);">45-tägige Video-Übungsserie — in deinem Tempo</span></div>
-                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span style="color: var(--color-text);">7 Live-Gruppencalls + Aufzeichnungen</span></div>
-                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span style="color: var(--color-text);"><strong style="color: var(--color-text);">Persönliche Begleitung mit mir per WhatsApp</strong></span></div>
-                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span style="color: var(--color-text);">Persönlicher Accountability-Partner</span></div>
-                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span style="color: var(--color-text);"><strong style="color: var(--color-text);">Bonus:</strong> Die Psychologie des Lernens — Motivation lenken, Widerstände auflösen, Routine etablieren</span></div>
-                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span style="color: var(--color-text);">Zugang zur Rhythmus-Web-App (hunderte Rhythmen)</span></div>
-                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span style="color: var(--color-text);">Voller Community-Zugang während der Kurszeit</span></div>
-                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span style="color: var(--color-text);">Aufzeichnungen &amp; Übungsmaterial — dauerhaft deins</span></div>
+                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span class="rf-feat" style="color: var(--color-text);">45-tägige Video-Übungsserie — in deinem Tempo</span><span class="rf-price">297&nbsp;€</span></div>
+                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span class="rf-feat" style="color: var(--color-text);">7 Live-Gruppencalls + Aufzeichnungen</span><span class="rf-price">350&nbsp;€</span></div>
+                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span class="rf-feat" style="color: var(--color-text);"><strong style="color: var(--color-text);">Persönliche Begleitung mit mir per WhatsApp – 6,5 Wochen</strong></span><span class="rf-price">250&nbsp;€</span></div>
+                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span class="rf-feat" style="color: var(--color-text);">Persönlicher Accountability-Partner</span><span class="rf-price" style="font-style: italic;">unbezahlbar</span></div>
+                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span class="rf-feat" style="color: var(--color-text);"><strong style="color: var(--color-text);">Bonus:</strong> Die Psychologie des Lernens — Motivation lenken, Widerstände auflösen, Routine etablieren</span><span class="rf-price">297&nbsp;€</span></div>
+                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span class="rf-feat" style="color: var(--color-text);">Zugang zur Rhythmus-Web-App (hunderte Rhythmen)</span><span class="rf-price">9&nbsp;€/Mt.</span></div>
+                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span class="rf-feat" style="color: var(--color-text);">Voller Community-Zugang während der Kurszeit</span><span class="rf-price">29&nbsp;€/Mt.</span></div>
+                    <div class="rf-check-item"><svg class="rf-ic"><use href="#rf-check"/></svg><span class="rf-feat" style="color: var(--color-text);">Aufzeichnungen &amp; Übungsmaterial — dauerhaft deins</span><span class="rf-price">120&nbsp;€</span></div>
+                    <div class="rf-check-total"><span class="rf-total-label">Gesamtwert</span><span class="rf-total-value">1.314&nbsp;€</span></div>
                 </div>
 
                 <!-- Preis-Anzeige direkt vor dem Kaufbutton -->
                 <div style="max-width: 460px; margin: 0 auto var(--spacing-lg); padding: 1.3rem 1.6rem; border: 1px solid rgba(212, 165, 116, 0.35); border-radius: 16px; background: rgba(212, 165, 116, 0.06);">
+                    <p style="margin: 0 0 0.2rem; color: var(--color-text-muted); font-size: 1rem;">Gesamtwert <s>1.314&nbsp;€</s> — dein Preis heute:</p>
                     <p style="margin: 0; font-size: 2.4rem; font-weight: 700; color: var(--color-accent); line-height: 1.1;">359&nbsp;€</p>
-                    <p style="margin: 0.4rem 0 0; color: var(--color-text-muted); font-size: 0.95rem;">einmalig — alles oben ist enthalten</p>
+                    <p style="margin: 0.4rem 0 0; color: var(--color-text-muted); font-size: 0.95rem;">einmalig — du sparst über 950&nbsp;€</p>
                 </div>
 
                 <!-- Zeitlich begrenztes Print-Bonus-Angebot (bis 30. Juni 2026) -->
