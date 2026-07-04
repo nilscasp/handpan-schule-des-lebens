@@ -20,6 +20,7 @@
             
             --font-serif: 'Fraunces', Georgia, serif;
             --font-sans: 'Spectral', Georgia, serif;
+            --font-nav: 'Jost', 'Helvetica Neue', Arial, sans-serif;
             
             --spacing-xs: 0.5rem;
             --spacing-sm: 1rem;
@@ -190,6 +191,15 @@
             transition: color 0.3s ease;
             cursor: pointer;
             padding: 6px 10px;
+        }
+
+        /* Header/menu chrome — geometric sans (Jost), distinct from the serif content */
+        .nav-link,
+        .nav-dropdown-link,
+        .nav-dropdown-toggle {
+            font-family: var(--font-nav);
+            font-weight: 400;
+            letter-spacing: 0.01em;
         }
 
         nav a:hover { color: var(--color-accent); }
