@@ -3437,7 +3437,7 @@
             border: 1px solid rgba(212, 165, 116, 0.25);
             color: var(--color-accent);
             text-decoration: none;
-            font-family: var(--font-body);
+            font-family: var(--font-nav);
             font-size: 0.85rem;
             font-weight: 500;
             letter-spacing: 0.06em;
