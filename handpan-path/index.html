@@ -281,13 +281,70 @@
             </div>
         </section>
 
-        <section class="section-dark">
-            <div class="container-narrow text-center">
-                <h2 class="mb-lg">Bereit für die Reise?</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
-                    Der nächste Handpan Path startet bald. Sichere dir deinen Platz.
+        <style>
+            .wl-form{max-width:560px;margin:0 auto;text-align:left;}
+            .wl-row{display:flex;gap:var(--spacing-sm);}
+            .wl-row .wl-field{flex:1;}
+            .wl-field{margin-bottom:var(--spacing-sm);}
+            .wl-label{display:block;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent);margin-bottom:0.5rem;}
+            .wl-optional{color:var(--color-text-muted);text-transform:none;letter-spacing:0;font-size:0.85em;}
+            .wl-input{width:100%;box-sizing:border-box;background:var(--color-bg-lighter);border:1px solid rgba(212,165,116,0.22);border-radius:2px;color:var(--color-text);font-family:inherit;font-size:1rem;padding:0.85rem 1rem;transition:border-color 0.2s;}
+            .wl-input::placeholder{color:var(--color-text-muted);opacity:0.7;}
+            .wl-input:focus{outline:none;border-color:var(--color-accent);}
+            .wl-textarea{resize:vertical;min-height:110px;line-height:1.6;}
+            .wl-submit{width:100%;margin-top:var(--spacing-sm);background:var(--color-accent);color:var(--color-bg);border:none;border-radius:2px;font-family:inherit;font-size:1.05rem;font-weight:600;letter-spacing:0.02em;padding:1rem;cursor:pointer;transition:background 0.2s;}
+            .wl-submit:hover{background:var(--color-accent-dark);}
+            .wl-submit:disabled{opacity:0.6;cursor:default;}
+            .wl-note{text-align:center;color:var(--color-text-muted);font-size:0.85rem;margin-top:var(--spacing-sm);}
+            .wl-success{max-width:560px;margin:0 auto;text-align:center;color:var(--color-accent);font-size:1.15rem;line-height:1.7;padding:var(--spacing-md);border:1px solid rgba(212,165,116,0.3);border-radius:2px;}
+            @media(max-width:600px){.wl-row{flex-direction:column;gap:0;}}
+        </style>
+
+        <section class="section-dark" id="warteliste">
+            <div class="container-narrow">
+                <h2 class="section-title text-center">Bewirb dich für den nächsten Path</h2>
+                <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.8; max-width: 620px; margin: 0 auto var(--spacing-sm); text-align: center;">
+                    Der Handpan Path beginnt am <strong style="color: var(--color-accent);">9. November zu Sonnenaufgang</strong> — mit der Initiation. Von dort aus gehen wir sechs Monate gemeinsam.
                 </p>
-                <a class="cta" href="/dabei-sein/">Jetzt Gespräch vereinbaren</a>
+                <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.8; max-width: 620px; margin: 0 auto var(--spacing-sm); text-align: center;">
+                    Es ist kein Kurs, in den man sich per Klick einträgt. Es sind <strong style="color: var(--color-accent);">maximal 13 Teilnehmer</strong>, und ich begleite jeden Einzelnen eng über die ganze Reise. Deshalb wähle ich die Gruppe in persönlichen Gesprächen aus.
+                </p>
+                <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.8; max-width: 620px; margin: 0 auto var(--spacing-lg); text-align: center;">
+                    Trag dich hier ein. <strong style="color: var(--color-text);">Ab September</strong> melde ich mich bei dir für ein persönliches Gespräch — wir schauen gemeinsam, ob der Path dein Weg ist.
+                </p>
+
+                <form class="wl-form" id="wl-form">
+                    <div class="wl-row">
+                        <div class="wl-field">
+                            <label class="wl-label" for="wl-vorname">Vorname</label>
+                            <input class="wl-input" type="text" id="wl-vorname" name="VORNAME" required placeholder="Dein Vorname">
+                        </div>
+                        <div class="wl-field">
+                            <label class="wl-label" for="wl-email">E-Mail</label>
+                            <input class="wl-input" type="email" id="wl-email" name="EMAIL" required placeholder="deine@email.de">
+                        </div>
+                    </div>
+                    <div class="wl-field">
+                        <label class="wl-label" for="wl-whatsapp">WhatsApp / Telefon</label>
+                        <input class="wl-input" type="tel" id="wl-whatsapp" name="WHATSAPP" required placeholder="z. B. +49 176 12345678">
+                    </div>
+                    <div class="wl-field">
+                        <label class="wl-label" for="wl-erfahrung">Wieviel Erfahrung hast du mit der Handpan?</label>
+                        <input class="wl-input" type="text" id="wl-erfahrung" name="ERFAHRUNG" placeholder="z. B. seit einem Jahr, spiele frei">
+                    </div>
+                    <div class="wl-field">
+                        <label class="wl-label" for="wl-motivation">Warum willst du den Path gehen?</label>
+                        <textarea class="wl-input wl-textarea" id="wl-motivation" name="MOTIVATION" rows="4" maxlength="200" placeholder="Erzähl mir in ein paar Sätzen, was dich ruft."></textarea>
+                    </div>
+                    <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;">
+                    <input type="hidden" name="locale" value="de">
+                    <button class="wl-submit" type="submit">Auf die Warteliste</button>
+                    <p class="wl-note">Kein Verkauf, kein Automatismus — ein persönlicher erster Schritt.</p>
+                </form>
+
+                <p class="wl-success" id="wl-success" style="display:none;">
+                    ✓ Deine Bewerbung ist angekommen. Ab September melde ich mich persönlich bei dir für ein Gespräch. Bis dahin — bleib mit deinem Instrument in Kontakt.
+                </p>
             </div>
         </section>
     </div>
@@ -405,6 +462,29 @@
             }).catch(function() {
                 form.style.display = 'none';
                 document.getElementById('newsletter-success').style.display = '';
+            });
+        });
+    </script>
+
+    <!-- Warteliste-Formular: Inline-Submit an Brevo -->
+    <script>
+        document.getElementById('wl-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var form = this;
+            var data = new FormData(form);
+            var btn = form.querySelector('.wl-submit');
+            btn.textContent = 'Wird gesendet …';
+            btn.disabled = true;
+            fetch('https://f66d0849.sibforms.com/serve/MUIFANE-jVzx08nMe3alQVuqBjjdEWf1uQOcYA0XstiRhV7lHOABDja8b8NGiEB5lOguydBPttkszLtQucLBYF-qGHiS7UT4p_BnlJvL8fL-s_ykltSoFWKnpU6OSEBVyqfE4ML6rzpkdB-YanQygDCX9RhTq2ogCaMQWVu197jUUFL5TNVKYbWDLxoWp6X3UzjGmrekg_g72pXO', {
+                method: 'POST',
+                body: data,
+                mode: 'no-cors'
+            }).then(function() {
+                form.style.display = 'none';
+                document.getElementById('wl-success').style.display = '';
+            }).catch(function() {
+                form.style.display = 'none';
+                document.getElementById('wl-success').style.display = '';
             });
         });
     </script>
