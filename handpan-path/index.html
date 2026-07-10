@@ -326,7 +326,7 @@
                     </div>
                     <div class="wl-field">
                         <label class="wl-label" for="wl-whatsapp">WhatsApp / Telefon</label>
-                        <input class="wl-input" type="tel" id="wl-whatsapp" name="WHATSAPP" required placeholder="z. B. +49 176 12345678">
+                        <input class="wl-input" type="tel" id="wl-whatsapp" name="SMS" required placeholder="z. B. +49 176 12345678">
                     </div>
                     <div class="wl-field">
                         <label class="wl-label" for="wl-erfahrung">Wieviel Erfahrung hast du mit der Handpan?</label>
@@ -338,13 +338,16 @@
                     </div>
                     <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;">
                     <input type="hidden" name="locale" value="de">
-                    <input type="hidden" name="html_type" value="simple">
+                    <input type="hidden" name="SMS__COUNTRY_CODE" value="+49">
                     <button class="wl-submit" type="submit">Auf die Warteliste</button>
                     <p class="wl-note">Kein Verkauf, kein Automatismus — ein persönlicher erster Schritt.</p>
                 </form>
 
                 <p class="wl-success" id="wl-success" style="display:none;">
                     ✓ Deine Bewerbung ist angekommen. Ab September melde ich mich persönlich bei dir für ein Gespräch. Bis dahin — bleib mit deinem Instrument in Kontakt.
+                </p>
+                <p class="wl-note" id="wl-error" style="display:none; color:#e08585;">
+                    Das hat leider nicht geklappt. Bitte prüfe deine Angaben und versuch es noch einmal — oder schreib mir direkt an <a href="mailto:kontakt@handpan.schule" style="color:var(--color-accent);">kontakt@handpan.schule</a>.
                 </p>
             </div>
         </section>
@@ -467,25 +470,44 @@
         });
     </script>
 
-    <!-- Warteliste-Formular: Inline-Submit an Brevo -->
+    <!-- Warteliste-Formular: Inline-Submit an Brevo (isAjax = echte Antwort statt blindem Erfolg) -->
     <script>
         document.getElementById('wl-form').addEventListener('submit', function(e) {
             e.preventDefault();
             var form = this;
-            var data = new FormData(form);
             var btn = form.querySelector('.wl-submit');
+            var errEl = document.getElementById('wl-error');
+            errEl.style.display = 'none';
+
+            // Telefonnummer in Brevos SMS-Format bringen: nur Ziffern, Ländervorwahl ohne +/0
+            var telInput = document.getElementById('wl-whatsapp');
+            var digits = telInput.value.replace(/\D/g, '');
+            if (digits.indexOf('00') === 0) digits = digits.slice(2);
+            else if (digits.indexOf('0') === 0) digits = '49' + digits.slice(1);
+            var data = new FormData(form);
+            data.set('SMS', digits);
+
             btn.textContent = 'Wird gesendet …';
             btn.disabled = true;
-            fetch('https://f66d0849.sibforms.com/serve/MUIFANE-jVzx08nMe3alQVuqBjjdEWf1uQOcYA0XstiRhV7lHOABDja8b8NGiEB5lOguydBPttkszLtQucLBYF-qGHiS7UT4p_BnlJvL8fL-s_ykltSoFWKnpU6OSEBVyqfE4ML6rzpkdB-YanQygDCX9RhTq2ogCaMQWVu197jUUFL5TNVKYbWDLxoWp6X3UzjGmrekg_g72pXO', {
+
+            fetch('https://f66d0849.sibforms.com/serve/MUIFANE-jVzx08nMe3alQVuqBjjdEWf1uQOcYA0XstiRhV7lHOABDja8b8NGiEB5lOguydBPttkszLtQucLBYF-qGHiS7UT4p_BnlJvL8fL-s_ykltSoFWKnpU6OSEBVyqfE4ML6rzpkdB-YanQygDCX9RhTq2ogCaMQWVu197jUUFL5TNVKYbWDLxoWp6X3UzjGmrekg_g72pXO?isAjax=1', {
                 method: 'POST',
-                body: data,
-                mode: 'no-cors'
-            }).then(function() {
-                form.style.display = 'none';
-                document.getElementById('wl-success').style.display = '';
-            }).catch(function() {
-                form.style.display = 'none';
-                document.getElementById('wl-success').style.display = '';
+                body: data
+            }).then(function(res) { return res.json(); }).then(function(json) {
+                if (json && json.success) {
+                    form.style.display = 'none';
+                    document.getElementById('wl-success').style.display = '';
+                } else {
+                    if (json && json.errors) console.warn('Brevo-Fehler:', json.errors);
+                    errEl.style.display = '';
+                    btn.textContent = 'Auf die Warteliste';
+                    btn.disabled = false;
+                }
+            }).catch(function(err) {
+                console.warn('Warteliste-Submit fehlgeschlagen:', err);
+                errEl.style.display = '';
+                btn.textContent = 'Auf die Warteliste';
+                btn.disabled = false;
             });
         });
     </script>
