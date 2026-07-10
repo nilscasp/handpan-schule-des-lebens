@@ -339,7 +339,8 @@
                     ✓ Deine Bewerbung ist angekommen. Ab September melde ich mich persönlich bei dir für ein Gespräch. Bis dahin — bleib mit deinem Instrument in Kontakt.
                 </p>
                 <p class="wl-note" id="wl-error" style="display:none; color:#e08585;">
-                    Das hat leider nicht geklappt. Bitte prüfe deine Angaben und versuch es noch einmal — oder schreib mir direkt an <a href="mailto:kontakt@handpan.schule" style="color:var(--color-accent);">kontakt@handpan.schule</a>.
+                    <span id="wl-error-msg">Das hat leider nicht geklappt.</span>
+                    Bitte prüfe deine Angaben und versuch es noch einmal — oder schreib mir direkt an <a href="mailto:kontakt@handpan.schule" style="color:var(--color-accent);">kontakt@handpan.schule</a>.
                 </p>
             </div>
         </section>
@@ -490,7 +491,14 @@
                     form.style.display = 'none';
                     document.getElementById('wl-success').style.display = '';
                 } else {
-                    if (json && json.errors) console.warn('Brevo-Fehler:', json.errors);
+                    var msgEl = document.getElementById('wl-error-msg');
+                    if (json && json.errors) {
+                        console.warn('Brevo-Fehler:', json.errors);
+                        var first = json.errors[Object.keys(json.errors)[0]];
+                        msgEl.textContent = typeof first === 'string' ? first : 'Das hat leider nicht geklappt.';
+                    } else {
+                        msgEl.textContent = 'Das hat leider nicht geklappt.';
+                    }
                     errEl.style.display = '';
                     btn.textContent = 'Auf die Warteliste';
                     btn.disabled = false;
