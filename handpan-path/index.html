@@ -477,6 +477,7 @@
             var digits = telInput.value.replace(/\D/g, '');
             if (digits.indexOf('00') === 0) digits = digits.slice(2);
             else if (digits.indexOf('0') === 0) digits = '49' + digits.slice(1);
+            else if (telInput.value.trim().indexOf('+') !== 0 && digits.indexOf('49') !== 0) digits = '49' + digits;
             var data = new FormData(form);
             data.set('SMS', digits);
 
