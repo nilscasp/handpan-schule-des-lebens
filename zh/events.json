@@ -1,28 +1,28 @@
 [
   {
-    "title": "\u521d\u5b66\u8005\u5de5\u4f5c\u574a",
+    "title": "初学者工作坊",
     "date": "2026-07-19",
     "time": "12:00",
     "type": "workshop",
     "link": "#einsteigerkurse"
   },
   {
-    "title": "1:1 \u5bfc\u5e08\u6307\u5bfc \u2013 \u5f00\u653e\u54a8\u8be2",
+    "title": "1:1 导师指导 – 开放咨询",
     "date": "2026-03-22",
     "time": "17:00",
     "type": "mentoring",
     "link": "#einzelunterricht-buchen"
   },
   {
-    "title": "\u8282\u594f\u57fa\u7840 \u2013 \u5f00\u8bfe",
+    "title": "节奏基础 – 开课",
     "date": "2026-09-11",
     "time": "19:00",
     "type": "kurs",
     "link": "#rhythmus-fundament"
   },
   {
-    "title": "\u624b\u789f\u4e4b\u8def",
-    "date": "2026-11-01",
+    "title": "手碟之路",
+    "date": "2026-11-09",
     "time": "",
     "type": "kurs",
     "link": "#handpan-path"
