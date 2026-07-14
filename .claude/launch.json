@@ -4,8 +4,24 @@
     {
       "name": "handpan-dev",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8003"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8003"
+      ],
       "port": 8003
+    },
+    {
+      "name": "naturklang-hero",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4173",
+        "--directory",
+        "/Users/nilscaspar/Code/Naturklang/site"
+      ],
+      "port": 4173
     }
   ]
 }
