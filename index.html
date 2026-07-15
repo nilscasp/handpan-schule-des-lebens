@@ -25,7 +25,7 @@
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="Handpan lernen jenseits von Tutorials. Kurse, Retreats und Mentoring in München und online — für Menschen, die ihren eigenen Klang finden wollen. Mit Nils Caspar.">
-    <meta name="keywords" content="Handpan lernen, Handpan Schule, Handpan Kurs München, Handpan Unterricht, Handpan online lernen, Handpan Retreat, Handpan Mentoring, Handpan Einzelunterricht, Handpan Anfänger, Handpan Neuhausen, Handpan Workshop">
+    <meta name="keywords" content="Handpan lernen, Handpan Schule, Handpan Kurs München, Handpan Unterricht, Handpan online lernen, Handpan Retreat, Handpan Mentoring, Handpan Anfänger, Handpan Neuhausen, Handpan Workshop">
     <meta name="author" content="Nils Caspar">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="DE-BY">
@@ -122,20 +122,11 @@
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Handpan Einzelunterricht",
-                        "description": "Persönlicher Handpan-Unterricht in München-Neuhausen",
-                        "provider": { "@type": "MusicSchool", "name": "Handpan Schule des Lebens" }
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
                         "name": "Handpan Mentoring",
                         "description": "1:1 Handpan Mentoring – online oder vor Ort",
                         "provider": { "@type": "MusicSchool", "name": "Handpan Schule des Lebens" }
                     },
-                    "price": "149",
+                    "price": "150",
                     "priceCurrency": "EUR"
                 }
             ]
@@ -377,7 +368,7 @@
                 <div class="card-grid">
                     <article class="card">
                         <h3 class="card-title">Einsteigen</h3>
-                        <p class="card-subtitle">Workshops &amp; Einzelunterricht</p>
+                        <p class="card-subtitle">Workshops &amp; Einsteigerkurse</p>
                         <p>Dein erster Kontakt mit der Handpan. Entdecke den Klang, spüre den Rhythmus — ganz ohne Druck.</p>
                         <a href="/programm/" class="journey-link" style="display: inline-block; margin-top: var(--spacing-sm);">→ Programm entdecken</a>
                     </article>
@@ -655,9 +646,10 @@
     (function() {
         if (window.location.hash && window.location.hash !== '#home') {
             var route = window.location.hash.slice(1);
-            var validRoutes = ['philosophie','lernziele','programm','community','dabei-sein','impressum','datenschutz','handpan-path','rhythmus-fundament','retreats','mentoring','einzelunterricht','kinderunterricht','ueber','nils-caspar','peter-aumueller','einsteigerkurse','instrumente'];
+            var validRoutes = ['philosophie','lernziele','programm','community','dabei-sein','impressum','datenschutz','handpan-path','rhythmus-fundament','retreats','mentoring','kinderunterricht','ueber','nils-caspar','peter-aumueller','einsteigerkurse','instrumente'];
             // Handle redirects
             if (route === 'gruender' || route === 'lehrer') route = 'nils-caspar';
+            if (route === 'einzelunterricht') route = 'dabei-sein';
             if (validRoutes.indexOf(route) !== -1) {
                 window.location.replace('/' + route + '/');
             }

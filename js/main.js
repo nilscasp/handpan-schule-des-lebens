@@ -24,7 +24,6 @@
             const programmSubpages = [
                 '/rhythmus-fundament/',
                 '/einsteigerkurse/',
-                '/einzelunterricht/',
                 '/kinderunterricht/',
                 '/retreats/',
                 '/mentoring/',
