@@ -646,10 +646,10 @@
     (function() {
         if (window.location.hash && window.location.hash !== '#home') {
             var route = window.location.hash.slice(1);
-            var validRoutes = ['philosophie','lernziele','programm','community','dabei-sein','impressum','datenschutz','handpan-path','rhythmus-fundament','retreats','mentoring','kinderunterricht','ueber','nils-caspar','peter-aumueller','einsteigerkurse','instrumente'];
+            var validRoutes = ['philosophie','lernziele','programm','community','dabei-sein','impressum','datenschutz','handpan-path','rhythmus-fundament','retreats','mentoring','ueber','nils-caspar','peter-aumueller','einsteigerkurse','instrumente'];
             // Handle redirects
             if (route === 'gruender' || route === 'lehrer') route = 'nils-caspar';
-            if (route === 'einzelunterricht') route = 'dabei-sein';
+            if (route === 'einzelunterricht' || route === 'kinderunterricht') route = 'dabei-sein';
             if (validRoutes.indexOf(route) !== -1) {
                 window.location.replace('/' + route + '/');
             }
