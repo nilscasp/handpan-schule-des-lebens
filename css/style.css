@@ -775,9 +775,9 @@
                 radial-gradient(ellipse 55% 60% at 55% 55%,
                     rgba(212, 165, 116, 0.12) 0%,
                     rgba(212, 165, 116, 0.04) 42%,
-                    transparent 72%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574'%3E%3Ccircle cx='230' cy='690' r='28' stroke-width='1.25' stroke-opacity='0.15'/%3E%3Ccircle cx='230' cy='690' r='55' stroke-width='1.25' stroke-opacity='0.08'/%3E%3Cpath d='M 230 690 C 270 672 290 708 330 690 S 390 708 430 686 S 500 622 560 668 S 640 756 712 668 C 762 608 852 588 862 658 C 872 728 772 728 792 638 C 812 548 932 518 1012 468 S 1112 388 1162 318 C 1190 278 1208 250 1228 222' stroke-width='1.75' stroke-opacity='0.18' stroke-linecap='round'/%3E%3C/g%3E%3Cg fill='%23D4A574'%3E%3Ccircle cx='230' cy='690' r='5' fill-opacity='0.6'/%3E%3Ccircle cx='1262' cy='192' r='4' fill-opacity='0.55'/%3E%3Ccircle cx='1302' cy='164' r='3.5' fill-opacity='0.45'/%3E%3Ccircle cx='1338' cy='140' r='3' fill-opacity='0.35'/%3E%3C/g%3E%3C/svg%3E");
+                    transparent 72%);
         }
+        /* Die Linie selbst lebt als Inline-SVG in der Seite (zeichnet sich beim Laden) */
 
         /* === Einzelunterricht: Vesica Piscis — zwei Menschen in Resonanz === */
         #page-einzelunterricht .page-hero::before {

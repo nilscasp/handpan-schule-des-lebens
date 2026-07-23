@@ -57,7 +57,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" href="/og-logo.png">
 
-    <link rel="stylesheet" href="/css/style.css?v=2026-07-23b">
+    <link rel="stylesheet" href="/css/style.css?v=2026-07-23c">
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-07-05b">
 
     <!-- Structured Data: Course + FAQPage -->
@@ -199,7 +199,65 @@
         color: var(--color-text);
     }
     #page-von-anfang-an .vaa-termine-row span:last-child { color: var(--color-text-muted); }
+    #page-von-anfang-an .vaa-termine-row { transition: border-color 0.4s ease; }
+    #page-von-anfang-an .vaa-termine-row:hover { border-bottom-color: rgba(212, 165, 116, 0.45); }
+    #page-von-anfang-an .vaa-termine-row:hover span:first-child { color: var(--color-accent); transition: color 0.4s ease; }
+
+    /* === Lebendigkeit: die Linie zeichnet sich, die Seite atmet === */
+    #page-von-anfang-an .vaa-hero-art {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+    #page-von-anfang-an .vaa-hero-art svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    /* Verspielte Staffelung für Checkliste und Termine (Reveal-System aus main.js) */
+    #page-von-anfang-an .vaa-check-item:nth-child(2) { transition-delay: 0.15s; }
+    #page-von-anfang-an .vaa-check-item:nth-child(3) { transition-delay: 0.3s; }
+    #page-von-anfang-an .vaa-termine-row:nth-child(2) { transition-delay: 0.06s; }
+    #page-von-anfang-an .vaa-termine-row:nth-child(3) { transition-delay: 0.12s; }
+    #page-von-anfang-an .vaa-termine-row:nth-child(4) { transition-delay: 0.18s; }
+    #page-von-anfang-an .vaa-termine-row:nth-child(5) { transition-delay: 0.24s; }
+    #page-von-anfang-an .vaa-termine-row:nth-child(6) { transition-delay: 0.3s; }
+    #page-von-anfang-an .vaa-termine-row:nth-child(7) { transition-delay: 0.36s; }
+    #page-von-anfang-an .vaa-termine-row:nth-child(8) { transition-delay: 0.42s; }
+    #page-von-anfang-an .vaa-termine-row:nth-child(9) { transition-delay: 0.48s; }
+    #page-von-anfang-an .vaa-termine-row:nth-child(10) { transition-delay: 0.54s; }
+    @media (prefers-reduced-motion: no-preference) {
+        #page-von-anfang-an .vaa-line {
+            stroke-dasharray: 1;
+            animation: vaa-draw 6s cubic-bezier(0.45, 0, 0.25, 1) 0.4s both;
+        }
+        #page-von-anfang-an .vaa-dot-fly {
+            opacity: 0;
+            animation: vaa-fade 0.9s ease-out forwards;
+        }
+        #page-von-anfang-an .vaa-dot-1 { animation-delay: 5.4s; }
+        #page-von-anfang-an .vaa-dot-2 { animation-delay: 5.8s; }
+        #page-von-anfang-an .vaa-dot-3 { animation-delay: 6.2s; }
+        #page-von-anfang-an .vaa-touch {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: vaa-pulse 4.5s ease-in-out 1s infinite;
+        }
+    }
+    @keyframes vaa-draw {
+        from { stroke-dashoffset: 1; }
+        to { stroke-dashoffset: 0; }
+    }
+    @keyframes vaa-fade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes vaa-pulse {
+        0%, 100% { transform: scale(1); fill-opacity: 0.6; }
+        50% { transform: scale(1.6); fill-opacity: 0.35; }
+    }
     </style>
+    <noscript><style>.scroll-reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
 
@@ -266,6 +324,21 @@
 
         <!-- Hero -->
         <section class="page-hero">
+            <div class="vaa-hero-art" aria-hidden="true">
+                <svg viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="#D4A574">
+                        <circle cx="230" cy="690" r="28" stroke-width="1.25" stroke-opacity="0.15"/>
+                        <circle cx="230" cy="690" r="55" stroke-width="1.25" stroke-opacity="0.08"/>
+                        <path class="vaa-line" pathLength="1" d="M 230 690 C 270 672 290 708 330 690 S 390 708 430 686 S 500 622 560 668 S 640 756 712 668 C 762 608 852 588 862 658 C 872 728 772 728 792 638 C 812 548 932 518 1012 468 S 1112 388 1162 318 C 1190 278 1208 250 1228 222" stroke-width="1.75" stroke-opacity="0.18" stroke-linecap="round"/>
+                    </g>
+                    <g fill="#D4A574">
+                        <circle class="vaa-touch" cx="230" cy="690" r="5" fill-opacity="0.6"/>
+                        <circle class="vaa-dot-fly vaa-dot-1" cx="1262" cy="192" r="4" fill-opacity="0.55"/>
+                        <circle class="vaa-dot-fly vaa-dot-2" cx="1302" cy="164" r="3.5" fill-opacity="0.45"/>
+                        <circle class="vaa-dot-fly vaa-dot-3" cx="1338" cy="140" r="3" fill-opacity="0.35"/>
+                    </g>
+                </svg>
+            </div>
             <div class="hero-content container-narrow">
                 <a href="/programm/" class="detail-back">← Zurück zu den Angeboten</a>
                 <h1>Von Anfang an spielen</h1>
@@ -337,6 +410,11 @@
                            Gefühl verbunden ist — und Freude, die bleibt.</p>
                     </div>
                 </div>
+                <blockquote class="quote-block" style="margin-top: var(--spacing-lg);">
+                    <p class="quote-text" style="font-size: 1.3rem;">
+                        „Lebendig wird dein Spiel in dem Moment, in dem du deinen Impulsen folgst — und deine Seele mitspielt."
+                    </p>
+                </blockquote>
             </div>
         </section>
 
@@ -398,16 +476,16 @@
                     10 Live-Sessions, immer samstags um 10:00 Uhr.
                 </p>
                 <div style="max-width: 460px; margin: 0 auto;">
-                    <div class="vaa-termine-row"><span>Sa, 26.09.2026</span><span>10:00 Uhr · Kick-off</span></div>
-                    <div class="vaa-termine-row"><span>Sa, 03.10.2026</span><span>10:00 Uhr</span></div>
-                    <div class="vaa-termine-row"><span>Sa, 10.10.2026</span><span>10:00 Uhr</span></div>
-                    <div class="vaa-termine-row"><span>Sa, 17.10.2026</span><span>10:00 Uhr</span></div>
-                    <div class="vaa-termine-row"><span>Sa, 24.10.2026</span><span>10:00 Uhr</span></div>
-                    <div class="vaa-termine-row"><span>Sa, 31.10.2026</span><span>10:00 Uhr</span></div>
-                    <div class="vaa-termine-row"><span>Sa, 07.11.2026</span><span>10:00 Uhr</span></div>
-                    <div class="vaa-termine-row"><span>Sa, 14.11.2026</span><span>10:00 Uhr</span></div>
-                    <div class="vaa-termine-row"><span>Sa, 21.11.2026</span><span>10:00 Uhr</span></div>
-                    <div class="vaa-termine-row"><span>Sa, 28.11.2026</span><span>10:00 Uhr · Abschluss</span></div>
+                    <div class="vaa-termine-row scroll-reveal"><span>Sa, 26.09.2026</span><span>10:00 Uhr · Kick-off</span></div>
+                    <div class="vaa-termine-row scroll-reveal"><span>Sa, 03.10.2026</span><span>10:00 Uhr</span></div>
+                    <div class="vaa-termine-row scroll-reveal"><span>Sa, 10.10.2026</span><span>10:00 Uhr</span></div>
+                    <div class="vaa-termine-row scroll-reveal"><span>Sa, 17.10.2026</span><span>10:00 Uhr</span></div>
+                    <div class="vaa-termine-row scroll-reveal"><span>Sa, 24.10.2026</span><span>10:00 Uhr</span></div>
+                    <div class="vaa-termine-row scroll-reveal"><span>Sa, 31.10.2026</span><span>10:00 Uhr</span></div>
+                    <div class="vaa-termine-row scroll-reveal"><span>Sa, 07.11.2026</span><span>10:00 Uhr</span></div>
+                    <div class="vaa-termine-row scroll-reveal"><span>Sa, 14.11.2026</span><span>10:00 Uhr</span></div>
+                    <div class="vaa-termine-row scroll-reveal"><span>Sa, 21.11.2026</span><span>10:00 Uhr</span></div>
+                    <div class="vaa-termine-row scroll-reveal"><span>Sa, 28.11.2026</span><span>10:00 Uhr · Abschluss</span></div>
                 </div>
                 <p style="color: var(--color-text-muted); text-align: center; margin-top: var(--spacing-md); font-size: 0.95rem;">
                     Du kannst mal nicht? Jede Session wird aufgezeichnet und dir zur Verfügung gestellt.
@@ -421,9 +499,9 @@
                 <h2 class="section-title">Für wen ist das?</h2>
                 <p style="color: var(--color-text-muted); text-align: center; margin-bottom: var(--spacing-md);">Für dich, wenn …</p>
                 <div class="vaa-check-list">
-                    <div class="vaa-check-item"><span>… du <strong>ganz am Anfang</strong> stehst und deine eigene Handpan endlich zum Klingen bringen willst.</span></div>
-                    <div class="vaa-check-item"><span>… du nicht nur Patterns kopieren, sondern <strong>von Anfang an kreativ und mit Gefühl</strong> spielen willst.</span></div>
-                    <div class="vaa-check-item"><span>… du dir eine Begleitung wünschst, mit der du <strong>wirklich dranbleibst</strong> — statt nach zwei Wochen aufzugeben.</span></div>
+                    <div class="vaa-check-item scroll-reveal"><span>… du <strong>ganz am Anfang</strong> stehst und deine eigene Handpan endlich zum Klingen bringen willst.</span></div>
+                    <div class="vaa-check-item scroll-reveal"><span>… du nicht nur Patterns kopieren, sondern <strong>von Anfang an kreativ und mit Gefühl</strong> spielen willst.</span></div>
+                    <div class="vaa-check-item scroll-reveal"><span>… du dir eine Begleitung wünschst, mit der du <strong>wirklich dranbleibst</strong> — statt nach zwei Wochen aufzugeben.</span></div>
                 </div>
                 <p style="color: var(--color-text-muted); text-align: center; margin-top: var(--spacing-lg); font-size: 0.95rem;">
                     Du spielst schon und willst dein rhythmisches Fundament vertiefen?
@@ -436,7 +514,7 @@
         <section class="section-dark" id="anmeldung">
             <div class="container-narrow text-center">
                 <h2 class="section-title">Sichere dir deinen Platz</h2>
-                <div class="vaa-price-box">
+                <div class="vaa-price-box scroll-reveal">
                     <p style="color: var(--color-text-muted); font-size: 0.95rem; letter-spacing: 0.05em; text-transform: uppercase;">Frühbucher bis 12.09.2026</p>
                     <p class="vaa-price-main">450&nbsp;€</p>
                     <p class="vaa-price-note">danach 500&nbsp;€ · 10 Wochen Live-Begleitung inkl. aller Aufzeichnungen und Video-Impulse</p>
@@ -500,14 +578,29 @@
 
         <!-- Über Nils -->
         <section class="section-dark">
-            <div class="container-narrow text-center">
+            <div class="container-narrow">
                 <h2 class="section-title">Dein Lehrer</h2>
-                <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto var(--spacing-md);">
-                    Ich bin Nils — Musiker, Künstler und Gründer der Handpan Schule des Lebens.
-                    Ich begleite Menschen dabei, über die Handpan zurück zu sich selbst zu finden:
-                    mit fundiertem Handwerk und einem Spiel, das aus dem eigenen Gefühl kommt.
-                </p>
-                <a class="cta" href="/nils-caspar/">Mehr über Nils</a>
+                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-lg); align-items: center; justify-content: center;">
+                    <img src="/images/optimized/portrait-handpan.webp" alt="Nils Caspar mit Handpan" loading="lazy" decoding="async"
+                         style="width: 320px; max-width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(212, 165, 116, 0.3); display: block;">
+                    <div style="flex: 1 1 300px; min-width: 260px;">
+                        <h3 style="margin-bottom: 0.25rem;">
+                            <a href="/nils-caspar/" style="color: var(--color-accent); text-decoration: none;">Nils Caspar</a>
+                        </h3>
+                        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: var(--spacing-md);">
+                            Gründer der Handpan Schule des Lebens · Musiker &amp; Künstler
+                        </p>
+                        <p style="margin-bottom: var(--spacing-md);">
+                            Die ersten Wochen an der Handpan sind mir die liebsten: der Moment, in dem aus
+                            der ersten vorsichtigen Berührung die ersten eigenen Töne werden. Genau diesen
+                            Anfang begleite ich in diesem Programm — mit fundiertem Handwerk, ohne Druck
+                            und mit viel Raum für dein eigenes Gefühl.
+                        </p>
+                        <p style="margin-bottom: 0;">
+                            <a href="/nils-caspar/" style="color: var(--color-accent); text-decoration: none;">→ Mehr über mich</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
