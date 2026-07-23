@@ -766,14 +766,17 @@
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Cline x1='0' y1='620' x2='1400' y2='620' stroke-opacity='0.09'/%3E%3Ccircle cx='700' cy='640' r='140' stroke-opacity='0.14'/%3E%3Cpath d='M 480 560 A 220 220 0 0 1 920 560' stroke-opacity='0.11'/%3E%3Cpath d='M 380 600 A 320 320 0 0 1 1020 600' stroke-opacity='0.07'/%3E%3Cpath d='M 280 640 A 420 420 0 0 1 1120 640' stroke-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
         }
 
-        /* === Von Anfang an spielen: Die erste Berührung — ein Punkt, aus dem Klangwellen wachsen === */
+        /* === Von Anfang an spielen: Vom ersten Ton zur freien Linie —
+               eine Linie beginnt am Berührungspunkt in kleinen, vorsichtigen Wellen,
+               schwingt größer, befreit sich in einer Schleife und fliegt als
+               freie Geste davon, wo sie sich in einzelne Töne auflöst. === */
         #page-von-anfang-an .page-hero::before {
             background-image:
-                radial-gradient(ellipse 55% 65% at 50% 52%,
-                    rgba(212, 165, 116, 0.13) 0%,
+                radial-gradient(ellipse 55% 60% at 55% 55%,
+                    rgba(212, 165, 116, 0.12) 0%,
                     rgba(212, 165, 116, 0.04) 42%,
                     transparent 72%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1.25'%3E%3Ccircle cx='700' cy='470' r='60' stroke-opacity='0.16'/%3E%3Ccircle cx='700' cy='470' r='125' stroke-opacity='0.12'/%3E%3Ccircle cx='700' cy='470' r='205' stroke-opacity='0.09'/%3E%3Ccircle cx='700' cy='470' r='300' stroke-opacity='0.06'/%3E%3Ccircle cx='700' cy='470' r='420' stroke-opacity='0.04'/%3E%3Ccircle cx='700' cy='470' r='560' stroke-opacity='0.025'/%3E%3C/g%3E%3Cg fill='%23D4A574'%3E%3Ccircle cx='700' cy='470' r='5' fill-opacity='0.65'/%3E%3C/g%3E%3C/svg%3E");
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900' viewBox='0 0 1400 900'%3E%3Cg fill='none' stroke='%23D4A574'%3E%3Ccircle cx='230' cy='690' r='28' stroke-width='1.25' stroke-opacity='0.15'/%3E%3Ccircle cx='230' cy='690' r='55' stroke-width='1.25' stroke-opacity='0.08'/%3E%3Cpath d='M 230 690 C 270 672 290 708 330 690 S 390 708 430 686 S 500 622 560 668 S 640 756 712 668 C 762 608 852 588 862 658 C 872 728 772 728 792 638 C 812 548 932 518 1012 468 S 1112 388 1162 318 C 1190 278 1208 250 1228 222' stroke-width='1.75' stroke-opacity='0.18' stroke-linecap='round'/%3E%3C/g%3E%3Cg fill='%23D4A574'%3E%3Ccircle cx='230' cy='690' r='5' fill-opacity='0.6'/%3E%3Ccircle cx='1262' cy='192' r='4' fill-opacity='0.55'/%3E%3Ccircle cx='1302' cy='164' r='3.5' fill-opacity='0.45'/%3E%3Ccircle cx='1338' cy='140' r='3' fill-opacity='0.35'/%3E%3C/g%3E%3C/svg%3E");
         }
 
         /* === Einzelunterricht: Vesica Piscis — zwei Menschen in Resonanz === */
