@@ -1,58 +1,11 @@
 [
   {
-    "title": "Rhythm Gym",
-    "date": "2026-06-25",
-    "time": "19:00",
-    "type": "community",
-    "location": "Online",
-    "link": "https://www.skool.com/handpan-schule-des-lebens-7898/about"
-  },
-  {
-    "title": "Vollmond Meditation",
-    "date": "2026-06-30",
-    "time": "19:00",
-    "type": "community",
-    "location": "Online",
-    "link": "https://www.skool.com/handpan-schule-des-lebens-7898/about"
-  },
-  {
-    "title": "Rhythm Gym",
-    "date": "2026-07-15",
-    "time": "19:00",
-    "type": "community",
-    "location": "Online",
-    "link": "/community/"
-  },
-  {
-    "title": "Meditation",
-    "date": "2026-07-22",
-    "time": "19:00",
-    "type": "community",
-    "location": "Online",
-    "link": "/community/"
-  },
-  {
-    "title": "Einsteiger-Workshop",
-    "date": "2026-07-19",
-    "time": "12–14",
-    "type": "workshop",
-    "location": "München",
-    "link": "/einsteigerkurse/"
-  },
-  {
     "title": "Einsteiger-Workshop",
     "date": "2026-08-16",
     "time": "11–13",
     "type": "workshop",
     "location": "München",
     "link": "/einsteigerkurse/"
-  },
-  {
-    "title": "1:1 Mentoring – Offene Sprechstunde",
-    "date": "2026-03-22",
-    "time": "17:00",
-    "type": "mentoring",
-    "link": "/mentoring/"
   },
   {
     "title": "Rhythmus Fundament – Kick-off",
@@ -62,18 +15,18 @@
     "link": "/rhythmus-fundament/"
   },
   {
+    "title": "Von Anfang an spielen – Kursstart",
+    "date": "2026-09-26",
+    "time": "10:00",
+    "type": "kurs",
+    "location": "Online",
+    "link": "/von-anfang-an-handpan-spielen/"
+  },
+  {
     "title": "The Handpan Path",
     "date": "2026-11-09",
     "time": "",
     "type": "kurs",
     "link": "/handpan-path/"
-  },
-  {
-    "title": "Handpan-Schule Sommerfest",
-    "date": "2026-08-02",
-    "time": "10–14",
-    "type": "fest",
-    "location": "München",
-    "link": "mailto:kontakt@handpan.schule?subject=Anmeldung%20Sommerfest%202.%20August&body=Hallo%20Nils%2C%0A%0Aich%20m%C3%B6chte%20mich%20gerne%20zum%20Handpan-Schule%20Sommerfest%20am%202.%20August%202026%20anmelden.%0A%0AUhrzeit%3A%2010%E2%80%9314%20Uhr%20%28open%20end%20m%C3%B6glich%29%0A%0AName%3A%20%0AAnzahl%20Personen%3A%20%0AIch%20bringe%20eine%20Handpan%20mit%3A%20ja%20%2F%20nein%0A%0ALiebe%20Gr%C3%BC%C3%9Fe"
   }
 ]
