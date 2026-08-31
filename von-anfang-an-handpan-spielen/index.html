@@ -37,10 +37,10 @@
     <meta property="og:description" content="10 Wochen komplett online, wöchentliche Live-Sessions + Video-Impulse. Für absolute Anfänger — kreativ, intuitiv und meditativ spielen lernen, auch für Meditation und Yoga. Max. 13 Plätze. Start 26.09.2026.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://handpan.schule/von-anfang-an-handpan-spielen/">
-    <meta property="og:image" content="https://handpan.schule/og-logo.png">
+    <meta property="og:image" content="https://handpan.schule/images/og-von-anfang-an.jpg">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="1200">
-    <meta property="og:image:alt" content="Handpan Schule des Lebens Logo">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hände auf einer Handpan im warmen Licht">
     <meta property="og:locale" content="de_DE">
     <meta property="og:site_name" content="Handpan Schule des Lebens">
 
@@ -48,7 +48,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Von Anfang an spielen · Handpan spielen lernen für absolute Anfänger">
     <meta name="twitter:description" content="10 Wochen komplett online, Live-Sessions + Video-Impulse. Für absolute Anfänger — kreativ, intuitiv, meditativ. Max. 13 Plätze. Start 26.09.2026.">
-    <meta name="twitter:image" content="https://handpan.schule/og-logo.png">
+    <meta name="twitter:image" content="https://handpan.schule/images/og-von-anfang-an.jpg">
     <meta name="theme-color" content="#0A0E14">
     <link rel="apple-touch-icon" href="/og-logo.png">
 
@@ -195,6 +195,30 @@
         font-size: 0.95rem;
         margin-top: 0.6rem;
     }
+    #page-von-anfang-an .vaa-price-includes {
+        list-style: none;
+        max-width: 400px;
+        margin: 1.4rem auto 0;
+        padding: 0;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+    }
+    #page-von-anfang-an .vaa-price-includes li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        color: var(--color-text);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    #page-von-anfang-an .vaa-price-includes li::before {
+        content: "✓";
+        color: var(--color-accent);
+        font-weight: 600;
+        flex-shrink: 0;
+    }
     #page-von-anfang-an .vaa-seats {
         display: inline-block;
         margin-top: 1rem;
@@ -293,6 +317,14 @@
         </div>
     </div>
 
+    <!-- Floating Action Button: Jetzt anmelden -->
+    <div class="floating-actions" style="position: fixed; bottom: 2rem; right: 2rem; z-index: 90; display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-end;">
+        <a href="#anmeldung" class="floating-cta cta--primary" style="position: static; font-weight: 600;" aria-label="Jetzt anmelden">
+            <span class="floating-cta-icon">✨</span>
+            Jetzt anmelden
+        </a>
+    </div>
+
     <!-- Skip Navigation Link -->
     <a href="#main-content" class="visually-hidden" style="position:absolute;top:0;left:0;z-index:999;padding:1rem;background:var(--color-accent);color:var(--color-bg);" onfocus="this.style.position='relative'" onblur="this.style.position='absolute'">Zum Inhalt springen</a>
 
@@ -364,6 +396,10 @@
                     Das 10-Wochen-Live-Programm für alle, die ganz am Anfang stehen —
                     und die Handpan von Beginn an kreativ und in Verbindung mit ihrem Gefühl spielen wollen.
                 </p>
+                <a class="cta cta-primary" href="#anmeldung" style="margin-top: var(--spacing-md); display: inline-block;">Jetzt Platz sichern</a>
+                <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 0.8rem;">
+                    Frühbucher 450&nbsp;€ bis 12.09. · Start 26.09.2026 · nur 13 Plätze
+                </p>
             </div>
         </section>
 
@@ -380,16 +416,25 @@
             </div>
         </section>
 
-        <!-- Intro -->
+        <!-- Intro: Aussage von Nils mit Porträt -->
         <section class="section-light">
             <div class="container-narrow">
-                <p class="section-intro" style="font-size: 1.2rem;">
-                    Die meisten lernen die Handpan, indem sie Patterns nachspielen — und verlieren
-                    irgendwann die Freude, weil das eigene Gefühl nie mitspielen durfte.
-                    In „Von Anfang an spielen" gehst du den anderen Weg: Du entwickelst von der ersten
-                    Woche an einen schöpferischen Zugang zu deinem Instrument. Alle Grundlagen, die du
-                    brauchst — und dazu das kreative Spiel, das dich langfristig trägt.
-                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-lg); align-items: center; justify-content: center;">
+                    <img src="/images/optimized/portrait-frontal.webp" alt="Nils Caspar mit Handpan" loading="lazy" decoding="async"
+                         style="width: 320px; max-width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(212, 165, 116, 0.3); display: block;">
+                    <div style="flex: 1 1 320px; min-width: 260px;">
+                        <p style="font-size: 1.2rem; line-height: 1.75;">
+                            „Die meisten lernen die Handpan, indem sie Patterns nachspielen — und verlieren
+                            irgendwann die Freude, weil das eigene Gefühl nie mitspielen durfte.
+                            In ‚Von Anfang an spielen' gehst du den anderen Weg: Du entwickelst von der ersten
+                            Woche an einen schöpferischen Zugang zu deinem Instrument. Du bekommst alle
+                            Grundlagen, die du brauchst, und dazu das kreative Spiel, das dich langfristig trägt."
+                        </p>
+                        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-top: var(--spacing-sm); margin-bottom: 0;">
+                            — <a href="/nils-caspar/" style="color: var(--color-accent); text-decoration: none;">Nils Caspar</a> · dein Lehrer &amp; Gründer der Handpan Schule des Lebens
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -462,6 +507,8 @@
                            einzutauchen.</p>
                     </div>
                 </div>
+                <img src="/images/optimized/spielszene-see-profil.webp" alt="Nils Caspar spielt Handpan in der Natur am See" loading="lazy" decoding="async"
+                     style="width: 380px; max-width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(212, 165, 116, 0.3); display: block; margin: var(--spacing-lg) auto 0;">
                 <p style="color: var(--color-text-muted); text-align: center; margin-top: var(--spacing-lg);">
                     Ob für dich allein oder für die Räume, die du hältst — du brauchst dafür
                     keinerlei Vorkenntnisse. Nur die Bereitschaft, von Anfang an mit Gefühl zu spielen.
@@ -569,7 +616,14 @@
                 <div class="vaa-price-box scroll-reveal">
                     <p style="color: var(--color-text-muted); font-size: 0.95rem; letter-spacing: 0.05em; text-transform: uppercase;">Frühbucher bis 12.09.2026</p>
                     <p class="vaa-price-main">450&nbsp;€</p>
-                    <p class="vaa-price-note">danach 500&nbsp;€ · 10 Wochen Live-Begleitung inkl. aller Aufzeichnungen und Video-Impulse</p>
+                    <p class="vaa-price-note">danach 500&nbsp;€</p>
+                    <ul class="vaa-price-includes">
+                        <li>10 Live-Sessions — jeden Samstag um 10:00 Uhr</li>
+                        <li>10 Video-Impulse, die dich durch die Woche tragen</li>
+                        <li>Alle Aufzeichnungen inklusive — nichts verpasst</li>
+                        <li>Kleine Gruppe mit persönlichem Feedback — max. 13 Teilnehmer</li>
+                        <li>Unverbindliche Kaufberatung, falls du noch keine Handpan hast</li>
+                    </ul>
                     <span class="vaa-seats">Nur 13 Plätze</span>
                 </div>
                 <a class="cta cta-primary" id="vaa-checkout" href="https://buy.stripe.com/3cI8wO81I1Vf1HH5eT1ZS08">Jetzt anmelden</a>
@@ -675,6 +729,21 @@
             </div>
         </section>
 
+        <!-- Abschluss-CTA -->
+        <section class="section-dark">
+            <div class="container-narrow text-center">
+                <h2 class="section-title">Bereit für deinen ersten Ton?</h2>
+                <p style="color: var(--color-text-muted); max-width: 560px; margin: 0 auto var(--spacing-md);">
+                    10 Wochen, die dich vom allerersten Ton zu deinem eigenen, freien Spiel führen —
+                    live begleitet, in einer kleinen Gruppe, komplett online.
+                </p>
+                <a class="cta cta-primary" href="https://buy.stripe.com/3cI8wO81I1Vf1HH5eT1ZS08">Jetzt anmelden — Frühbucher 450&nbsp;€</a>
+                <p style="color: var(--color-text-muted); margin-top: var(--spacing-sm); font-size: 0.9rem;">
+                    Start: Samstag, 26.09.2026 um 10:00 Uhr · nur 13 Plätze
+                </p>
+            </div>
+        </section>
+
     </div>
     </main>
 
@@ -761,6 +830,23 @@
     </footer>
 
     <script src="/js/main.js"></script>
+
+    <!-- Floating-CTA erst zeigen, wenn der Hero (mit eigenem CTA) aus dem Bild ist -->
+    <script>
+    (function(){
+        var fab = document.querySelector('.floating-actions');
+        var hero = document.querySelector('.page-hero');
+        if (!fab || !hero) return;
+        fab.style.transition = 'opacity 0.3s ease';
+        function updateFab() {
+            var past = window.scrollY > hero.offsetHeight * 0.75;
+            fab.style.opacity = past ? '1' : '0';
+            fab.style.pointerEvents = past ? 'auto' : 'none';
+        }
+        window.addEventListener('scroll', updateFab, { passive: true });
+        updateFab();
+    })();
+    </script>
 
     <!-- Newsletter: Inline-Submit via fetch -->
     <script>
