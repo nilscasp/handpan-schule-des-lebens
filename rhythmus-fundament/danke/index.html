@@ -27,7 +27,7 @@ fbq('track', 'PageView');
   if (!sid) return;
   var key = 'hps_purchase_' + sid;
   try { if (localStorage.getItem(key)) return; } catch(e) {}
-  fbq('track', 'Purchase', {value: 359.00, currency: 'EUR', content_name: 'Rhythmus Fundament'}, {eventID: sid});
+  fbq('track', 'Purchase', {value: 399.00, currency: 'EUR', content_name: 'Rhythmus Fundament'}, {eventID: sid});
   try { localStorage.setItem(key, '1'); } catch(e) {}
 })();
 </script>
