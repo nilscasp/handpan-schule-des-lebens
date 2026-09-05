@@ -219,9 +219,57 @@
         font-weight: 600;
         flex-shrink: 0;
     }
+    /* Bonus-Block: eigener, ruhiger Abschnitt unter der Leistungsliste (kein Wertestapel) */
+    #page-von-anfang-an .vaa-bonus {
+        max-width: 400px;
+        margin: 1.3rem auto 0;
+        padding-top: 1.2rem;
+        border-top: 1px solid rgba(212, 165, 116, 0.22);
+        text-align: left;
+    }
+    #page-von-anfang-an .vaa-bonus-label {
+        display: block;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 0.7rem;
+    }
+    #page-von-anfang-an .vaa-bonus ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    #page-von-anfang-an .vaa-bonus li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        color: var(--color-text);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    #page-von-anfang-an .vaa-bonus li::before {
+        content: "+";
+        color: var(--color-accent);
+        font-weight: 600;
+        flex-shrink: 0;
+        min-width: 0.9em;
+        text-align: center;
+    }
+    #page-von-anfang-an .vaa-bonus a {
+        color: var(--color-accent);
+        text-decoration: underline;
+        text-decoration-color: rgba(212, 165, 116, 0.4);
+        text-underline-offset: 0.15em;
+        transition: text-decoration-color 0.3s ease;
+    }
+    #page-von-anfang-an .vaa-bonus a:hover { text-decoration-color: var(--color-accent); }
     #page-von-anfang-an .vaa-seats {
         display: inline-block;
-        margin-top: 1rem;
+        margin-top: 1.3rem;
         padding: 0.35rem 0.9rem;
         border: 1px solid rgba(212, 165, 116, 0.45);
         border-radius: 2px;
@@ -624,9 +672,14 @@
                         <li>Alle Aufzeichnungen inklusive — nichts verpasst</li>
                         <li>Kleine Gruppe mit persönlichem Feedback — max. 13 Teilnehmer</li>
                         <li>Unverbindliche Kaufberatung, falls du noch keine Handpan hast</li>
-                        <li><strong>Bonus:</strong> der erste Zyklus aus dem <a href="/rhythmus-fundament/" style="color: var(--color-accent);">Rhythmus Fundament</a></li>
-                        <li><strong>Bonus:</strong> ein Monat <a href="/community/" style="color: var(--color-accent);">Premium-Community</a> nach Kursabschluss — für Impulse, die weitertragen</li>
                     </ul>
+                    <div class="vaa-bonus">
+                        <span class="vaa-bonus-label">Bonus · im Preis enthalten</span>
+                        <ul>
+                            <li><span>Der erste Zyklus aus dem <a href="/rhythmus-fundament/">Rhythmus Fundament</a> — dein Einstieg in mein Rhythmus-Training</span></li>
+                            <li><span>Ein Monat <a href="/community/">Premium-Community</a> nach Kursabschluss — für Impulse, die weitertragen</span></li>
+                        </ul>
+                    </div>
                     <span class="vaa-seats">Nur 13 Plätze</span>
                 </div>
                 <a class="cta cta-primary" id="vaa-checkout" href="https://buy.stripe.com/3cI8wO81I1Vf1HH5eT1ZS08">Jetzt anmelden</a>
