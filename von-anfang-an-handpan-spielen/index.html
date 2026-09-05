@@ -56,7 +56,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" href="/og-logo.png">
 
-    <link rel="stylesheet" href="/css/style.css?v=2026-08-03a">
+    <link rel="stylesheet" href="/css/style.css?v=2026-09-05a">
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-07-05b">
 
     <!-- Structured Data: Course + FAQPage -->
@@ -439,6 +439,15 @@
             <div class="hero-content container-narrow">
                 <a href="/programm/" class="detail-back">← Zurück zu den Angeboten</a>
                 <h1>Von Anfang an spielen</h1>
+                <div class="hero-video" data-hero-video data-name="Von Anfang an spielen">
+                    <video playsinline preload="none" poster="/video/von-anfang-an-poster.webp"
+                           data-src-720="/video/von-anfang-an-720.mp4" data-src-540="/video/von-anfang-an-540.mp4"
+                           aria-label="Nils Caspar stellt das Programm „Von Anfang an spielen" vor — 2 Minuten"></video>
+                    <button class="hero-video-play" type="button" aria-label="Video abspielen: Nils stellt das Programm vor, 2 Minuten">
+                        <span class="hero-video-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        <span class="hero-video-label">Nils erklärt das Programm · 2 Min</span>
+                    </button>
+                </div>
                 <p class="hero-subtitle">Frei und losgelöst spielen lernen — von der ersten Berührung an.</p>
                 <p style="color: var(--color-text-muted); font-size: 1.1rem; margin-top: var(--spacing-md); max-width: 600px; margin-left: auto; margin-right: auto;">
                     Das 10-Wochen-Live-Programm für alle, die ganz am Anfang stehen —
@@ -950,6 +959,27 @@
             switcher.classList.remove('open');
         }
     });
+    </script>
+<script>
+    // Hero-Video: Click-to-Play. Quelle je nach Viewport (540p ≤ 640px), lädt erst beim Klick.
+    (function () {
+        document.querySelectorAll('[data-hero-video]').forEach(function (box) {
+            var video = box.querySelector('video'), btn = box.querySelector('.hero-video-play');
+            if (!video || !btn) return;
+            btn.addEventListener('click', function () {
+                if (!video.getAttribute('src')) {
+                    var s720 = video.getAttribute('data-src-720'), s540 = video.getAttribute('data-src-540');
+                    var w = window.innerWidth || 0;
+                    video.setAttribute('src', (w > 0 && w <= 640 && s540) ? s540 : s720);
+                }
+                video.controls = true;
+                box.classList.add('is-playing');
+                var p = video.play();
+                if (p && p.catch) { p.catch(function () {}); }
+                if (window.fbq) { fbq('trackCustom', 'HeroVideoPlay', { content_name: box.dataset.name || document.title }); }
+            });
+        });
+    })();
     </script>
 </body>
 </html>

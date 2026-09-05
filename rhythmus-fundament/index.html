@@ -65,7 +65,7 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="https://f66d0849.sibforms.com">
 
-    <link rel="stylesheet" href="/css/style.css?v=2026-08-03a">
+    <link rel="stylesheet" href="/css/style.css?v=2026-09-05a">
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-07-05b">
 
     <!-- Structured Data: Course + FAQPage -->
@@ -676,6 +676,15 @@
                 <a href="/programm/" class="detail-back">← Zurück zu den Angeboten</a>
                 <h1>Rhythmus Fundament</h1>
                 <div class="hero-rhythm-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="hero-video" data-hero-video data-name="Rhythmus Fundament">
+                    <video playsinline preload="none" poster="/video/rhythmus-fundament-poster.webp"
+                           data-src-720="/video/rhythmus-fundament-720.mp4" data-src-540="/video/rhythmus-fundament-540.mp4"
+                           aria-label="Nils Caspar stellt das Rhythmus Fundament vor — 2 Minuten"></video>
+                    <button class="hero-video-play" type="button" aria-label="Video abspielen: Nils stellt den Kurs vor, 2 Minuten">
+                        <span class="hero-video-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        <span class="hero-video-label">Nils erklärt den Kurs · 2 Min</span>
+                    </button>
+                </div>
                 <p class="hero-subtitle">Ein Fundament fürs Leben.</p>
                 <p style="color: var(--color-text-muted); font-size: 1.1rem; margin-top: var(--spacing-md); max-width: 600px; margin-left: auto; margin-right: auto;">
                     Fundiertes Wissen und das Handwerk, das dich frei und sicher spielen lässt.
@@ -1197,7 +1206,7 @@
                     <p style="margin: 0.4rem 0 0; color: var(--color-text); font-size: 0.92rem; line-height: 1.55;">Am Freitag, den 11.&nbsp;September um 19&nbsp;Uhr starten wir gemeinsam mit dem Kick-off. Bis <strong style="color: var(--color-text);">Donnerstag, 10.&nbsp;September, 23:59&nbsp;Uhr</strong> kannst du dich anmelden – danach schließt die Tür für diese Runde.</p>                </div>
 
                 <div data-rhythm="ziel" style="display: flex; justify-content: center; margin-bottom: var(--spacing-sm);">
-                    <a href="https://buy.stripe.com/fZudR8dm2dDX5XX0YD1ZS09" class="cta cta--primary">Jetzt anmelden &amp; bezahlen</a>
+                    <a href="https://buy.stripe.com/fZudR8dm2dDX5XX0YD1ZS09" class="cta cta--primary" onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:399.00,currency:'EUR',content_name:'Rhythmus Fundament'});}">Jetzt anmelden &amp; bezahlen</a>
                 </div>
                 <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: var(--spacing-lg);">
                     <svg class="rf-ic" style="width: 0.95em; height: 0.95em; margin-right: 0.3rem; vertical-align: -0.15em;"><use href="#rf-lock"/></svg>
@@ -1388,6 +1397,27 @@
         setTimeout(function() {
             flipper.classList.add('flipped');
         }, 30000);
+    })();
+    </script>
+<script>
+    // Hero-Video: Click-to-Play. Quelle je nach Viewport (540p ≤ 640px), lädt erst beim Klick.
+    (function () {
+        document.querySelectorAll('[data-hero-video]').forEach(function (box) {
+            var video = box.querySelector('video'), btn = box.querySelector('.hero-video-play');
+            if (!video || !btn) return;
+            btn.addEventListener('click', function () {
+                if (!video.getAttribute('src')) {
+                    var s720 = video.getAttribute('data-src-720'), s540 = video.getAttribute('data-src-540');
+                    var w = window.innerWidth || 0;
+                    video.setAttribute('src', (w > 0 && w <= 640 && s540) ? s540 : s720);
+                }
+                video.controls = true;
+                box.classList.add('is-playing');
+                var p = video.play();
+                if (p && p.catch) { p.catch(function () {}); }
+                if (window.fbq) { fbq('trackCustom', 'HeroVideoPlay', { content_name: box.dataset.name || document.title }); }
+            });
+        });
     })();
     </script>
 </body>
