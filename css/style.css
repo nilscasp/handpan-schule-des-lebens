@@ -4032,3 +4032,186 @@
             font-size: 0.8rem;
             letter-spacing: 0.05em;
         }
+
+        /* ============================================
+           NEWSLETTER-HINWEIS (DSGVO / Double-Opt-in)
+           ============================================ */
+        .newsletter-hint {
+            color: var(--color-text-muted);
+            font-size: 0.8rem;
+            line-height: 1.6;
+            margin-top: var(--spacing-sm);
+            opacity: 0.85;
+        }
+        .newsletter-hint a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.3);
+        }
+        .newsletter-hint a:hover {
+            border-color: var(--color-accent);
+        }
+
+        /* ============================================
+           DREI WEGE HINEIN (Türen auf /community/)
+           ============================================ */
+        .door-meta {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--color-accent);
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-sm);
+        }
+        .door-num {
+            display: block;
+            font-size: 2.2rem;
+            line-height: 1;
+            color: rgba(212, 165, 116, 0.45);
+            margin-bottom: 0.4rem;
+        }
+        .door-link {
+            display: inline-block;
+            margin-top: var(--spacing-sm);
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.35);
+            padding-bottom: 2px;
+        }
+        .door-link:hover {
+            border-color: var(--color-accent);
+        }
+
+        /* ============================================
+           BADGE „ab …" (Termin-Hinweis an Überschriften)
+           ============================================ */
+        .badge-soon {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            border: 1px solid var(--color-accent);
+            color: var(--color-accent);
+            border-radius: 2px;
+            padding: 0.2em 0.55em;
+            vertical-align: middle;
+            margin-left: 0.4em;
+            white-space: nowrap;
+        }
+
+        /* ============================================
+           FAQ ALS <details> (ohne JS)
+           ============================================ */
+        .faq-details {
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.08);
+            text-align: left;
+        }
+        .faq-details:last-of-type { border-bottom: none; }
+        .faq-details > summary {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            color: var(--color-text);
+            cursor: pointer;
+            list-style: none;
+            padding-right: 1.5rem;
+            position: relative;
+            line-height: 1.4;
+        }
+        .faq-details > summary::-webkit-details-marker { display: none; }
+        .faq-details > summary::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: var(--color-accent);
+            font-size: 1.4rem;
+            line-height: 1;
+            transition: transform 0.3s ease;
+        }
+        .faq-details[open] > summary::after {
+            transform: rotate(45deg);
+        }
+        .faq-details > p {
+            color: var(--color-text-muted);
+            margin-top: var(--spacing-xs);
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           WARTELISTEN-FORMULAR (Brevo)
+           ============================================ */
+        .wl-form { max-width: 560px; margin: 0 auto; text-align: left; }
+        .wl-field { margin-bottom: var(--spacing-sm); }
+        .wl-label {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+        .wl-input {
+            width: 100%;
+            box-sizing: border-box;
+            background: var(--color-bg-lighter);
+            border: 1px solid rgba(212, 165, 116, 0.22);
+            border-radius: 2px;
+            color: var(--color-text);
+            font-family: inherit;
+            font-size: 1rem;
+            padding: 0.85rem 1rem;
+            transition: border-color 0.2s;
+        }
+        .wl-input::placeholder { color: var(--color-text-muted); opacity: 0.7; }
+        .wl-input:focus { outline: none; border-color: var(--color-accent); }
+        .wl-submit {
+            width: 100%;
+            margin-top: var(--spacing-sm);
+            background: var(--color-accent);
+            color: var(--color-bg);
+            border: none;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .wl-submit:hover { background: var(--color-accent-dark); }
+        .wl-submit:disabled { opacity: 0.6; cursor: default; }
+        .wl-note {
+            text-align: center;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            margin-top: var(--spacing-sm);
+        }
+        .wl-success {
+            max-width: 560px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--color-accent);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            padding: var(--spacing-md);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 2px;
+        }
+
+        /* ============================================
+           CTA-REIHE (mehrere Buttons nebeneinander)
+           ============================================ */
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            justify-content: center;
+        }
+        @media (max-width: 600px) {
+            .cta-row .cta { width: 100%; text-align: center; }
+        }
