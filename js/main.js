@@ -178,6 +178,68 @@
                 });
         }
 
+        // Die Termine kommen jetzt über das Netz statt aus einer Datei im Repo.
+        // Damit ist ihr Inhalt nichts, dem diese Seite blind vertrauen darf:
+        // per innerHTML zusammengesetzt würde ein Titel mit Markup — oder eine
+        // manipulierte Antwort — hier Code ausführen. Deshalb werden die Karten
+        // als echte Elemente gebaut, jeder Text über textContent gesetzt.
+        function el(tag, className, text) {
+            var node = document.createElement(tag);
+            if (className) node.className = className;
+            if (text != null && text !== '') node.textContent = String(text);
+            return node;
+        }
+
+        // Nur Ziele, die zu dieser Seite passen. Ein 'javascript:'-Link im href
+        // würde beim Klick ausgeführt — relative Pfade und http(s) reichen uns.
+        function safeEventLink(raw) {
+            var value = typeof raw === 'string' ? raw.trim() : '';
+            if (value === '') return null;
+            if (value.charAt(0) === '/' && value.charAt(1) !== '/') return value;
+            try {
+                var parsed = new URL(value, window.location.origin);
+                if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+                    return parsed.href;
+                }
+            } catch (e) { /* unbrauchbare Adresse */ }
+            return null;
+        }
+
+        function renderEventCard(ev) {
+            var d = new Date(ev.date);
+            var typeKey = typeof ev.type === 'string' ? ev.type : '';
+            var typeLabel = TYPE_LABELS_DE[typeKey] || typeKey;
+            var href = safeEventLink(ev.link);
+
+            // Ohne brauchbares Ziel bleibt die Karte ein Block statt ein Link.
+            var card = document.createElement(href ? 'a' : 'div');
+            card.className = 'calendar-event';
+            if (href) {
+                card.setAttribute('href', href);
+                card.addEventListener('click', function() { toggleCalendarSidebar(); });
+            }
+
+            var badge = el('div', 'calendar-date-badge');
+            badge.appendChild(el('span', 'calendar-date-day', d.getDate()));
+            badge.appendChild(el('span', 'calendar-date-month', MONTH_NAMES_DE[d.getMonth()]));
+            card.appendChild(badge);
+
+            var info = el('div', 'calendar-event-info');
+            info.appendChild(el('p', 'calendar-event-title', ev.title));
+
+            var meta = el('div', 'calendar-event-meta');
+            if (ev.time) meta.appendChild(el('span', null, ev.time + ' Uhr'));
+            if (ev.location) meta.appendChild(el('span', null, ev.location));
+            var tag = el('span', 'calendar-event-type', typeLabel);
+            // data-type steuert nur die Farbe — als Attribut gesetzt, nicht als Markup.
+            tag.setAttribute('data-type', typeKey);
+            meta.appendChild(tag);
+
+            info.appendChild(meta);
+            card.appendChild(info);
+            return card;
+        }
+
         function loadEvents() {
             const container = document.getElementById('calendar-events');
             fetchEvents()
@@ -195,26 +257,10 @@
                         return;
                     }
 
-                    container.innerHTML = upcoming.map(function(ev) {
-                        var d = new Date(ev.date);
-                        var day = d.getDate();
-                        var month = MONTH_NAMES_DE[d.getMonth()];
-                        var typeLabel = TYPE_LABELS_DE[ev.type] || ev.type;
-                        return '<a href="' + ev.link + '" class="calendar-event" onclick="toggleCalendarSidebar()">' +
-                            '<div class="calendar-date-badge">' +
-                                '<span class="calendar-date-day">' + day + '</span>' +
-                                '<span class="calendar-date-month">' + month + '</span>' +
-                            '</div>' +
-                            '<div class="calendar-event-info">' +
-                                '<p class="calendar-event-title">' + ev.title + '</p>' +
-                                '<div class="calendar-event-meta">' +
-                                    (ev.time ? '<span>' + ev.time + ' Uhr</span>' : '') +
-                                    (ev.location ? '<span>' + ev.location + '</span>' : '') +
-                                    '<span class="calendar-event-type" data-type="' + ev.type + '">' + typeLabel + '</span>' +
-                                '</div>' +
-                            '</div>' +
-                        '</a>';
-                    }).join('');
+                    container.replaceChildren.apply(
+                        container,
+                        upcoming.map(renderEventCard)
+                    );
                 })
                 .catch(function() {
                     container.innerHTML = '<div class="calendar-empty">Termine konnten nicht geladen werden.</div>';
