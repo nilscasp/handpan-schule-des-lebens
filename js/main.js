@@ -151,10 +151,36 @@
             }
         });
 
+        // Termine kommen ab jetzt aus der Lernplattform — dort pflegt Nils sie
+        // im Coach-Bereich, und dieselbe Liste steht auf lernen.handpan.schule.
+        // Die statische /events.json bleibt als Netz: fällt die App aus oder
+        // antwortet sie nicht wie erwartet, zeigt die Leiste weiter die alten
+        // Termine statt einer Fehlermeldung.
+        var EVENTS_PRIMARY = 'https://lernen.handpan.schule/api/events.json?locale=de';
+        var EVENTS_FALLBACK = '/events.json';
+
+        function fetchEvents() {
+            return fetch(EVENTS_PRIMARY, { cache: 'no-store' })
+                .then(function(r) {
+                    if (!r.ok) throw new Error('primary ' + r.status);
+                    return r.json();
+                })
+                .then(function(events) {
+                    if (!Array.isArray(events)) throw new Error('primary shape');
+                    // Auch eine leere Antwort führt zum Netz: solange in der App
+                    // noch keine Termine gepflegt sind, soll die Leiste die
+                    // bisherigen zeigen statt „keine Termine geplant".
+                    if (events.length === 0) throw new Error('primary empty');
+                    return events;
+                })
+                .catch(function() {
+                    return fetch(EVENTS_FALLBACK).then(function(r) { return r.json(); });
+                });
+        }
+
         function loadEvents() {
             const container = document.getElementById('calendar-events');
-            fetch('/events.json')
-                .then(function(r) { return r.json(); })
+            fetchEvents()
                 .then(function(events) {
                     var now = new Date();
                     now.setHours(0, 0, 0, 0);
