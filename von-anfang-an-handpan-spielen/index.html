@@ -302,6 +302,71 @@
         font-weight: 600;
         margin-bottom: 0.15rem;
     }
+    #page-von-anfang-an .vaa-tags-label {
+        display: block;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 0.8rem;
+    }
+    #page-von-anfang-an .vaa-tags {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: flex-start;
+        column-gap: 0.7em;
+        row-gap: 0.28em;
+        line-height: 1.02;
+        padding: 0.5rem 0.2rem 0.8rem;
+        font-family: var(--font-serif);
+        color: var(--color-text);
+        overflow: visible;
+    }
+    #page-von-anfang-an .vaa-tag {
+        display: inline-block;
+        white-space: nowrap;
+        transform: rotate(var(--r, 0deg)) translateY(var(--y, 0));
+        transform-origin: center;
+        transition: color 0.5s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    #page-von-anfang-an .vaa-tags:hover .vaa-tag { color: var(--color-text); }
+    #page-von-anfang-an .vaa-tag:hover { transform: rotate(0deg) translateY(0) scale(1.06); color: var(--color-accent); }
+    /* Stimmen: groß-kursiv / Versalien / leicht / gold — jedes Wort ein eigener Auftritt */
+    #page-von-anfang-an .vaa-tag.t-hero  { font-size: 2.05rem; font-style: italic; font-weight: 300; color: var(--color-accent); letter-spacing: -0.01em; }
+    #page-von-anfang-an .vaa-tag.t-big   { font-size: 1.62rem; font-style: italic; font-weight: 400; }
+    #page-von-anfang-an .vaa-tag.t-caps  { font-family: var(--font-logo); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-accent); opacity: 0.9; }
+    #page-von-anfang-an .vaa-tag.t-thin  { font-size: 1.28rem; font-weight: 300; color: var(--color-text-muted); }
+    #page-von-anfang-an .vaa-tag.t-mid   { font-size: 1.12rem; font-style: italic; font-weight: 300; color: var(--color-text-muted); }
+    #page-von-anfang-an .vaa-tag.t-sans  { font-family: var(--font-nav); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-muted); }
+    #page-von-anfang-an .vaa-tag.t-bold  { font-size: 1.42rem; font-weight: 600; letter-spacing: -0.015em; }
+    #page-von-anfang-an .vaa-tag.t-whisper { font-size: 0.95rem; font-style: italic; font-weight: 300; color: var(--color-text-muted); opacity: 0.75; }
+    #page-von-anfang-an .vaa-manifest { font-size: 1.12rem; line-height: 1.7; font-weight: 300; }
+    #page-von-anfang-an .vaa-manifest p { margin: 0 0 1.1rem; }
+    #page-von-anfang-an .vaa-manifest p:last-child { margin-bottom: 0; }
+    #page-von-anfang-an .vaa-manifest .m-lead {
+        display: block;
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-weight: 300;
+        font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+        line-height: 1.3;
+        color: var(--color-accent);
+        margin: 0.2rem 0 0.55rem;
+    }
+    #page-von-anfang-an .vaa-manifest .m-open {
+        font-family: var(--font-serif);
+        font-size: 1.15em;
+        color: var(--color-text);
+        font-weight: 400;
+    }
+    #page-von-anfang-an .vaa-manifest .m-soft { color: var(--color-text-muted); }
+    #page-von-anfang-an .vaa-manifest em { font-style: italic; color: var(--color-text); font-weight: 400; }
+    #page-von-anfang-an .vaa-manifest strong { font-weight: 500; color: var(--color-accent); }
+    #page-von-anfang-an .vaa-manifest .m-tail {
+        padding-left: 0.9rem;
+        border-left: 2px solid rgba(212, 165, 116, 0.45);
+    }
     #page-von-anfang-an .vaa-seats {
         display: inline-block;
         margin-top: 1.3rem;
@@ -486,7 +551,7 @@
                 <p class="hero-subtitle">Frei und losgelöst spielen lernen — von der ersten Berührung an.</p>
                 <p style="color: var(--color-text-muted); font-size: 1.1rem; margin-top: var(--spacing-md); max-width: 600px; margin-left: auto; margin-right: auto;">
                     Das 10-Wochen-Live-Programm für alle, die ganz am Anfang stehen —
-                    und die Handpan von Beginn an kreativ und in Verbindung mit ihrem Gefühl spielen wollen.
+                    und keine Zeit verlieren wollen, die Handpan von Beginn an kreativ und aus ihrem Gefühl zu spielen.
                 </p>
                 <a class="cta cta-primary" href="#anmeldung" style="margin-top: var(--spacing-md); display: inline-block;">Jetzt Platz sichern</a>
                 <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 0.8rem;">
@@ -511,20 +576,35 @@
         <!-- Intro: Aussage von Nils mit Porträt -->
         <section class="section-light">
             <div class="container-narrow">
-                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-lg); align-items: center; justify-content: center;">
-                    <img src="/images/optimized/portrait-frontal.webp" alt="Nils Caspar mit Handpan" loading="lazy" decoding="async"
-                         style="width: 320px; max-width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(212, 165, 116, 0.3); display: block;">
-                    <div style="flex: 1 1 320px; min-width: 260px;">
-                        <p style="font-size: 1.2rem; line-height: 1.75;">
-                            „Die meisten lernen die Handpan, indem sie Patterns nachspielen — und verlieren
-                            irgendwann die Freude, weil das eigene Gefühl nie mitspielen durfte.
-                            In ‚Von Anfang an spielen' gehst du den anderen Weg: Du entwickelst von der ersten
-                            Woche an einen schöpferischen Zugang zu deinem Instrument. Du bekommst alle
-                            Grundlagen, die du brauchst, und dazu das kreative Spiel, das dich langfristig trägt."
+                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-lg); align-items: flex-start; justify-content: center;">
+                    <div style="flex: 0 1 320px; max-width: 320px;">
+                        <p class="quote-text" style="font-size: clamp(1.3rem, 2.6vw, 1.9rem); margin-bottom: var(--spacing-xs);">
+                            „Das hier ist kein normaler Handpan Kurs."
                         </p>
-                        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-top: var(--spacing-sm); margin-bottom: 0;">
-                            — <a href="/nils-caspar/" style="color: var(--color-accent); text-decoration: none;">Nils Caspar</a> · dein Lehrer &amp; Gründer der Handpan Schule des Lebens
+                        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: var(--spacing-md);">
+                            Das ist der Weg des Künstlers.
                         </p>
+                        <img src="/images/optimized/portrait-frontal.webp" alt="Nils Caspar mit Handpan" loading="lazy" decoding="async"
+                             style="width: 320px; max-width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(212, 165, 116, 0.3); display: block;">
+                        <div style="margin-top: var(--spacing-md); padding-top: var(--spacing-md); border-top: 1px solid rgba(212, 165, 116, 0.22);">
+                            <span class="vaa-tags-label">Wir arbeiten</span>
+                            <div class="vaa-tags" aria-label="Transformativ, Tiefgehend, Intermedial, Meditativ, Vernetzt, Künstlerisch, Expressiv, Forschend, Spielerisch, Heilend, Verbunden, Erdend, Neu, Ganzheitlich">
+                                <span class="vaa-tag t-hero" style="--r:-3deg; --y:0;">Künstlerisch</span>
+                                <span class="vaa-tag t-sans" style="--r:2deg; --y:-0.12em;">Transformativ</span>
+                                <span class="vaa-tag t-thin" style="--r:-1deg; --y:0;">Tiefgehend</span>
+                                <span class="vaa-tag t-caps" style="--r:0deg; --y:-0.05em;">Intermedial</span>
+                                <span class="vaa-tag t-big" style="--r:1.5deg; --y:0;">Meditativ</span>
+                                <span class="vaa-tag t-whisper" style="--r:-4deg; --y:0.08em;">vernetzt</span>
+                                <span class="vaa-tag t-bold" style="--r:-2deg; --y:-0.04em;">Expressiv</span>
+                                <span class="vaa-tag t-mid" style="--r:3deg; --y:0.04em;">forschend</span>
+                                <span class="vaa-tag t-big" style="--r:-1.5deg; --y:0;">Spielerisch</span>
+                                <span class="vaa-tag t-caps" style="--r:1deg; --y:0.06em;">Heilend</span>
+                                <span class="vaa-tag t-thin" style="--r:-2.5deg; --y:0;">Verbunden</span>
+                                <span class="vaa-tag t-sans" style="--r:0deg; --y:0;">Erdend</span>
+                                <span class="vaa-tag t-hero" style="--r:2deg; --y:-0.02em;">Neu</span>
+                                <span class="vaa-tag t-mid" style="--r:-1deg; --y:0.05em;">ganzheitlich</span>
+                            </div>
+                        </div>
                         <div class="vaa-quali">
                             <span class="vaa-quali-label">Was ich mitbringe</span>
                             <ul>
@@ -537,6 +617,32 @@
                                     musikalischen Fähigkeiten — damit du mit Leichtigkeit ins Spielen kommst.</li>
                             </ul>
                         </div>
+                    </div>
+                    <div style="flex: 1 1 320px; min-width: 260px;">
+                        <div class="vaa-manifest">
+                            <p class="m-soft">
+                                <span class="m-open">„Der Markt der Handpan-Kurse</span> ist heute voll mit
+                                <em>technisch-mental fokussierten Lernstrategien</em> — sie geben dir kaum Zugang
+                                zu deiner <strong>inhärenten Kreativität</strong> und deiner <strong>Gefühlslandschaft</strong>.
+                            </p>
+                            <p>
+                                <span class="m-lead">Dieser Kurs setzt bewusst ein Statement dagegen:</span>
+                                Wir nutzen die modernsten zeitgenössischen künstlerischen Ansätze, um dich
+                                <em>von Anfang an</em> mit deiner künstlerischen Kreativität zu verbinden — über die
+                                Wahrnehmung mit <em>all deinen Sinnen</em>, <strong>intermedial</strong>, verknüpft mit
+                                anderen Künsten, und <strong>ganzheitlich</strong> angebunden an deine Seele und deinen Geist.
+                            </p>
+                            <p class="m-tail m-soft">
+                                So überspringst du die <em>technische Durststrecke</em>, die sonst in der
+                                Handpan-Welt existiert, und entwickelst von Anfang an <em>dein eigenes Spiel</em> —
+                                <span class="m-lead">ein Aufbruch in die Freiheit,</span>
+                                der die Handpan zu einem echten Begleiter in deinem Alltag und deinem Leben macht
+                                und dir Raum für <strong>Heilung und Transformation</strong> gibt."
+                            </p>
+                        </div>
+                        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-top: var(--spacing-sm); margin-bottom: 0;">
+                            — <a href="/nils-caspar/" style="color: var(--color-accent); text-decoration: none;">Nils Caspar</a> · dein Lehrer &amp; Gründer der Handpan Schule des Lebens
+                        </p>
                     </div>
                 </div>
             </div>
