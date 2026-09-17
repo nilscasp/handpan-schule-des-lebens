@@ -28,7 +28,7 @@
     <meta name="author" content="Nils Caspar">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="DE-BY">
-    <meta name="geo.placename" content="München">
+    <meta name="geo.placename" content="Wasserburg am Inn">
     <link rel="canonical" href="https://handpan.schule/kaufberatung/">
     <link rel="alternate" hreflang="de" href="https://handpan.schule/kaufberatung/">
 
@@ -115,12 +115,111 @@
           "name": "Findet die Beratung online oder vor Ort statt?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Beides ist möglich. Die Beratung läuft per Video-Call oder vor Ort in München-Neuhausen – ganz wie es für dich passt."
+            "text": "Beides ist möglich. Die Beratung läuft per Video-Call oder vor Ort in Wasserburg am Inn – ganz wie es für dich passt."
           }
         }
       ]
     }
     </script>
+    <style>
+        .way-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+            align-items: stretch;
+        }
+        .way-card {
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            border-radius: 2px;
+        }
+        .way-label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            opacity: 0.85;
+            margin-bottom: 0.5rem;
+        }
+        .way-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-sm);
+        }
+        .way-intro, .way-note {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-sm);
+        }
+        .way-note {
+            font-size: 0.85rem;
+            border-left: 2px solid rgba(212, 165, 116, 0.4);
+            padding-left: 0.75rem;
+            margin-top: auto;
+            margin-bottom: var(--spacing-md);
+        }
+        .way-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: var(--spacing-sm);
+        }
+        .way-option {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1rem 1.1rem;
+            border: 1px solid rgba(212, 165, 116, 0.25);
+            border-radius: 2px;
+            text-decoration: none;
+            color: var(--color-text-muted);
+            background: rgba(212, 165, 116, 0.03);
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+        .way-option:hover {
+            border-color: var(--color-accent);
+            background: rgba(212, 165, 116, 0.08);
+        }
+        .way-option-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .way-option-head strong {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--color-accent);
+        }
+        .way-option-meta {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--color-text);
+            white-space: nowrap;
+        }
+        .way-option-text {
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+        .way-option-cta {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+        }
+        .way-card-cta { text-align: center; }
+    </style>
 </head>
 <body>
 
@@ -301,29 +400,58 @@
             <div class="container-narrow">
                 <h2 class="section-title">Zwei Wege zu deinem Instrument</h2>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg); text-align: center;">
-                    Je nachdem, wo du gerade stehst – ein kompakter Marktüberblick oder die tiefe Begleitung bis zum perfekten Instrument.
+                    Du kannst dich aktiv beraten lassen – oder dich in Ruhe zurücklehnen und warten,
+                    bis ein Instrument vorbeikommt, das zu dir passt. Beides ist unabhängig voneinander.
                 </p>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h3>Kauf- &amp; Marktberatung</h3>
-                        <p style="color: var(--color-accent); font-weight: 600; margin-bottom: var(--spacing-sm);">20 Min · 50 €</p>
-                        <p>
-                            Eine kompakte, informationsdichte Session zur aktuellen Marktrealität:
-                            Was ist ein fairer Preis, was solltest du meiden, und was bekommst du für dein Geld wirklich?
-                            Der schnelle Überblick, bevor du eine Entscheidung triffst.
+                <div class="way-grid">
+                    <div class="way-card">
+                        <p class="way-label">Weg 1 · aktiv</p>
+                        <h3>Beratung</h3>
+                        <p class="way-intro">
+                            Herstellerunabhängig und ergebnisoffen: Ich berate dich zu Markt, Preis und Instrument –
+                            und verkaufe dir nichts. Wähle die Tiefe, die zu dir passt:
                         </p>
-                        <a href="#beratung-buchen" class="cta">Termin wählen →</a>
+                        <div class="way-options">
+                            <a href="#beratung-buchen" class="way-option">
+                                <span class="way-option-head">
+                                    <strong>Kauf- &amp; Marktberatung</strong>
+                                    <span class="way-option-meta">20 Min · 50 €</span>
+                                </span>
+                                <span class="way-option-text">
+                                    Kompakt und informationsdicht: Was ist ein fairer Preis, was solltest du meiden,
+                                    und was bekommst du für dein Geld wirklich? Der schnelle Überblick, bevor du entscheidest.
+                                </span>
+                                <span class="way-option-cta">Termin wählen →</span>
+                            </a>
+                            <a href="#beratung-buchen" class="way-option">
+                                <span class="way-option-head">
+                                    <strong>Find your Instrument</strong>
+                                    <span class="way-option-meta">ca. 70 Min · 190 €</span>
+                                </span>
+                                <span class="way-option-text">
+                                    Die tiefe Beratung: Gemeinsam arbeiten wir deinen Spielstil, deine Vorlieben und deine
+                                    Klangwünsche heraus – und finden die perfekte Handpan und den richtigen Hersteller für dich.
+                                    Ausdrücklich auch für Einsteiger.
+                                </span>
+                                <span class="way-option-cta">Termin wählen →</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="feature-card">
-                        <h3>Find your Instrument</h3>
-                        <p style="color: var(--color-accent); font-weight: 600; margin-bottom: var(--spacing-sm);">ca. 70 Min · 190 €</p>
-                        <p>
-                            Die tiefe Beratung: Gemeinsam arbeiten wir deinen Spielstil, deine Vorlieben
-                            und deine Klangwünsche heraus – und finden so die perfekte Handpan
-                            und den richtigen Hersteller für genau dich.
+                    <div class="way-card">
+                        <p class="way-label">Weg 2 · passiv</p>
+                        <h3>Grail Instruments</h3>
+                        <p class="way-intro">
+                            Über <strong style="color: var(--color-text);">Grail Instruments</strong> vermittle ich Handpans,
+                            die ich selbst bei verschiedensten Makern auswähle – nur Instrumente, hinter denen ich
+                            klanglich und handwerklich voll stehe. Kein Shop, sondern ein kuratiertes Netzwerk.
                         </p>
-                        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: var(--spacing-sm);">Ausdrücklich auch für Einsteiger – gerade beim Kauf der ersten Handpan.</p>
-                        <a href="#beratung-buchen" class="cta">Termin wählen →</a>
+                        <p class="way-intro">
+                            Du musst nichts anderes tun, als dich in den Verteiler eintragen zu lassen. Dann bekommst du
+                            immer mit, welche Instrumente gerade zur Verfügung stehen oder neu im Netzwerk landen.
+                        </p>
+                        <div class="way-card-cta">
+                            <a href="https://grail-instruments.com" target="_blank" rel="noopener" class="cta">Zu Grail Instruments →</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -347,32 +475,12 @@
             </div>
         </section>
 
-        <section class="section-light">
-            <div class="container-narrow">
-                <h2 class="section-title">Grail Instruments</h2>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    Die handverlesenen Instrumente, die ich empfehle, kommen von
-                    <strong style="color: var(--color-text);">Grail Instruments</strong> –
-                    einem kuratorischen Portal für außergewöhnliche Handpans.
-                    Kein gewöhnlicher Shop, sondern ein exklusiver Zugang zu sorgfältig
-                    ausgewählten Instrumenten in absoluter Top-Qualität.
-                </p>
-                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">
-                    So bekommst du nicht „irgendeine" Handpan, sondern ein Instrument,
-                    das wirklich zu dir passt und dich über Jahre trägt.
-                </p>
-                <div class="text-center">
-                    <a href="https://grail-instruments.com" target="_blank" rel="noopener" class="cta">Zu Grail Instruments →</a>
-                </div>
-            </div>
-        </section>
-
         <section id="beratung-buchen" class="section-dark">
             <div class="container-narrow text-center">
                 <h2 class="section-title">Beratung buchen</h2>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
                     Wähle direkt einen freien Termin für die Kauf- &amp; Marktberatung oder für „Find your Instrument".
-                    Online per Video-Call oder vor Ort in München.
+                    Online per Video-Call oder vor Ort in Wasserburg am Inn.
                 </p>
             </div>
             <div class="container" style="max-width: 900px; margin: 0 auto;">
@@ -394,7 +502,7 @@
                 </div>
                 <div class="highlight-box">
                     <p><strong style="color: var(--color-accent);">Online oder vor Ort?</strong></p>
-                    <p>Beides ist möglich. Die Beratung läuft per Video-Call oder vor Ort in München-Neuhausen – ganz wie es für dich passt.</p>
+                    <p>Beides ist möglich. Die Beratung läuft per Video-Call oder vor Ort in Wasserburg am Inn – ganz wie es für dich passt.</p>
                 </div>
                 <p style="color: var(--color-text-muted); text-align: center; margin-top: var(--spacing-lg); font-size: 0.95rem;">
                     Und wenn deine Handpan da ist: Mit <a href="/von-anfang-an-handpan-spielen/" style="color: var(--color-accent);">„Von Anfang an spielen"</a>
@@ -433,7 +541,7 @@
                 <div class="footer-col">
                     <p class="footer-brand-name">Handpan Schule des Lebens</p>
                     <p class="footer-tagline">Handpan lernen mit Tiefe<br>und Bewusstsein</p>
-                    <p class="footer-brand-credit">Nils Caspar<br>Musikpädagoge &amp; Musiker</p>
+                    <p class="footer-brand-credit">Nils Caspar<br>BA Expressive Arts &amp; Musiker</p>
                     <div class="footer-social">
                         <a href="https://www.facebook.com/nilscasparpoesie" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
