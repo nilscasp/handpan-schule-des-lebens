@@ -831,6 +831,24 @@
             }
         }
 
+        // Widerruf: gespeicherte Auswahl + GA-/Meta-Cookies löschen, Seite neu laden → Banner erscheint wieder
+        function hpsResetCookieConsent() {
+            try {
+                localStorage.removeItem('cookie-consent');
+                localStorage.removeItem('cookie-consent-date');
+            } catch (e) {}
+            const host = location.hostname;
+            document.cookie.split(';').forEach(function(c) {
+                const name = c.split('=')[0].trim();
+                if (!/^(_fbp|_fbc|_ga|_ga_.+|_gid)$/.test(name)) return;
+                ['', '; domain=' + host, '; domain=.' + host].forEach(function(domain) {
+                    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + domain;
+                });
+            });
+            location.reload();
+        }
+        window.hpsResetCookieConsent = hpsResetCookieConsent;
+
         function loadGoogleAnalytics() {
             // Don't load if already loaded
             if (window.gaLoaded) return;

@@ -2986,7 +2986,7 @@
     <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen">
         <div class="cookie-banner-inner">
             <p class="cookie-banner-text">
-                Utilizamos cookies y Google Analytics para mejorar este sitio web.
+                Utilizamos cookies, Google Analytics y el píxel de Meta para mejorar este sitio web y medir nuestra publicidad.
                 Más información en nuestra <a href="#datenschutz">Política de Privacidad</a>.
             </p>
             <div class="cookie-banner-buttons">
@@ -4965,7 +4965,14 @@
                 </p>
 
                 <!-- Abschnitt 5: Google Analytics -->
-                <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm); margin-top: var(--spacing-lg);">5. Analyse-Tools</h2>
+                <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm); margin-top: var(--spacing-lg);">5. Analyse- und Marketing-Tools</h2>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Cookie-Einwilligung</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Beim ersten Besuch fragen wir über einen Cookie-Banner, ob Sie Google Analytics und den Meta-Pixel zulassen. Erst wenn Sie „Alle akzeptieren“ wählen, werden diese Dienste geladen. Mit „Nur notwendige“ bleiben sie ausgeschaltet. Ihre Auswahl speichern wir im lokalen Speicher Ihres Browsers (Einträge „cookie-consent“ und „cookie-consent-date“), damit wir Sie nicht bei jedem Seitenaufruf erneut fragen müssen.<br><br>
+                    Sie können Ihre Auswahl jederzeit ändern oder Ihre Einwilligung widerrufen. Der folgende Button löscht Ihre gespeicherte Auswahl sowie die Cookies von Google Analytics und Meta auf dieser Website und zeigt den Cookie-Banner erneut an:<br><br>
+                    <button type="button" class="cookie-btn" onclick="hpsResetCookieConsent()">Cookie-Einstellungen zurücksetzen</button>
+                </p>
 
                 <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Google Analytics</h3>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
@@ -4979,12 +4986,41 @@
                     <a href="https://support.google.com/analytics/answer/6004245?hl=de" target="_blank" rel="noopener" style="color: var(--color-accent);">Google Analytics Datenschutz</a>.
                 </p>
 
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Meta-Pixel (Meta Platforms Ireland Ltd.)</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Nur wenn Sie im Cookie-Banner „Alle akzeptieren“ wählen, nutzen wir auf dieser Website den Meta-Pixel. Anbieter ist die Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Irland („Meta“).<br><br>
+                    <strong style="color: var(--color-text);">Zweck:</strong> Mit dem Meta-Pixel messen wir die Reichweite und den Erfolg unserer Werbeanzeigen auf Facebook und Instagram (Conversion-Messung, z.&nbsp;B. ob nach dem Klick auf eine Anzeige eine Kursanmeldung erfolgt). Außerdem bilden wir damit Zielgruppen für unsere Werbung, etwa Besucherinnen und Besucher dieser Website oder ihnen ähnliche Personen.<br><br>
+                    <strong style="color: var(--color-text);">Verarbeitete Daten:</strong> Beim Seitenaufruf lädt Ihr Browser ein Skript von Meta. Es setzt Cookies (z.&nbsp;B. „_fbp“) und übermittelt an Meta unter anderem Ihre IP-Adresse, Browser- und Geräteinformationen, die aufgerufene Seite, die Herkunftsseite sowie Ereignisse wie Seitenaufruf, Beginn eines Bezahlvorgangs oder Kauf. Wenn Sie bei Facebook oder Instagram angemeldet sind, kann Meta diese Informationen Ihrem Nutzerkonto zuordnen. Wir selbst können Sie anhand dieser Daten nicht identifizieren. Wir erhalten nur zusammengefasste Statistiken.<br><br>
+                    <strong style="color: var(--color-text);">Eingesetzte Pixel-IDs:</strong> 835283135566622 (gesamte Website) und 1509510120659478 (Kursseiten „Rhythmus Fundament“ und „Von Anfang an spielen“ samt zugehöriger Danke-Seiten).<br><br>
+                    <strong style="color: var(--color-text);">Rechtsgrundlage:</strong> Die Verarbeitung erfolgt auf Grundlage Ihrer Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Das Speichern von Informationen in Ihrem Endgerät und der Zugriff darauf erfolgen auf Grundlage von § 25 Abs. 1 TDDDG.<br><br>
+                    <strong style="color: var(--color-text);">Widerruf:</strong> Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Nutzen Sie dazu den Button „Cookie-Einstellungen zurücksetzen“ im Abschnitt „Cookie-Einwilligung“ oben, oder löschen Sie die Website-Daten für handpan.schule in Ihrem Browser. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt davon unberührt. Einstellungen zu personalisierter Werbung können Sie außerdem in Ihrem Meta-Konto vornehmen:
+                    <a href="https://www.facebook.com/adpreferences/" target="_blank" rel="noopener" style="color: var(--color-accent);">Werbepräferenzen bei Meta</a>.<br><br>
+                    <strong style="color: var(--color-text);">Drittlandübermittlung:</strong> Meta kann Daten auch an die Meta Platforms, Inc. in den USA übermitteln. Das Unternehmen ist nach dem EU-US Data Privacy Framework (DPF) zertifiziert. Für zertifizierte Unternehmen hat die EU-Kommission ein angemessenes Datenschutzniveau festgestellt (Angemessenheitsbeschluss nach Art. 45 DSGVO). Weitere Informationen:
+                    <a href="https://www.dataprivacyframework.gov/list" target="_blank" rel="noopener" style="color: var(--color-accent);">Liste der DPF-zertifizierten Unternehmen</a>.<br><br>
+                    <strong style="color: var(--color-text);">Gemeinsame Verantwortlichkeit:</strong> Für die Erhebung der Daten auf dieser Website und ihre Übermittlung an Meta sind wir und Meta gemeinsam verantwortlich (Art. 26 DSGVO). Die weitere Verarbeitung nach der Übermittlung liegt allein in der Verantwortung von Meta. Die Einzelheiten regelt die Vereinbarung über die gemeinsame Verantwortlichkeit:
+                    <a href="https://www.facebook.com/legal/controller_addendum" target="_blank" rel="noopener" style="color: var(--color-accent);">Meta Controller Addendum</a>. Ihre Betroffenenrechte können Sie sowohl bei uns als auch direkt bei Meta geltend machen.<br><br>
+                    Weitere Informationen zum Umgang mit Ihren Daten bei Meta finden Sie in der Datenschutzrichtlinie von Meta:
+                    <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener" style="color: var(--color-accent);">Meta Datenschutzrichtlinie</a>.
+                </p>
+
                 <!-- Abschnitt 6: Externe Links -->
                 <h2 style="font-size: 1.5rem; margin-bottom: var(--spacing-sm); margin-top: var(--spacing-lg);">6. Externe Dienste und Links</h2>
 
                 <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Skool Community</h3>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
                     Unsere Website enthält Links zur Plattform Skool (skool.com). Wenn Sie diesen Links folgen, gelten die Datenschutzbestimmungen von Skool. Wir haben keinen Einfluss auf die Datenverarbeitung durch Skool. Bitte informieren Sie sich auf der Website von Skool über deren Datenschutzpraktiken.
+                </p>
+
+                <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">Newsletter (Brevo)</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Für den Versand unseres Newsletters nutzen wir den Dienst Brevo, betrieben von der Sendinblue SAS, 7 rue de Madrid, 75008 Paris, Frankreich. Die Anmeldung erfolgt im Double-Opt-in-Verfahren: Nach Ihrer Eintragung erhalten Sie eine E-Mail, in der Sie Ihre Anmeldung ausdrücklich bestätigen müssen. Erst danach nehmen wir Sie in den Verteiler auf.
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Gespeichert werden Ihre E-Mail-Adresse sowie Zeitpunkt und Text Ihrer Einwilligung und der Zeitpunkt der Bestätigung. Diese Protokollierung dient dem Nachweis der Einwilligung. Unsere Newsletter enthalten außerdem eine Öffnungs- und Klickauswertung, mit der wir erkennen, ob und welche Inhalte gelesen werden, um den Newsletter inhaltlich zu verbessern.
+                </p>
+                <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
+                    Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen — über den Abmeldelink in jeder E-Mail oder per Nachricht an kontakt@handpan.schule. Rechtsgrundlage der Verarbeitung ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Weitere Informationen zum Datenschutz bei Brevo finden Sie unter:
+                    <a href="https://www.brevo.com/de/legal/privacypolicy/" target="_blank" rel="noopener" style="color: var(--color-accent);">Brevo Datenschutzerklärung</a>.
                 </p>
 
                 <h3 style="font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent);">WhatsApp</h3>
@@ -4994,7 +5030,7 @@
                 </p>
 
                 <p style="color: var(--color-text-muted); margin-top: var(--spacing-lg); font-style: italic; border-top: 1px solid rgba(212, 165, 116, 0.1); padding-top: var(--spacing-md);">
-                    Stand: Februar 2026
+                    Stand: September 2026
                 </p>
             </div>
         </section>
@@ -6912,6 +6948,23 @@
             if (choice === 'accept') {
                 loadGoogleAnalytics();
             }
+        }
+
+        // Widerruf: gespeicherte Auswahl + GA-/Meta-Cookies löschen, Seite neu laden → Banner erscheint wieder
+        function hpsResetCookieConsent() {
+            try {
+                localStorage.removeItem('cookie-consent');
+                localStorage.removeItem('cookie-consent-date');
+            } catch (e) {}
+            const host = location.hostname;
+            document.cookie.split(';').forEach(function(c) {
+                const name = c.split('=')[0].trim();
+                if (!/^(_fbp|_fbc|_ga|_ga_.+|_gid)$/.test(name)) return;
+                ['', '; domain=' + host, '; domain=.' + host].forEach(function(domain) {
+                    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + domain;
+                });
+            });
+            location.reload();
         }
 
         function loadGoogleAnalytics() {
