@@ -221,18 +221,112 @@
     <main id="main-content">
     <div id="page-handpan-path" class="page-content active">
 
-        <section class="page-hero">
-            <div class="hero-content container-narrow">
-                <a href="/programm/" class="detail-back">← Zurück zu den Angeboten</a>
-                <h1>The Handpan Path</h1>
-                <p class="hero-subtitle">Eine Reise zu dir selbst. Fünfeinhalb Mondzyklen lang.</p>
-                <p class="hp-hero-dates">Vom Sonnenaufgang am 9. November 2026<br>bis zum Vollmond am 21. April 2027</p>
-                <a class="cta cta-primary" href="#warteliste" style="margin-top: var(--spacing-md); display: inline-block;">Bewirb dich für einen der 13 Plätze</a>
+        <canvas id="hp-cosmos" aria-hidden="true"></canvas>
+
+        <!-- Schwebende Zeichen: Mond, Sonne, Elemente, Sternbilder (parallax) -->
+        <div class="hp-glyphs" aria-hidden="true">
+            <!-- Mondsichel -->
+            <svg class="hp-glyph" data-speed="-0.12" style="top:118vh;left:6%;width:54px" viewBox="0 0 40 40"><path d="M26 4a16 16 0 1 0 0 32 13 13 0 1 1 0-32z"/></svg>
+            <!-- Sonne ☉ -->
+            <svg class="hp-glyph" data-speed="-0.08" style="top:175vh;right:7%;width:62px" viewBox="0 0 40 40"><circle cx="20" cy="20" r="14"/><circle cx="20" cy="20" r="1.8" class="fill"/></svg>
+            <!-- Plejaden -->
+            <svg class="hp-glyph hp-glyph--stars" data-speed="-0.18" style="top:245vh;left:8%;width:110px" viewBox="0 0 80 60"><circle cx="20" cy="18" r="2.2"/><circle cx="33" cy="12" r="1.6"/><circle cx="40" cy="24" r="2.6"/><circle cx="52" cy="17" r="1.8"/><circle cx="58" cy="30" r="2"/><circle cx="30" cy="34" r="1.5"/><circle cx="46" cy="40" r="1.4"/></svg>
+            <!-- Feuer-Dreieck -->
+            <svg class="hp-glyph" data-speed="-0.1" style="top:318vh;right:9%;width:46px" viewBox="0 0 40 40"><path d="M20 5 36 34H4z"/></svg>
+            <!-- Wasser-Dreieck -->
+            <svg class="hp-glyph" data-speed="-0.14" style="top:385vh;left:5%;width:46px" viewBox="0 0 40 40"><path d="M20 35 36 6H4z"/></svg>
+            <!-- Vesica / Blume -->
+            <svg class="hp-glyph" data-speed="-0.06" style="top:450vh;right:5%;width:84px" viewBox="0 0 60 60"><circle cx="24" cy="30" r="14"/><circle cx="36" cy="30" r="14"/><circle cx="30" cy="30" r="26"/></svg>
+            <!-- Achtstern -->
+            <svg class="hp-glyph" data-speed="-0.16" style="top:520vh;left:9%;width:56px" viewBox="0 0 40 40"><path d="M20 2l3 12 12-5-5 11 12 0-12 3 5 12-12-5-3 12-3-12-12 5 5-12-12-3 12 0-5-11 12 5z"/></svg>
+            <!-- Kassiopeia -->
+            <svg class="hp-glyph hp-glyph--stars" data-speed="-0.2" style="top:590vh;right:8%;width:120px" viewBox="0 0 100 50"><polyline points="6,14 28,36 48,20 70,38 94,10" class="line"/><circle cx="6" cy="14" r="2.2"/><circle cx="28" cy="36" r="2.2"/><circle cx="48" cy="20" r="2.6"/><circle cx="70" cy="38" r="2"/><circle cx="94" cy="10" r="2.2"/></svg>
+            <!-- Luft-Dreieck -->
+            <svg class="hp-glyph" data-speed="-0.1" style="top:660vh;left:6%;width:46px" viewBox="0 0 40 40"><path d="M20 5 36 34H4z M10 22h20"/></svg>
+            <!-- Vollmond mit Halo -->
+            <svg class="hp-glyph" data-speed="-0.07" style="top:730vh;right:10%;width:70px" viewBox="0 0 40 40"><circle cx="20" cy="20" r="9" class="fill soft"/><circle cx="20" cy="20" r="15"/></svg>
+        </div>
+
+        <section class="page-hero hp-hero">
+            <div class="container hp-hero__grid">
+                <div class="hero-content hp-hero__text">
+                    <a href="/programm/" class="detail-back">← Zurück zu den Angeboten</a>
+                    <h1>The Handpan Path</h1>
+                    <p class="hero-subtitle">Eine Reise zu dir selbst. Fünfeinhalb Mondzyklen lang.</p>
+                    <p class="hp-hero-dates">Vom Sonnenaufgang am 9. November 2026<br>bis zum Vollmond am 21. April 2027</p>
+                    <a class="cta cta-primary" href="#warteliste" style="margin-top: var(--spacing-md); display: inline-block;">Bewirb dich für einen der 13 Plätze</a>
+                </div>
+
+                <figure class="hp-orion" aria-label="Das Sternbild Orion">
+                    <svg viewBox="0 0 320 420" role="img" aria-hidden="true">
+                        <defs>
+                            <radialGradient id="hpGlowWarm"><stop offset="0" stop-color="#ffc58f" stop-opacity="0.9"/><stop offset="1" stop-color="#ffb27a" stop-opacity="0"/></radialGradient>
+                            <radialGradient id="hpGlowCool"><stop offset="0" stop-color="#e3ecff" stop-opacity="0.9"/><stop offset="1" stop-color="#bcd0ff" stop-opacity="0"/></radialGradient>
+                            <radialGradient id="hpGlowGold"><stop offset="0" stop-color="#f3dcc0" stop-opacity="0.85"/><stop offset="1" stop-color="#D4A574" stop-opacity="0"/></radialGradient>
+                            <radialGradient id="hpNebula"><stop offset="0" stop-color="#d9a7c7" stop-opacity="0.45"/><stop offset="0.5" stop-color="#8f7fc4" stop-opacity="0.15"/><stop offset="1" stop-color="#8f7fc4" stop-opacity="0"/></radialGradient>
+                        </defs>
+                        <!-- feiner Himmelskreis -->
+                        <circle cx="165" cy="215" r="190" class="hp-orion__ring"/>
+                        <circle cx="165" cy="215" r="150" class="hp-orion__ring hp-orion__ring--inner"/>
+                        <!-- Orionnebel -->
+                        <ellipse cx="151" cy="318" rx="26" ry="20" fill="url(#hpNebula)" class="hp-orion__nebula"/>
+                        <!-- Linien -->
+                        <g class="hp-orion__lines">
+                            <line pathLength="1" x1="160" y1="60" x2="95" y2="115"/>
+                            <line pathLength="1" x1="160" y1="60" x2="215" y2="130"/>
+                            <line pathLength="1" x1="95" y1="115" x2="137" y2="260"/>
+                            <line pathLength="1" x1="215" y1="130" x2="178" y2="235"/>
+                            <line pathLength="1" x1="137" y1="260" x2="158" y2="247"/>
+                            <line pathLength="1" x1="158" y1="247" x2="178" y2="235"/>
+                            <line pathLength="1" x1="137" y1="260" x2="110" y2="370"/>
+                            <line pathLength="1" x1="178" y1="235" x2="225" y2="352"/>
+                            <polyline pathLength="1" points="95,115 78,80 70,40 85,14"/>
+                            <polyline pathLength="1" points="215,130 258,124 272,82 282,112 285,148 279,184"/>
+                            <line pathLength="1" x1="154" y1="280" x2="152" y2="334" class="hp-orion__sword"/>
+                        </g>
+                        <!-- Sterne -->
+                        <g class="hp-orion__stars">
+                            <circle cx="95" cy="115" r="22" fill="url(#hpGlowWarm)" class="glow g1"/>
+                            <circle cx="225" cy="352" r="22" fill="url(#hpGlowCool)" class="glow g2"/>
+                            <circle cx="215" cy="130" r="13" fill="url(#hpGlowCool)" class="glow g3"/>
+                            <circle cx="158" cy="247" r="12" fill="url(#hpGlowGold)" class="glow g2"/>
+                            <circle cx="137" cy="260" r="10" fill="url(#hpGlowGold)" class="glow g1"/>
+                            <circle cx="178" cy="235" r="10" fill="url(#hpGlowGold)" class="glow g3"/>
+                            <circle cx="110" cy="370" r="11" fill="url(#hpGlowCool)" class="glow g1"/>
+
+                            <circle cx="95" cy="115" r="4.4" fill="#ffc28e"/>
+                            <circle cx="225" cy="352" r="4.4" fill="#eef3ff"/>
+                            <circle cx="215" cy="130" r="3" fill="#eef3ff"/>
+                            <circle cx="160" cy="60" r="1.9" fill="#f3e6d6"/>
+                            <circle cx="178" cy="235" r="2.6" fill="#f6ecdf"/>
+                            <circle cx="158" cy="247" r="2.9" fill="#f6ecdf"/>
+                            <circle cx="137" cy="260" r="2.7" fill="#f6ecdf"/>
+                            <circle cx="110" cy="370" r="2.8" fill="#eef3ff"/>
+                            <circle cx="154" cy="296" r="1.3" fill="#f3e6d6"/>
+                            <circle cx="152" cy="318" r="1.9" fill="#f7e9f2"/>
+                            <circle cx="153" cy="334" r="1.1" fill="#f3e6d6"/>
+                            <circle cx="78" cy="80" r="1.4" fill="#f3e6d6"/>
+                            <circle cx="70" cy="40" r="1.6" fill="#f3e6d6"/>
+                            <circle cx="85" cy="14" r="1.3" fill="#f3e6d6"/>
+                            <circle cx="258" cy="124" r="1.3" fill="#f3e6d6"/>
+                            <circle cx="272" cy="82" r="1.4" fill="#f3e6d6"/>
+                            <circle cx="282" cy="112" r="1.5" fill="#f3e6d6"/>
+                            <circle cx="285" cy="148" r="1.5" fill="#f3e6d6"/>
+                            <circle cx="279" cy="184" r="1.3" fill="#f3e6d6"/>
+                        </g>
+                        <!-- Namen der Hauptsterne -->
+                        <g class="hp-orion__names">
+                            <text x="60" y="140">Beteigeuze</text>
+                            <text x="236" y="378">Rigel</text>
+                        </g>
+                    </svg>
+                    <figcaption>Orion<span>Er steigt im November am Abendhimmel auf und begleitet uns durch den Winter bis in den April.</span></figcaption>
+                </figure>
             </div>
         </section>
 
         <style>
-            .hp-hero-dates{font-family:var(--font-heading, inherit);color:var(--color-accent);font-size:1.1rem;letter-spacing:0.02em;line-height:1.7;margin-top:var(--spacing-sm);}
+            .hp-hero-dates{font-family:var(--font-serif);color:var(--color-accent);font-size:1.1rem;letter-spacing:0.02em;line-height:1.7;margin-top:var(--spacing-sm);}
             .hp-prose p{color:var(--color-text-muted);font-size:1.1rem;line-height:1.85;margin-bottom:var(--spacing-sm);}
             .hp-prose p strong{color:var(--color-text);font-weight:500;}
             .hp-lead{font-size:1.25rem !important;color:var(--color-text) !important;}
@@ -263,13 +357,108 @@
             .hp-tool span{display:block;color:var(--color-text-muted);font-size:0.9rem;line-height:1.6;margin-top:0.25rem;}
             /* Tägliche Praxis */
             .hp-practice{text-align:center;max-width:640px;margin:0 auto;}
-            .hp-practice__num{font-family:var(--font-heading, inherit);font-size:3rem;color:var(--color-accent);line-height:1;margin-bottom:0.3rem;}
+            .hp-practice__num{font-family:var(--font-serif);font-size:3rem;color:var(--color-accent);line-height:1;margin-bottom:0.3rem;}
             .hp-practice__unit{font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--spacing-md);}
             /* Preis */
-            .hp-price{text-align:center;border:1px solid rgba(212,165,116,0.3);border-radius:2px;padding:var(--spacing-md);max-width:460px;margin:0 auto var(--spacing-lg);}
-            .hp-price__amount{font-family:var(--font-heading, inherit);font-size:2.6rem;color:var(--color-accent);line-height:1.1;}
+            .hp-price{text-align:center;}
+            .hp-price__amount{font-family:var(--font-serif);font-size:2.8rem;color:var(--color-accent);line-height:1.1;text-shadow:0 0 24px rgba(212,165,116,0.45);}
             .hp-price__sub{color:var(--color-text-muted);margin-top:0.4rem;}
             .hp-price__facts{list-style:none;padding:0;margin:var(--spacing-sm) 0 0;color:var(--color-text-muted);font-size:0.95rem;line-height:1.9;}
+
+            /* ===== Kosmos: Sternenhimmel hinter der ganzen Seite ===== */
+            #hp-cosmos{position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;display:block;}
+            #page-handpan-path{position:relative;}
+            #page-handpan-path .section-dark{background:transparent;}
+            #page-handpan-path .section-light{background:linear-gradient(180deg,rgba(20,25,34,0) 0%,rgba(20,25,34,0.55) 18%,rgba(20,25,34,0.55) 82%,rgba(20,25,34,0) 100%);}
+            #page-handpan-path .section-light::before,#page-handpan-path .section-light::after{display:none;}
+            #page-handpan-path .highlight-box{background:rgba(20,25,34,0.6);backdrop-filter:blur(2px);}
+            #page-handpan-path .page-hero::before{background-image:radial-gradient(ellipse 45% 60% at 72% 50%,rgba(143,127,196,0.10) 0%,transparent 70%),radial-gradient(ellipse 50% 60% at 30% 50%,rgba(212,165,116,0.07) 0%,transparent 70%);}
+            .hp-tool{background:rgba(17,23,34,0.78) !important;}
+
+            /* Schwebende Zeichen */
+            .hp-glyphs{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;}
+            .hp-glyph{position:absolute;fill:none;stroke:#D4A574;stroke-width:1;opacity:0.16;will-change:transform;filter:drop-shadow(0 0 6px rgba(212,165,116,0.35));animation:hpFloat 14s ease-in-out infinite;}
+            .hp-glyph .fill{fill:#D4A574;}
+            .hp-glyph .soft{opacity:0.5;}
+            .hp-glyph--stars{fill:#f3e6d6;stroke:none;opacity:0.35;}
+            .hp-glyph--stars .line{fill:none;stroke:#D4A574;stroke-width:0.6;opacity:0.5;}
+            .hp-glyph:nth-child(2n){animation-duration:18s;animation-delay:-4s;}
+            .hp-glyph:nth-child(3n){animation-duration:22s;animation-delay:-9s;}
+            @keyframes hpFloat{0%,100%{rotate:0deg;}50%{rotate:6deg;}}
+
+            /* Hero mit Orion */
+            .hp-hero{min-height:88vh;}
+            .hp-hero__grid{display:grid;grid-template-columns:1fr;align-items:center;gap:var(--spacing-md);position:relative;z-index:1;}
+            .hp-orion{margin:0 auto;width:min(56vw,230px);order:-1;position:relative;}
+            .hp-orion svg{width:100%;height:auto;display:block;overflow:visible;}
+            .hp-orion__ring{fill:none;stroke:rgba(212,165,116,0.10);stroke-width:0.8;stroke-dasharray:1 5;}
+            .hp-orion__ring--inner{stroke:rgba(212,165,116,0.06);stroke-dasharray:none;}
+            .hp-orion__lines line,.hp-orion__lines polyline{fill:none;stroke:rgba(212,165,116,0.55);stroke-width:0.9;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:hpDraw 2.4s cubic-bezier(.6,.1,.3,1) forwards;}
+            .hp-orion__lines > *:nth-child(2){animation-delay:.25s}.hp-orion__lines > *:nth-child(3){animation-delay:.5s}.hp-orion__lines > *:nth-child(4){animation-delay:.7s}.hp-orion__lines > *:nth-child(5){animation-delay:.9s}.hp-orion__lines > *:nth-child(6){animation-delay:1s}.hp-orion__lines > *:nth-child(7){animation-delay:1.2s}.hp-orion__lines > *:nth-child(8){animation-delay:1.3s}.hp-orion__lines > *:nth-child(9){animation-delay:1.5s}.hp-orion__lines > *:nth-child(10){animation-delay:1.6s}.hp-orion__lines > *:nth-child(11){animation-delay:1.8s}
+            .hp-orion__sword{stroke:rgba(212,165,116,0.3) !important;stroke-dasharray:0.02 0.06 !important;stroke-dashoffset:0 !important;animation:none !important;}
+            @keyframes hpDraw{to{stroke-dashoffset:0;}}
+            .hp-orion__stars .glow{transform-box:fill-box;transform-origin:center;animation:hpTwinkle 4.5s ease-in-out infinite;}
+            .hp-orion__stars .g2{animation-duration:6s;animation-delay:-2s;}
+            .hp-orion__stars .g3{animation-duration:7.5s;animation-delay:-4s;}
+            @keyframes hpTwinkle{0%,100%{opacity:0.55;transform:scale(0.85);}50%{opacity:1;transform:scale(1.15);}}
+            .hp-orion__nebula{animation:hpTwinkle 9s ease-in-out infinite;transform-box:fill-box;transform-origin:center;}
+            .hp-orion__names text{font-family:var(--font-logo);font-size:7px;letter-spacing:0.18em;fill:rgba(212,165,116,0.55);text-transform:uppercase;}
+            .hp-orion figcaption{text-align:center;font-family:var(--font-logo);letter-spacing:0.3em;font-size:0.8rem;color:var(--color-accent);text-transform:uppercase;margin-top:0.2rem;}
+            .hp-orion figcaption span{display:block;font-family:var(--font-sans);letter-spacing:0;text-transform:none;font-size:0.85rem;font-style:italic;color:var(--color-text-muted);margin:0.4rem auto 0;max-width:280px;line-height:1.6;}
+            @media(min-width:768px){
+                .hp-hero__grid{grid-template-columns:1.05fr 0.95fr;gap:var(--spacing-lg);}
+                .hp-hero__text{text-align:left;}
+                .hp-orion{order:0;width:min(100%,430px);}
+            }
+            @media(max-width:767px){
+                .hp-orion figcaption span{display:none;}
+                .hp-hero{padding-top:110px;}
+            }
+
+            /* Das Tor */
+            .hp-overline{text-align:center;font-family:var(--font-logo);letter-spacing:0.35em;text-transform:uppercase;color:var(--color-accent);font-size:0.8rem;margin-bottom:0.4rem;}
+            .hp-gate{position:relative;max-width:470px;margin:var(--spacing-md) auto var(--spacing-lg);}
+            .hp-gate__crown{display:block;width:74px;margin:0 auto -18px;position:relative;z-index:3;fill:#0A0E14;stroke:#D4A574;stroke-width:1.1;filter:drop-shadow(0 0 10px rgba(212,165,116,0.6));animation:hpSpin 60s linear infinite;}
+            .hp-gate__crown circle{fill:#D4A574;}
+            @keyframes hpSpin{to{rotate:360deg;}}
+            .hp-gate__outer{padding:10px;border:1px solid rgba(212,165,116,0.35);border-bottom:none;border-radius:235px 235px 0 0;position:relative;}
+            .hp-gate__outer::before,.hp-gate__outer::after{content:"";position:absolute;bottom:0;width:10px;height:62%;border:1px solid rgba(212,165,116,0.25);border-bottom:none;}
+            .hp-gate__outer::before{left:-22px;border-radius:5px 5px 0 0;}
+            .hp-gate__outer::after{right:-22px;border-radius:5px 5px 0 0;}
+            .hp-gate__frame{position:relative;border:1px solid rgba(212,165,116,0.75);border-bottom:none;border-radius:225px 225px 0 0;overflow:hidden;min-height:520px;display:flex;align-items:flex-end;justify-content:center;perspective:1100px;box-shadow:0 0 40px rgba(212,165,116,0.12),inset 0 0 60px rgba(212,165,116,0.08);transition:box-shadow 2.5s ease;}
+            .hp-gate__light{position:absolute;inset:0;background:
+                radial-gradient(ellipse 60% 45% at 50% 40%,rgba(255,226,186,0.30) 0%,rgba(212,165,116,0.12) 40%,transparent 75%),
+                radial-gradient(ellipse 80% 60% at 50% 100%,rgba(143,127,196,0.18) 0%,transparent 70%),
+                radial-gradient(1px 1px at 20% 30%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 70% 22%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 40% 15%,#f3e6d6 50%,transparent 51%),radial-gradient(1px 1px at 82% 48%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 12% 58%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 60% 55%,#f3e6d6 50%,transparent 51%),radial-gradient(1px 1px at 30% 75%,#fff 50%,transparent 51%),
+                #0b0f18;opacity:0.55;transition:opacity 2.5s ease;}
+            .hp-gate__inner{position:relative;z-index:1;padding:0 var(--spacing-md) var(--spacing-lg);opacity:0.25;transform:translateY(12px);transition:opacity 1.6s ease 1s,transform 1.6s ease 1s;}
+            .hp-gate__cta{margin-top:var(--spacing-md);display:inline-block;}
+            .hp-gate__door{position:absolute;top:0;bottom:0;width:50%;z-index:2;background:
+                repeating-linear-gradient(90deg,transparent 0 22px,rgba(212,165,116,0.10) 22px 23px),
+                radial-gradient(circle at 100% 46%,transparent 34px,rgba(212,165,116,0.5) 35px,transparent 36px,transparent 58px,rgba(212,165,116,0.25) 59px,transparent 60px),
+                linear-gradient(180deg,#131a26,#0c1119);transition:transform 2.6s cubic-bezier(.7,0,.2,1),opacity 0.8s ease 2s;backface-visibility:hidden;}
+            .hp-gate__door--l{left:0;transform-origin:left center;border-right:1px solid rgba(212,165,116,0.5);}
+            .hp-gate__door--r{right:0;transform-origin:right center;border-left:1px solid rgba(212,165,116,0.5);background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(212,165,116,0.10) 22px 23px),radial-gradient(circle at 0% 46%,transparent 34px,rgba(212,165,116,0.5) 35px,transparent 36px,transparent 58px,rgba(212,165,116,0.25) 59px,transparent 60px),linear-gradient(180deg,#131a26,#0c1119);}
+            .hp-gate.is-open .hp-gate__door--l{transform:rotateY(-100deg);opacity:0;}
+            .hp-gate.is-open .hp-gate__door--r{transform:rotateY(100deg);opacity:0;}
+            .hp-gate.is-open .hp-gate__light{opacity:1;}
+            .hp-gate.is-open .hp-gate__inner{opacity:1;transform:none;}
+            .hp-gate.is-open .hp-gate__frame{box-shadow:0 0 70px rgba(212,165,116,0.28),inset 0 0 90px rgba(255,220,170,0.14);}
+            .hp-gate__steps{height:14px;margin:0 -28px;border-top:1px solid rgba(212,165,116,0.45);background:linear-gradient(180deg,rgba(212,165,116,0.10),transparent);}
+            .hp-gate__steps::after{content:"";display:block;height:10px;margin:8px 22px 0;border-top:1px solid rgba(212,165,116,0.25);}
+            @media(max-width:600px){
+                .hp-gate__frame{min-height:470px;}
+                .hp-gate__cta{white-space:nowrap;padding-left:1.4rem;padding-right:1.4rem;}
+                .hp-hero{min-height:auto;}
+                .hp-gate__outer::before,.hp-gate__outer::after{display:none;}
+                .hp-gate__steps{margin:0 -8px;}
+                .hp-glyph{opacity:0.11;}
+            }
+            @media(prefers-reduced-motion:reduce){
+                .hp-orion__lines line,.hp-orion__lines polyline{animation:none;stroke-dashoffset:0;}
+                .hp-orion__stars .glow,.hp-orion__nebula,.hp-glyph,.hp-gate__crown{animation:none;}
+                .hp-gate__door,.hp-gate__inner,.hp-gate__light{transition:none;}
+            }
             @media(max-width:600px){
                 .hp-moon{width:14px;height:14px;}
                 .hp-moon--last{width:20px;height:20px;}
@@ -427,17 +616,33 @@
 
         <section class="section-dark" id="warteliste">
             <div class="container-narrow">
+                <p class="hp-overline">Das Tor</p>
                 <h2 class="section-title text-center">Bewirb dich für den Path</h2>
 
-                <div class="hp-price">
-                    <div class="hp-price__amount">1.478&nbsp;€</div>
-                    <div class="hp-price__sub">für die gesamte Reise</div>
-                    <ul class="hp-price__facts">
-                        <li>9. November 2026 bis 21. April 2027</li>
-                        <li>Komplett online</li>
-                        <li>Alle Aufnahmen gehören dir</li>
-                        <li>Begrenzt auf 13 Teilnehmer</li>
-                    </ul>
+                <div class="hp-gate" id="hp-gate">
+                    <svg class="hp-gate__crown" viewBox="0 0 120 60" aria-hidden="true">
+                        <path d="M60 4l4 16 16-6-10 14 18 2-18 4 10 14-16-6-4 16-4-16-16 6 10-14-18-4 18-2-10-14 16 6z"/>
+                        <circle cx="60" cy="30" r="5"/>
+                    </svg>
+                    <div class="hp-gate__outer">
+                        <div class="hp-gate__frame">
+                            <div class="hp-gate__light" aria-hidden="true"></div>
+                            <div class="hp-gate__inner hp-price">
+                                <div class="hp-price__amount">1.478&nbsp;€</div>
+                                <div class="hp-price__sub">für die gesamte Reise</div>
+                                <ul class="hp-price__facts">
+                                    <li>9. November 2026 bis 21. April 2027</li>
+                                    <li>Komplett online</li>
+                                    <li>Alle Aufnahmen gehören dir</li>
+                                    <li>Begrenzt auf 13 Teilnehmer</li>
+                                </ul>
+                                <a class="cta cta-primary hp-gate__cta" href="#wl-form">Durch das Tor gehen</a>
+                            </div>
+                            <div class="hp-gate__door hp-gate__door--l" aria-hidden="true"></div>
+                            <div class="hp-gate__door hp-gate__door--r" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    <div class="hp-gate__steps" aria-hidden="true"></div>
                 </div>
 
                 <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.8; max-width: 620px; margin: 0 auto var(--spacing-sm); text-align: center;">
@@ -638,6 +843,154 @@
     </footer>
 
     <script src="/js/main.js"></script>
+
+    <noscript><style>.hp-gate__door{display:none}.hp-gate__inner{opacity:1!important;transform:none!important}</style></noscript>
+
+    <!-- Handpan Path: Sternenhimmel mit Parallaxe, schwebende Zeichen, Tor -->
+    <script>
+    (function () {
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var canvas = document.getElementById('hp-cosmos');
+        if (!canvas || !canvas.getContext) return;
+        var ctx = canvas.getContext('2d');
+        var W = 0, H = 0, DPR = 1, layers = [], nebulae = [], shooting = null, nextShoot = 0;
+
+        // Drei Sternschichten: fern, mittel, nah. Speed = Anteil der Scrollbewegung.
+        var LAYERS = [
+            { density: 0.00022, rMin: 0.3, rMax: 0.8, speed: 0.04, alpha: 0.55 },
+            { density: 0.00010, rMin: 0.6, rMax: 1.2, speed: 0.12, alpha: 0.75 },
+            { density: 0.000028, rMin: 1.0, rMax: 1.9, speed: 0.26, alpha: 0.95 }
+        ];
+        var TINTS = ['255,255,255', '243,230,214', '255,236,210', '220,230,255', '212,165,116'];
+
+        function rand(a, b) { return a + Math.random() * (b - a); }
+
+        function build() {
+            DPR = Math.min(window.devicePixelRatio || 1, 2);
+            W = window.innerWidth || document.documentElement.clientWidth || 800; H = window.innerHeight || document.documentElement.clientHeight || 600;
+            canvas.width = W * DPR; canvas.height = H * DPR;
+            ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+            layers = LAYERS.map(function (L) {
+                // Jede Schicht ist ein vertikal gekachelter Streifen in doppelter Viewport-Höhe
+                var tileH = H * 2, n = Math.round(W * tileH * L.density), stars = [];
+                for (var i = 0; i < n; i++) {
+                    // Milchstraße: diagonale Verdichtung
+                    var x = Math.random() * W, y = Math.random() * tileH;
+                    if (Math.random() < 0.35) {
+                        var t = Math.random();
+                        x = t * W + rand(-0.12, 0.12) * W;
+                        y = (0.15 + t * 0.7) * tileH + rand(-0.08, 0.08) * tileH;
+                    }
+                    stars.push({ x: x, y: y, r: rand(L.rMin, L.rMax), tw: rand(0.4, 1.6), ph: rand(0, 6.28),
+                                 c: TINTS[Math.random() < 0.7 ? 0 : 1 + Math.floor(Math.random() * 4)] });
+                }
+                return { L: L, stars: stars, tileH: tileH };
+            });
+            nebulae = [
+                { x: 0.78, y: 0.25, r: 0.55, c: '143,127,196', a: 0.06, speed: 0.03 },
+                { x: 0.18, y: 0.95, r: 0.6, c: '212,165,116', a: 0.045, speed: 0.05 },
+                { x: 0.7, y: 1.7, r: 0.5, c: '120,150,210', a: 0.05, speed: 0.04 }
+            ];
+        }
+
+        function drawNebulae(sy) {
+            nebulae.forEach(function (n) {
+                var span = H * 2.4;
+                var cy = ((n.y * H - sy * n.speed) % span + span) % span - H * 0.4;
+                var cx = n.x * W, rr = n.r * Math.max(W, H);
+                var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, rr);
+                g.addColorStop(0, 'rgba(' + n.c + ',' + n.a + ')');
+                g.addColorStop(1, 'rgba(' + n.c + ',0)');
+                ctx.fillStyle = g;
+                ctx.fillRect(0, 0, W, H);
+            });
+        }
+
+        function draw(time) {
+            if (!W || !H || canvas.width === 0) build();
+            var sy = window.scrollY || window.pageYOffset || 0;
+            var t = (time || 0) / 1000;
+            ctx.clearRect(0, 0, W, H);
+            drawNebulae(sy);
+            layers.forEach(function (layer) {
+                var off = (sy * layer.L.speed) % layer.tileH;
+                layer.stars.forEach(function (s) {
+                    var y = s.y - off;
+                    if (y < 0) y += layer.tileH;
+                    if (y > H + 4) return;
+                    var tw = reduce ? 1 : 0.65 + 0.35 * Math.sin(t * s.tw + s.ph);
+                    var a = layer.L.alpha * tw;
+                    ctx.fillStyle = 'rgba(' + s.c + ',' + a.toFixed(3) + ')';
+                    ctx.beginPath(); ctx.arc(s.x, y, s.r, 0, 6.2832); ctx.fill();
+                    if (s.r > 1.5) { // kleiner Lichthof für die hellsten Sterne
+                        ctx.fillStyle = 'rgba(' + s.c + ',' + (a * 0.12).toFixed(3) + ')';
+                        ctx.beginPath(); ctx.arc(s.x, y, s.r * 3.5, 0, 6.2832); ctx.fill();
+                    }
+                });
+            });
+            // Sternschnuppe, selten
+            if (!reduce) {
+                if (!shooting && t > nextShoot) {
+                    shooting = { x: rand(W * 0.2, W), y: rand(0, H * 0.5), vx: -rand(5, 8), vy: rand(2, 3.5), life: 0 };
+                    nextShoot = t + rand(9, 20);
+                }
+                if (shooting) {
+                    var s = shooting, len = 14;
+                    var g = ctx.createLinearGradient(s.x, s.y, s.x - s.vx * len, s.y - s.vy * len);
+                    var fade = Math.max(0, 1 - s.life / 60);
+                    g.addColorStop(0, 'rgba(255,240,220,' + (0.85 * fade) + ')');
+                    g.addColorStop(1, 'rgba(212,165,116,0)');
+                    ctx.strokeStyle = g; ctx.lineWidth = 1.2;
+                    ctx.beginPath(); ctx.moveTo(s.x, s.y); ctx.lineTo(s.x - s.vx * len, s.y - s.vy * len); ctx.stroke();
+                    s.x += s.vx; s.y += s.vy; s.life++;
+                    if (s.life > 60 || s.x < -100 || s.y > H + 100) shooting = null;
+                }
+            }
+        }
+
+        // Schwebende Zeichen: leichte Parallaxe
+        var glyphs = [].slice.call(document.querySelectorAll('.hp-glyph'));
+        function moveGlyphs() {
+            var sy = window.scrollY || 0;
+            glyphs.forEach(function (g) {
+                g.style.transform = 'translate3d(0,' + (sy * parseFloat(g.dataset.speed || 0)).toFixed(1) + 'px,0)';
+            });
+        }
+
+        build();
+        var running = true;
+        function loop(time) { if (running) { draw(time); } requestAnimationFrame(loop); }
+        if (reduce) {
+            draw(0);
+            window.addEventListener('scroll', function () { draw(0); }, { passive: true });
+        } else {
+            requestAnimationFrame(loop);
+            window.addEventListener('scroll', moveGlyphs, { passive: true });
+            moveGlyphs();
+        }
+        document.addEventListener('visibilitychange', function () { running = !document.hidden; });
+        var rt;
+        window.addEventListener('resize', function () {
+            clearTimeout(rt);
+            rt = setTimeout(function () { if (Math.abs(window.innerWidth - W) > 40 || Math.abs(window.innerHeight - H) > 160) { build(); draw(0); } }, 150);
+        });
+
+        // Das Tor öffnet sich, wenn man davor steht
+        var gate = document.getElementById('hp-gate');
+        if (gate) {
+            if (reduce || !('IntersectionObserver' in window)) {
+                gate.classList.add('is-open');
+            } else {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) { gate.classList.add('is-open'); io.disconnect(); }
+                    });
+                }, { threshold: 0.45 });
+                io.observe(gate);
+            }
+        }
+    })();
+    </script>
 
     <!-- Newsletter: Inline-Submit via fetch -->
     <script>
