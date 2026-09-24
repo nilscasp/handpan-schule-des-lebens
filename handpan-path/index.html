@@ -411,7 +411,9 @@
                 .hp-orion{order:0;width:min(100%,430px);}
             }
             @media(max-width:767px){
-                .hp-orion figcaption span{display:none;}
+                .hp-orion{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(96vw,400px);opacity:0.42;z-index:0;pointer-events:none;margin:0;}
+                .hp-orion figcaption,.hp-orion__names{display:none;}
+                .hp-hero__text{position:relative;z-index:1;}
                 .hp-hero{padding-top:110px;}
             }
 
