@@ -416,6 +416,22 @@
                 .hp-hero__text{position:relative;z-index:1;}
                 .hp-hero{padding-top:110px;}
             }
+            .hp-epigraph{margin:0 auto var(--spacing-md);max-width:560px;text-align:center;border:none;padding:0;}
+            .hp-epigraph p{font-family:var(--font-serif);font-style:italic;font-size:1.3rem !important;line-height:1.6 !important;color:var(--color-accent) !important;margin-bottom:0.5rem !important;text-shadow:0 0 20px rgba(212,165,116,0.3);}
+            .hp-epigraph cite{font-family:var(--font-logo);font-style:normal;font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--color-text-muted);}
+            /* Begleiter + Stufen */
+            .hp-guide{display:grid;grid-template-columns:1fr;gap:var(--spacing-md);align-items:start;}
+            .hp-guide__img{width:180px;height:180px;object-fit:cover;border-radius:50%;margin:0 auto;border:1px solid rgba(212,165,116,0.45);box-shadow:0 0 30px rgba(212,165,116,0.18);}
+            @media(min-width:768px){.hp-guide{grid-template-columns:200px 1fr;}.hp-guide__img{margin:0.4rem 0 0;}}
+            .hp-steps{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0.6rem;margin:var(--spacing-md) 0 0.6rem;}
+            .hp-steps i{color:var(--color-accent);font-style:normal;opacity:0.6;}
+            .hp-step{display:inline-flex;align-items:center;gap:0.5rem;padding:0.55rem 0.9rem;border:1px solid rgba(212,165,116,0.3);border-radius:2px;color:var(--color-text-muted);font-size:0.9rem;text-decoration:none;background:rgba(17,23,34,0.6);}
+            a.hp-step:hover{border-color:var(--color-accent);color:var(--color-text);}
+            .hp-step span{font-family:var(--font-logo);color:var(--color-accent);font-size:0.8rem;}
+            .hp-step--crown{border-color:var(--color-accent);color:var(--color-accent);box-shadow:0 0 18px rgba(212,165,116,0.25);}
+            .hp-steps__note{text-align:center;font-size:0.9rem !important;font-style:italic;}
+            .hp-gate__key{text-align:center;font-family:var(--font-serif);font-style:italic;color:var(--color-text);font-size:1.15rem;line-height:1.7;max-width:560px;margin:0 auto var(--spacing-sm);opacity:0.9;}
+
 
             /* Das Tor */
             .hp-overline{text-align:center;font-family:var(--font-logo);letter-spacing:0.35em;text-transform:uppercase;color:var(--color-accent);font-size:0.8rem;margin-bottom:0.4rem;}
@@ -473,7 +489,13 @@
         <section class="section-light">
             <div class="container-narrow hp-prose">
                 <h2 class="section-title">Worum es geht</h2>
+                <blockquote class="hp-epigraph">
+                    <p>„… aus ihrem Leben und aus ihrem ganzen Wesen ein wundervolles Kunstwerk zu machen.“</p>
+                    <cite>Omraam Mikhaël Aïvanhov über die wahre Kunst</cite>
+                </blockquote>
                 <p class="hp-lead">Der Handpan Path ist kein Kurs, in dem du neue Patterns lernst. Er ist ein Weg nach innen, mit der Handpan als Begleiterin.</p>
+                <p>Die Stücke, die du spielst, sind nicht das eigentliche Kunstwerk. <strong>Das eigentliche Kunstwerk bist du</strong>: dein Leben, dein Wesen, die Art, wie Klang, Wort, Bewegung und Farbe durch dich in die Welt kommen.</p>
+                <p>Was wir im Außen erschaffen, lassen wir eines Tages zurück. Die Arbeit an uns selbst bleibt. Genau diese Arbeit ist der Kern des Path.</p>
                 <p>Fünfeinhalb Monate lang arbeiten wir daran, dass sich zeigen darf, was in dir angelegt ist. Mit deinem Instrument, mit deiner Stimme und in einer Gruppe, die den ganzen Weg mit dir geht.</p>
                 <p>Es geht ums <strong>Geben</strong>. Darum, dich zu zeigen und der Welt mitzuteilen, wer du in deinem Innersten bist. Wer das tut, erinnert andere daran, auch auf diesen Teil in sich zu hören.</p>
             </div>
@@ -545,6 +567,15 @@
         </section>
 
         <section class="section-light">
+            <div class="container-narrow hp-prose">
+                <h2 class="section-title">Wie wir lernen: ekstatisches Lernen</h2>
+                <p class="hp-lead">In der Schule haben die meisten von uns gelernt zu folgen. Nicht, uns selbst wahrzunehmen.</p>
+                <p>Auf dem Path holen wir uns den natürlichen Zustand des Lernens zurück: <strong>erkunden, erkennen, dem eigenen Impuls folgen</strong>. Dabei zeigt sich, was du wirklich liebst, was dein eigener Geschmack ist und wohin dein Weg gehen will.</p>
+                <p>Und wenn du ihm folgst, entsteht eine große Freude. Du bist in Kontakt mit dir, gehst deinen Weg und siehst die Früchte unter deinen eigenen Händen wachsen.</p>
+            </div>
+        </section>
+
+        <section class="section-light">
             <div class="container-narrow">
                 <h2 class="section-title">Womit wir arbeiten</h2>
                 <div class="hp-tools">
@@ -582,10 +613,34 @@
         </section>
 
         <section class="section-light">
+            <div class="container-narrow">
+                <h2 class="section-title">Wer dich begleitet</h2>
+                <div class="hp-guide">
+                    <img src="/images/optimized/portrait-frontal.webp" alt="Nils Caspar" class="hp-guide__img" loading="lazy" decoding="async" width="480" height="320">
+                    <div class="hp-prose">
+                        <p class="hp-lead">Ich bin Nils Caspar, Musiker, Sänger und Gründer der Handpan Schule des Lebens.</p>
+                        <p>Meine Jugend war von tiefer Selbstablehnung geprägt. Ich habe Schlagzeug gespielt, Gitarre und Klavier, später elektronische Musik produziert und aufgelegt. Und blieb doch unzufrieden, obwohl ich mich so danach sehnte, mich zu zeigen. Gleichzeitig trieb mich die Frage an, wer ich wirklich bin. Was ich auf dieser Reise gefunden habe, gebe ich heute weiter.</p>
+                        <p>Auf dem Path verbinde ich, was mich geprägt hat: das Studium der <strong>Expressive Arts</strong>, meine Arbeit mit Stimme und Gesang, die Harmonielehre aus vier Jahren bei <strong>Duncan Lorien</strong>, Coaching, das hilft, Widerstände zu überwinden, und eine spirituelle Praxis aus Meditation, Körperarbeit und den traditionellen Weisheitslehren.</p>
+                        <p><a href="/nils-caspar/" style="color:var(--color-accent);">Mehr über mich →</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-dark">
             <div class="container-narrow hp-prose">
                 <h2 class="section-title">Für wen der Path ist</h2>
                 <p class="hp-lead">Für alle, die spüren, dass die Handpan für sie mehr ist als ein Instrument, das man ab und zu spielt. Die tiefer gehen wollen, mit sich selbst und mit dem Instrument.</p>
+                <p>Vielleicht spürst du beides: die Sehnsucht, dich zu zeigen, und den Widerstand, dich wirklich zu öffnen. <strong>Genau damit arbeiten wir.</strong></p>
                 <p>Du solltest schon Handpan spielen und dich auf deinem Instrument zurechtfinden. <strong>Fortgeschritten musst du nicht sein.</strong> Was du brauchst, ist die Bereitschaft, dich fünfeinhalb Monate auf diesen Weg einzulassen.</p>
+                <div class="hp-steps" aria-label="Die Wege der Handpan Schule des Lebens">
+                    <a href="/von-anfang-an-handpan-spielen/" class="hp-step"><span>1</span>Von Anfang an spielen</a>
+                    <i aria-hidden="true">→</i>
+                    <a href="/rhythmus-fundament/" class="hp-step"><span>2</span>Rhythmus Fundament</a>
+                    <i aria-hidden="true">→</i>
+                    <span class="hp-step hp-step--crown"><span>3</span>The Handpan Path</span>
+                </div>
+                <p class="hp-steps__note">Der Path ist die Krönung der Wege an der Handpan Schule des Lebens.</p>
                 <blockquote class="quote-block">
                     <p class="quote-text" style="font-size: 1.3rem;">
                         „Am Ende des Paths spielst du nicht mehr Handpan. Du sprichst durch sie."
@@ -595,31 +650,16 @@
         </section>
 
         <style>
-            .wl-form{max-width:560px;margin:0 auto;text-align:left;}
-            .wl-row{display:flex;gap:var(--spacing-sm);}
-            .wl-row .wl-field{flex:1;}
-            .wl-field{margin-bottom:var(--spacing-sm);}
-            .wl-label{display:block;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent);margin-bottom:0.5rem;}
-            .wl-optional{color:var(--color-text-muted);text-transform:none;letter-spacing:0;font-size:0.85em;}
-            .wl-input{width:100%;box-sizing:border-box;background:var(--color-bg-lighter);border:1px solid rgba(212,165,116,0.22);border-radius:2px;color:var(--color-text);font-family:inherit;font-size:1rem;padding:0.85rem 1rem;transition:border-color 0.2s;}
-            .wl-input::placeholder{color:var(--color-text-muted);opacity:0.7;}
-            .wl-input:focus{outline:none;border-color:var(--color-accent);}
-            .wl-textarea{resize:vertical;min-height:110px;line-height:1.6;}
-            .wl-telrow{display:flex;gap:var(--spacing-sm);}
-            .wl-telrow .wl-vorwahl{flex:0 0 auto;width:auto;cursor:pointer;}
-            .wl-telrow input{flex:1;min-width:0;}
-            .wl-submit{width:100%;margin-top:var(--spacing-sm);background:var(--color-accent);color:var(--color-bg);border:none;border-radius:2px;font-family:inherit;font-size:1.05rem;font-weight:600;letter-spacing:0.02em;padding:1rem;cursor:pointer;transition:background 0.2s;}
-            .wl-submit:hover{background:var(--color-accent-dark);}
-            .wl-submit:disabled{opacity:0.6;cursor:default;}
-            .wl-note{text-align:center;color:var(--color-text-muted);font-size:0.85rem;margin-top:var(--spacing-sm);}
-            .wl-success{max-width:560px;margin:0 auto;text-align:center;color:var(--color-accent);font-size:1.15rem;line-height:1.7;padding:var(--spacing-md);border:1px solid rgba(212,165,116,0.3);border-radius:2px;}
-            @media(max-width:600px){.wl-row{flex-direction:column;gap:0;}}
+            .hp-booking{max-width:720px;margin:0 auto;border:1px solid rgba(212,165,116,0.3);border-radius:2px;background:rgba(17,23,34,0.7);padding:var(--spacing-sm);scroll-margin-top:90px;min-height:420px;}
+            .hp-booking__fallback{text-align:center;color:var(--color-text-muted);font-size:0.9rem;margin-top:var(--spacing-sm);}
+            .hp-booking__fallback a{color:var(--color-accent);}
         </style>
 
         <section class="section-dark" id="warteliste">
             <div class="container-narrow">
                 <p class="hp-overline">Das Tor</p>
                 <h2 class="section-title text-center">Bewirb dich für den Path</h2>
+                <p class="hp-gate__key">Die Kunst öffnet das Tor nach innen.<br>Und sie gibt uns die Kraft, das, was wir dort finden, nach außen zu tragen.</p>
 
                 <div class="hp-gate" id="hp-gate">
                     <svg class="hp-gate__crown" viewBox="0 0 120 60" aria-hidden="true">
@@ -638,7 +678,7 @@
                                     <li>Alle Aufnahmen gehören dir</li>
                                     <li>Begrenzt auf 13 Teilnehmer</li>
                                 </ul>
-                                <a class="cta cta-primary hp-gate__cta" href="#wl-form">Durch das Tor gehen</a>
+                                <a class="cta cta-primary hp-gate__cta" href="#termin">Durch das Tor gehen</a>
                             </div>
                             <div class="hp-gate__door hp-gate__door--l" aria-hidden="true"></div>
                             <div class="hp-gate__door hp-gate__door--r" aria-hidden="true"></div>
@@ -651,45 +691,17 @@
                     Es ist kein Kurs, in den man sich per Klick einträgt. Ich begleite jeden Einzelnen eng über die ganze Reise. Deshalb wähle ich die Gruppe in persönlichen Gesprächen aus.
                 </p>
                 <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.8; max-width: 620px; margin: 0 auto var(--spacing-lg); text-align: center;">
-                    Trag dich hier ein. Ich melde mich persönlich bei dir, und wir schauen gemeinsam, ob der Path dein Weg ist.
+                    Wähle dir direkt einen Termin für ein <strong style="color: var(--color-text);">persönliches Gespräch</strong> (30 Minuten, kostenlos und unverbindlich). Wir lernen uns kennen und schauen gemeinsam, ob der Path dein Weg ist.
                 </p>
 
-                <form class="wl-form" id="wl-form">
-                    <div class="wl-row">
-                        <div class="wl-field">
-                            <label class="wl-label" for="wl-vorname">Vorname</label>
-                            <input class="wl-input" type="text" id="wl-vorname" name="VORNAME" required placeholder="Dein Vorname">
-                        </div>
-                        <div class="wl-field">
-                            <label class="wl-label" for="wl-email">E-Mail</label>
-                            <input class="wl-input" type="email" id="wl-email" name="EMAIL" required placeholder="deine@email.de">
-                        </div>
-                    </div>
-                    <div class="wl-field">
-                        <label class="wl-label" for="wl-whatsapp">WhatsApp / Telefon</label>
-                        <div class="wl-telrow">
-                            <select class="wl-input wl-vorwahl" id="wl-vorwahl" name="SMS__COUNTRY_CODE" aria-label="Ländervorwahl">
-                                <option value="+49" selected>🇩🇪 +49</option>
-                                <option value="+43">🇦🇹 +43</option>
-                                <option value="+41">🇨🇭 +41</option>
-                            </select>
-                            <input class="wl-input" type="tel" id="wl-whatsapp" name="SMS" required placeholder="z. B. 176 12345678">
-                        </div>
-                    </div>
-                    <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;">
-                    <input type="hidden" name="locale" value="de">
-                    <button class="wl-submit" type="submit">Bewerbung absenden</button>
-                    <p class="wl-note">Kein Verkauf, kein Automatismus — ein persönlicher erster Schritt.</p>
-                </form>
+                <div class="hp-booking" id="termin">
+                    <div class="tidycal-embed" data-path="handpanschule/ein-personliches-gesprach-uber-den-handpan-path"></div>
+                    <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+                </div>
+                <p class="hp-booking__fallback">
+                    Der Kalender lädt nicht? <a href="https://tidycal.com/handpanschule/ein-personliches-gesprach-uber-den-handpan-path" target="_blank" rel="noopener">Hier direkt einen Termin buchen →</a>
+                </p>
 
-                <p class="wl-success" id="wl-success" style="display:none;">
-                    ✓ <strong>Deine Bewerbung ist angekommen.</strong><br>
-                    Ich melde mich in den nächsten Tagen persönlich bei dir für ein Gespräch. Bis dahin: Bleib mit deinem Instrument in Kontakt.
-                </p>
-                <p class="wl-note" id="wl-error" style="display:none; color:#e08585;">
-                    <span id="wl-error-msg">Das hat leider nicht geklappt.</span>
-                    Bitte prüfe deine Angaben und versuch es noch einmal — oder schreib mir direkt an <a href="mailto:kontakt@handpan.schule" style="color:var(--color-accent);">kontakt@handpan.schule</a>.
-                </p>
             </div>
         </section>
 
@@ -1018,90 +1030,6 @@
         });
     </script>
 
-    <!-- Warteliste-Formular: Inline-Submit an Brevo (isAjax = echte Antwort statt blindem Erfolg) -->
-    <script>
-        // Ländervorwahlen (aus Brevos Formular übernommen); DE/AT/CH zuerst
-        var WL_LAENDER = [
-            ["+49","🇩🇪 DE"],["+43","🇦🇹 AT"],["+41","🇨🇭 CH"],
-            ["+93","AF"],["+358","AX"],["+355","AL"],["+213","DZ"],["+1684","AS"],["+376","AD"],["+244","AO"],["+1264","AI"],["+672","AQ"],["+1268","AG"],["+54","AR"],["+374","AM"],["+297","AW"],["+61","AU"],["+994","AZ"],["+1242","BS"],["+973","BH"],["+880","BD"],["+1246","BB"],["+375","BY"],["+32","BE"],["+501","BZ"],["+229","BJ"],["+1441","BM"],["+975","BT"],["+591","BO"],["+599","BQ"],["+387","BA"],["+267","BW"],["+55","BR"],["+246","IO"],["+673","BN"],["+359","BG"],["+226","BF"],["+257","BI"],["+855","KH"],["+237","CM"],["+1","CA"],["+238","CV"],["+1345","KY"],["+236","CF"],["+235","TD"],["+56","CL"],["+86","CN"],["+57","CO"],["+269","KM"],["+242","CG"],["+243","CD"],["+682","CK"],["+506","CR"],["+225","CI"],["+385","HR"],["+53","CU"],["+599","CW"],["+357","CY"],["+420","CZ"],["+45","DK"],["+253","DJ"],["+1767","DM"],["+1809","DO"],["+1829","DO"],["+1849","DO"],["+593","EC"],["+20","EG"],["+503","SV"],["+240","GQ"],["+291","ER"],["+372","EE"],["+251","ET"],["+500","FK"],["+298","FO"],["+679","FJ"],["+358","FI"],["+33","FR"],["+594","GF"],["+689","PF"],["+241","GA"],["+220","GM"],["+995","GE"],["+233","GH"],["+350","GI"],["+30","GR"],["+299","GL"],["+1473","GD"],["+590","GP"],["+1671","GU"],["+502","GT"],["+44","GG"],["+224","GN"],["+245","GW"],["+592","GY"],["+509","HT"],["+379","VA"],["+504","HN"],["+852","HK"],["+36","HU"],["+354","IS"],["+91","IN"],["+62","ID"],["+98","IR"],["+964","IQ"],["+353","IE"],["+44","IM"],["+972","IL"],["+39","IT"],["+1876","JM"],["+81","JP"],["+44","JE"],["+962","JO"],["+7","KZ"],["+254","KE"],["+686","KI"],["+850","KP"],["+82","KR"],["+965","KW"],["+996","KG"],["+856","LA"],["+371","LV"],["+961","LB"],["+266","LS"],["+231","LR"],["+218","LY"],["+423","LI"],["+370","LT"],["+352","LU"],["+853","MO"],["+389","MK"],["+261","MG"],["+265","MW"],["+60","MY"],["+960","MV"],["+223","ML"],["+356","MT"],["+692","MH"],["+596","MQ"],["+222","MR"],["+230","MU"],["+262","YT"],["+52","MX"],["+691","FM"],["+373","MD"],["+377","MC"],["+976","MN"],["+382","ME"],["+1664","MS"],["+212","MA"],["+258","MZ"],["+95","MM"],["+264","NA"],["+674","NR"],["+977","NP"],["+31","NL"],["+687","NC"],["+64","NZ"],["+505","NI"],["+227","NE"],["+234","NG"],["+683","NU"],["+672","NF"],["+1670","MP"],["+47","NO"],["+968","OM"],["+92","PK"],["+680","PW"],["+970","PS"],["+507","PA"],["+675","PG"],["+595","PY"],["+51","PE"],["+63","PH"],["+48","PL"],["+351","PT"],["+1787","PR"],["+974","QA"],["+383","XK"],["+262","RE"],["+40","RO"],["+7","RU"],["+250","RW"],["+590","BL"],["+290","SH"],["+1869","KN"],["+1758","LC"],["+590","MF"],["+508","PM"],["+1784","VC"],["+685","WS"],["+378","SM"],["+239","ST"],["+966","SA"],["+221","SN"],["+381","RS"],["+248","SC"],["+232","SL"],["+65","SG"],["+1721","SX"],["+421","SK"],["+386","SI"],["+677","SB"],["+252","SO"],["+27","ZA"],["+211","SS"],["+34","ES"],["+94","LK"],["+249","SD"],["+597","SR"],["+268","SZ"],["+46","SE"],["+963","SY"],["+886","TW"],["+992","TJ"],["+255","TZ"],["+66","TH"],["+670","TL"],["+228","TG"],["+690","TK"],["+676","TO"],["+1868","TT"],["+216","TN"],["+90","TR"],["+993","TM"],["+1649","TC"],["+688","TV"],["+256","UG"],["+380","UA"],["+971","AE"],["+44","GB"],["+1","US"],["+598","UY"],["+998","UZ"],["+678","VU"],["+58","VE"],["+84","VN"],["+1284","VG"],["+1340","VI"],["+681","WF"],["+967","YE"],["+260","ZM"],["+263","ZW"]
-        ];
-        (function() {
-            var sel = document.getElementById('wl-vorwahl');
-            sel.innerHTML = '';
-            for (var i = 0; i < WL_LAENDER.length; i++) {
-                var o = document.createElement('option');
-                o.value = WL_LAENDER[i][0];
-                o.textContent = WL_LAENDER[i][0] + ' ' + WL_LAENDER[i][1];
-                if (i === 0) o.selected = true;
-                sel.appendChild(o);
-            }
-        })();
-        // Alle Vorwahl-Ziffernfolgen, längste zuerst (für +…/00…-Eingaben)
-        var WL_CODES = (function() {
-            var seen = {};
-            for (var i = 0; i < WL_LAENDER.length; i++) seen[WL_LAENDER[i][0].replace(/\D/g, '')] = 1;
-            return Object.keys(seen).sort(function(a, b) { return b.length - a.length; });
-        })();
-
-        document.getElementById('wl-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var form = this;
-            var btn = form.querySelector('.wl-submit');
-            var errEl = document.getElementById('wl-error');
-            errEl.style.display = 'none';
-
-            // Brevo erwartet: SMS = nationale Nummer OHNE Vorwahl, Vorwahl separat in SMS__COUNTRY_CODE
-            var telInput = document.getElementById('wl-whatsapp');
-            var cc = document.getElementById('wl-vorwahl').value.replace(/\D/g, '');
-            var raw = telInput.value.trim();
-            var digits = raw.replace(/\D/g, '');
-            var intl = raw.indexOf('+') === 0 || digits.indexOf('00') === 0;
-            if (digits.indexOf('00') === 0) digits = digits.slice(2);
-            if (intl) {
-                // international getippt (+33 …/0033 …): Vorwahl aus der Nummer übernehmen (längste zuerst)
-                for (var i = 0; i < WL_CODES.length; i++) {
-                    if (digits.indexOf(WL_CODES[i]) === 0) { cc = WL_CODES[i]; digits = digits.slice(WL_CODES[i].length); break; }
-                }
-            } else if (digits.indexOf(cc) === 0 && digits.length - cc.length >= 9) {
-                // Vorwahl ohne +/00 mitgetippt (z. B. "49176…"): abschneiden
-                digits = digits.slice(cc.length);
-            }
-            if (digits.indexOf('0') === 0) digits = digits.slice(1);
-            var data = new FormData(form);
-            data.set('SMS', digits);
-            data.set('SMS__COUNTRY_CODE', '+' + cc);
-
-            btn.textContent = 'Wird gesendet …';
-            btn.disabled = true;
-
-            fetch('https://f66d0849.sibforms.com/serve/MUIFANE-jVzx08nMe3alQVuqBjjdEWf1uQOcYA0XstiRhV7lHOABDja8b8NGiEB5lOguydBPttkszLtQucLBYF-qGHiS7UT4p_BnlJvL8fL-s_ykltSoFWKnpU6OSEBVyqfE4ML6rzpkdB-YanQygDCX9RhTq2ogCaMQWVu197jUUFL5TNVKYbWDLxoWp6X3UzjGmrekg_g72pXO?isAjax=1', {
-                method: 'POST',
-                body: data
-            }).then(function(res) { return res.json(); }).then(function(json) {
-                if (json && json.success) {
-                    form.style.display = 'none';
-                    document.getElementById('wl-success').style.display = '';
-                } else {
-                    var msgEl = document.getElementById('wl-error-msg');
-                    if (json && json.errors) {
-                        console.warn('Brevo-Fehler:', json.errors);
-                        var first = json.errors[Object.keys(json.errors)[0]];
-                        msgEl.textContent = typeof first === 'string' ? first : 'Das hat leider nicht geklappt.';
-                    } else {
-                        msgEl.textContent = 'Das hat leider nicht geklappt.';
-                    }
-                    errEl.style.display = '';
-                    btn.textContent = 'Bewerbung absenden';
-                    btn.disabled = false;
-                }
-            }).catch(function(err) {
-                console.warn('Warteliste-Submit fehlgeschlagen:', err);
-                errEl.style.display = '';
-                btn.textContent = 'Bewerbung absenden';
-                btn.disabled = false;
-            });
-        });
-    </script>
 
     <div class="lang-switcher" id="lang-switcher">
         <button class="lang-badge" onclick="document.getElementById('lang-switcher').classList.toggle('open')" aria-label="Sprache wechseln">
