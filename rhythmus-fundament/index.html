@@ -136,7 +136,7 @@
           "name": "Was kostet der Kurs?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Das Rhythmus Fundament kostet einmalig 399 €. Darin enthalten sind alle Live-Sessions, Aufzeichnungen, Übungsmaterial und der Community-Zugang für die Kursdauer. Die Anmeldung für den Start am 11. September 2026 ist bis 10. September, 23:59 Uhr möglich."
+            "text": "Das Rhythmus Fundament kostet einmalig 399 €. Darin enthalten sind alle Live-Sessions, Aufzeichnungen, Übungsmaterial und der Community-Zugang für die Kursdauer. Die aktuelle Runde läuft bereits; der nächste Termin ist in Planung. Über die Interessentenliste auf dieser Seite erfährst du ihn als Erste:r."
           }
         }
       ]
@@ -325,7 +325,7 @@
             0 0 0 5px rgba(212,165,116,0.12),
             0 0 13px rgba(212,165,116,0.55);
     }
-    /* Der Schluss-Faden dockt direkt in den "Jetzt anmelden & bezahlen"-Button ein */
+    /* Schluss-Faden (war am Kaufbutton; greift nur, wenn [data-rhythm="ziel"] existiert) */
     #page-rhythmus-fundament [data-rhythm="ziel"] { position: relative; }
     #page-rhythmus-fundament [data-rhythm="ziel"]::before {
         content: ''; position: absolute; left: 50%; transform: translateX(-50%);
@@ -571,15 +571,15 @@
         </div>
     </div>
 
-    <!-- Floating Action Buttons: Termine (sekundär) + Jetzt anmelden (primär, in der Ecke) -->
+    <!-- Floating Action Buttons: Termine (sekundär) + Interessentenliste (primär, in der Ecke) -->
     <div class="floating-actions" style="position: fixed; bottom: 2rem; right: 2rem; z-index: 90; display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-end;">
         <button class="floating-cta" id="calendar-toggle" style="position: static;" aria-label="Termine anzeigen" onclick="toggleCalendarSidebar()">
             <span class="floating-cta-icon">📅</span>
             Termine
         </button>
-        <a href="#kaufen" class="floating-cta cta--primary" style="position: static; font-weight: 600;" aria-label="Jetzt anmelden">
+        <a href="#interesse" class="floating-cta cta--primary" style="position: static; font-weight: 600;" aria-label="Auf die Interessentenliste">
             <span class="floating-cta-icon">✨</span>
-            Jetzt anmelden
+            Interessentenliste
         </a>
     </div>
 
@@ -696,10 +696,10 @@
                 <p style="color: var(--color-text-muted); font-size: 1.1rem; margin-top: var(--spacing-md); max-width: 600px; margin-left: auto; margin-right: auto;">
                     Du spielst Pattern nach — aber frei variieren, Übergänge finden, mit anderen spielen: da wird es unsicher. Genau dafür ist dieser Kurs.
                 </p>
-                <p class="rf-hero-facts">6,5 Wochen · 15 Min am Tag · 7 Live-Trainings · Start 11.09. · 399&nbsp;€</p>
-                <a class="cta cta--primary" href="#kaufen" style="margin-top: var(--spacing-sm); display: inline-block;">Jetzt anmelden</a>
+                <p class="rf-hero-facts">6,5 Wochen · 15 Min am Tag · 7 Live-Trainings · nächste Runde in Planung</p>
+                <a class="cta cta--primary" href="#interesse" style="margin-top: var(--spacing-sm); display: inline-block;">Auf die Interessentenliste</a>
                 <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 0.8rem;">
-                    Anmeldung bis 10. September, 23:59 Uhr · 100&nbsp;% Geld-zurück-Garantie
+                    Die aktuelle Runde läuft · Trag dich ein, dann erfährst du den nächsten Termin zuerst
                 </p>
             </div>
         </section>
@@ -868,50 +868,6 @@
                     <div class="rf-check-item">
                         <svg class="rf-ic"><use href="#rf-check"/></svg>
                         <span style="color: var(--color-text);">… du bereit bist, <strong style="color: var(--color-text);">15 Minuten am Tag</strong> zu investieren — für ein Fundament, das bleibt.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gruppencall-Termine -->
-        <section class="section-dark">
-            <div class="container-narrow">
-                <h2 class="section-title">Die Live-Training-Termine</h2>
-                <div data-rhythm="termine" style="max-width: 520px; margin: 0 auto;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(212, 165, 116, 0.1);">
-                        <span style="color: var(--color-text);">Fr, 11.09.2026</span>
-                        <span style="color: var(--color-text-muted);">19:00–20:00</span>
-                        <span style="color: var(--color-accent); font-size: 0.85rem;"><svg class="rf-ic" style="width: 0.95em; height: 0.95em; margin-right: 0.25rem;"><use href="#rf-play"/></svg>Kick-off</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(212, 165, 116, 0.1);">
-                        <span style="color: var(--color-text);">Fr, 18.09.2026</span>
-                        <span style="color: var(--color-text-muted);">19:00–20:00</span>
-                        <span style="color: var(--color-accent); font-size: 0.85rem;"></span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(212, 165, 116, 0.1);">
-                        <span style="color: var(--color-text);">Sa, 26.09.2026</span>
-                        <span style="color: var(--color-text-muted);">19:00–20:00</span>
-                        <span style="color: var(--color-accent); font-size: 0.85rem;"></span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(212, 165, 116, 0.1);">
-                        <span style="color: var(--color-text);">So, 04.10.2026</span>
-                        <span style="color: var(--color-text-muted);">11:00–12:00</span>
-                        <span style="color: var(--color-accent); font-size: 0.85rem;"></span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(212, 165, 116, 0.1);">
-                        <span style="color: var(--color-text);">Sa, 10.10.2026</span>
-                        <span style="color: var(--color-text-muted);">19:00–20:00</span>
-                        <span style="color: var(--color-accent); font-size: 0.85rem;"></span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(212, 165, 116, 0.1);">
-                        <span style="color: var(--color-text);">Di, 20.10.2026</span>
-                        <span style="color: var(--color-text-muted);">19:00–20:00</span>
-                        <span style="color: var(--color-accent); font-size: 0.85rem;"></span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0;">
-                        <span style="color: var(--color-text);">So, 25.10.2026</span>
-                        <span style="color: var(--color-text-muted);">11:00–12:30</span>
-                        <span style="color: var(--color-accent); font-size: 0.85rem;"><svg class="rf-ic" style="width: 0.95em; height: 0.95em; margin-right: 0.25rem;"><use href="#rf-flag"/></svg>Abschluss</span>
                     </div>
                 </div>
             </div>
@@ -1123,7 +1079,7 @@
                 </div>
 
                 <div style="display: flex; justify-content: center; margin-top: var(--spacing-lg);">
-                    <a href="#kaufen" class="cta cta--primary">Jetzt anmelden</a>
+                    <a href="#interesse" class="cta cta--primary">Auf die Interessentenliste</a>
                 </div>
 
             </div>
@@ -1174,19 +1130,53 @@
                 </div>
 
                 <div style="display: flex; justify-content: center; margin-top: var(--spacing-lg);">
-                    <a href="#kaufen" class="cta cta--primary">Jetzt anmelden</a>
+                    <a href="#interesse" class="cta cta--primary">Auf die Interessentenliste</a>
                 </div>
 
             </div>
         </section>
 
-        <!-- Anmeldung & Bezahlung -->
+        <!-- Nächste Runde: Interessentenliste (Anmeldung geschlossen seit 10.09.2026) -->
         <section class="section-dark" id="anmelden">
             <div class="container-narrow text-center">
-                <h2 class="section-title">Jetzt anmelden</h2>
+                <h2 class="section-title">Die nächste Runde</h2>
                 <p style="color: var(--color-text-muted); margin-bottom: var(--spacing-md);">
-                    Direkt hier anmelden und sicher bezahlen.
+                    Die aktuelle Runde läuft bereits. Der nächste Termin ist in Planung.
                 </p>
+
+                <!-- Interessentenliste: Kontakt, sobald der nächste Termin feststeht (Brevo, Single-Form VORNAME+EMAIL) -->
+                <style>
+                    .ia-box{max-width:520px;margin:0 auto var(--spacing-lg);padding:1.5rem 1.6rem;border:1px solid rgba(212,165,116,0.45);border-radius:16px;background:linear-gradient(rgba(212,165,116,0.07),rgba(212,165,116,0.07)),#0A0E14;text-align:left;scroll-margin-top:100px;position:relative;z-index:3;}
+                    .ia-kicker{margin:0 0 0.3rem;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent);font-weight:700;}
+                    .ia-title{margin:0;font-family:var(--font-serif);font-size:1.25rem;color:var(--color-accent);line-height:1.3;}
+                    .ia-text{margin:0.45rem 0 1rem;color:var(--color-text);font-size:0.95rem;line-height:1.55;}
+                    .ia-form{display:flex;flex-direction:column;gap:0.6rem;}
+                    .ia-form input[type="text"],.ia-form input[type="email"]{width:100%;padding:0.8rem 1rem;background:rgba(10,14,20,0.6);border:1px solid rgba(212,165,116,0.3);border-radius:2px;color:var(--color-text);font-family:inherit;font-size:1rem;}
+                    .ia-form input::placeholder{color:var(--color-text-muted);}
+                    .ia-form input:focus{outline:none;border-color:var(--color-accent);}
+                    .ia-form button{margin-top:0.2rem;width:100%;}
+                    .ia-form button[disabled]{opacity:0.6;cursor:wait;}
+                    .ia-hint{margin:0.7rem 0 0;color:var(--color-text-muted);font-size:0.8rem;line-height:1.5;}
+                    .ia-hint a{color:var(--color-accent);}
+                    .ia-error{display:none;margin:0.6rem 0 0;color:#e8a0a0;font-size:0.9rem;}
+                    .ia-success{display:none;margin:0;color:var(--color-accent);font-size:1rem;line-height:1.55;}
+                </style>
+                <div class="ia-box" id="interesse" data-endpoint="https://f66d0849.sibforms.com/serve/MUIFAC93KHwsK_tD0XunpjzmDrMSgFP4RCMzu-2VFN2qUc-AdfeL3AHlMz6NG3Nw6Mp2skuE2bsT9OjfnX6vrvfTrjLUJJkdl79YDQ2AKyBFvP-tJFG526Y2prLB2IUul6Ozw9zvzzdYeABP67mHCC6o3w84KC8VNFmTGhYayUoLBvFELcjWa-od-4q8QTaw0-IWnBgvSpFHyj_9" data-name="Rhythmus Fundament">
+                    <p class="ia-kicker">Nächste Runde</p>
+                    <p class="ia-title">Sag mir Bescheid, wenn es wieder losgeht</p>
+                    <p class="ia-text">Trag dich unverbindlich ein. Sobald der nächste Termin feststeht, melde ich mich persönlich bei dir, bevor ich ihn öffentlich ankündige.</p>
+                    <form class="ia-form" novalidate>
+                        <input type="text" name="VORNAME" placeholder="Dein Vorname" autocomplete="given-name" required aria-label="Vorname">
+                        <input type="email" name="EMAIL" placeholder="Deine E-Mail-Adresse" autocomplete="email" required aria-label="E-Mail-Adresse">
+                        <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
+                        <input type="hidden" name="locale" value="de">
+                        <button type="submit" class="cta cta--primary">Auf die Interessentenliste</button>
+                    </form>
+                    <p class="ia-error" role="alert"></p>
+                    <p class="ia-success" role="status">✓ Danke! Du stehst auf der Liste. Sobald der nächste Termin feststeht, hörst du von mir.</p>
+                    <p class="ia-hint">Kein Newsletter, nur die Nachricht zum nächsten Termin. <a href="/datenschutz/">Datenschutz</a></p>
+                </div>
+                <script src="/js/interessentenliste.js?v=2026-09-28a" defer></script>
 
                 <!-- Value-Stack: alles, was enthalten ist -->
                 <div class="rf-check-list" style="text-align: left; margin-bottom: var(--spacing-lg);">
@@ -1205,25 +1195,11 @@
                 <!-- Preis-Anzeige direkt vor dem Kaufbutton -->
                 <div id="kaufen" style="position: relative; max-width: 460px; margin: 0 auto var(--spacing-lg); padding: 1.3rem 1.6rem; border: 1px solid rgba(212, 165, 116, 0.35); border-radius: 16px; background: rgba(212, 165, 116, 0.06); scroll-margin-top: 100px;">
                     <span style="position: absolute; top: -15px; right: 14px; background: var(--color-accent); color: #0A0E14; font-weight: 700; font-size: 0.92rem; padding: 0.35rem 0.75rem; border-radius: 999px; transform: rotate(3deg); letter-spacing: 0.04em; box-shadow: 0 4px 14px rgba(0,0,0,0.35);">−50&nbsp;%</span>
-                    <p style="margin: 0 0 0.2rem; color: var(--color-text-muted); font-size: 1rem;">Gesamtwert <s>808&nbsp;€</s> — dein Preis heute:</p>
+                    <p style="margin: 0 0 0.2rem; color: var(--color-text-muted); font-size: 1rem;">Gesamtwert <s>808&nbsp;€</s> — Kurspreis:</p>
                     <p style="margin: 0; font-size: 2.4rem; font-weight: 700; color: var(--color-accent); line-height: 1.1;">399&nbsp;€</p>
                     <p style="margin: 0.4rem 0 0; color: var(--color-text-muted); font-size: 0.95rem;">einmalig — du sparst 409&nbsp;€</p>
-                    <p style="margin: 0.55rem 0 0; color: var(--color-text); font-size: 0.9rem;">Anmeldung für den Start am 11.&nbsp;September: bis <strong style="color: var(--color-accent);">10.&nbsp;September, 23:59&nbsp;Uhr</strong></p>
                 </div>
 
-                <!-- Countdown-Box: Anmeldeschluss 10.09.2026, Kick-off 11.09.2026 -->
-                <div style="max-width: 460px; margin: 0 auto var(--spacing-lg); padding: 1.25rem 1.5rem; border: 1px solid rgba(212,165,116,0.5); border-radius: 16px; background: rgba(212,165,116,0.1); text-align: left;">
-                    <p style="margin: 0 0 0.3rem; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); font-weight: 700;">Kursstart · 11. September</p>
-                    <p style="margin: 0; font-family: var(--font-serif); font-size: 1.2rem; color: var(--color-accent); line-height: 1.3;">Die Anmeldung schließt am 10. September</p>
-                    <p style="margin: 0.4rem 0 0; color: var(--color-text); font-size: 0.92rem; line-height: 1.55;">Am Freitag, den 11.&nbsp;September um 19&nbsp;Uhr starten wir gemeinsam mit dem Kick-off. Bis <strong style="color: var(--color-text);">Donnerstag, 10.&nbsp;September, 23:59&nbsp;Uhr</strong> kannst du dich anmelden – danach schließt die Tür für diese Runde.</p>                </div>
-
-                <div data-rhythm="ziel" style="display: flex; justify-content: center; margin-bottom: var(--spacing-sm);">
-                    <a href="https://buy.stripe.com/fZudR8dm2dDX5XX0YD1ZS09" class="cta cta--primary" onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:399.00,currency:'EUR',content_name:'Rhythmus Fundament'});}">Jetzt anmelden &amp; bezahlen</a>
-                </div>
-                <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: var(--spacing-lg);">
-                    <svg class="rf-ic" style="width: 0.95em; height: 0.95em; margin-right: 0.3rem; vertical-align: -0.15em;"><use href="#rf-lock"/></svg>
-                    Sichere Zahlung · Kreditkarte · SEPA-Lastschrift · Sofortüberweisung
-                </p>
 
                 <!-- Ergebnis-Garantie: Mein Versprechen + Dein Teil der Abmachung -->
                 <div style="max-width: 600px; margin: var(--spacing-lg) auto 0; padding: 1.6rem 1.7rem; border: 1px solid rgba(212,165,116,0.3); border-radius: 16px; background: rgba(212,165,116,0.04);">
