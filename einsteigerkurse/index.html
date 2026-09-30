@@ -60,7 +60,6 @@
     <link rel="preconnect" href="https://asset-tidycal.b-cdn.net" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="https://f66d0849.sibforms.com">
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <link rel="stylesheet" href="/css/style.css?v=2026-08-03a">
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-07-05b">
 
@@ -331,8 +330,8 @@
                     </div>
                     <div class="feature-card">
                         <h3>Termine</h3>
-                        <p>Wähle deinen Wunschtermin<br>
-                        <a href="#anmelden" style="color: var(--color-accent); text-decoration: none;">→ Termin wählen &amp; buchen</a></p>
+                        <p>Derzeit kein fester Termin<br>
+                        <a href="#interesse" style="color: var(--color-accent); text-decoration: none;">→ Auf die Interessentenliste</a></p>
                     </div>
                     <div class="feature-card">
                         <h3>Teilnehmer</h3>
@@ -424,47 +423,41 @@
                     <p id="price-amount" style="margin: 0; font-size: 2.4rem; font-weight: 700; color: var(--color-accent); line-height: 1.1;">105&nbsp;€</p>
                     <p style="margin: 0.4rem 0 0; color: var(--color-text-muted); font-size: 0.95rem;">einmalig — alles oben ist enthalten</p>
                     <p style="margin: 0.45rem 0 0; color: var(--color-accent); font-size: 0.9rem; font-weight: 600;">inkl. Kauf- &amp; Marktberatung</p>
-                    <p id="price-august-note" style="margin: 0.5rem 0 0; color: var(--color-text-muted); font-size: 0.85rem; display: none;">Ab August steigt der Preis auf <span style="color: var(--color-accent); font-weight: 600;">105&nbsp;€</span> &ndash; jetzt noch günstiger sichern.</p>
                 </div>
 
-                <!-- Termin-Auswahl: direkt über dem Button, da die Auswahl den Bezahl-Link setzt.
-                     Weitere Termine = einfach eine <option value="ZAHLUNGSLINK">Datum</option> ergänzen. -->
-                <div style="max-width: 380px; margin: 0 auto var(--spacing-sm);">
-                    <label for="termin-select" style="display:block; color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Termin wählen</label>
-                    <select id="termin-select" onchange="updateTerminCheckout(this)"
-                            style="width:100%; padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(212,165,116,0.4); background: var(--color-bg); color: var(--color-text); font-size: 1rem; cursor: pointer;">
-                        <option value="https://buy.stripe.com/aFabJ0fuafM5dqpePt1ZS03" data-price="65" disabled>Sonntag, 19.7.2026 · 12–14 Uhr · ausgebucht</option>
-                        <option value="https://buy.stripe.com/aFa7sKeq67fzcml0YD1ZS06" data-price="105" selected>Sonntag, 16.8.2026 · 11–13 Uhr</option>
-                    </select>
+                <!-- Interessentenliste: Kontakt, sobald der nächste Termin feststeht (Brevo, Single-Form VORNAME+EMAIL) -->
+                <style>
+                    .ia-box{max-width:520px;margin:0 auto var(--spacing-lg);padding:1.5rem 1.6rem;border:1px solid rgba(212,165,116,0.45);border-radius:16px;background:linear-gradient(rgba(212,165,116,0.07),rgba(212,165,116,0.07)),#0A0E14;text-align:left;scroll-margin-top:100px;position:relative;z-index:3;}
+                    .ia-kicker{margin:0 0 0.3rem;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-accent);font-weight:700;}
+                    .ia-title{margin:0;font-family:var(--font-serif);font-size:1.25rem;color:var(--color-accent);line-height:1.3;}
+                    .ia-text{margin:0.45rem 0 1rem;color:var(--color-text);font-size:0.95rem;line-height:1.55;}
+                    .ia-form{display:flex;flex-direction:column;gap:0.6rem;}
+                    .ia-form input[type="text"],.ia-form input[type="email"]{width:100%;padding:0.8rem 1rem;background:rgba(10,14,20,0.6);border:1px solid rgba(212,165,116,0.3);border-radius:2px;color:var(--color-text);font-family:inherit;font-size:1rem;}
+                    .ia-form input::placeholder{color:var(--color-text-muted);}
+                    .ia-form input:focus{outline:none;border-color:var(--color-accent);}
+                    .ia-form button{margin-top:0.2rem;width:100%;}
+                    .ia-form button[disabled]{opacity:0.6;cursor:wait;}
+                    .ia-hint{margin:0.7rem 0 0;color:var(--color-text-muted);font-size:0.8rem;line-height:1.5;}
+                    .ia-hint a{color:var(--color-accent);}
+                    .ia-error{display:none;margin:0.6rem 0 0;color:#e8a0a0;font-size:0.9rem;}
+                    .ia-success{display:none;margin:0;color:var(--color-accent);font-size:1rem;line-height:1.55;}
+                </style>
+                <div class="ia-box" id="interesse" data-endpoint="https://f66d0849.sibforms.com/serve/MUIFAKJQRusX1kmcMN-pvM_fZRLzF_G9LXgUmMyCcHGQ6T7J-VtbclpGrnPKhRnbKFrV40PPul1bzzFbC1FiJJov5PR7WhRFpGc_Wp3YSK_M_pm9-H3XniAihF06V11TJHZNBidNqgAZg24DzgF2W5c7YNmmlWJbq1zNLhM2ZRQTYqV7D2itZmzTbpLO-NrR6j6wuu1JXyjWbs2z" data-name="Einsteigerkurs">
+                    <p class="ia-kicker">Nächster Workshop</p>
+                    <p class="ia-title">Sag mir Bescheid, wenn der nächste Workshop feststeht</p>
+                    <p class="ia-text">Gerade gibt es keinen festen Workshop-Termin. Trag dich unverbindlich ein. Sobald der nächste Termin feststeht, melde ich mich persönlich bei dir, bevor ich ihn öffentlich ankündige.</p>
+                    <form class="ia-form" novalidate>
+                        <input type="text" name="VORNAME" placeholder="Dein Vorname" autocomplete="given-name" required aria-label="Vorname">
+                        <input type="email" name="EMAIL" placeholder="Deine E-Mail-Adresse" autocomplete="email" required aria-label="E-Mail-Adresse">
+                        <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
+                        <input type="hidden" name="locale" value="de">
+                        <button type="submit" class="cta cta--primary">Auf die Interessentenliste</button>
+                    </form>
+                    <p class="ia-error" role="alert"></p>
+                    <p class="ia-success" role="status">✓ Danke! Du stehst auf der Liste. Sobald der nächste Termin feststeht, hörst du von mir.</p>
+                    <p class="ia-hint">Kein Newsletter, nur die Nachricht zum nächsten Termin. <a href="/datenschutz/">Datenschutz</a></p>
                 </div>
-
-                <!-- Einheitlicher Bezahl-Button: href wechselt je nach gewähltem Termin -->
-                <div style="display: flex; justify-content: center; margin-bottom: var(--spacing-sm);">
-                    <a id="paymentlink-btn" href="https://buy.stripe.com/aFa7sKeq67fzcml0YD1ZS06" class="cta cta--primary">Jetzt anmelden &amp; bezahlen</a>
-                </div>
-
-                <!-- Sichere Zahlung (Stil wie Rhythmus Fundament, self-contained Lock-SVG) -->
-                <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: var(--spacing-lg);">
-                    <svg width="0.95em" height="0.95em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.35rem; vertical-align: -0.15em;"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.3" r="1.1"/></svg>
-                    Sichere Zahlung · Kreditkarte · SEPA-Lastschrift · Sofortüberweisung
-                </p>
-
-                <script>
-                    function updateTerminCheckout(sel) {
-                        var opt = sel.options[sel.selectedIndex];
-                        document.getElementById('paymentlink-btn').setAttribute('href', sel.value);
-                        var price = opt.getAttribute('data-price');
-                        if (price) {
-                            document.getElementById('price-amount').innerHTML = price + ' €';
-                            var note = document.getElementById('price-august-note');
-                            if (note) note.style.display = (price === '105') ? 'none' : '';
-                        }
-                    }
-                    document.addEventListener('DOMContentLoaded', function () {
-                        var sel = document.getElementById('termin-select');
-                        if (sel) updateTerminCheckout(sel);
-                    });
-                </script>
+                <script src="/js/interessentenliste.js?v=2026-09-28a" defer></script>
                 <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: var(--spacing-lg);">
                     Lieber erst ein unverbindliches Gespräch? <a href="/dabei-sein/" style="color: var(--color-accent); text-decoration: none;">→ Gespräch vereinbaren</a>
                 </p>
