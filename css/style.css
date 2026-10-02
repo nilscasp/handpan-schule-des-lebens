@@ -4232,3 +4232,131 @@
             border-color: var(--color-accent);
             background: rgba(212, 165, 116, 0.08);
         }
+
+/* ============================================
+   STARTSEITE 2026-10 — Value-Canvas-Aufbau
+   ============================================ */
+.home-pains { margin-top: var(--spacing-md); }
+.home-pains .feature p,
+.home-payoffs .feature p { font-size: 1rem; line-height: 1.75; }
+.home-pains-close {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.home-question { text-align: left; }
+.home-question p {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin-bottom: var(--spacing-sm);
+}
+.home-question .home-question__not {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: #6B6E74;
+    text-align: center;
+    margin-bottom: 0.4rem;
+}
+.home-question__main {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+    line-height: 1.35;
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+.home-question .home-question__fear {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    border-left: 1px solid var(--color-accent);
+    padding-left: var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+}
+
+.home-payoffs .home-without {
+    margin-top: var(--spacing-sm);
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-accent);
+    opacity: 0.85;
+}
+
+.home-eyebrow { text-align: center; margin-bottom: 0.5rem; }
+.home-method-intro {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    max-width: 640px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+}
+.home-method {
+    list-style: none;
+    counter-reset: method;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 640px;
+}
+.home-method li {
+    counter-increment: method;
+    position: relative;
+    padding: 0 0 var(--spacing-md) 4rem;
+}
+.home-method li::before {
+    content: counter(method);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(212, 165, 116, 0.45);
+    color: var(--color-accent);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+}
+.home-method h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+.home-method p { color: var(--color-text-muted); line-height: 1.75; }
+.home-method-outro {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-text);
+    max-width: 600px;
+    margin: var(--spacing-md) auto 0;
+    line-height: 1.7;
+}
+
+.home-about-role {
+    color: var(--color-accent);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-sm);
+}
+.home-about-text {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+}
+
+.home-card-link { display: inline-block; margin-top: var(--spacing-sm); }
+.home-card-link--tight { margin-top: 0.4rem; }
+
+@media (max-width: 600px) {
+    .home-pains-close { font-size: 1.15rem; }
+    .home-question p { font-size: 1.02rem; }
+    .home-method li { padding-left: 3.4rem; }
+}
