@@ -1,32 +1,20 @@
 [
-  {
-    "title": "Einsteiger-Workshop",
-    "date": "2026-08-16",
-    "time": "11–13",
-    "type": "workshop",
-    "location": "München",
-    "link": "/einsteigerkurse/"
-  },
-  {
-    "title": "Rhythmus Fundament – Kick-off",
-    "date": "2026-09-11",
-    "time": "19:00",
-    "type": "kurs",
-    "link": "/rhythmus-fundament/"
-  },
-  {
-    "title": "Von Anfang an spielen – Kursstart",
-    "date": "2026-09-26",
-    "time": "10:00",
-    "type": "kurs",
-    "location": "Online",
-    "link": "/von-anfang-an-handpan-spielen/"
-  },
-  {
-    "title": "The Handpan Path",
-    "date": "2026-11-09",
-    "time": "",
-    "type": "kurs",
-    "link": "/handpan-path/"
-  }
+  { "title": "Von Anfang an spielen – Live-Session", "date": "2026-10-03", "time": "10:00", "type": "kurs", "location": "Online", "link": "/von-anfang-an-handpan-spielen/" },
+  { "title": "Rhythmus Fundament – Gruppencall", "date": "2026-10-04", "time": "11:00", "type": "kurs", "location": "Online", "link": "/rhythmus-fundament/" },
+  { "title": "Handpan Kompass Session", "date": "2026-10-07", "time": "19:00", "type": "community", "location": "Online", "link": "/community/" },
+  { "title": "Von Anfang an spielen – Live-Session", "date": "2026-10-10", "time": "10:00", "type": "kurs", "location": "Online", "link": "/von-anfang-an-handpan-spielen/" },
+  { "title": "Rhythmus Fundament – Gruppencall", "date": "2026-10-10", "time": "19:00", "type": "kurs", "location": "Online", "link": "/rhythmus-fundament/" },
+  { "title": "Handpan Kreativ Session", "date": "2026-10-14", "time": "19:00", "type": "community", "location": "Online", "link": "/community/" },
+  { "title": "Von Anfang an spielen – Live-Session", "date": "2026-10-17", "time": "10:00", "type": "kurs", "location": "Online", "link": "/von-anfang-an-handpan-spielen/" },
+  { "title": "Rhythmus Fundament – Gruppencall", "date": "2026-10-20", "time": "19:00", "type": "kurs", "location": "Online", "link": "/rhythmus-fundament/" },
+  { "title": "VIP-Treffen", "date": "2026-10-21", "time": "19:00", "type": "community", "location": "Online", "link": "/community/" },
+  { "title": "Von Anfang an spielen – Live-Session", "date": "2026-10-24", "time": "10:00", "type": "kurs", "location": "Online", "link": "/von-anfang-an-handpan-spielen/" },
+  { "title": "Rhythmus Fundament – Gruppencall (Abschluss)", "date": "2026-10-25", "time": "11:00", "type": "kurs", "location": "Online", "link": "/rhythmus-fundament/" },
+  { "title": "Von Anfang an spielen – Live-Session", "date": "2026-10-31", "time": "10:00", "type": "kurs", "location": "Online", "link": "/von-anfang-an-handpan-spielen/" },
+  { "title": "Von Anfang an spielen – Live-Session", "date": "2026-11-07", "time": "10:00", "type": "kurs", "location": "Online", "link": "/von-anfang-an-handpan-spielen/" },
+  { "title": "The Handpan Path", "date": "2026-11-09", "time": "", "type": "kurs", "location": "Online", "link": "/handpan-path/" },
+  { "title": "Von Anfang an spielen – Live-Session", "date": "2026-11-14", "time": "10:00", "type": "kurs", "location": "Online", "link": "/von-anfang-an-handpan-spielen/" },
+  { "title": "Von Anfang an spielen – Live-Session", "date": "2026-11-21", "time": "10:00", "type": "kurs", "location": "Online", "link": "/von-anfang-an-handpan-spielen/" },
+  { "title": "VIP-Treffen", "date": "2026-11-25", "time": "19:00", "type": "community", "location": "Online", "link": "/community/" },
+  { "title": "Von Anfang an spielen – Abschluss-Session", "date": "2026-11-28", "time": "10:00", "type": "kurs", "location": "Online", "link": "/von-anfang-an-handpan-spielen/" }
 ]

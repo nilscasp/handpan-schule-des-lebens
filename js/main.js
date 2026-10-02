@@ -159,23 +159,29 @@
         var EVENTS_PRIMARY = 'https://lernen.handpan.schule/api/events.json?locale=de';
         var EVENTS_FALLBACK = '/events.json';
 
+        // Maßgeblich ist die /events.json der Website — dort stehen alle
+        // Termine (Kurse, Community-Sessions, VIP). Die Lernplattform kennt
+        // bisher nur einen Teil davon; ihre Termine kommen nur dazu, wenn
+        // sie in der Website-Liste noch fehlen (gleicher Tag + gleicher Titel).
+        function eventKey(ev) {
+            return String(ev.date) + '|' + String(ev.title || '').toLowerCase().replace(/[^a-zäöüß0-9]/g, '');
+        }
+
         function fetchEvents() {
-            return fetch(EVENTS_PRIMARY, { cache: 'no-store' })
-                .then(function(r) {
-                    if (!r.ok) throw new Error('primary ' + r.status);
-                    return r.json();
-                })
-                .then(function(events) {
-                    if (!Array.isArray(events)) throw new Error('primary shape');
-                    // Auch eine leere Antwort führt zum Netz: solange in der App
-                    // noch keine Termine gepflegt sind, soll die Leiste die
-                    // bisherigen zeigen statt „keine Termine geplant".
-                    if (events.length === 0) throw new Error('primary empty');
-                    return events;
-                })
-                .catch(function() {
-                    return fetch(EVENTS_FALLBACK).then(function(r) { return r.json(); });
-                });
+            var local = fetch(EVENTS_FALLBACK, { cache: 'no-cache' })
+                .then(function(r) { return r.ok ? r.json() : []; })
+                .then(function(events) { return Array.isArray(events) ? events : []; })
+                .catch(function() { return []; });
+            var remote = fetch(EVENTS_PRIMARY, { cache: 'no-store' })
+                .then(function(r) { return r.ok ? r.json() : []; })
+                .then(function(events) { return Array.isArray(events) ? events : []; })
+                .catch(function() { return []; });
+            return Promise.all([local, remote]).then(function(lists) {
+                var seen = {};
+                lists[0].forEach(function(ev) { seen[eventKey(ev)] = true; });
+                var extra = lists[1].filter(function(ev) { return !seen[eventKey(ev)]; });
+                return lists[0].concat(extra);
+            });
         }
 
         // Die Termine kommen jetzt über das Netz statt aus einer Datei im Repo.
