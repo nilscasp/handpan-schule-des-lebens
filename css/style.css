@@ -4360,3 +4360,58 @@
     .home-question p { font-size: 1.02rem; }
     .home-method li { padding-left: 3.4rem; }
 }
+
+/* ============================================
+   EKSTATISCHES LERNEN 2026-10 — Stufenweg + Motor
+   ============================================ */
+.el-figure { margin: var(--spacing-lg) auto; max-width: 900px; }
+.el-path { width: 100%; height: auto; display: block; }
+.el-path--narrow { display: none; max-width: 360px; margin: 0 auto; }
+@media (max-width: 700px) {
+    .el-path--wide { display: none; }
+    .el-path--narrow { display: block; }
+}
+.el-path text, .el-cycle text { font-family: var(--font-serif); }
+.el-hero { fill: #e8c97a; font-size: 19px; }
+.el-dreyfus { fill: var(--color-text-muted); font-size: 14px; font-style: italic; }
+.el-num { fill: var(--color-accent); font-size: 15px; }
+.el-figure--cycle { max-width: 480px; }
+.el-cycle { width: 100%; height: auto; display: block; }
+.el-step { fill: #e8c97a; font-size: 16px; }
+.el-core { fill: var(--color-text); font-size: 20px; }
+.el-core-sub { fill: var(--color-text-muted); font-size: 13px; font-style: italic; }
+
+.el-stages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+.el-stage {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 165, 116, 0.12);
+    border-radius: 2px;
+}
+.el-stage__num {
+    width: 2.6rem; height: 2.6rem;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(212, 165, 116, 0.45);
+    color: var(--color-accent);
+    font-family: var(--font-serif);
+}
+.el-stage__title { font-family: var(--font-serif); font-weight: 400; color: var(--color-accent); font-size: 1.3rem; margin-bottom: 0.1rem; }
+.el-stage__dreyfus { font-style: italic; color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: var(--spacing-xs); }
+.el-stage p { color: var(--color-text-muted); line-height: 1.75; }
+.el-stage .el-stage__anchor { color: var(--color-text); font-family: var(--font-serif); font-style: italic; margin-top: var(--spacing-xs); }
+.el-check { margin-top: var(--spacing-sm); }
+.el-check summary { cursor: pointer; color: var(--color-accent); font-size: 0.9rem; letter-spacing: 0.04em; }
+.el-check ul { margin: var(--spacing-xs) 0 0 1.1rem; color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.7; }
+.el-note { text-align: center; font-style: italic; color: var(--color-text-muted); max-width: 620px; margin: var(--spacing-lg) auto 0; }
+@media (max-width: 600px) {
+    .el-stage { grid-template-columns: 1fr; padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-md); }
+    .el-stage__num { width: 2.2rem; height: 2.2rem; }
+}
