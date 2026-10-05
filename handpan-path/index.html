@@ -256,8 +256,8 @@
                 <div class="hero-content hp-hero__text">
                     <a href="/programm/" class="detail-back">← Zurück zu den Angeboten</a>
                     <h1>The Handpan Path</h1>
-                    <p class="hero-subtitle">Botschafter des Klangs</p>
-                    <p class="hero-subtitle">Die Kunst öffnet das Tor nach innen.<br>Und sie gibt uns die Kraft, das, was wir dort finden, nach außen zu tragen.</p>
+                    <p class="hp-hero-role">Botschafter des Klangs</p>
+                    <p class="hp-hero-quote">Die Kunst öffnet das Tor nach innen.<br>Und sie gibt uns die Kraft, das, was wir dort finden, nach außen zu tragen.</p>
                     <p class="hp-hero-dates">Vom Sonnenaufgang am 9. November 2026<br>bis zum Vollmond am 21. April 2027</p>
                     <a class="cta cta-primary" href="#warteliste" style="margin-top: var(--spacing-md); display: inline-block;">Bewirb dich für einen der 13 Plätze</a>
                 </div>
@@ -332,6 +332,12 @@
 
         <style>
             .hp-hero-dates{font-family:var(--font-serif);color:var(--color-accent);font-size:1.1rem;letter-spacing:0.02em;line-height:1.7;margin-top:var(--spacing-sm);}
+            .hp-hero__text h1{margin-bottom:0.4rem;}
+            .hp-hero-role{font-family:var(--font-logo);font-size:clamp(0.95rem,1.6vw,1.2rem);letter-spacing:0.3em;text-transform:uppercase;color:var(--color-accent);margin:0 0 var(--spacing-md);text-shadow:0 0 18px rgba(212,165,116,0.35);}
+            .hp-hero-quote{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:clamp(1.05rem,1.8vw,1.25rem);line-height:1.75;color:var(--color-text);opacity:0.88;max-width:30em;margin:0 auto var(--spacing-md);}
+            .hp-hero-quote::before{content:"";display:block;width:48px;height:1px;background:rgba(212,165,116,0.6);margin:0 auto 1rem;}
+            @media(min-width:768px){.hp-hero-quote{margin-left:0;}.hp-hero-quote::before{margin-left:0;}}
+            @media(max-width:480px){.hp-hero-role{font-size:0.85rem;letter-spacing:0.18em;}}
             .hp-prose p{color:var(--color-text-muted);font-size:1.1rem;line-height:1.85;margin-bottom:var(--spacing-sm);}
             .hp-prose p strong{color:var(--color-text);font-weight:500;}
             .hp-lead{font-size:1.25rem !important;color:var(--color-text) !important;}
