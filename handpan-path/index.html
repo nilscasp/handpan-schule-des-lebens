@@ -251,15 +251,13 @@
             <svg class="hp-glyph" data-speed="-0.07" style="top:730vh;right:10%;width:70px" viewBox="0 0 40 40"><circle cx="20" cy="20" r="9" class="fill soft"/><circle cx="20" cy="20" r="15"/></svg>
         </div>
 
-        <section class="page-hero hp-hero">
-            <div class="container hp-hero__grid">
+        <section class="page-hero hp-hero hp-hero--video">
+            <div class="container hp-hero__stage">
                 <div class="hero-content hp-hero__text">
                     <a href="/programm/" class="detail-back">← Zurück zu den Angeboten</a>
                     <h1>The Handpan Path</h1>
                     <p class="hp-hero-role">Botschafter des Klangs</p>
-                    <p class="hp-hero-quote">Die Kunst öffnet das Tor nach innen.<br>Und sie gibt uns die Kraft, das, was wir dort finden, nach außen zu tragen.</p>
-                    <p class="hp-hero-dates">Vom Sonnenaufgang am 9. November 2026<br>bis zum Vollmond am 21. April 2027</p>
-                    <a class="cta cta-primary" href="#warteliste" style="margin-top: var(--spacing-md); display: inline-block;">Bewirb dich für einen der 13 Plätze</a>
+                    <p class="hp-hero-dates">Vom Sonnenaufgang am 9.&nbsp;November&nbsp;2026<br>bis zum Vollmond am 21.&nbsp;April&nbsp;2027</p>
                 </div>
 
                 <figure class="hp-orion" aria-label="Das Sternbild Orion">
@@ -327,12 +325,8 @@
                     </svg>
                     <figcaption>Orion<span>Er steigt im November am Abendhimmel auf und begleitet uns durch den Winter bis in den April.</span></figcaption>
                 </figure>
-            </div>
-        </section>
 
-        <!-- Video: Nils über den Path (Click-to-Play, Untertitel eingebrannt) -->
-        <section class="section-dark hp-video-section">
-            <div class="container-narrow">
+                <!-- Video: Nils über den Path (Click-to-Play, Untertitel eingebrannt) -->
                 <div class="hero-video" data-hero-video data-name="The Handpan Path">
                     <video playsinline preload="none" poster="/video/handpan-path-poster.webp"
                            data-src-720="/video/handpan-path-720.mp4" data-src-540="/video/handpan-path-540.mp4"
@@ -343,19 +337,36 @@
                         <span class="hero-video-label">Nils über den Path · 4 Min</span>
                     </button>
                 </div>
-                <p class="hp-video-cta"><a class="cta cta-primary" href="#termin">Kostenloses Erstgespräch buchen</a></p>
+                <div class="hp-hero__after">
+                    <a class="cta cta-primary" href="#termin">Kostenloses Erstgespräch buchen</a>
+                    <p class="hp-hero-facts">13 Plätze · 5,5 Monate · Bewerbung über ein persönliches Gespräch</p>
+                    <p class="hp-hero-quote">Die Kunst öffnet das Tor nach innen.<br>Und sie gibt uns die Kraft, das, was wir dort finden, nach außen zu tragen.</p>
+                </div>
             </div>
         </section>
         <style>
-            .hp-video-section{padding-top:var(--spacing-md);}
-            .hp-video-section .hero-video{max-width:860px;}
+            /* Hero als Bühne: Titel oben, Video in der Mitte, ein Knopf darunter, Orion leise im Hintergrund */
+            .hp-hero--video{min-height:auto;padding-top:96px;padding-bottom:var(--spacing-lg);}
+            .hp-hero--video .detail-back{margin-bottom:0.4rem;}
+            .hp-hero--video h1{margin-bottom:0.2rem;}
+            .hp-hero__stage{position:relative;max-width:980px;margin:0 auto;text-align:center;}
+            .hp-hero--video .hp-hero__text{position:relative;z-index:1;text-align:center;}
+            .hp-hero--video .hp-hero-role{margin-bottom:0.6rem;}
+            .hp-hero--video .hp-hero-dates{margin:0 auto var(--spacing-md);font-size:1rem;}
+            .hp-hero--video .hp-orion{position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);width:min(92vw,820px);opacity:0.38;z-index:0;pointer-events:none;margin:0;order:0;}
+            .hp-hero--video .hp-orion figcaption{display:none;}
+            .hp-hero--video .hero-video{position:relative;z-index:1;max-width:min(900px,calc((100vh - 370px) * 1.7778));min-width:min(100%,560px);margin:0 auto;}
+            .hp-hero__after{position:relative;z-index:1;margin-top:var(--spacing-md);}
+            .hp-hero-facts{margin:0.9rem 0 0;font-size:0.9rem;letter-spacing:0.04em;color:var(--color-text-muted);}
+            .hp-hero--video .hp-hero-quote{margin:var(--spacing-md) auto 0;text-align:center;}
+            .hp-hero--video .hp-hero-quote::before{margin:0 auto 1rem;}
             /* Play-Knopf ins untere Drittel, damit das Gesicht frei bleibt */
-            .hp-video-section .hero-video-play{justify-content:flex-end;padding-bottom:clamp(14px,4.5%,40px);gap:0.55rem;}
-            .hp-video-section .hero-video-btn{width:64px;height:64px;}
-            .hp-video-section .hero-video-btn svg{width:26px;height:26px;margin-left:4px;}
+            .hp-hero--video .hero-video-play{justify-content:flex-end;padding-bottom:clamp(14px,4.5%,40px);gap:0.55rem;}
+            .hp-hero--video .hero-video-btn{width:64px;height:64px;}
+            .hp-hero--video .hero-video-btn svg{width:26px;height:26px;margin-left:4px;}
             .hp-video-quote{font-family:var(--font-serif);font-style:italic;font-size:clamp(1rem,2.4vw,1.45rem);color:#F5F0E8;text-shadow:0 1px 12px rgba(0,0,0,0.7);}
-            @media(max-width:480px){.hp-video-section .hero-video-btn{width:48px;height:48px;}.hp-video-section .hero-video-btn svg{width:20px;height:20px;margin-left:3px;}.hp-video-quote{display:none;}.hp-video-section .hero-video-label{font-size:0.68rem;}}
-            .hp-video-cta{text-align:center;margin:var(--spacing-sm) 0 0;}
+            @media(max-width:767px){.hp-hero--video{padding-top:100px;}.hp-hero--video .hp-orion{top:40%;opacity:0.3;}}
+            @media(max-width:480px){.hp-hero--video .hero-video-btn{width:48px;height:48px;}.hp-hero--video .hero-video-btn svg{width:20px;height:20px;margin-left:3px;}.hp-video-quote{display:none;}.hp-hero--video .hero-video-label{font-size:0.68rem;}.hp-hero-facts{font-size:0.82rem;}.hp-hero--video .hp-hero-dates{font-size:0.9rem;}}
         </style>
 
         <style>
