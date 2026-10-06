@@ -330,6 +330,34 @@
             </div>
         </section>
 
+        <!-- Video: Nils über den Path (Click-to-Play, Untertitel eingebrannt) -->
+        <section class="section-dark hp-video-section">
+            <div class="container-narrow">
+                <div class="hero-video" data-hero-video data-name="The Handpan Path">
+                    <video playsinline preload="none" poster="/video/handpan-path-poster.webp"
+                           data-src-720="/video/handpan-path-720.mp4" data-src-540="/video/handpan-path-540.mp4"
+                           aria-label="Nils Caspar über The Handpan Path, mit Stimmen aus dem ersten Durchgang — 4 Minuten"></video>
+                    <button class="hero-video-play" type="button" aria-label="Video abspielen: Nils über den Handpan Path, 4 Minuten">
+                        <span class="hero-video-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        <span class="hp-video-quote">Eine Reise in ein anderes Selbst.</span>
+                        <span class="hero-video-label">Nils über den Path · 4 Min</span>
+                    </button>
+                </div>
+                <p class="hp-video-cta"><a class="cta cta-primary" href="#termin">Kostenloses Erstgespräch buchen</a></p>
+            </div>
+        </section>
+        <style>
+            .hp-video-section{padding-top:var(--spacing-md);}
+            .hp-video-section .hero-video{max-width:860px;}
+            /* Play-Knopf ins untere Drittel, damit das Gesicht frei bleibt */
+            .hp-video-section .hero-video-play{justify-content:flex-end;padding-bottom:clamp(14px,4.5%,40px);gap:0.55rem;}
+            .hp-video-section .hero-video-btn{width:64px;height:64px;}
+            .hp-video-section .hero-video-btn svg{width:26px;height:26px;margin-left:4px;}
+            .hp-video-quote{font-family:var(--font-serif);font-style:italic;font-size:clamp(1rem,2.4vw,1.45rem);color:#F5F0E8;text-shadow:0 1px 12px rgba(0,0,0,0.7);}
+            @media(max-width:480px){.hp-video-section .hero-video-btn{width:48px;height:48px;}.hp-video-section .hero-video-btn svg{width:20px;height:20px;margin-left:3px;}.hp-video-quote{display:none;}.hp-video-section .hero-video-label{font-size:0.68rem;}}
+            .hp-video-cta{text-align:center;margin:var(--spacing-sm) 0 0;}
+        </style>
+
         <style>
             .hp-hero-dates{font-family:var(--font-serif);color:var(--color-accent);font-size:1.1rem;letter-spacing:0.02em;line-height:1.7;margin-top:var(--spacing-sm);}
             .hp-hero__text h1{margin-bottom:0.4rem;}
@@ -1084,6 +1112,27 @@
         setTimeout(function() {
             flipper.classList.add('flipped');
         }, 30000);
+    })();
+    </script>
+<script>
+    // Hero-Video: Click-to-Play. Quelle je nach Viewport (540p ≤ 640px), lädt erst beim Klick.
+    (function () {
+        document.querySelectorAll('[data-hero-video]').forEach(function (box) {
+            var video = box.querySelector('video'), btn = box.querySelector('.hero-video-play');
+            if (!video || !btn) return;
+            btn.addEventListener('click', function () {
+                if (!video.getAttribute('src')) {
+                    var s720 = video.getAttribute('data-src-720'), s540 = video.getAttribute('data-src-540');
+                    var w = window.innerWidth || 0;
+                    video.setAttribute('src', (w > 0 && w <= 640 && s540) ? s540 : s720);
+                }
+                video.controls = true;
+                box.classList.add('is-playing');
+                var p = video.play();
+                if (p && p.catch) { p.catch(function () {}); }
+                if (window.fbq) { fbq('trackCustom', 'HeroVideoPlay', { content_name: box.dataset.name || document.title }); }
+            });
+        });
     })();
     </script>
 </body>
