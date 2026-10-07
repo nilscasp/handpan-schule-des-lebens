@@ -353,8 +353,10 @@
             .hp-hero--video .hp-hero__text{position:relative;z-index:1;text-align:center;}
             .hp-hero--video .hp-hero-role{margin-bottom:0.6rem;}
             .hp-hero--video .hp-hero-dates{margin:0 auto var(--spacing-md);font-size:1rem;}
-            .hp-hero--video .hp-orion{position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);width:min(92vw,820px);opacity:0.38;z-index:0;pointer-events:none;margin:0;order:0;}
-            .hp-hero--video .hp-orion figcaption{display:none;}
+            .hp-hero--video .hp-orion{position:absolute;left:auto;right:0;top:-8px;transform:none;width:clamp(96px,13vw,170px);opacity:0;z-index:0;pointer-events:none;margin:0;order:0;animation:hpOrionIn 2.6s ease 1.4s forwards;}
+            .hp-hero--video .hp-orion figcaption,.hp-hero--video .hp-orion__names,.hp-hero--video .hp-orion__ring{display:none;}
+            @keyframes hpOrionIn{to{opacity:0.7;}}
+            @media(prefers-reduced-motion:reduce){.hp-hero--video .hp-orion{animation:none;opacity:0.7;}}
             .hp-hero--video .hero-video{position:relative;z-index:1;max-width:min(900px,calc((100vh - 400px) * 1.7778));min-width:min(100%,560px);margin:0 auto;}
             .hp-hero__after{position:relative;z-index:1;margin-top:var(--spacing-md);}
             .hp-hero-facts{margin:0.9rem 0 0;font-size:0.9rem;letter-spacing:0.04em;color:var(--color-text-muted);}
@@ -365,7 +367,7 @@
             .hp-hero--video .hero-video-btn{width:64px;height:64px;}
             .hp-hero--video .hero-video-btn svg{width:26px;height:26px;margin-left:4px;}
             .hp-video-quote{font-family:var(--font-serif);font-style:italic;font-size:clamp(1rem,2.4vw,1.45rem);color:#F5F0E8;text-shadow:0 1px 12px rgba(0,0,0,0.7);}
-            @media(max-width:767px){.hp-hero--video{padding-top:100px;}.hp-hero--video .hp-orion{top:40%;opacity:0.3;}}
+            @media(max-width:767px){.hp-hero--video{padding-top:100px;}.hp-hero--video .hp-orion{left:auto;right:4px;top:-30px;transform:none;width:84px;}}
             @media(max-width:480px){.hp-hero--video .hero-video-btn{width:48px;height:48px;}.hp-hero--video .hero-video-btn svg{width:20px;height:20px;margin-left:3px;}.hp-video-quote{display:none;}.hp-hero--video .hero-video-label{font-size:0.68rem;}.hp-hero-facts{font-size:0.82rem;}.hp-hero--video .hp-hero-dates{font-size:0.9rem;}}
         </style>
 
