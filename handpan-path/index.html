@@ -402,6 +402,18 @@
             .hp-shift{border-left:1px solid rgba(212,165,116,0.4);padding:0.2rem 0 0.2rem var(--spacing-md);margin-bottom:var(--spacing-md);}
             .hp-shift h3{color:var(--color-accent);font-size:1.35rem;margin-bottom:0.5rem;font-weight:400;}
             .hp-shift p{color:var(--color-text-muted);line-height:1.8;margin:0;}
+            .hp-shift p.hp-shift__num{font-family:var(--font-logo);letter-spacing:0.28em;text-transform:uppercase;font-size:0.72rem;color:var(--color-accent);opacity:0.8;margin-bottom:0.25rem;}
+            .hp-carry{list-style:none;margin:0 auto;padding:0;max-width:560px;display:flex;flex-direction:column;gap:0.75rem;}
+            .hp-carry li{position:relative;padding-left:1.7rem;line-height:1.6;}
+            .hp-carry li::before{content:"✦";position:absolute;left:0;color:var(--color-accent);}
+            .hp-carry strong{color:var(--color-accent);font-weight:500;}
+            .hp-carry__bring{text-align:center;margin-top:var(--spacing-md);font-style:italic;color:var(--color-text-muted);}
+            .hp-carry__bring strong{color:var(--color-text);font-style:normal;font-weight:400;}
+            .hp-arrive{margin-top:var(--spacing-lg);padding:var(--spacing-md);border:1px solid rgba(212,165,116,0.35);background:rgba(17,23,34,0.55);}
+            .hp-arrive h3{font-family:var(--font-serif);font-style:italic;font-weight:300;color:var(--color-accent);text-align:center;font-size:1.6rem;margin:0 0 var(--spacing-sm);}
+            .hp-arrive ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.8rem;}
+            .hp-arrive li{position:relative;padding-left:1.6rem;line-height:1.7;}
+            .hp-arrive li::before{content:"";position:absolute;left:0;top:0.55em;width:10px;height:10px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 10px rgba(212,165,116,0.5);}
             /* Werkzeuge */
             .hp-tools{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(212,165,116,0.15);border:1px solid rgba(212,165,116,0.15);margin-top:var(--spacing-md);}
             .hp-tool{background:var(--color-bg-lighter, #111722);padding:1.1rem 1.2rem;}
@@ -550,18 +562,9 @@
         <section class="section-light">
             <div class="container-narrow hp-prose">
                 <h2 class="section-title">Worum es geht</h2>
-                <blockquote class="hp-epigraph">
-                    <p>„In der Zukunft wird man einen Künstler nicht mehr allein nach seinen Werken beurteilen; man möchte ihn selbst kennenlernen, um die Poesie, die Musik, das Licht und die Formen zu bewundern, die von ihm ausströmen.“</p>
-                    <cite>Omraam Mikhaël Aïvanhov über die wahre Kunst</cite>
-                    <a class="hp-epigraph__more" href="https://prosveta.de/tagesgedanken/21-september-2026/" target="_blank" rel="noopener">Den ganzen Gedanken bei Prosveta lesen →</a>
-                </blockquote>
                 <p class="hp-lead">Der Handpan Path ist kein einfacher Handpan-Kurs.</p>
-                <p>Er ist der Weg, den Künstler, die Künstlerin in dir zu entfalten und die Schätze deiner Seele nach außen hin strahlen zu lassen. Fünfeinhalb Monate arbeiten wir daran, die Geschenke deiner Seele durch das Medium der Musik nach den Prinzipien der Ästhetik zu verpacken. Und in die Herzen unserer Mitmenschen zu legen.</p>
-                <p>Wir reisen mit einer Gruppe aus Gleichgesinnten, die denselben Weg einschlagen und für die die Handpan ein Spiegel ihrer Seele und ihres Lebenswegs ist. Es geht darum, dass wir uns ganz geben. Und der Welt mitzuteilen, wer du in deinem Inneren bist. Indem wir das tun, geben wir den anderen die Erlaubnis, auf der gleichen Schwingung mit uns zu reisen. Und diese Welt zu verändern.</p>
-                <p>Dieser Kurs erinnert dich daran, dass die Stücke, die du spielst, nicht das eigentliche Kunstwerk sind.<br><strong>Das eigentliche Kunstwerk bist du</strong>, wie du durch dein Leben, dein Wesen, deine Art, deinen Klang deine Liebe in die Welt strahlen lässt.</p>
-                <p>Dieser Kurs macht einen Schritt, der uns ins Jenseits der Musikinstrumente führt: an die Arbeit mit uns selbst, die schlussendlich unseren Werken den transformativen Charakter verleiht, der sie zu einem echten Unterschied in dieser Welt macht.</p>
+                <p>Er ist der Weg, den Künstler, die Künstlerin in dir zu entfalten. Fünfeinhalb Monate lang, in einer ausgewählten Gruppe von höchstens 13 Menschen, für die die Handpan ein Spiegel ihrer Seele ist. Damit das, was in dir angelegt ist, durch deine Musik nach außen strahlen kann.</p>
 
-                <!-- Stimmen aus dem ersten Path (Click-to-Play, Hochformat, Untertitel als Spur) -->
                 <div class="hp-voices">
                     <p class="hp-overline">Stimmen aus dem ersten Path</p>
                     <div class="hp-voices__track" tabindex="0" aria-label="Stimmen aus dem ersten Path, seitlich wischen">
@@ -639,9 +642,7 @@
         <section class="section-dark">
             <div class="container-narrow hp-prose">
                 <h2 class="section-title">Der Bogen</h2>
-                <p>Um den transformativen Charakter des Handpan Path zu unterstreichen, habe ich den Kurs an den Zyklus des Mondes angepasst. Wir starten am <strong>9. November zu Sonnenaufgang</strong>, am Tag des Neumonds, mit einem Ritual. So werden diese fünfeinhalb Monate zu einem gemeinschaftlichen Ritual der Reflexion, der Vertiefung und der Kreativität.</p>
-                <p>Wir nutzen die Verbindung zur Natur, um unsere eigene innere Natur zu befruchten und sie sichtbar und spürbar zu machen. So wird sie zur tragenden Inspiration für unser künstlerisches Schaffen.</p>
-                <p>Nach fünfeinhalb Mondzyklen endet der Handpan Path mit einem Vollmondtag: dem <strong>21. April</strong>.</p>
+                <p>Wir beginnen am <strong>9. November zu Sonnenaufgang</strong>, am Tag des Neumonds, mit einem Ritual, und schließen am <strong>21. April</strong> im Licht des Vollmonds. Die Sessions liegen auf den Wendepunkten von Mond und Sonne.</p>
 
                 <div class="hp-moonbar" role="img" aria-label="Fünfeinhalb Mondzyklen: sechs Neumonde und sechs Vollmonde von November 2026 bis April 2027">
                     <div class="hp-moonbar__track" aria-hidden="true">
@@ -666,85 +667,78 @@
                         <span><strong>21.4.</strong> Vollmond</span>
                     </div>
                 </div>
-
-                <p>Unsere Sessions folgen diesem Rhythmus. Sie liegen auf den <strong>Wendepunkten von Mond und Sonne</strong>. So nutzen wir die Kräfte, die in der Natur ohnehin wirken: zum Loslassen, zum Klären, zum Wachsen.</p>
             </div>
         </section>
 
         <section class="section-light">
             <div class="container-narrow">
-                <h2 class="section-title">Was sich in dir verändert</h2>
+                <h2 class="section-title">Der Weg in vier Schritten</h2>
                 <div class="hp-shift">
+                    <p class="hp-shift__num">Schritt 1</p>
                     <h3>Reinigung</h3>
-                    <p>Vieles, was wir mit uns tragen, hält unseren Ausdruck zurück: alte Schwere, Anhaftung, Vorsicht. Auf dem Path lösen wir das Schritt für Schritt, damit deine Liebe wieder frei ins Leben fließen kann.</p>
+                    <p>Wir lösen die Glaubenssätze, die dich noch an alte Bilder von dir selbst binden.</p>
                 </div>
                 <div class="hp-shift">
-                    <h3>Faszination</h3>
-                    <p>Wir befreien deine Stimme, die gesungene und die gespielte, und verbinden sie mit dem, was größer ist als du. Du lernst, Klang so fließen zu lassen, dass er heilt und verbindet.</p>
+                    <p class="hp-shift__num">Schritt 2</p>
+                    <h3>Die Liebe zum Instrument</h3>
+                    <p>Die Handpan wird dein täglicher Begleiter und Transformator.</p>
                 </div>
                 <div class="hp-shift">
-                    <h3>Fundament</h3>
-                    <p>Ein Ort, an den du zurückkehrst, um dich auszurichten. Sie gibt dir Halt und Klarheit, weit über die fünfeinhalb Monate hinaus, und sie hilft dir, deinem eigenen Weg zu folgen.</p>
+                    <p class="hp-shift__num">Schritt 3</p>
+                    <h3>Ausrichtung und Rückverbindung</h3>
+                    <p>In tiefer Innenschau findest du deinen Ursprung und deinen eigenen Klang, bis hin zu Komposition und Stil.</p>
+                </div>
+                <div class="hp-shift">
+                    <p class="hp-shift__num">Schritt 4</p>
+                    <h3>Sich mitteilen</h3>
+                    <p>Mit der Natur, mit den Menschen und in der Kultur, in der du lebst.</p>
+                </div>
+
+                <div class="hp-arrive">
+                    <p class="hp-overline">Am Ende des Path</p>
+                    <h3>Du bist ein Botschafter des Klangs.</h3>
+                    <ul>
+                        <li>Du weißt, wer du bist, woher du kommst und wohin du gehst.</li>
+                        <li>Du hast eine eigene Praxis, die deinem Seelenstreben folgt.</li>
+                        <li>Du gehst deinen Seelenweg, machst ihn sichtbar und dienst damit anderen.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section class="section-dark">
-            <div class="container-narrow hp-practice">
-                <h2 class="section-title">Die tägliche Praxis</h2>
-                <p class="hp-practice__num">15</p>
-                <p class="hp-practice__unit">Minuten am Tag, mindestens</p>
-                <div class="hp-prose">
-                    <p>Die Tiefe entsteht nicht erst am Instrument. Sie entsteht in allem, was davor geschieht.</p>
-                    <p>Deshalb geht es in der täglichen Praxis nicht nur um die Handpan. Es geht darum, alles um das Spielen herum so zu gestalten, dass der Moment an der Handpan wirklich tief wird: <strong>der Raum, der Übergang, die innere Sammlung</strong>.</p>
-                    <p>So wird Spielen zu einem Eintauchen in deine Seele. Und du wirst durchlässig für das, was größer ist als du.</p>
-                </div>
-            </div>
-        </section>
+        
 
-        <section class="section-light">
-            <div class="container-narrow hp-prose">
-                <h2 class="section-title">Wie wir lernen: ekstatisches Lernen</h2>
-                <p class="hp-lead">In der Schule haben die meisten von uns gelernt zu folgen. Nicht, uns selbst wahrzunehmen.</p>
-                <p>Auf dem Path holen wir uns den natürlichen Zustand des Lernens zurück: <strong>erkunden, erkennen, dem eigenen Impuls folgen</strong>. Dabei zeigt sich, was du wirklich liebst, was dein eigener Geschmack ist und wohin dein Weg gehen will.</p>
-                <p>Und wenn du ihm folgst, entsteht eine große Freude. Du bist in Kontakt mit dir, gehst deinen Weg und siehst die Früchte unter deinen eigenen Händen wachsen.</p>
-            </div>
-        </section>
+        
 
         <section class="section-light">
             <div class="container-narrow">
                 <h2 class="section-title">Womit wir arbeiten</h2>
                 <div class="hp-tools">
-                    <div class="hp-tool"><strong>Handpan &amp; Klang</strong><span>als Katalysator für dein Wachstum</span></div>
-                    <div class="hp-tool"><strong>Stimme &amp; Gesang</strong><span>befreit und angebunden</span></div>
-                    <div class="hp-tool"><strong>Rhythmus</strong><span>der Herzschlag unter allem</span></div>
-                    <div class="hp-tool"><strong>Heilsame Bewegung</strong><span>der Körper als Resonanzraum</span></div>
-                    <div class="hp-tool"><strong>Die Kraft der Worte</strong><span>was du aussprichst, formt dich</span></div>
-                    <div class="hp-tool"><strong>Farben &amp; Bilder</strong><span>innere Bilder sichtbar machen</span></div>
-                    <div class="hp-tool"><strong>Die Sterne</strong><span>uns mit ihnen verbinden und ihre Sprache verstehen</span></div>
-                    <div class="hp-tool"><strong>Die Natur</strong><span>ihre Kräfte wahrnehmen, ehren und ihr etwas zurückgeben</span></div>
+                    <div class="hp-tool"><strong>Handpan &amp; Klang</strong></div>
+                    <div class="hp-tool"><strong>Stimme &amp; Gesang</strong></div>
+                    <div class="hp-tool"><strong>Rhythmus</strong></div>
+                    <div class="hp-tool"><strong>Heilsame Bewegung</strong></div>
+                    <div class="hp-tool"><strong>Die Kraft der Worte</strong></div>
+                    <div class="hp-tool"><strong>Farben &amp; Bilder</strong></div>
+                    <div class="hp-tool"><strong>Die Sterne</strong></div>
+                    <div class="hp-tool"><strong>Die Natur</strong></div>
                 </div>
             </div>
         </section>
 
         <section class="section-dark">
             <div class="container-narrow">
-                <h2 class="section-title">Wie die Reise getragen ist</h2>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">3–4 Live-Sessions im Monat.</strong> Online, auf den Wendepunkten von Mond und Sonne. Ich leite jede Session selbst.</p>
-                </div>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Ein Videokurs aus allen Sessions.</strong> Jede Session wird aufgezeichnet, und du behältst die Aufnahmen. Zusätzlich bereite ich alle Sessions und Materialien zu einem Videokurs mit PDFs auf, ohne Aufpreis.</p>
-                </div>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Aufgaben, die mitwachsen.</strong> Über mehrere Wochen arbeitest du an einem Thema, allein und mit der Gruppe. Daraus entstehen eigene Stücke, eigene Ideen und deine eigenen kleinen Rituale.</p>
-                </div>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Eine ausgewählte Gruppe.</strong> Ich stelle die Gruppe in persönlichen Gesprächen zusammen, für den besten Lernerfolg und eine gemeinsame Ausrichtung. In einer eigenen Community geht ihr den Weg miteinander.</p>
-                </div>
-                <div class="highlight-box">
-                    <p><strong style="color: var(--color-accent);">Direkter Kontakt zu mir.</strong> Über WhatsApp bin ich für dich da, die ganze Reise über.</p>
-                </div>
+                <h2 class="section-title">Was dich trägt</h2>
+                <ul class="hp-carry">
+                    <li><strong>Persönliche Begleitung</strong> durch mich, fünfeinhalb Monate lang</li>
+                    <li><strong>3–4 Live-Sessions im Monat</strong>, online, ich leite jede selbst</li>
+                    <li><strong>Ritualarbeit</strong>, vom Eröffnungsritual am 9. November an</li>
+                    <li><strong>Materialien und Aufgaben</strong> für deine persönliche Arbeit mit der Handpan</li>
+                    <li><strong>Videokurs und PDFs</strong> aus allen Sessions, ohne Aufpreis</li>
+                    <li><strong>Eine ausgewählte Gruppe</strong> mit eigener Community</li>
+                    <li><strong>Direkter Kontakt zu mir</strong> über WhatsApp</li>
+                </ul>
+                <p class="hp-carry__bring">Was du einbringst: <strong>mindestens 15 Minuten am Tag</strong> und deine Teilnahme an den Sessions.</p>
             </div>
         </section>
 
@@ -755,8 +749,7 @@
                     <img src="/images/optimized/portrait-frontal.webp" alt="Nils Caspar" class="hp-guide__img" loading="lazy" decoding="async" width="480" height="320">
                     <div class="hp-prose">
                         <p class="hp-lead">Ich bin Nils Caspar, Musiker, Sänger und Gründer der Handpan Schule des Lebens.</p>
-                        <p>Meine Jugend war von tiefer Selbstablehnung geprägt. Ich habe Schlagzeug gespielt, Gitarre und Klavier, später elektronische Musik produziert und aufgelegt. Und blieb doch unzufrieden, obwohl ich mich so danach sehnte, mich zu zeigen. Gleichzeitig trieb mich die Frage an, wer ich wirklich bin. Was ich auf dieser Reise gefunden habe, gebe ich heute weiter.</p>
-                        <p>Auf dem Path verbinde ich, was mich geprägt hat: das Studium der <strong>Expressive Arts</strong>, meine Arbeit mit Stimme und Gesang, die Harmonielehre aus vier Jahren bei <strong>Duncan Lorien</strong>, Coaching, das hilft, Widerstände zu überwinden, und eine spirituelle Praxis aus Meditation, Körperarbeit und den traditionellen Weisheitslehren.</p>
+                        <p>Auf dem Path verbinde ich das Studium der Expressive Arts, meine Arbeit mit Stimme und Gesang, Harmonielehre, Coaching und eine spirituelle Praxis aus Meditation und Körperarbeit.</p>
                         <p><a href="/nils-caspar/" style="color:var(--color-accent);">Mehr über mich →</a></p>
                     </div>
                 </div>
@@ -767,8 +760,9 @@
             <div class="container-narrow hp-prose">
                 <h2 class="section-title">Für wen der Path ist</h2>
                 <p class="hp-lead">Für alle, die spüren, dass die Handpan für sie mehr ist als ein Instrument, das man ab und zu spielt. Die tiefer gehen wollen, mit sich selbst und mit dem Instrument.</p>
-                <p>Vielleicht spürst du beides: die Sehnsucht, dich zu zeigen, und den Widerstand, dich wirklich zu öffnen. <strong>Genau damit arbeiten wir.</strong></p>
+                <p>Vielleicht kommst du mit Ungewissheit und Selbstzweifeln, und mit dem Wunsch nach mehr Klarheit, Verbindung und Zentrierung in dir selbst. Vielleicht spürst du beides: die Sehnsucht, dich zu zeigen, und den Widerstand, dich wirklich zu öffnen. <strong>Genau damit arbeiten wir.</strong></p>
                 <p>Du solltest schon Handpan spielen und dich auf deinem Instrument zurechtfinden. <strong>Fortgeschritten musst du nicht sein.</strong> Was du brauchst, ist die Bereitschaft, dich fünfeinhalb Monate auf diesen Weg einzulassen.</p>
+                <p><strong>Nicht der richtige Weg ist der Path</strong>, wenn du vor allem neue Patterns sammeln willst oder schnelle Ergebnisse ohne eigene Praxis suchst. Und wenn du ganz am Anfang stehst, beginnst du am besten mit Von Anfang an spielen.</p>
                 <div class="hp-steps" aria-label="Die Wege der Handpan Schule des Lebens">
                     <a href="/von-anfang-an-handpan-spielen/" class="hp-step"><span>1</span>Von Anfang an spielen</a>
                     <i aria-hidden="true">→</i>
@@ -789,7 +783,7 @@
         <section class="section-dark" id="warteliste">
             <div class="container-narrow">
                 <p class="hp-overline">Das Tor</p>
-                <h2 class="section-title text-center">Bewirb dich für den Path</h2>
+                <h2 class="section-title text-center">Durch das Tor gehen</h2>
                 <p class="hp-gate__key">Die Kunst öffnet das Tor nach innen.<br>Und sie gibt uns die Kraft, das, was wir dort finden, nach außen zu tragen.</p>
 
                 <div class="hp-gate" id="hp-gate">
