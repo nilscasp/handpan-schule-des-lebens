@@ -560,6 +560,79 @@
                 <p>Wir reisen mit einer Gruppe aus Gleichgesinnten, die denselben Weg einschlagen und für die die Handpan ein Spiegel ihrer Seele und ihres Lebenswegs ist. Es geht darum, dass wir uns ganz geben. Und der Welt mitzuteilen, wer du in deinem Inneren bist. Indem wir das tun, geben wir den anderen die Erlaubnis, auf der gleichen Schwingung mit uns zu reisen. Und diese Welt zu verändern.</p>
                 <p>Dieser Kurs erinnert dich daran, dass die Stücke, die du spielst, nicht das eigentliche Kunstwerk sind.<br><strong>Das eigentliche Kunstwerk bist du</strong>, wie du durch dein Leben, dein Wesen, deine Art, deinen Klang deine Liebe in die Welt strahlen lässt.</p>
                 <p>Dieser Kurs macht einen Schritt, der uns ins Jenseits der Musikinstrumente führt: an die Arbeit mit uns selbst, die schlussendlich unseren Werken den transformativen Charakter verleiht, der sie zu einem echten Unterschied in dieser Welt macht.</p>
+
+                <!-- Stimmen aus dem ersten Path (Click-to-Play, Hochformat, Untertitel als Spur) -->
+                <div class="hp-voices">
+                    <p class="hp-overline">Stimmen aus dem ersten Path</p>
+                    <div class="hp-voices__track" tabindex="0" aria-label="Stimmen aus dem ersten Path, seitlich wischen">
+                        <figure class="hp-voice">
+                            <div class="hero-video hp-voice__video" data-hero-video data-name="Path-Stimme Regina">
+                                <video playsinline preload="none" poster="/video/path-stimme-regina-poster.jpg"
+                                       data-src-720="/video/path-stimme-regina.mp4"
+                                       aria-label="Regina über ihre Erfahrung im Handpan Path, 49 Sekunden">
+                                    <track kind="captions" srclang="de" label="Deutsch" src="/video/path-stimme-regina.vtt" default>
+                                </video>
+                                <button class="hero-video-play" type="button" aria-label="Video abspielen: Regina über den Handpan Path, 49 Sekunden">
+                                    <span class="hero-video-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                                    <span class="hp-voice__quote">„Türen, von denen ich nicht mal wusste, dass sie existieren.“</span>
+                                </button>
+                            </div>
+                            <figcaption>Regina <span>· 0:49</span></figcaption>
+                        </figure>
+                        <figure class="hp-voice">
+                            <div class="hero-video hp-voice__video" data-hero-video data-name="Path-Stimme Kirsten">
+                                <video playsinline preload="none" poster="/video/path-stimme-kirsten-poster.jpg"
+                                       data-src-720="/video/path-stimme-kirsten.mp4"
+                                       aria-label="Kirsten über ihre Erfahrung im Handpan Path, 1 Minute 26 Sekunden">
+                                    <track kind="captions" srclang="de" label="Deutsch" src="/video/path-stimme-kirsten.vtt" default>
+                                </video>
+                                <button class="hero-video-play" type="button" aria-label="Video abspielen: Kirsten über den Handpan Path, 1 Minute 26 Sekunden">
+                                    <span class="hero-video-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                                    <span class="hp-voice__quote">„Als würde ich die schon immer kennen.“</span>
+                                </button>
+                            </div>
+                            <figcaption>Kirsten <span>· 1:26</span></figcaption>
+                        </figure>
+                    </div>
+                    <div class="hp-voices__nav">
+                        <button class="hp-voices__arrow" type="button" data-dir="-1" aria-label="Vorherige Stimme"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+                        <div class="hp-voices__dots"></div>
+                        <button class="hp-voices__arrow" type="button" data-dir="1" aria-label="Nächste Stimme"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+                    </div>
+                </div>
+                <style>
+                    .hp-voices{margin-top:var(--spacing-lg);}
+                    .hp-voices .hp-overline{margin-bottom:var(--spacing-md);}
+                    /* Karussell: Scroll-Snap, am Desktop zentriert solange alles passt */
+                    .hp-voices__track{display:flex;gap:var(--spacing-md);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 0 6px;outline:none;}
+                    .hp-voices__track::-webkit-scrollbar{display:none;}
+                    .hp-voice:first-child{margin-left:auto;}
+                    .hp-voice:last-child{margin-right:auto;}
+                    .hp-voices__nav{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:var(--spacing-sm);}
+                    .hp-voices.is-static .hp-voices__nav{display:none;}
+                    .hp-voices__arrow{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(17,23,34,0.6);border:1px solid rgba(212,165,116,0.35);cursor:pointer;padding:0;transition:border-color .2s,opacity .2s;}
+                    .hp-voices__arrow svg{width:18px;height:18px;fill:none;stroke:var(--color-accent);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+                    .hp-voices__arrow:hover{border-color:var(--color-accent);}
+                    .hp-voices__arrow:disabled{opacity:0.3;cursor:default;}
+                    .hp-voices__dots{display:flex;gap:0.55rem;}
+                    .hp-voices__dot{width:8px;height:8px;border-radius:50%;padding:0;border:1px solid rgba(212,165,116,0.6);background:transparent;cursor:pointer;transition:background .2s,transform .2s;}
+                    .hp-voices__dot[aria-current="true"]{background:var(--color-accent);transform:scale(1.2);}
+                    .hp-voice{margin:0;flex:0 0 300px;scroll-snap-align:center;}
+                    .hp-voice .hp-voice__video{aspect-ratio:9/16;max-width:none;margin:0;}
+                    .hp-voice .hero-video-play{justify-content:flex-end;gap:0.9rem;padding:0 1.1rem 1.6rem;}
+                    .hp-voice .hero-video-btn{width:58px;height:58px;}
+                    .hp-voice .hero-video-btn svg{width:22px;height:22px;margin-left:4px;}
+                    .hp-voice__quote{font-family:var(--font-serif);font-style:italic;font-size:1.05rem;line-height:1.45;color:#F5F0E8;text-align:center;text-shadow:0 1px 12px rgba(0,0,0,0.8);min-height:4.35em;display:flex;align-items:flex-start;justify-content:center;}
+                    .hp-voice figcaption{margin-top:0.7rem;text-align:center;font-family:var(--font-logo);letter-spacing:0.22em;text-transform:uppercase;font-size:0.8rem;color:var(--color-accent);}
+                    .hp-voice figcaption span{font-family:var(--font-sans);letter-spacing:0.04em;color:var(--color-text-muted);}
+                    @media(max-width:600px){
+                        .hp-voices__track{padding-left:13%;padding-right:13%;scroll-padding:0 13%;margin:0 calc(-1 * var(--spacing-sm));}
+                        .hp-voice{flex-basis:74%;}
+                        .hp-voice:first-child{margin-left:0;}
+                        .hp-voice:last-child{margin-right:0;}
+                        .hp-voice .hp-voice__video{margin:0;border:1px solid rgba(212,165,116,0.28);}
+                    }
+                </style>
             </div>
         </section>
 
@@ -602,15 +675,15 @@
             <div class="container-narrow">
                 <h2 class="section-title">Was sich in dir verändert</h2>
                 <div class="hp-shift">
-                    <h3>Dein Herz wird leichter.</h3>
+                    <h3>Reinigung</h3>
                     <p>Vieles, was wir mit uns tragen, hält unseren Ausdruck zurück: alte Schwere, Anhaftung, Vorsicht. Auf dem Path lösen wir das Schritt für Schritt, damit deine Liebe wieder frei ins Leben fließen kann.</p>
                 </div>
                 <div class="hp-shift">
-                    <h3>Deine Stimme findet ihren Ursprung.</h3>
+                    <h3>Faszination</h3>
                     <p>Wir befreien deine Stimme, die gesungene und die gespielte, und verbinden sie mit dem, was größer ist als du. Du lernst, Klang so fließen zu lassen, dass er heilt und verbindet.</p>
                 </div>
                 <div class="hp-shift">
-                    <h3>Die Handpan wird dein Ort der Hingabe.</h3>
+                    <h3>Fundament</h3>
                     <p>Ein Ort, an den du zurückkehrst, um dich auszurichten. Sie gibt dir Halt und Klarheit, weit über die fünfeinhalb Monate hinaus, und sie hilft dir, deinem eigenen Weg zu folgen.</p>
                 </div>
             </div>
@@ -1141,11 +1214,40 @@
                 }
                 video.controls = true;
                 box.classList.add('is-playing');
+                document.querySelectorAll('[data-hero-video] video').forEach(function (v) { if (v !== video) v.pause(); });
                 var p = video.play();
                 if (p && p.catch) { p.catch(function () {}); }
                 if (window.fbq) { fbq('trackCustom', 'HeroVideoPlay', { content_name: box.dataset.name || document.title }); }
             });
         });
+    })();
+    </script>
+<script>
+    // Stimmen-Karussell: Punkte + Pfeile, nur sichtbar wenn nicht alles nebeneinander passt; pausiert Videos, die rausgewischt werden
+    (function () {
+        var root = document.querySelector('.hp-voices'); if (!root) return;
+        var track = root.querySelector('.hp-voices__track'), cards = [].slice.call(track.querySelectorAll('.hp-voice'));
+        var dotsBox = root.querySelector('.hp-voices__dots'), arrows = root.querySelectorAll('.hp-voices__arrow'), current = 0, t;
+        var dots = cards.map(function (c, i) {
+            var d = document.createElement('button'); d.type = 'button'; d.className = 'hp-voices__dot';
+            d.setAttribute('aria-label', 'Stimme ' + (i + 1) + ' von ' + cards.length);
+            d.addEventListener('click', function () { go(i); }); dotsBox.appendChild(d); return d;
+        });
+        function go(i) { i = Math.max(0, Math.min(cards.length - 1, i)); var c = cards[i];
+            track.scrollTo({ left: c.offsetLeft - (track.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' }); }
+        function update() {
+            root.classList.toggle('is-static', track.scrollWidth <= track.clientWidth + 2);
+            var mid = track.scrollLeft + track.clientWidth / 2, best = 0, bd = 1e9;
+            cards.forEach(function (c, i) { var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < bd) { bd = d; best = i; } });
+            current = best;
+            dots.forEach(function (d, i) { d.setAttribute('aria-current', i === best ? 'true' : 'false'); });
+            arrows[0].disabled = best === 0; arrows[1].disabled = best === cards.length - 1;
+            if (!root.classList.contains('is-static')) cards.forEach(function (c, i) { var v = c.querySelector('video'); if (i !== best && v && !v.paused) v.pause(); });
+        }
+        arrows.forEach(function (a) { a.addEventListener('click', function () { go(current + Number(a.dataset.dir)); }); });
+        track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(update, 90); }, { passive: true });
+        track.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { e.preventDefault(); go(current + 1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(current - 1); } });
+        window.addEventListener('resize', update); update();
     })();
     </script>
 </body>
