@@ -892,3 +892,58 @@
             }
             // If 'decline'/'declined' → do nothing, no tracking
         });
+
+// ============================================
+// Newsletter „Klang“: Handpan von oben als Goldzeichnung,
+// auf der eine kleine Melodie gespielt wird (tief → hoch → Ding).
+// ============================================
+(function () {
+    var slot = document.querySelector('.newsletter-art');
+    if (!slot) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    // 8 Tonfelder wie bei einer D-Kurd: groß unten, im Zickzack nach oben kleiner werdend
+    var angles = [112, 68, 152, 28, 196, -16, 244, 296];
+    var R = 66, notes = [];
+    var svg = '<svg viewBox="-125 -125 250 250"><defs>' +
+        '<radialGradient id="hpMetal" cx="42%" cy="38%" r="70%"><stop offset="0" stop-color="#1c2330"/><stop offset=".7" stop-color="#11161f"/><stop offset="1" stop-color="#0b0f15"/></radialGradient>' +
+        '<radialGradient id="hpSheen" cx="35%" cy="28%" r="45%"><stop offset="0" stop-color="#D4A574" stop-opacity=".16"/><stop offset="1" stop-color="#D4A574" stop-opacity="0"/></radialGradient>' +
+        '<radialGradient id="hpDimple" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#F0C896" stop-opacity=".55"/><stop offset=".6" stop-color="#D4A574" stop-opacity=".18"/><stop offset="1" stop-color="#D4A574" stop-opacity=".05"/></radialGradient>' +
+        '<clipPath id="hpClip"><circle r="112"/></clipPath>' +
+        '</defs>' +
+        '<circle class="hp-shell" r="112"/><circle class="hp-rim" r="106"/><circle class="hp-rim" r="96"/>' +
+        '<ellipse class="hp-sheen" cx="-30" cy="-40" rx="80" ry="60" clip-path="url(#hpClip)"/>';
+    angles.forEach(function (deg, i) {
+        var a = deg * Math.PI / 180, x = Math.cos(a) * R, y = Math.sin(a) * R;
+        var k = Math.floor(i / 2), rx = 17 - k * 1.6, ry = 23 - k * 2.3;
+        svg += '<g class="hp-note" data-i="' + i + '" transform="translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ') rotate(' + (deg - 90) + ')">' +
+            '<ellipse class="hp-field" rx="' + rx.toFixed(1) + '" ry="' + ry.toFixed(1) + '"/>' +
+            '<ellipse class="hp-dimple" rx="' + (rx * 0.42).toFixed(1) + '" ry="' + (ry * 0.42).toFixed(1) + '"/></g>';
+    });
+    svg += '<g class="hp-note hp-ding" data-i="8"><ellipse class="hp-field" rx="27" ry="27"/><ellipse class="hp-dimple" rx="13" ry="13"/></g></svg>';
+    slot.innerHTML = svg;
+    var root = slot.querySelector('svg');
+    notes = Array.prototype.slice.call(root.querySelectorAll('.hp-note'));
+
+    function strike(n) {
+        n.classList.add('hit');
+        setTimeout(function () { n.classList.remove('hit'); }, 260);
+        var f = n.querySelector('.hp-field'), r = document.createElementNS(NS, 'ellipse');
+        r.setAttribute('class', 'hp-ripple');
+        r.setAttribute('rx', f.getAttribute('rx')); r.setAttribute('ry', f.getAttribute('ry'));
+        n.appendChild(r);
+        setTimeout(function () { r.remove(); }, 2500);
+    }
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // Melodie: tief → hoch im Zickzack, Pause, ein paar freie Töne, dann der Ding
+    var tune = [0, 1, 2, 3, 4, 5, 6, 7, null, 5, 3, 4, 2, null, 8, null, null];
+    var step = 0, timer = null;
+    function tick() {
+        var i = tune[step++ % tune.length];
+        if (i !== null) strike(notes[i]);
+    }
+    function start() { if (!timer) timer = setInterval(tick, 520); }
+    function stop() { clearInterval(timer); timer = null; }
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (e) { e[0].isIntersecting ? start() : stop(); }, { threshold: 0.3 }).observe(slot);
+    } else { start(); }
+})();
