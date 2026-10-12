@@ -1,0 +1,184 @@
+/* Geschenk-Seiten (Newsletter-Willkommensgeschenk) · eigenständig, Tokens wie css/style.css */
+:root {
+  --color-bg: #0A0E14;
+  --color-bg-lighter: #141922;
+  --color-text: #E8E6E3;
+  --color-text-muted: #A0A0A0;
+  --color-accent: #D4A574;
+  --color-accent-dark: #B8956C;
+  --line: rgba(212, 165, 116, 0.18);
+  --line-soft: rgba(212, 165, 116, 0.08);
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Spectral', Georgia, serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 22%, rgba(212,165,116,0.09), transparent 60%);
+}
+main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vh, 5rem) 16px 4rem;
+}
+a { color: var(--color-accent); }
+
+.logo { display: block; width: 72px; height: 72px; margin: 0 auto 1.6rem; filter: drop-shadow(0 0 16px rgba(212,165,116,0.4)); }
+.pill {
+  display: table;
+  margin: 0 auto 1.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.35rem 0.9rem;
+}
+h1 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.1rem, 6.5vw, 3.3rem);
+  line-height: 1.15;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  line-height: 1.25;
+  margin: 3rem 0 1rem;
+}
+.lead { text-align: center; font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem; }
+.accent { color: var(--color-accent); font-style: italic; }
+p + p { margin-top: 1rem; }
+.muted { color: var(--color-text-muted); }
+
+.media {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+.media img, .media video { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.list { list-style: none; margin: 1rem 0; }
+.list li { position: relative; padding-left: 1.6rem; margin: 0.6rem 0; }
+.list li::before { content: ""; position: absolute; left: 0.1rem; top: 0.72em; width: 7px; height: 7px; border: 1px solid var(--color-accent); transform: rotate(45deg); }
+.list b { font-weight: 500; }
+ol.steps { counter-reset: s; list-style: none; margin: 1rem 0; }
+ol.steps li { counter-increment: s; position: relative; padding-left: 2.6rem; margin: 0.9rem 0; }
+ol.steps li::before {
+  content: counter(s);
+  position: absolute; left: 0; top: 0.15rem;
+  width: 1.8rem; height: 1.8rem; line-height: 1.75rem;
+  text-align: center; font-family: var(--font-serif); font-size: 1rem;
+  color: var(--color-accent); border: 1px solid var(--color-accent); border-radius: 50%;
+}
+ol.steps b { font-weight: 500; }
+
+.quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  border-left: 2px solid var(--color-accent);
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  margin: 2rem 0;
+}
+
+.box {
+  background: var(--color-bg-lighter);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 1.6rem;
+  margin: 2.5rem 0;
+}
+.box h2 { margin-top: 0; }
+.kicker { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.4rem; }
+
+/* Anmeldeformular */
+.signup { text-align: center; }
+.signup form { display: flex; gap: 0.6rem; max-width: 520px; margin: 1.2rem auto 0; }
+.signup input[type=email] {
+  flex: 1; min-width: 0;
+  font: inherit; font-size: 1rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.8rem 1rem;
+}
+.signup input[type=email]:focus { outline: none; border-color: var(--color-accent); }
+.btn {
+  display: inline-block;
+  font-family: var(--font-sans); font-size: 1rem; font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-bg);
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 2px;
+  padding: 0.8rem 1.4rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover { background: var(--color-accent-dark); }
+.btn-ghost { background: transparent; color: var(--color-accent); }
+.btn-ghost:hover { background: rgba(212,165,116,0.08); }
+.hint { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.8rem; }
+.success { display: none; color: var(--color-accent); margin-top: 1rem; }
+.center { text-align: center; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 1.5rem; }
+
+.chapters { list-style: none; columns: 2; column-gap: 2rem; font-size: 0.95rem; margin: 1rem 0; }
+.chapters li { break-inside: avoid; margin: 0.25rem 0; color: var(--color-text-muted); }
+.chapters span { color: var(--color-accent); font-variant-numeric: tabular-nums; margin-right: 0.5rem; }
+
+.modules { list-style: none; margin: 1.2rem 0; border-top: 1px solid var(--line-soft); }
+.modules li { display: flex; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line-soft); font-size: 0.98rem; }
+.modules span { color: var(--color-accent); font-family: var(--font-serif); min-width: 1.2rem; }
+
+footer {
+  position: relative; z-index: 1;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  padding: 2rem 16px;
+  border-top: 1px solid var(--line-soft);
+}
+footer a { text-decoration: none; margin: 0 0.5rem; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .signup form { flex-direction: column; }
+  .chapters { columns: 1; }
+  .box { padding: 1.2rem; }
+}

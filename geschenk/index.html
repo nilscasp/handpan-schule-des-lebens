@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ein Geschenk für dich: Die Chakren-Impuls-Übung · handpan.schule</title>
+<meta name="description" content="Trag dich für meine kurzen Briefe ein und bekomm die Chakren-Impuls-Übung: 9 Minuten mit mir an der Handpan und ein Arbeitsblatt.">
+<meta name="theme-color" content="#0A0E14">
+<!-- Entwurf: Seite ist nur per Link erreichbar, nicht in der Navigation. -->
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://handpan.schule/geschenk/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://handpan.schule/geschenk/">
+<meta property="og:site_name" content="handpan.schule">
+<meta property="og:title" content="Ein Geschenk für dich: Die Chakren-Impuls-Übung">
+<meta property="og:description" content="9 Minuten mit mir an der Handpan und ein Arbeitsblatt. Lass dein Spiel aus dem entstehen, was du in dir spürst.">
+<meta property="og:image" content="https://handpan.schule/geschenk/herz.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Spectral:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="dns-prefetch" href="https://f66d0849.sibforms.com">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/geschenk/geschenk.css?v=2026-10-10a">
+</head>
+<body>
+<main>
+  <a href="/" aria-label="Zur Startseite"><img class="logo" src="/images/logo-grail.svg" alt="Handpan Schule des Lebens"></a>
+  <span class="pill">Ein Geschenk für dich</span>
+  <h1>Die Chakren-Impuls-Übung</h1>
+  <p class="lead">9 Minuten mit mir an der Handpan und ein Arbeitsblatt. <span class="accent">Lass dein Spiel aus dem entstehen, was du in dir spürst.</span></p>
+
+  <div class="media"><img src="/geschenk/herz.jpg" alt="Nils Caspar mit geschlossenen Augen, die Hand auf dem Herzen, vor der Übung" width="1280" height="720"></div>
+
+  <div class="box signup" id="anmelden">
+    <p class="kicker">Kurze Briefe von mir</p>
+    <h2>Trag dich ein und bekomm die Übung</h2>
+    <p class="muted">Mindestens einmal im Monat schreibe ich dir einen kurzen Brief: Gedanken aus meinem Spiel und Einladungen zu Live-Events. Die Übung bekommst du gleich nach deiner Bestätigung.</p>
+    <form id="geschenk-form">
+      <input type="email" name="EMAIL" placeholder="Deine E-Mail-Adresse" required aria-label="Deine E-Mail-Adresse">
+      <input type="text" name="email_address_check" value="" style="display:none !important;" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="locale" value="de">
+      <button type="submit" class="btn">Übung anfordern</button>
+    </form>
+    <p class="hint">Double-Opt-in: Du bestätigst per Mail. Abmelden geht jederzeit. <a href="/datenschutz/">Datenschutz</a></p>
+    <p class="success" id="geschenk-success">✓ Fast geschafft. <strong>Schau jetzt in dein Postfach</strong> und bestätige deine Anmeldung. Danach kommst du direkt zur Übung. Nichts gefunden? Wirf einen Blick in den Spam-Ordner.</p>
+  </div>
+
+  <h2>Darum geht es</h2>
+  <p>Du gehst mit deiner Wahrnehmung an einen Ort in deinem Körper, zum Beispiel ins Herz, spielst ein ganz einfaches Muster und lässt dein Spiel aus dem entstehen, was du dort spürst.</p>
+  <p>Dafür musst du die Chakren nicht kennen. <strong>Es geht darum, wahrzunehmen, was du spürst, und dein Spiel daraus entstehen zu lassen.</strong></p>
+
+  <h2>Was du bekommst</h2>
+  <ul class="list">
+    <li><b>Das Video:</b> 9 Minuten, in denen ich dir die Übung zeige und selbst spiele.</li>
+    <li><b>Das Arbeitsblatt:</b> die Übung in vier Schritten, eine Übersicht der sieben Chakren, fünf Wege zum Üben und ein Beobachtungsblatt.</li>
+    <li><b>Meine kurzen Briefe:</b> mindestens einmal im Monat, kurz, mit Einladungen zu Live-Events.</li>
+  </ul>
+
+  <p class="center" style="margin-top:2.5rem"><a href="#anmelden" class="btn">Jetzt eintragen</a></p>
+</main>
+
+<footer>
+  Handpan Schule des Lebens · <a href="/">handpan.schule</a> <a href="/impressum/">Impressum</a> <a href="/datenschutz/">Datenschutz</a>
+</footer>
+
+<script>
+// Gleiches Brevo-Formular wie im Footer (Double-Opt-in). Nach der Bestätigung leitet Brevo auf /geschenk/chakren-impuls/ weiter (Einstellung im Brevo-Formular).
+document.getElementById('geschenk-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var form = this, btn = form.querySelector('button');
+  btn.textContent = '…'; btn.disabled = true;
+  var done = function () { form.style.display = 'none'; document.getElementById('geschenk-success').style.display = 'block'; };
+  fetch('https://f66d0849.sibforms.com/serve/MUIFAPN93eg9WYcR1uagT5e_vpt7UOB0rjpcvfBZgp-k67OFuWwlmQi--ebh7daQQiSQjQs6GKwVvJO30hnAaYDlq_h6seRaVtLssYLf5GGn1L7czO_WT_w2E_6FeM7ovMOeAcizqv0Vt7NPuXmYQFxsGbX11iJPhQr8OOCf4EjIDs1OQPGaFJ76hna2ksP3UxaZTHpbHMQbDc9M', {
+    method: 'POST', body: new FormData(form), mode: 'no-cors'
+  }).then(done).catch(done);
+});
+</script>
+</body>
+</html>
