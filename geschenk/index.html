@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="handpan.schule">
 <meta property="og:title" content="Ein Geschenk für dich: Die Chakren-Impuls-Übung">
 <meta property="og:description" content="9 Minuten mit mir an der Handpan und ein Arbeitsblatt. Lass dein Spiel aus dem entstehen, was du in dir spürst.">
-<meta property="og:image" content="https://handpan.schule/geschenk/herz.jpg">
+<meta property="og:image" content="https://handpan.schule/geschenk/vorschau.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Spectral:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="dns-prefetch" href="https://f66d0849.sibforms.com">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/geschenk/geschenk.css?v=2026-10-10a">
+<link rel="stylesheet" href="/geschenk/geschenk.css?v=2026-10-12a">
 </head>
 <body>
 <main>
@@ -31,7 +31,10 @@
   <h1>Die Chakren-Impuls-Übung</h1>
   <p class="lead">9 Minuten mit mir an der Handpan und ein Arbeitsblatt. <span class="accent">Lass dein Spiel aus dem entstehen, was du in dir spürst.</span></p>
 
-  <div class="media"><img src="/geschenk/herz.jpg" alt="Nils Caspar mit geschlossenen Augen, die Hand auf dem Herzen, vor der Übung" width="1280" height="720"></div>
+  <a class="media media-preview" href="#anmelden" aria-label="Zur Anmeldung: Video und Arbeitsblatt anfordern">
+    <img src="/geschenk/vorschau.jpg" alt="Nils Caspar legt die Hand aufs Herz, daneben die Grafik der sieben Chakren mit dem Herzchakra hervorgehoben" width="1280" height="720">
+    <span class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Video · 9 Min · mit Arbeitsblatt</span>
+  </a>
 
   <div class="box signup" id="anmelden">
     <p class="kicker">Kurze Briefe von mir</p>
@@ -66,13 +69,14 @@
 </footer>
 
 <script>
-// Gleiches Brevo-Formular wie im Footer (Double-Opt-in). Nach der Bestätigung leitet Brevo auf /geschenk/chakren-impuls/ weiter (Einstellung im Brevo-Formular).
+// Eigenes Brevo-Formular „Geschenk Chakren-Impuls (Newsletter)“: Double-Opt-in mit eigener Bestätigungsmail,
+// trägt in die Listen „Geschenk Chakren-Impuls“ und „Handpan Schule des Lebens“ ein und leitet nach der Bestätigung auf /geschenk/chakren-impuls/ weiter.
 document.getElementById('geschenk-form').addEventListener('submit', function (e) {
   e.preventDefault();
   var form = this, btn = form.querySelector('button');
   btn.textContent = '…'; btn.disabled = true;
   var done = function () { form.style.display = 'none'; document.getElementById('geschenk-success').style.display = 'block'; };
-  fetch('https://f66d0849.sibforms.com/serve/MUIFAPN93eg9WYcR1uagT5e_vpt7UOB0rjpcvfBZgp-k67OFuWwlmQi--ebh7daQQiSQjQs6GKwVvJO30hnAaYDlq_h6seRaVtLssYLf5GGn1L7czO_WT_w2E_6FeM7ovMOeAcizqv0Vt7NPuXmYQFxsGbX11iJPhQr8OOCf4EjIDs1OQPGaFJ76hna2ksP3UxaZTHpbHMQbDc9M', {
+  fetch('https://f66d0849.sibforms.com/serve/MUIFAGt1FGdMqqRmV0AOBnysojG4cqSRO7OAxaRxPfnraZ7YpTQUlTw7znflLKeTeeMfnZECo231Prc6qKIh-9PTbiHERhXvIXDKteJGEkxe642BykQXIvR8XkH6NWKe8LgOCiw_fBVTEQe1q-qmEAy4CuM77YtX1obRzsjm3bHZi_qbOrpmHHJQM5SHLkOWj8gJYaGdmzx3pv2U', {
     method: 'POST', body: new FormData(form), mode: 'no-cors'
   }).then(done).catch(done);
 });
