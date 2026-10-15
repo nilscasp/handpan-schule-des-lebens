@@ -271,6 +271,8 @@
         .orb-dot--solo { --fw: 24px; --fh: 24px; animation-name: none; }
         .orb-dot--solo::after { animation-name: none; }
         .orb-solo-item .orb-label { position: static; transform: none; max-width: none; }
+        .orb-caption--teach { margin-top: 2.2rem; animation-delay: 3s; }
+        .orb-solo--teach { animation-delay: 3.2s; }
         .orb-solo-line {
             flex: 0 0 clamp(2rem, 10vw, 5rem); height: 1px; margin-top: 5px;
             background: linear-gradient(90deg, transparent, rgba(212,165,116,0.4), transparent);
@@ -636,6 +638,13 @@
                             <span class="orb-label"><span class="orb-title">Kaufberatung</span><span class="orb-meta">vor dem Instrumentenkauf</span></span>
                         </a>
                     </div>
+                    <p class="orb-caption orb-caption--solo orb-caption--teach">Selbst unterrichten</p>
+                    <div class="orb-solo orb-solo--teach">
+                        <a href="/workshopleiter/" class="orb-solo-item">
+                            <span class="orb-dot orb-dot--solo"></span>
+                            <span class="orb-label"><span class="orb-title">Workshopleiter-Ausbildung</span><span class="orb-meta">Warteliste · nächste Runde</span></span>
+                        </a>
+                    </div>
                 </div>
                 <!-- Übergang: von den Angeboten zur Arbeitsweise -->
                 <div class="orb-bridge" id="orb-bridge">
@@ -848,6 +857,7 @@
                         <li><a href="/handpan-path/">Jahreskurs</a></li>
                         <li><a href="/mentoring/">Mentoring</a></li>
                         <li><a href="/kaufberatung/">Kaufberatung</a></li>
+                        <li><a href="/workshopleiter/">Workshopleiter-Ausbildung</a></li>
                     </ul>
                 </div>
 

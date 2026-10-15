@@ -63,6 +63,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://handpan.schule/rhythmus-fundament/"/>
   </url>
   <url>
+    <loc>https://handpan.schule/workshopleiter/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://handpan.schule/retreats/</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
