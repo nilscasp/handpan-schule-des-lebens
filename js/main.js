@@ -26,7 +26,8 @@
                 '/einsteigerkurse/',
                 '/retreats/',
                 '/mentoring/',
-                '/handpan-path/'
+                '/handpan-path/',
+                '/workshopleiter/'
             ];
 
             const isProgrammSubpage = programmSubpages.some(function(p) {

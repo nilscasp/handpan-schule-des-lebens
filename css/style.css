@@ -4444,3 +4444,64 @@
     .el-stage { grid-template-columns: 1fr; padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-md); }
     .el-stage__num { width: 2.2rem; height: 2.2rem; }
 }
+
+        /* ============================================
+           ANGEBOTE-MENÜ, gegliedert (15.10.2026)
+           Desktop: öffnet beim Drüberfahren, zwei Spalten mit Gruppen.
+           Handy (≤1100): im Hamburger immer aufgeklappt.
+           ============================================ */
+        .nav-dropdown-arrow { font-size: 0.85rem; }
+        .nav-dropdown-toggle { color: var(--color-accent); }
+        .nav-dd-heading {
+            margin: 0 0 4px; padding: 0 12px;
+            font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--color-accent); opacity: 0.8;
+        }
+        .nav-dd-heading ~ .nav-dd-heading { margin-top: 14px; }
+        .nav-dropdown--groups .nav-dropdown-link {
+            flex-direction: column; align-items: flex-start; justify-content: flex-start;
+            gap: 2px; padding: 7px 12px; white-space: normal; border-radius: 3px;
+        }
+        .nav-dd-title { color: var(--color-text); font-size: 0.92rem; letter-spacing: 0.03em; }
+        .nav-dd-meta { color: var(--color-text-muted); font-size: 0.74rem; letter-spacing: 0.02em; }
+        .nav-dropdown--groups .nav-dropdown-link:hover .nav-dd-title,
+        .nav-dropdown--groups .nav-dropdown-link.active .nav-dd-title { color: var(--color-accent); }
+        .nav-dd-all { width: 100%; }
+        .nav-dd-all-link { color: var(--color-accent) !important; font-size: 0.85rem; }
+
+        @media (min-width: 1101px) {
+            .nav-dropdown.nav-dropdown--groups {
+                display: grid; grid-template-columns: 1fr 1fr; column-gap: 8px; row-gap: 0;
+                min-width: 540px; padding: 18px 10px 10px;
+                left: 50%; transform: translate(-50%, 6px);
+                visibility: hidden; opacity: 0; pointer-events: none;
+                transition: opacity 0.18s ease 0.15s, transform 0.18s ease 0.15s, visibility 0s linear 0.33s;
+            }
+            /* Brücke über die Lücke zwischen Menüpunkt und Panel, damit es beim Hinfahren offen bleibt */
+            .nav-dropdown.nav-dropdown--groups::before {
+                content: ''; position: absolute; left: 0; right: 0; top: -14px; height: 14px;
+            }
+            .has-dropdown:hover > .nav-dropdown--groups,
+            .has-dropdown:focus-within > .nav-dropdown--groups,
+            .has-dropdown.open > .nav-dropdown--groups {
+                visibility: visible; opacity: 1; pointer-events: auto; transform: translate(-50%, 0);
+                transition: opacity 0.18s ease 0.08s, transform 0.18s ease 0.08s, visibility 0s linear 0s;
+            }
+            .has-dropdown:hover .nav-dropdown-arrow { transform: rotate(180deg); }
+            .nav-dd-col { display: flex; flex-direction: column; }
+            .nav-dd-all {
+                grid-column: 1 / -1; margin-top: 10px; padding-top: 8px;
+                border-top: 1px solid rgba(191, 161, 111, 0.15);
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .has-dropdown > .nav-dropdown.nav-dropdown--groups { display: flex; flex-direction: column; padding: 6px 0 4px 6px; }
+            .has-dropdown > .nav-dropdown-toggle { display: none; }
+            .nav-dd-col { display: flex; flex-direction: column; }
+            .nav-dd-heading { margin-top: 12px; }
+            .nav-dropdown--groups .nav-dropdown-link { padding: 5px 12px; }
+            .nav-dd-all { margin-top: 10px; }
+            /* Menü ist länger als der Bildschirm: im festen Header scrollbar machen */
+            #nav-menu { max-height: calc(100vh - 64px); max-height: calc(100dvh - 64px); overflow-y: auto; overscroll-behavior: contain; }
+        }
