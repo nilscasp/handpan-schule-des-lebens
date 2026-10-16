@@ -4552,7 +4552,8 @@ nav a.nav-link.active::after {
 .has-dropdown > .nav-link { padding-right: 10px; }
 
 @media (max-width: 1100px) {
-    nav .container { min-height: 60px; padding-top: 0.6rem; padding-bottom: 0.6rem; }
+    /* Höhe so, dass die Leiste genau bis zum Hero reicht (Hero beginnt bei 89 px, am Handy bei 74 px) */
+    nav .container { min-height: 88px; padding-top: 0.6rem; padding-bottom: 0.6rem; }
     /* Logo links in der Zeile, Menüknopf rechts: nichts überlappt */
     nav .logo { position: static; transform: none; font-size: 0.62rem; letter-spacing: 0.2em; gap: 0.7rem; }
     .logo-flipper { width: 26px; height: 26px; }
@@ -4562,4 +4563,7 @@ nav a.nav-link.active::after {
     .mobile-menu-toggle:hover { background: transparent; }
     .nav-dropdown-toggle { display: inline-flex; }
     nav a.nav-link.active::after { display: none; } /* im aufgeklappten Menü reicht das Gold */
+}
+@media (max-width: 768px) {
+    nav .container { min-height: 73px; }
 }
