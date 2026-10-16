@@ -168,21 +168,42 @@
             return String(ev.date) + '|' + String(ev.title || '').toLowerCase().replace(/[^a-zäöüß0-9]/g, '');
         }
 
-        function fetchEvents() {
-            var local = fetch(EVENTS_FALLBACK, { cache: 'no-cache' })
-                .then(function(r) { return r.ok ? r.json() : []; })
+        // Die eigene Liste ist in Millisekunden da, die Lernplattform braucht
+        // oft 1–5 Sekunden. Deshalb warten wir nicht auf beide: Die Leiste zeigt
+        // sofort eine Ladeanzeige, dann die eigene Liste, und ergänzt die
+        // Termine der Lernplattform still, sobald sie kommen. Geholt wird schon
+        // vorab (kurz nach dem Laden der Seite und beim Zeigen auf den Knopf),
+        // damit die Leiste beim Öffnen meist schon fertig ist.
+        var eventsState = { local: null, remote: null, localFailed: false, remoteFailed: false, started: false };
+
+        function fetchList(url, cacheMode, timeoutMs) {
+            var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+            var timer = ctrl ? setTimeout(function() { ctrl.abort(); }, timeoutMs) : null;
+            return fetch(url, { cache: cacheMode, signal: ctrl ? ctrl.signal : undefined })
+                .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
                 .then(function(events) { return Array.isArray(events) ? events : []; })
-                .catch(function() { return []; });
-            var remote = fetch(EVENTS_PRIMARY, { cache: 'no-store' })
-                .then(function(r) { return r.ok ? r.json() : []; })
-                .then(function(events) { return Array.isArray(events) ? events : []; })
-                .catch(function() { return []; });
-            return Promise.all([local, remote]).then(function(lists) {
-                var seen = {};
-                lists[0].forEach(function(ev) { seen[eventKey(ev)] = true; });
-                var extra = lists[1].filter(function(ev) { return !seen[eventKey(ev)]; });
-                return lists[0].concat(extra);
-            });
+                .finally(function() { if (timer) clearTimeout(timer); });
+        }
+
+        function prefetchEvents() {
+            if (eventsState.started) return;
+            eventsState.started = true;
+            fetchList(EVENTS_FALLBACK, 'no-cache', 8000)
+                .then(function(list) { eventsState.local = list; })
+                .catch(function() { eventsState.local = []; eventsState.localFailed = true; })
+                .then(renderEventsIfOpen);
+            fetchList(EVENTS_PRIMARY, 'no-store', 10000)
+                .then(function(list) { eventsState.remote = list; })
+                .catch(function() { eventsState.remote = []; eventsState.remoteFailed = true; })
+                .then(renderEventsIfOpen);
+        }
+
+        function mergedEvents() {
+            var local = eventsState.local || [];
+            var seen = {};
+            local.forEach(function(ev) { seen[eventKey(ev)] = true; });
+            var extra = (eventsState.remote || []).filter(function(ev) { return !seen[eventKey(ev)]; });
+            return local.concat(extra);
         }
 
         // Die Termine kommen jetzt über das Netz statt aus einer Datei im Repo.
@@ -247,32 +268,74 @@
             return card;
         }
 
-        function loadEvents() {
-            const container = document.getElementById('calendar-events');
-            fetchEvents()
-                .then(function(events) {
-                    var now = new Date();
-                    now.setHours(0, 0, 0, 0);
-                    var upcoming = events.filter(function(ev) {
-                        return new Date(ev.date) >= now;
-                    }).sort(function(a, b) {
-                        return new Date(a.date) - new Date(b.date);
-                    });
-
-                    if (upcoming.length === 0) {
-                        container.innerHTML = '<div class="calendar-empty">Aktuell keine Termine geplant.<br>Schau bald wieder vorbei!</div>';
-                        return;
-                    }
-
-                    container.replaceChildren.apply(
-                        container,
-                        upcoming.map(renderEventCard)
-                    );
-                })
-                .catch(function() {
-                    container.innerHTML = '<div class="calendar-empty">Termine konnten nicht geladen werden.</div>';
-                });
+        function renderEventsLoading(container) {
+            if (container.querySelector('.calendar-loading')) return;
+            var box = el('div', 'calendar-loading');
+            box.setAttribute('role', 'status');
+            for (var i = 0; i < 3; i++) {
+                var row = el('div', 'calendar-skeleton');
+                row.appendChild(el('span', 'calendar-skeleton-date'));
+                var lines = el('span', 'calendar-skeleton-lines');
+                lines.appendChild(el('span', 'calendar-skeleton-line'));
+                lines.appendChild(el('span', 'calendar-skeleton-line calendar-skeleton-line--short'));
+                row.appendChild(lines);
+                box.appendChild(row);
+            }
+            box.appendChild(el('p', 'calendar-loading-text', 'Termine werden geladen …'));
+            container.replaceChildren(box);
         }
+
+        function renderEvents() {
+            var container = document.getElementById('calendar-events');
+            if (!container) return;
+            var localDone = eventsState.local !== null;
+            var remoteDone = eventsState.remote !== null;
+            container.setAttribute('aria-busy', localDone && remoteDone ? 'false' : 'true');
+
+            // Ohne die eigene Liste gibt es noch nichts Verlässliches zu zeigen.
+            if (!localDone) { renderEventsLoading(container); return; }
+
+            var now = new Date();
+            now.setHours(0, 0, 0, 0);
+            var upcoming = mergedEvents().filter(function(ev) {
+                return new Date(ev.date) >= now;
+            }).sort(function(a, b) {
+                return new Date(a.date) - new Date(b.date);
+            });
+
+            if (upcoming.length === 0) {
+                // Leer ist erst endgültig, wenn auch die Lernplattform geantwortet hat.
+                if (!remoteDone) { renderEventsLoading(container); return; }
+                var msg = eventsState.localFailed && eventsState.remoteFailed
+                    ? 'Die Termine konnten gerade nicht geladen werden. Versuch es gleich noch einmal.'
+                    : 'Aktuell sind keine Termine eingetragen. Schau bald wieder vorbei.';
+                container.replaceChildren(el('div', 'calendar-empty', msg));
+                return;
+            }
+
+            container.replaceChildren.apply(container, upcoming.map(renderEventCard));
+        }
+
+        function renderEventsIfOpen() {
+            var sidebar = document.getElementById('calendar-sidebar');
+            if (sidebar && sidebar.classList.contains('active')) renderEvents();
+        }
+
+        function loadEvents() {
+            prefetchEvents();
+            renderEvents();
+        }
+
+        // Vorab holen: beim Zeigen auf den Knopf sofort, sonst kurz nach dem Laden.
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggle = document.getElementById('calendar-toggle');
+            if (!toggle || !document.getElementById('calendar-events')) return;
+            ['pointerenter', 'focus', 'touchstart'].forEach(function(type) {
+                toggle.addEventListener(type, prefetchEvents, { once: true, passive: true });
+            });
+            var later = window.requestIdleCallback || function(fn) { return setTimeout(fn, 1500); };
+            window.addEventListener('load', function() { later(prefetchEvents, { timeout: 4000 }); });
+        });
 
         // ============================================
         // SCROLL REVEAL (IntersectionObserver)
