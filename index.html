@@ -160,6 +160,7 @@
     <link rel="stylesheet" href="/css/style.css?v=2026-10-16-termine">
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-07-05b">
     <link rel="stylesheet" href="/css/home.css?v=2026-10-16a">
+    <link rel="stylesheet" href="/css/stimmen.css?v=2026-10-16a">
 </head>
 <body>
 
@@ -439,90 +440,87 @@
             <span class="section-divider__line"></span>
         </div>
 
-        <!-- Stimmen -->
-        <section class="section-light">
+        <!-- Stimmen: Video-Reihe + Stimmenwand, alle Stimmen auf /stimmen/ (erzeugt aus stimmen-daten.ts) -->
+        <section class="section-light stimmen-start">
             <div class="container">
                 <h2 class="section-title">Stimmen aus der Community</h2>
                 <p class="section-intro" style="text-align:center;">Wie sich der Weg anfühlt — in den Worten derer, die ihn gehen.</p>
 
-                <!-- Hero-Testimonial: die tiefste Stimme zuerst -->
-                <blockquote class="testimonial-hero">
-                    <p class="testimonial-pull-quote">
-                        „HandPanPath ist für mich kein Kurs. Es ist ein Erinnern. An Freude. An Vertrauen. An den eigenen inneren Klang."
-                    </p>
-                    <p class="testimonial-body">
-                        Meine Handpan stand fast zwei Jahre still bei mir. Nicht, weil sie nichts in mir berührt hätte, sondern weil ein alter, leiser Glaubenssatz zwischen uns stand: „Ich bin nicht musikalisch." Schon in den ersten drei Sitzungen mit Nils begann sich genau dieser Satz aufzulösen. Nicht durch Druck, nicht durch Technik, nicht durch „Üben", sondern durch seine feine, ruhige und zutiefst menschliche Art.
-                    </p>
-                    <footer class="testimonial-meta">
-                        <span class="testimonial-name">Petra B.</span>
-                        <span class="testimonial-source">
-                            <span class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</span>
-                            <span>Stadtbranchenbuch München</span>
-                        </span>
-                    </footer>
-                </blockquote>
+                <div class="stimmen-videos">
+                    <figure class="stimme stimme--video" data-themen="anfang dranbleiben online innen">
+                        <div class="stimme-video">
+                            <video playsinline preload="none" poster="/video/stimmen/rf-stimme-garten-poster.jpg" data-src="/video/stimmen/rf-stimme-garten.mp4" aria-label="Anja erzählt, 3:38 Minuten">
+                                <track kind="captions" srclang="de" label="Deutsch" src="/video/stimmen/rf-stimme-garten.vtt" default>
+                            </video>
+                            <button class="stimme-video__play" type="button" aria-label="Video abspielen: Anja, 3:38"><span class="stimme-video__kreis" aria-hidden="true"></span><span class="stimme-video__dauer" aria-hidden="true">3:38</span></button>
+                        </div>
+                        <figcaption>
+                            <p class="stimme__zitat">„Ich spiele nichts nach, ich spiele nur Eigenes.“</p>
+                            <p class="stimme__name">Anja <span>Rhythmus Fundament · Video</span></p>
+                        </figcaption>
+                    </figure>
+                    <figure class="stimme stimme--video" data-themen="musikalisch anfang">
+                        <div class="stimme-video">
+                            <video playsinline preload="none" poster="/video/stimmen/katrin-r2-kann-das-jeder-poster.jpg" data-src="/video/stimmen/katrin-r2-kann-das-jeder.mp4" aria-label="Katrin erzählt, 0:37 Minuten">
+                            </video>
+                            <button class="stimme-video__play" type="button" aria-label="Video abspielen: Katrin, 0:37"><span class="stimme-video__kreis" aria-hidden="true"></span><span class="stimme-video__dauer" aria-hidden="true">0:37</span></button>
+                        </div>
+                        <figcaption>
+                            <p class="stimme__zitat">„Oh doch, es ist zum Machen.“</p>
+                            <p class="stimme__name">Katrin <span>Gespräch · Handpan Path · Video</span></p>
+                        </figcaption>
+                    </figure>
+                    <figure class="stimme stimme--video" data-themen="musikalisch anfang">
+                        <div class="stimme-video">
+                            <video playsinline preload="none" poster="/video/stimmen/kirsten-r1-mehr-kann-ich-nicht-poster.jpg" data-src="/video/stimmen/kirsten-r1-mehr-kann-ich-nicht.mp4" aria-label="Kirsten erzählt, 0:38 Minuten">
+                            </video>
+                            <button class="stimme-video__play" type="button" aria-label="Video abspielen: Kirsten, 0:38"><span class="stimme-video__kreis" aria-hidden="true"></span><span class="stimme-video__dauer" aria-hidden="true">0:38</span></button>
+                        </div>
+                        <figcaption>
+                            <p class="stimme__zitat">„Ich kann einfach mit einem Tonfeld anfangen, weil mehr kann ich nicht.“</p>
+                            <p class="stimme__name">Kirsten <span>Gespräch · Handpan Path · Video</span></p>
+                        </figcaption>
+                    </figure>
+                </div>
 
-                <!-- 3-Grid mit den weiteren Stimmen -->
-                <div class="testimonial-grid testimonial-grid--3">
-                    <blockquote class="testimonial-card">
-                        <p class="testimonial-pull-quote">
-                            „Er erklärt das Wesen der Musik — und übt mit uns, unsere Seele mit ihr schwingen zu lassen."
-                        </p>
-                        <p class="testimonial-body">
-                            Nils ist ein sensibler und empathischer Lehrer. Er holt mich weg von dem Glauben, ich könnte keine persönliche Entwicklung mit der Handpan machen, weil ich ja keine Musikerin bin. Sehr befreiend!
-                        </p>
-                        <footer class="testimonial-meta">
-                            <span class="testimonial-name">Birgit</span>
-                            <span class="testimonial-source">
-                                <span class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</span>
-                                <span>Stadtbranchenbuch München</span>
-                            </span>
-                        </footer>
+                <div class="stimmen-wand">
+                    <blockquote class="stimme stimme--text" data-themen="musikalisch dranbleiben innen">
+                        <p class="stimme__zitat">„HandPanPath ist für mich kein Kurs. Es ist ein Erinnern. An Freude. An Vertrauen. An den eigenen inneren Klang.“</p>
+                        <div class="stimme__text"><p>Meine Handpan stand fast zwei Jahre still bei mir. Nicht, weil sie nichts in mir berührt hätte, sondern weil ein alter, leiser Glaubenssatz zwischen uns stand: „Ich bin nicht musikalisch.“ Schon in den ersten drei Sitzungen mit Nils begann sich genau dieser Satz aufzulösen. Nicht durch Druck, nicht durch Technik, nicht durch „Üben“, sondern durch seine feine, ruhige und zutiefst menschliche Art.</p></div>
+                        <p class="stimme__name">Petra B. <span>Handpan Path · Stadtbranchenbuch München</span></p>
                     </blockquote>
-
-                    <blockquote class="testimonial-card">
-                        <p class="testimonial-pull-quote">
-                            „Vertrautheit in Rhythmik schafft Freiheit im Spiel."
-                        </p>
-                        <p class="testimonial-body">
-                            Mein Wunsch war es, intuitiv zu spielen, und dennoch ein Gerüst zu haben, das mich trägt, leitet und orientiert. Dieses Gerüst sollte jedoch aus mir selbst heraus wachsen dürfen. Was es bildet, ist der Rhythmus.
-                        </p>
-                        <footer class="testimonial-meta">
-                            <span class="testimonial-name">Franziska H.</span>
-                            <span class="testimonial-source">
-                                <span class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</span>
-                                <span>Google · Local Guide</span>
-                            </span>
-                        </footer>
+                    <blockquote class="stimme stimme--text" data-themen="dranbleiben online innen">
+                        <p class="stimme__zitat">„Ich werte mich und mein Spiel nicht ab.“</p>
+                        <div class="stimme__text"><p>Ein persönliches Fazit nach ca. 6 Monaten in der Handpanschule des Lebens von Nils:</p><p>Ich sage nie mehr, ich kann noch nicht an die Öffentlichkeit mit der Handpan, sondern tu es. Ich werte mich und mein Spiel nicht ab. Ich spiele täglich – meist nicht nur einmal – voller Freude und ideenreich Handpan.</p></div>
+                        <details class="stimme__mehr"><summary>Weiterlesen</summary><p>Ich habe eine innige Gemeinschaft mit neuen, tollen Menschen mit gleichem Ziel gefunden, dazu eine neue Freundin, mit der ich gemeinsam spielen kann. Ich habe den Eindruck von deutlich spürbarem Fortschritt.</p><p>Ich erzähle heute, ca. 150 Tage nach meinem Beginn hier und nach diesem wunderbaren Elementekurs, meine ersten Märchen und Geschichten, während ich dazu Handpan spiele. Ich schreibe nach über 25 Jahren wieder … Gedichte, Liedtexte, Musik. Ich bin noch ausgeglichener und dankbarer wie vorher.</p><p>Keine Handpan an der Wand erinnert mich mehr schmerzhaft täglich daran, dass ich sie gekauft habe, um meine Gefühle auszudrücken, ans Universum abzugeben und zu spielen. Denn heute spiele ich mein unerschöpfliches Inneres nach Aussen und bringe es zum Klingen.</p></details>
+                        <p class="stimme__name">Sonja A. <span>Rhythmus Fundament · Klang der Elemente · Nachricht in der Community</span></p>
                     </blockquote>
-
-                    <blockquote class="testimonial-card">
-                        <p class="testimonial-pull-quote">
-                            „Technik, Rhythmus und musikalisches Gefühl werden sehr gut vermittelt."
-                        </p>
-                        <p class="testimonial-body">
-                            Ein großartiger Handpan-Lehrer mit viel Fachwissen und Feingefühl. Der Unterricht ist inspirierend, individuell angepasst und nie trocken. Absolute Empfehlung für Anfänger und Fortgeschrittene!
-                        </p>
-                        <footer class="testimonial-meta">
-                            <span class="testimonial-name">Ülkü</span>
-                            <span class="testimonial-source">
-                                <span class="testimonial-stars" aria-label="5 von 5 Sternen">★★★★★</span>
-                                <span>Stadtbranchenbuch München</span>
-                            </span>
-                        </footer>
+                    <blockquote class="stimme stimme--text" data-themen="musikalisch anfang dranbleiben online">
+                        <p class="stimme__zitat">„Vor dem Kurs konnte ich keinen Rhythmus halten.“</p>
+                        <div class="stimme__text"><p>Vor dem Kurs konnte ich keinen Rhythmus halten, geschweige denn mit der rechten Hand unabhängig von der linken gleichzeitig spielen. Das durfte ich, unter anderem, in den letzten Wochen erlernen.</p><p>Meine Zweifel waren am Anfang groß, ob es mir überhaupt möglich ist, mithalten zu können. Jeden Tag durfte ich aufs Neue entdecken, wie sehr sich dranbleiben und an sich glauben lohnen kann.</p></div>
+                        <details class="stimme__mehr"><summary>Weiterlesen</summary><p>Durch das tägliche Üben habe ich die Scheu verloren, die Zweifel und Gedanken an all das, was ich noch nicht kann, sind dem Fokus darauf, was ich alles in den letzten Wochen gelernt habe, gewichen.</p><p>Ich kann nur für mich als blutigen Anfänger, nicht nur an der Handpan, sondern generell an einem Instrument, sprechen: Für mich als Anfänger war der Kurs perfekt, kleine Häppchen, die mit mal mehr und mal weniger Mühe und Einsatz wunderbar zu erarbeiten waren.</p><p>Ich habe mich zu jeder Zeit gesehen, verstanden und gemeint gefühlt.</p></details>
+                        <p class="stimme__name">Franzi <span>Rhythmus Fundament · Nachricht nach dem Kurs</span></p>
+                    </blockquote>
+                    <blockquote class="stimme stimme--text" data-themen="dranbleiben online innen">
+                        <p class="stimme__zitat">„Es gibt keinen Druck und keinen Zwang. Niemand muss täglich üben.“</p>
+                        <div class="stimme__text"><p>Nils macht Angebote, motiviert und begleitet jeden in seinem eigenen Tempo. Dadurch entsteht eine entspannte Atmosphäre, in der Lernen wirklich Freude macht. Jedes Mal, wenn ein neues Video erscheint, freue ich mich darauf. Es fühlt sich ein wenig wie Ankommen an.</p></div>
+                        <details class="stimme__mehr"><summary>Weiterlesen</summary><p>Er beantwortet Fragen nahezu umgehend, geht auf individuelle Wünsche und Bedürfnisse ein und schafft trotz der räumlichen Distanz eine sehr persönliche und herzliche Verbindung.</p><p>Für mich ist das Lernen hier eine Reise weit über die Musik hinaus. Ich habe nicht nur den Beginn vom Handpan spielen gelernt, sondern auch viel über mich selbst und für mein Leben mitgenommen.</p></details>
+                        <p class="stimme__name">Anja S. <span>Rhythmus Fundament · Google · vor 4 Monaten</span></p>
+                    </blockquote>
+                    <blockquote class="stimme stimme--text" data-themen="dranbleiben online">
+                        <p class="stimme__zitat">„Inklusive Verweigerung und sich darauf einlassen.“</p>
+                        <div class="stimme__text"><p>Der Kurs ist Hammer. Mir hat es total viel gebracht und Spaß gemacht, inklusive Verweigerung und sich darauf einlassen. Beim 4. Zyklus mit Nils Frahm wurde bei mir anscheinend ein Trigger gesetzt. Hab es erst nicht mal ganz anhören können, sofort negativ … ist mir viel zu abstrakt … nein, habe es nach 2 Tagen mehrmals angehört und finde es wunderschön.</p></div>
+                        <p class="stimme__name">Katrin <span>Rhythmus Fundament · Nachricht nach dem Kurs</span></p>
+                    </blockquote>
+                    <blockquote class="stimme stimme--text" data-themen="dranbleiben innen">
+                        <p class="stimme__zitat">„Ich merkte, dass ich zu sehr darauf achte, wie andere spielen.“</p>
+                        <div class="stimme__text"><p>Ich spielte schon eine Weile auf meiner Handpan, merkte aber, dass ich zu sehr darauf achte, wie andere spielen. Was dazu führte, dass ich immer weniger Freude daran hatte und aufhören wollte. Ich bin sehr froh, dass ich bei Nils Einzelstunden genommen habe.</p></div>
+                        <p class="stimme__name">Huesniye <span>Einzelunterricht · Google · vor 5 Monaten</span></p>
                     </blockquote>
                 </div>
 
-                <!-- Link zu allen Bewertungen -->
-                <div class="testimonials-see-all">
-                    <span class="testimonials-see-all-label">Alle Rezensionen lesen:</span>
-                    <a href="https://share.google/2qSeZnqStI3XGKuOd" target="_blank" rel="noopener" class="testimonials-see-all-link">
-                        Google →
-                    </a>
-                    <a href="https://branchenbuch.portal.muenchen.de/mhp/1382569/#bewertungen" target="_blank" rel="noopener" class="testimonials-see-all-link">
-                        Stadtbranchenbuch München →
-                    </a>
-                </div>
+                <p class="stimmen-alle"><a href="/stimmen/">Alle 43 Stimmen hören und lesen</a></p>
+                <p class="stimmen-hinweis">Alle Stimmen stammen von Menschen, die bei mir gelernt haben: aus Gesprächen und Videos, aus Nachrichten an mich und aus Bewertungen bei <a href="https://share.google/2qSeZnqStI3XGKuOd" target="_blank" rel="noopener">Google</a> und im <a href="https://branchenbuch.portal.muenchen.de/mhp/1382569/#bewertungen" target="_blank" rel="noopener">Stadtbranchenbuch München</a>. Ich kürze manchmal, verändere aber keine Aussagen. Videos und Nachrichten zeige ich mit Einverständnis. Bewertungen von Google und aus dem Stadtbranchenbuch sind eine Auswahl; alle findest du dort.</p>
             </div>
         </section>
 
@@ -684,6 +682,7 @@
     </script>
 
     <script src="/js/main.js?v=2026-10-16-termine"></script>
+    <script src="/js/stimmen.js?v=2026-10-16a" defer></script>
     <script src="/js/mandala.js?v=2026-10-16" defer></script>
     <script src="/js/hero-mandala.js?v=2026-10-16b" defer></script>
 

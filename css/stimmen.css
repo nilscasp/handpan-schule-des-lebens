@@ -1,0 +1,261 @@
+/* ============================================================
+   STIMMEN AUS DER COMMUNITY — Startseite und /stimmen/
+   Gestaltung „Gravur“: Goldlinien statt Kästen, Videos per Klick mit Ton.
+   ============================================================ */
+
+/* ---------- Video-Reihe ---------- */
+.stimmen-videos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.2rem;
+    max-width: 960px;
+    margin: var(--spacing-lg) auto var(--spacing-lg);
+}
+
+.stimme--video { margin: 0; }
+.stimme-video {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    background: #05070a;
+    border: 1px solid rgba(212, 165, 116, 0.25);
+    overflow: hidden;
+}
+.stimme-video video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.stimme-video__play {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(10, 14, 20, 0.55), rgba(10, 14, 20, 0) 45%);
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    color: #F5E6D3;
+}
+.stimme-video__kreis {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 64px; height: 64px;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(232, 215, 190, 0.8);
+    border-radius: 50%;
+    background: rgba(10, 14, 20, 0.35);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.stimme-video__kreis::after {
+    content: '';
+    position: absolute;
+    left: 26px; top: 21px;
+    border-style: solid;
+    border-width: 11px 0 11px 17px;
+    border-color: transparent transparent transparent currentColor;
+}
+.stimme-video__play:hover .stimme-video__kreis,
+.stimme-video__play:focus-visible .stimme-video__kreis {
+    border-color: var(--color-accent);
+    background: rgba(10, 14, 20, 0.5);
+    box-shadow: 0 0 26px rgba(212, 165, 116, 0.25);
+}
+.stimme-video__dauer {
+    position: absolute;
+    right: 0.8rem; bottom: 0.7rem;
+    font-family: var(--font-nav);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: rgba(245, 230, 211, 0.9);
+}
+.stimme-video.spielt .stimme-video__play { display: none; }
+
+.stimme--video figcaption { padding-top: 1.1rem; }
+
+/* ---------- gemeinsame Textteile ---------- */
+.stimme__zitat {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.12rem;
+    line-height: 1.5;
+    color: #EAD7BE;
+    margin: 0 0 0.7rem;
+}
+.stimme__name {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 0.98rem;
+    font-style: normal;
+    color: var(--color-text);
+    margin: 0.9rem 0 0;
+}
+.stimme__name span {
+    display: block;
+    margin-top: 0.3rem;
+    font-family: var(--font-nav);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+.stimme__text p,
+.stimme__mehr p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin: 0 0 0.7rem;
+}
+.stimme__mehr summary,
+.stimme__transkript summary {
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-nav);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(212, 165, 116, 0.85);
+    margin: 0.2rem 0 0.6rem;
+}
+.stimme__mehr summary::-webkit-details-marker,
+.stimme__transkript summary::-webkit-details-marker { display: none; }
+.stimme__mehr[open] summary,
+.stimme__transkript[open] summary { color: var(--color-text-muted); }
+.stimme__transkript p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* ---------- Stimmenwand (geschrieben) ---------- */
+.stimmen-wand {
+    columns: 3 280px;
+    column-gap: 3rem;
+    margin: 0 auto;
+}
+.stimme--text,
+.stimmen-wand .stimme--video {
+    break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 2.6rem;
+}
+.stimme--text {
+    padding: 0.2rem 0 0 1.3rem;
+    border-left: 1px solid rgba(212, 165, 116, 0.3);
+}
+.stimmen-wand .stimme--video .stimme-video { max-width: 320px; }
+
+/* ---------- Abschluss des Abschnitts ---------- */
+.stimmen-alle { text-align: center; margin: var(--spacing-md) 0 0; }
+.stimmen-alle a {
+    display: inline-block;
+    padding: 1rem 2.4rem;
+    border: 1px solid rgba(212, 165, 116, 0.6);
+    color: #EAD7BE;
+    font-family: var(--font-nav);
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+}
+.stimmen-alle a:hover {
+    border-color: var(--color-accent);
+    color: #F5E6D3;
+    box-shadow: inset 0 0 28px rgba(212, 165, 116, 0.16);
+}
+.stimmen-hinweis {
+    max-width: 640px;
+    margin: var(--spacing-md) auto 0;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: rgba(160, 160, 160, 0.85);
+}
+.stimmen-hinweis a { color: inherit; text-decoration: underline; text-decoration-color: rgba(212, 165, 116, 0.4); text-underline-offset: 3px; }
+
+/* ---------- /stimmen/: Filter und „Mehr zeigen“ ---------- */
+.stimmen-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem 1.6rem;
+    margin: 0 auto var(--spacing-lg);
+    max-width: 900px;
+}
+.stimmen-filter button {
+    background: none;
+    border: 0;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.02rem;
+    color: rgba(232, 230, 227, 0.6);
+    border-bottom: 1px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+.stimmen-filter button:hover { color: var(--color-text); }
+.stimmen-filter button[aria-pressed="true"] { color: var(--color-accent); border-bottom-color: rgba(212, 165, 116, 0.6); }
+.stimmen-zahl {
+    text-align: center;
+    font-family: var(--font-nav);
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: calc(-1 * var(--spacing-md)) 0 var(--spacing-lg);
+}
+.stimme[hidden] { display: none !important; }
+.stimmen-mehr { text-align: center; margin-top: var(--spacing-sm); }
+.stimmen-mehr button {
+    background: none;
+    border: 1px solid rgba(212, 165, 116, 0.6);
+    padding: 0.95rem 2.2rem;
+    cursor: pointer;
+    color: #EAD7BE;
+    font-family: var(--font-nav);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+.stimmen-mehr button:hover { border-color: var(--color-accent); color: #F5E6D3; }
+
+.stimmen-kopf { padding-top: calc(79px + var(--spacing-xl)); padding-bottom: var(--spacing-md); text-align: center; }
+.stimmen-kopf h1 { font-weight: 300; margin-bottom: var(--spacing-sm); }
+.stimmen-kopf p { max-width: 620px; margin: 0 auto; color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.8; }
+
+@media (max-width: 1100px) { .stimmen-kopf { padding-top: calc(89px + var(--spacing-lg)); } }
+
+/* ---------- Handy ---------- */
+@media (max-width: 768px) {
+    /* Video-Reihe: sichtbar nebeneinander wischen, kein automatisches Weiterlaufen */
+    .stimmen-videos {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: 72%;
+        gap: 1.1rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        overscroll-behavior-x: contain;
+        margin-left: calc(-1 * var(--spacing-md));
+        margin-right: calc(-1 * var(--spacing-md));
+        padding: 0 var(--spacing-md) 0.6rem;
+        scrollbar-width: none;
+    }
+    .stimmen-videos::-webkit-scrollbar { display: none; }
+    .stimmen-videos .stimme--video { scroll-snap-align: center; }
+    .stimmen-wand { columns: 1; }
+    .stimmen-wand .stimme--video .stimme-video { max-width: none; }
+    .stimmen-filter { justify-content: flex-start; gap: 0.2rem 1.2rem; }
+    .stimmen-kopf { padding-top: calc(74px + var(--spacing-lg)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stimme-video__kreis, .stimmen-alle a, .stimmen-filter button { transition: none; }
+}
