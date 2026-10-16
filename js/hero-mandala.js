@@ -22,7 +22,7 @@
   let gesehen = false;
   try { gesehen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
 
-  const modes = { atmen: !ruhig.matches, welle: !ruhig.matches };
+  const modes = { atmen: !ruhig.matches, welle: false }; // nach dem Erblühen nur ruhiges Atmen, keine Welle
   let drawStart = null, sichtbar = true, last = 0;
   const t0 = performance.now();
 
