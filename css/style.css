@@ -4487,7 +4487,11 @@
                 visibility: visible; opacity: 1; pointer-events: auto; transform: translate(-50%, 0);
                 transition: opacity 0.18s ease 0.08s, transform 0.18s ease 0.08s, visibility 0s linear 0s;
             }
-            .has-dropdown:hover .nav-dropdown-arrow { transform: rotate(180deg); }
+            /* Öffnet beim Drüberfahren: der Pfeil-Knopf wird am Desktop nicht mehr gebraucht
+               (ein Klick darauf setzte .open und machte das Panel einspaltig lang) */
+            .has-dropdown > .nav-dropdown-toggle { display: none; }
+            .has-dropdown > .nav-link { padding-right: 0; }
+            .has-dropdown.open > .nav-dropdown.nav-dropdown--groups { display: grid; }
             .nav-dd-col { display: flex; flex-direction: column; }
             .nav-dd-all {
                 grid-column: 1 / -1; margin-top: 10px; padding-top: 8px;
