@@ -1,0 +1,109 @@
+/* ============================================================
+   STARTSEITE — Gestaltung „Gravur“ (16.10.2026)
+   Nur in index.html eingebunden, damit Unterseiten unberührt bleiben.
+   Leitbild ist das Mandala auf dem Dom: licht, gläsern, alles als feine
+   Goldlinie. Keine gefüllten Kästen, keine Farbverläufe zwischen Abschnitten.
+   ============================================================ */
+
+/* ---------- Grund: ein durchgehender Abschnittsgrund, keine Verläufe ---------- */
+#page-home > section { background: var(--color-bg); position: relative; }
+#page-home .section-light::before,
+#page-home .section-light::after { content: none; }
+#page-home .section-divider { background: transparent; }
+#page-home .card:hover { transform: none; }
+#page-home .feature h4 { font-weight: 400; }
+
+/* Feine Haarlinie als einziger Übergang zwischen zwei Abschnitten */
+#page-home > section.section-dark + section::before,
+#page-home > section.section-light + section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    width: min(220px, 40%);
+    height: 1px;
+    transform: translateX(-50%);
+    background: rgba(212, 165, 116, 0.22);
+}
+
+/* ---------- Gravur: Knöpfe, Zahlen, Karten als feine Goldlinien ---------- */
+#page-home .hero-cta-row { gap: 2.25rem; align-items: center; }
+#page-home .hero-cta-row a.cta {
+    background: transparent;
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    transition: border-color .4s ease, box-shadow .4s ease, color .4s ease;
+}
+#page-home .hero-cta-row a.cta--primary {
+    color: #EAD7BE;
+    border: 1px solid rgba(212, 165, 116, 0.6);
+    padding: 1rem 2.4rem;
+}
+#page-home .hero-cta-row a.cta--primary:hover {
+    background: transparent;
+    color: #F5E6D3;
+    border-color: var(--color-accent);
+    box-shadow: inset 0 0 28px rgba(212, 165, 116, 0.16), 0 0 24px rgba(212, 165, 116, 0.10);
+}
+#page-home .hero-cta-row a.cta--ghost {
+    border: 0;
+    padding: 1rem 0 1rem 2.6rem;
+    position: relative;
+    color: rgba(232, 230, 227, 0.78);
+}
+#page-home .hero-cta-row a.cta--ghost::before {
+    content: '';
+    position: absolute; left: 0; top: 50%;
+    width: 1.8rem; height: 1px;
+    background: var(--color-accent);
+    transition: width .4s ease;
+}
+#page-home .hero-cta-row a.cta--ghost:hover { background: transparent; color: var(--color-accent); }
+#page-home .hero-cta-row a.cta--ghost:hover::before { width: 2.2rem; }
+
+#page-home .social-proof-bar { border: 0; padding: var(--spacing-lg) 0 var(--spacing-md); }
+#page-home .social-proof-item + .social-proof-item { border-left: 1px solid rgba(212, 165, 116, 0.18); }
+#page-home .social-proof-num { font-weight: 300; font-size: 2.1rem; }
+#page-home .social-proof-label { letter-spacing: 0.14em; font-size: 0.72rem; }
+
+#page-home .feature-grid { gap: 0; }
+#page-home .feature {
+    background: transparent;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-left: 1px solid rgba(212, 165, 116, 0.2);
+}
+#page-home .feature:first-child { border-left-color: transparent; }
+
+#page-home .home-method li::before { border-radius: 50%; border-color: rgba(212, 165, 116, 0.5); }
+
+#page-home .testimonial-hero {
+    background: transparent;
+    border-top: 1px solid rgba(212, 165, 116, 0.4);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.4);
+}
+#page-home .testimonial-card { background: transparent; border-left: 1px solid rgba(212, 165, 116, 0.3); }
+
+#page-home .card {
+    background: transparent;
+    border: 0;
+    border-top: 1px solid rgba(212, 165, 116, 0.35);
+    padding: var(--spacing-md) 0 0;
+}
+#page-home .card:hover { background: transparent; border-top-color: var(--color-accent); }
+
+@media (max-width: 768px) {
+    #page-home .hero-cta-row { gap: 0.4rem; }
+    /* Hauptknopf darf nicht über den Rand laufen (Basisregel setzt nowrap und min-width) */
+    #page-home .hero-cta-row a.cta { max-width: 100%; white-space: normal; letter-spacing: 0.08em; font-size: 0.74rem; }
+    #page-home .hero-cta-row a.cta--primary { padding: 0.8rem 1.4rem; }
+    #page-home .feature { border-left: 0; border-top: 1px solid rgba(212, 165, 116, 0.2); padding: var(--spacing-md) 0 var(--spacing-sm); }
+    #page-home .feature:first-child { border-top-color: transparent; padding-top: 0; }
+    #page-home .social-proof-bar { padding: var(--spacing-md) 0 var(--spacing-sm); }
+    #page-home .social-proof-num { font-size: 1.5rem; }
+    #page-home .social-proof-label { letter-spacing: 0.08em; font-size: 0.62rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #page-home .hero-cta-row a.cta,
+    #page-home .hero-cta-row a.cta--ghost::before { transition: none; }
+}
