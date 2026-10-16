@@ -4509,3 +4509,57 @@
             /* Menü ist länger als der Bildschirm: im festen Header scrollbar machen */
             #nav-menu { max-height: calc(100vh - 64px); max-height: calc(100dvh - 64px); overflow-y: auto; overscroll-behavior: contain; }
         }
+
+/* ============================================
+   NAVIGATION — Gestaltung „Versalien“ (16.10.2026)
+   Schlicht und ruhig: Zeichen und Name auf einer Achse, beides fein gesperrt
+   in Fraunces, Menü in kleinen gesperrten Versalien (Jost), aktive Seite als
+   goldener Punkt. Ruhiger Grund ohne Goldkante, Hamburger ohne Kreis.
+   Überschreibt die Grundregeln oben (gleiche Spezifität, steht später).
+   ============================================ */
+nav {
+    background: rgba(10, 14, 20, 0.96);
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+    border-bottom: 1px solid rgba(232, 230, 227, 0.05);
+}
+nav .container { padding-top: 1.1rem; padding-bottom: 1.1rem; }
+nav .logo {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: 0.74rem;
+    letter-spacing: 0.26em;
+    gap: 1rem;
+    color: rgba(232, 230, 227, 0.9);
+}
+.logo-flipper { width: 30px; height: 30px; }
+nav ul#nav-menu { gap: 0.6rem; }
+.nav-link {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: rgba(232, 230, 227, 0.6);
+}
+nav a.nav-link:hover { color: var(--color-text); }
+nav a.nav-link.active { border-bottom: 0; padding-bottom: 6px; color: var(--color-accent); position: relative; }
+nav a.nav-link.active::after {
+    content: '';
+    position: absolute; left: 50%; bottom: -4px;
+    width: 3px; height: 3px; border-radius: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent);
+}
+.nav-dropdown-toggle { display: none; }
+.has-dropdown > .nav-link { padding-right: 10px; }
+
+@media (max-width: 1100px) {
+    nav .container { min-height: 60px; padding-top: 0.6rem; padding-bottom: 0.6rem; }
+    /* Logo links in der Zeile, Menüknopf rechts: nichts überlappt */
+    nav .logo { position: static; transform: none; font-size: 0.62rem; letter-spacing: 0.2em; gap: 0.7rem; }
+    .logo-flipper { width: 26px; height: 26px; }
+    .nav-link { font-size: 0.82rem; }
+    .mobile-menu-toggle { right: 12px; border: 0; background: transparent; border-radius: 0; }
+    .mobile-menu-toggle::before { width: 22px; box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor; }
+    .mobile-menu-toggle:hover { background: transparent; }
+    .nav-dropdown-toggle { display: inline-flex; }
+    nav a.nav-link.active::after { display: none; } /* im aufgeklappten Menü reicht das Gold */
+}
