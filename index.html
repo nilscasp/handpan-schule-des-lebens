@@ -274,13 +274,12 @@
                      fetchpriority="high"
                      decoding="async">
             </picture>
+            <!-- Mandala als Gravur auf dem Dom: vier Ebenen, die sich per Mischmodus mit dem Foto verrechnen (js/hero-mandala.js) -->
+            <div class="hero-mandala hero-mandala--rille" aria-hidden="true"></div>
+            <div class="hero-mandala hero-mandala--licht" aria-hidden="true"></div>
+            <div class="hero-mandala hero-mandala--gold" aria-hidden="true"></div>
+            <div class="hero-mandala hero-mandala--glanz" aria-hidden="true"></div>
             <div class="bg-overlay"></div>
-            <!-- Animiertes Grail-Logo, leuchtet auf dem Dom der Handpan; Position/Größe via CSS (.ding + --ding-*) -->
-            <div class="ding" id="heroDing" aria-hidden="true">
-                <img class="ding__logo ding__base" src="/images/logo-grail.svg" alt="" loading="eager" decoding="async">
-                <img class="ding__logo ding__glow" src="/images/logo-grail.svg" alt="" loading="eager" decoding="async">
-                <img class="ding__logo ding__glow ding__glow--b" src="/images/logo-grail.svg" alt="" loading="eager" decoding="async">
-            </div>
             <div class="hero-content container-narrow">
                 <h1>Klingen, wie du bist.</h1>
                 <p class="hero-subtitle">Handpan leben.</p>
@@ -675,6 +674,8 @@
     </script>
 
     <script src="/js/main.js?v=2026-10-10c"></script>
+    <script src="/js/mandala.js?v=2026-10-16" defer></script>
+    <script src="/js/hero-mandala.js?v=2026-10-16" defer></script>
 
     <!-- Newsletter: Inline-Submit via fetch -->
     <script>
