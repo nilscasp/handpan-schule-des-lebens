@@ -99,12 +99,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://handpan.schule/ueber/</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://handpan.schule/nils-caspar/</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
@@ -201,12 +195,6 @@
     <lastmod>2026-02-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://handpan.schule/community-roadmap.html</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://handpan.schule/von-anfang-an-handpan-spielen/</loc>
