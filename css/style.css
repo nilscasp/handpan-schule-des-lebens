@@ -4639,7 +4639,7 @@ nav a.nav-link.active::after {
 }
 #main-content .gravur .page-hero::before,
 #main-content .gravur .page-hero::after { content: none; }
-#main-content .gravur .page-hero h1 { margin-bottom: var(--spacing-sm); }
+#main-content .gravur .page-hero h1 { margin-bottom: var(--spacing-sm); hyphens: auto; overflow-wrap: break-word; }
 #main-content .gravur .page-hero .hero-content::after {
     content: '';
     display: block;
@@ -4696,6 +4696,21 @@ nav a.nav-link.active::after {
     padding: var(--spacing-md) 0 0;
 }
 .gravur .card:hover { background: transparent; border-top-color: var(--color-accent); transform: none; }
+.gravur .feature,
+.gravur .way-card {
+    background: transparent;
+    border: 0;
+    border-top: 1px solid rgba(212, 165, 116, 0.35);
+    border-radius: 0;
+}
+.gravur .way-card { padding: var(--spacing-md) 0 0; }
+.gravur .way-option { background: transparent; }
+/* Interessentenliste: gerahmte Fläche ohne Tönung und Rundung */
+.gravur .ia-box {
+    background: var(--color-bg);
+    border: 1px solid rgba(212, 165, 116, 0.35);
+    border-radius: 2px;
+}
 .gravur .el-stage {
     background: transparent;
     border: 0;
