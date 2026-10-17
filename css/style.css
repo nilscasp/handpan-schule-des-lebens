@@ -4620,3 +4620,143 @@ nav a.nav-link.active::after {
 @media (max-width: 768px) {
     nav .container { min-height: 73px; }
 }
+
+/* ============================================================
+   UNTERSEITEN — Gestaltung „Gravur“ (17.10.2026)
+   Dieselbe Sprache wie die Startseite (css/home.css): ein durchgehender Grund,
+   feine Goldlinien statt gefüllter Kästen, gerahmte statt gefüllter Knöpfe,
+   ein ruhiger, niedriger Seitenkopf ohne Symbolbild.
+   Greift nur, wo .page-content zusätzlich die Klasse „gravur“ trägt.
+   #main-content davor, damit die seitenbezogenen Hero-Regeln (#page-…) unterliegen.
+   ============================================================ */
+
+/* ---------- Seitenkopf: niedrig, ohne Symbol und Glühen ---------- */
+#main-content .gravur .page-hero {
+    min-height: auto;
+    padding: 150px 0 var(--spacing-lg);
+    background: none;
+    overflow: visible;
+}
+#main-content .gravur .page-hero::before,
+#main-content .gravur .page-hero::after { content: none; }
+#main-content .gravur .page-hero h1 { margin-bottom: var(--spacing-sm); }
+#main-content .gravur .page-hero .hero-content::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 1px;
+    margin: var(--spacing-md) auto 0;
+    background: var(--color-accent);
+    opacity: 0.5;
+}
+#main-content .gravur .detail-back {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(232, 230, 227, 0.6);
+}
+#main-content .gravur .detail-back:hover { color: var(--color-accent); transform: none; }
+
+/* Foto-Kopf (Instrumente): Foto bleibt, aber niedriger */
+#main-content .gravur .page-hero-photo { min-height: 38vh; padding: 130px 0 var(--spacing-md); }
+
+/* ---------- Grund: ein durchgehender Abschnittsgrund, keine Verläufe ---------- */
+.gravur > section { background: var(--color-bg); position: relative; }
+.gravur > .section-light::after { content: none; }
+.gravur > .hero-divider { display: none; }
+
+/* Feine Haarlinie als einziger Übergang zwischen zwei Abschnitten */
+.gravur > section + section::before,
+.gravur > .section-light::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; right: auto;
+    width: min(220px, 40%);
+    height: 1px;
+    transform: translateX(-50%);
+    background: rgba(212, 165, 116, 0.22);
+    z-index: 1;
+}
+.gravur > .page-hero + section::before,
+.gravur > .page-hero-photo + section::before { content: none; }
+
+/* Info-Leiste (Dauer, Format …): keine Fläche, nur Trennstriche */
+.gravur > .section-meta { border: 0; padding: var(--spacing-md) 0; }
+.gravur .detail-meta-bar .detail-meta-item { border-right-color: rgba(212, 165, 116, 0.18); }
+.gravur .detail-meta-item { background: transparent; border-color: rgba(212, 165, 116, 0.18); }
+.gravur .detail-meta-item strong,
+.gravur .detail-meta-item .detail-meta-label { font-weight: 400; letter-spacing: 0.16em; font-size: 0.7rem; }
+
+/* ---------- Kästen und Karten als feine Goldlinien ---------- */
+.gravur .card,
+.gravur .feature-card {
+    background: transparent;
+    border: 0;
+    border-top: 1px solid rgba(212, 165, 116, 0.35);
+    padding: var(--spacing-md) 0 0;
+}
+.gravur .card:hover { background: transparent; border-top-color: var(--color-accent); transform: none; }
+.gravur .feature-card h3,
+.gravur .card-title { font-weight: 400; }
+
+.gravur .highlight-box,
+.gravur .quote-block {
+    background: transparent;
+    border-left: 1px solid rgba(212, 165, 116, 0.45);
+}
+.gravur .comparison-column {
+    background: transparent;
+    border: 0;
+    border-top: 1px solid rgba(212, 165, 116, 0.35);
+    padding: var(--spacing-md) 0 0;
+}
+.gravur .comparison-negative { border-top-color: rgba(232, 230, 227, 0.15); }
+
+.gravur .timeline::before { width: 1px; background: rgba(212, 165, 116, 0.3); }
+.gravur .timeline-item::before {
+    width: 7px; height: 7px;
+    background: var(--color-bg);
+    border: 1px solid rgba(212, 165, 116, 0.6);
+    border-radius: 50%;
+    transform: translateX(-3px);
+    top: calc(var(--spacing-md) + 0.55rem);
+}
+.gravur .timeline-item h4 { font-weight: 400; }
+
+.gravur .faq-item { border-bottom-color: rgba(212, 165, 116, 0.15); }
+
+/* ---------- Knöpfe: Goldrahmen statt Fläche ---------- */
+.gravur .cta {
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    transition: border-color .4s ease, box-shadow .4s ease, color .4s ease;
+}
+.gravur .cta,
+.gravur .cta-primary,
+.gravur .cta--primary {
+    background: transparent;
+    color: #EAD7BE;
+    border: 1px solid rgba(212, 165, 116, 0.6);
+}
+.gravur .cta:hover,
+.gravur .cta-primary:hover,
+.gravur .cta--primary:hover {
+    background: transparent;
+    color: #F5E6D3;
+    border-color: var(--color-accent);
+    box-shadow: inset 0 0 28px rgba(212, 165, 116, 0.16), 0 0 24px rgba(212, 165, 116, 0.10);
+}
+
+@media (max-width: 768px) {
+    #main-content .gravur .page-hero { padding: 120px 0 var(--spacing-md); }
+    #main-content .gravur .page-hero-photo { min-height: 32vh; padding: 110px 0 var(--spacing-md); }
+    .gravur .cta { max-width: 100%; white-space: normal; letter-spacing: 0.1em; font-size: 0.76rem; }
+    /* Zwei Spalten halten: gesperrte Beschriftung darf die Spalte nicht sprengen */
+    .gravur .detail-meta-bar .detail-meta-item { min-width: 0; padding-left: var(--spacing-xs); padding-right: var(--spacing-xs); }
+    .gravur .detail-meta-item strong,
+    .gravur .detail-meta-item .detail-meta-label { letter-spacing: 0.1em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gravur .cta { transition: none; }
+}
