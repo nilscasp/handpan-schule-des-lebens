@@ -65,7 +65,7 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="https://f66d0849.sibforms.com">
 
-    <link rel="stylesheet" href="/css/style.css?v=2026-10-16-termine">
+    <link rel="stylesheet" href="/css/style.css?v=2026-10-17-gravur">
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-07-05b">
 
     <!-- Structured Data: Course + FAQPage -->
@@ -550,6 +550,50 @@
         /* Geld-zurück-Siegel: bei Umbruch (Kreis oben, Text darunter) Text zentrieren */
         #page-rhythmus-fundament .rf-guarantee-text { text-align: center !important; }
     }
+
+    /* === GRAVUR (17.10.2026): ruhige Fassung wie die Startseite ===
+       Takt-Faden, Leuchtknoten und getönte Kästen ausblenden; Kästen nur noch als feine Goldlinie.
+       Der Hero-Puls (Punkt-Reihe unter dem Titel) bleibt als einziges Rhythmus-Zeichen. */
+    #page-rhythmus-fundament.gravur .section-dark > .container-narrow::before,
+    #page-rhythmus-fundament.gravur .section-dark > .container-narrow::after,
+    #page-rhythmus-fundament.gravur .section-light > .container-narrow::before,
+    #page-rhythmus-fundament.gravur .section-light > .container-narrow::after,
+    #page-rhythmus-fundament.gravur .section-meta > .container-narrow::after,
+    #page-rhythmus-fundament.gravur [data-rhythm="konzeption-spine"] > .container-narrow::before,
+    #page-rhythmus-fundament.gravur [data-rhythm="subdivision"]::before,
+    #page-rhythmus-fundament.gravur [data-rhythm="subdivision"] > .highlight-box::before,
+    #page-rhythmus-fundament.gravur [data-rhythm="termine"]::before,
+    #page-rhythmus-fundament.gravur [data-rhythm="termine"] > div::before,
+    #page-rhythmus-fundament.gravur [data-rhythm="konzeption"] > .feature-card::after,
+    #page-rhythmus-fundament.gravur #anmelden > .container-narrow::before,
+    #page-rhythmus-fundament.gravur #anmelden > .container-narrow::after,
+    #page-rhythmus-fundament.gravur [data-rhythm="ziel"]::before,
+    #page-rhythmus-fundament.gravur [data-rhythm="ziel"]::after { content: none; }
+    #page-rhythmus-fundament.gravur .page-hero::before,
+    #page-rhythmus-fundament.gravur #anmelden { background-image: none; }
+    #page-rhythmus-fundament.gravur .section-dark .highlight-box,
+    #page-rhythmus-fundament.gravur .section-light .highlight-box,
+    #page-rhythmus-fundament.gravur .section-dark .highlight-box[data-tone="kuehl"] {
+        background: transparent;
+        border-left: 1px solid rgba(212, 165, 116, 0.45);
+    }
+    #page-rhythmus-fundament.gravur .section-dark .highlight-box[data-tone="kuehl"] { border-left-color: rgba(232, 230, 227, 0.25); }
+    #page-rhythmus-fundament.gravur .section-dark .feature-card,
+    #page-rhythmus-fundament.gravur .section-light .feature-card {
+        background: transparent;
+        border: 0;
+        border-top: 1px solid rgba(212, 165, 116, 0.35);
+        border-radius: 0;
+        padding: var(--spacing-md) 0 0;
+    }
+    #page-rhythmus-fundament.gravur [data-tone="ziel-frame"] {
+        background: transparent;
+        box-shadow: none;
+        border-radius: 2px;
+    }
+    #page-rhythmus-fundament.gravur .rf-badge { background: transparent; border-radius: 2px; }
+    #page-rhythmus-fundament.gravur .rf-stat-num { font-family: var(--font-serif); font-weight: 300; }
+    #page-rhythmus-fundament.gravur .rf-stat--accent .rf-stat-num { text-shadow: none; }
     </style>
 </head>
 <body>
@@ -663,7 +707,7 @@
          HOME PAGE
          ============================================ -->
     <main id="main-content">
-    <div id="page-rhythmus-fundament" class="page-content active">
+    <div id="page-rhythmus-fundament" class="page-content active gravur">
 
         <!-- Gold-Liniensymbol-Set (Sprite) — alle Icons stroke-basiert, erben Faden-Gold via currentColor -->
         <svg class="rf-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
