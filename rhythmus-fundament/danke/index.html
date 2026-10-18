@@ -89,18 +89,6 @@ body {
   flex-direction: column;
 }
 
-/* Sanfter, konzentrischer Goldschein im Hintergrund — Klangwellen-Anmutung */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 50% 38%, rgba(212,165,116,0.10), transparent 55%),
-    radial-gradient(circle at 50% 38%, rgba(212,165,116,0.05), transparent 75%);
-}
-
 main {
   position: relative;
   z-index: 1;
@@ -113,33 +101,25 @@ main {
 }
 
 /* ============================================================
-   LEUCHTENDES LOGO  (wie Startseite — pulsierender Glow)
+   LOGO  (Gravur: ruhig, ohne Glühen)
    ============================================================ */
 .logo-mandala {
-  width: 104px; height: 104px;
+  width: 88px; height: 88px;
   margin: 0 auto var(--spacing-md);
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 0 18px rgba(212,165,116,0.45));
-  animation: logoGlow 8s ease-in-out infinite;
-}
-@keyframes logoGlow {
-  0%, 100% { filter: drop-shadow(0 0 14px rgba(212,165,116,0.30)); }
-  50%      { filter: drop-shadow(0 0 30px rgba(212,165,116,0.60)); }
+  opacity: 0.85;
 }
 
-/* Kleiner Bestätigungs-Pill über der Headline */
+/* Bestätigung über der Headline: gesperrte Zeile, kein Kasten */
 .confirm-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
   font-size: 0.72rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-accent);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  padding: 0.45rem 1.1rem;
+  color: var(--color-accent-dark);
   margin-bottom: var(--spacing-md);
 }
 .confirm-pill svg { width: 14px; height: 14px; }
@@ -168,29 +148,20 @@ h1 em { font-style: italic; color: var(--color-accent); }
   margin: 0 auto var(--spacing-lg);
 }
 
-/* Hairline-Trenner */
-.divider {
-  width: 64px; height: 1px;
-  background: var(--color-accent);
-  opacity: 0.4;
-  margin: var(--spacing-lg) auto;
-}
-
 /* ============================================================
    COMMUNITY-EINLADUNG
    ============================================================ */
+/* Gravur: eine feine Goldlinie statt getönter Fläche */
 .community {
-  background: var(--color-bg-lighter);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  padding: var(--spacing-lg) var(--spacing-md);
+  border-top: 1px solid rgba(212, 165, 116, 0.35);
+  padding: var(--spacing-lg) 0 0;
   margin-top: var(--spacing-md);
 }
 .community .kicker {
   font-size: 0.72rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   margin-bottom: var(--spacing-sm);
 }
 .community h2 {
@@ -208,33 +179,36 @@ h1 em { font-style: italic; color: var(--color-accent); }
 .community .free-hint {
   display: inline-block;
   font-size: 0.85rem;
-  color: var(--color-accent);
+  color: var(--color-text-muted);
   margin-top: var(--spacing-sm);
   letter-spacing: 0.04em;
 }
 
 /* ============================================================
-   BUTTONS  (Border-Radius 2px, gesperrt, Großbuchstaben — Website-Stil)
+   BUTTONS  (Gravur: Goldrahmen statt Goldfläche, wie css/style.css .gravur .cta)
    ============================================================ */
 .btn-row { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; justify-content: center; }
 .btn {
   display: inline-flex; align-items: center; gap: 0.6rem;
   font-family: var(--font-sans);
   font-size: 0.82rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
   padding: 0.95rem 2.1rem;
   border-radius: 2px;
-  border: 1px solid var(--color-accent);
-  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+  color: #EAD7BE;
+  border: 1px solid rgba(212, 165, 116, 0.6);
+  transition: border-color .4s ease, box-shadow .4s ease, color .4s ease;
   cursor: pointer;
 }
-.btn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
-.btn-primary { background: var(--color-accent); color: var(--color-bg); }
-.btn-primary:hover { background: var(--color-accent-dark); border-color: var(--color-accent-dark); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(212,165,116,0.25); }
-.btn-secondary { background: transparent; color: var(--color-accent); }
-.btn-secondary:hover { background: rgba(212,165,116,0.08); transform: translateY(-3px); }
+.btn:focus-visible { outline: 1px solid var(--color-accent); outline-offset: 4px; }
+.btn:hover {
+  color: #F5E6D3;
+  border-color: var(--color-accent);
+  box-shadow: inset 0 0 28px rgba(212, 165, 116, 0.16), 0 0 24px rgba(212, 165, 116, 0.10);
+}
 
 /* ============================================================
    FOOTER
@@ -252,9 +226,10 @@ footer a { color: var(--color-accent); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 
 @media (max-width: 600px) {
-  .community { padding: var(--spacing-md) var(--spacing-sm); }
-  .btn { width: 100%; justify-content: center; }
+  .community { padding: var(--spacing-md) 0 0; }
+  .btn { width: 100%; justify-content: center; letter-spacing: 0.12em; }
 }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
 </style>
 </head>
 <body>
@@ -278,8 +253,6 @@ footer a:hover { text-decoration: underline; }
     Alle Details zum Start, deinen Zugängen und den Live-Terminen bekommst du in den nächsten Minuten
     per E-Mail. Schau gern auch in deinen Spam-Ordner, falls nichts ankommt.
   </p>
-
-  <div class="divider" aria-hidden="true"></div>
 
   <section class="community">
     <p class="kicker">Schon jetzt dabei sein</p>

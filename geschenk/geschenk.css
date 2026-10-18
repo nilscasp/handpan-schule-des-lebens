@@ -26,14 +26,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 50% 22%, rgba(212,165,116,0.09), transparent 60%);
-}
 main {
   position: relative;
   z-index: 1;
@@ -45,17 +37,14 @@ main {
 }
 a { color: var(--color-accent); }
 
-.logo { display: block; width: 72px; height: 72px; margin: 0 auto 1.6rem; filter: drop-shadow(0 0 16px rgba(212,165,116,0.4)); }
+.logo { display: block; width: 72px; height: 72px; margin: 0 auto 1.6rem; opacity: 0.85; }
 .pill {
   display: table;
   margin: 0 auto 1.2rem;
   font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-accent);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  padding: 0.35rem 0.9rem;
+  color: var(--color-accent-dark);
 }
 h1 {
   font-family: var(--font-serif);
@@ -89,16 +78,16 @@ p + p { margin-top: 1rem; }
 
 .list { list-style: none; margin: 1rem 0; }
 .list li { position: relative; padding-left: 1.6rem; margin: 0.6rem 0; }
-.list li::before { content: ""; position: absolute; left: 0.1rem; top: 0.72em; width: 7px; height: 7px; border: 1px solid var(--color-accent); transform: rotate(45deg); }
+.list li::before { content: ""; position: absolute; left: 0; top: 0.9em; width: 12px; height: 1px; background: rgba(212, 165, 116, 0.6); }
 .list b { font-weight: 500; }
 ol.steps { counter-reset: s; list-style: none; margin: 1rem 0; }
 ol.steps li { counter-increment: s; position: relative; padding-left: 2.6rem; margin: 0.9rem 0; }
 ol.steps li::before {
   content: counter(s);
   position: absolute; left: 0; top: 0.15rem;
-  width: 1.8rem; height: 1.8rem; line-height: 1.75rem;
-  text-align: center; font-family: var(--font-serif); font-size: 1rem;
-  color: var(--color-accent); border: 1px solid var(--color-accent); border-radius: 50%;
+  width: 1.8rem; line-height: 1.75rem;
+  text-align: left; font-family: var(--font-serif); font-size: 1.1rem;
+  color: var(--color-accent);
 }
 ol.steps b { font-weight: 500; }
 
@@ -108,50 +97,63 @@ ol.steps b { font-weight: 500; }
   font-weight: 300;
   font-size: 1.25rem;
   line-height: 1.55;
-  border-left: 2px solid var(--color-accent);
+  border-left: 1px solid rgba(212, 165, 116, 0.45);
   padding: 0.2rem 0 0.2rem 1.2rem;
   margin: 2rem 0;
 }
 
+/* Abschnitt als Gravur: Haarlinien oben und unten statt getönter Fläche */
 .box {
-  background: var(--color-bg-lighter);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  padding: 1.6rem;
-  margin: 2.5rem 0;
+  border-top: 1px solid rgba(212, 165, 116, 0.35);
+  border-bottom: 1px solid rgba(212, 165, 116, 0.35);
+  padding: 2.2rem 0;
+  margin: 3rem 0;
 }
 .box h2 { margin-top: 0; }
-.kicker { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.4rem; }
+.kicker { font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--color-accent-dark); margin-bottom: 0.6rem; }
 
-/* Anmeldeformular */
+/* Anmeldeformular: eine einzige goldgerahmte Zeile (wie der Newsletter der Startseite) */
 .signup { text-align: center; }
-.signup form { display: flex; gap: 0.6rem; max-width: 520px; margin: 1.2rem auto 0; }
+.signup form {
+  display: flex; max-width: 480px; margin: 1.6rem auto 0;
+  border: 1px solid rgba(212, 165, 116, 0.35); border-radius: 2px;
+  transition: border-color 0.3s ease;
+}
+.signup form:focus-within { border-color: var(--color-accent); }
 .signup input[type=email] {
   flex: 1; min-width: 0;
   font: inherit; font-size: 1rem;
   color: var(--color-text);
-  background: var(--color-bg);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  padding: 0.8rem 1rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0.85rem 1.1rem;
 }
-.signup input[type=email]:focus { outline: none; border-color: var(--color-accent); }
+.signup input[type=email]:focus { outline: none; }
+.signup form .btn { border: 0; border-left: 1px solid rgba(212, 165, 116, 0.35); border-radius: 0; white-space: nowrap; }
+.signup form .btn:hover { border-left-color: rgba(212, 165, 116, 0.35); }
+
+/* Knöpfe: Goldrahmen statt Goldfläche */
 .btn {
   display: inline-block;
-  font-family: var(--font-sans); font-size: 1rem; font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--color-bg);
-  background: var(--color-accent);
-  border: 1px solid var(--color-accent);
+  font-family: var(--font-sans); font-size: 0.82rem; font-weight: 400;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #EAD7BE;
+  background: transparent;
+  border: 1px solid rgba(212, 165, 116, 0.6);
   border-radius: 2px;
-  padding: 0.8rem 1.4rem;
+  padding: 0.95rem 1.6rem;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: border-color .4s ease, box-shadow .4s ease, color .4s ease;
 }
-.btn:hover { background: var(--color-accent-dark); }
-.btn-ghost { background: transparent; color: var(--color-accent); }
-.btn-ghost:hover { background: rgba(212,165,116,0.08); }
+.btn:hover, .btn:focus-visible {
+  color: #F5E6D3;
+  border-color: var(--color-accent);
+  box-shadow: inset 0 0 28px rgba(212, 165, 116, 0.16), 0 0 24px rgba(212, 165, 116, 0.10);
+}
+.btn:focus-visible { outline: 1px solid var(--color-accent); outline-offset: 4px; }
+.btn-ghost { border-color: rgba(212, 165, 116, 0.3); color: var(--color-text-muted); }
 .hint { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.8rem; }
 .success { display: none; color: var(--color-accent); margin-top: 1rem; }
 .center { text-align: center; }
@@ -179,8 +181,10 @@ footer a:hover { text-decoration: underline; }
 @media (max-width: 560px) {
   body { font-size: 17px; }
   .signup form { flex-direction: column; }
+  .signup form .btn { border-left: 0; border-top: 1px solid rgba(212, 165, 116, 0.35); }
   .chapters { columns: 1; }
-  .box { padding: 1.2rem; }
+  .btn { letter-spacing: 0.12em; font-size: 0.78rem; padding: 0.9rem 1.2rem; max-width: 100%; white-space: normal; }
+  .btn-row .btn { width: 100%; text-align: center; }
 }
 
 /* Vorschaubild mit Video-Etikett (Eintragungsseite) */
@@ -195,4 +199,5 @@ footer a:hover { text-decoration: underline; }
 }
 .media-preview .badge svg { width: 16px; height: 16px; fill: var(--color-accent); }
 .media-preview:hover .badge { background: rgba(10, 14, 20, 0.95); }
+@media (prefers-reduced-motion: reduce) { .btn, .signup form { transition: none; } }
 @media (max-width: 560px) { .media-preview .badge { left: 8px; bottom: 8px; font-size: 0.68rem; padding: 0.2rem 0.5rem 0.2rem 0.4rem; } .media-preview .badge svg { width: 12px; height: 12px; } }
