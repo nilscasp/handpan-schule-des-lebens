@@ -938,6 +938,8 @@
             gtag('config', GA_MEASUREMENT_ID, {
                 anonymize_ip: true
             });
+            // Seiten mit Google-Ads-Conversion (z. B. /feuer/) setzen window.hpsGadsId = 'AW-…'
+            if (window.hpsGadsId) gtag('config', window.hpsGadsId);
         }
 
         // On page load: check for existing consent

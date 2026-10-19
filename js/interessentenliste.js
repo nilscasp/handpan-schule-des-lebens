@@ -1,5 +1,6 @@
 // Interessentenliste (Brevo sibforms): Vorname + E-Mail, Kontakt sobald der nächste Termin feststeht.
-// Box: .ia-box mit data-endpoint (serve-URL) und data-name (für das Meta-Lead-Event).
+// Box: .ia-box mit data-endpoint (serve-URL) und data-name (für das Meta-Lead-Event),
+// optional data-gads = Google-Ads-Conversion „AW-…/Label“ (feuert nur, wenn gtag nach Einwilligung geladen ist).
 // Sendet mit ?isAjax=1 — nur so liefert Brevo echte Fehler statt Fake-Success.
 (function () {
     document.querySelectorAll('.ia-box[data-endpoint]').forEach(function (box) {
@@ -30,6 +31,7 @@
                         if (hint) hint.style.display = 'none';
                         success.style.display = 'block';
                         if (window.fbq) fbq('track', 'Lead', { content_name: 'Interessentenliste ' + (box.dataset.name || '') });
+                        if (window.gtag && box.dataset.gads) gtag('event', 'conversion', { send_to: box.dataset.gads });
                         return;
                     }
                     var msgs = data && data.errors ? Object.keys(data.errors).map(function (k) { return data.errors[k]; }) : [];
