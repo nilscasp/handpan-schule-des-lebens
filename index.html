@@ -257,7 +257,6 @@
                     </ul>
                 </li>
                 <li><a href="/instrumente/" class="nav-link">Instrumente</a></li>
-                <li><a href="/dabei-sein/" class="nav-link">Dabei sein</a></li>
             </ul>
         </div>
     </nav>
@@ -635,7 +634,6 @@
                         <li><a href="/nils-caspar/">Nils Caspar</a></li>
                         <li><a href="/ekstatisches-lernen/">Ekstatisches Lernen</a></li>
                         <li><a href="/blog/">Blog</a></li>
-                        <li><a href="/dabei-sein/">Dabei sein</a></li>
                     </ul>
                 </div>
 
@@ -670,10 +668,10 @@
     (function() {
         if (window.location.hash && window.location.hash !== '#home') {
             var route = window.location.hash.slice(1);
-            var validRoutes = ['philosophie','lernziele','programm','community','dabei-sein','impressum','datenschutz','handpan-path','rhythmus-fundament','retreats','mentoring','ueber','nils-caspar','peter-aumueller','einsteigerkurse','instrumente'];
+            var validRoutes = ['philosophie','lernziele','programm','community','impressum','datenschutz','handpan-path','rhythmus-fundament','retreats','mentoring','ueber','nils-caspar','peter-aumueller','einsteigerkurse','instrumente'];
             // Handle redirects
             if (route === 'gruender' || route === 'lehrer') route = 'nils-caspar';
-            if (route === 'einzelunterricht' || route === 'kinderunterricht') route = 'dabei-sein';
+            if (route === 'einzelunterricht' || route === 'kinderunterricht' || route === 'dabei-sein') { window.location.replace('/programm/#kennenlernen'); return; }
             if (validRoutes.indexOf(route) !== -1) {
                 window.location.replace('/' + route + '/');
             }
