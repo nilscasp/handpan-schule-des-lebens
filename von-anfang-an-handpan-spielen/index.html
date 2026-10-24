@@ -700,6 +700,37 @@
                     <p class="mirror-close">Dann bist du hier richtig. Egal, ob du ganz am Anfang stehst oder
                        schon lange spielst, ohne je bei dir angekommen zu sein.</p>
                 </div>
+
+                <!-- Stimme aus dem Kurs (Video mit Einverständnis, Nils 24.10.2026) -->
+                <div class="vaa-voices">
+                    <p class="vaa-voices__overline">Eine Stimme aus dem Kurs</p>
+                    <figure class="vaa-voice">
+                        <div class="hero-video vaa-voice__video" data-hero-video data-name="VAA-Stimme Lisa">
+                            <video playsinline preload="none" poster="/video/vaa-stimme-lisa-poster.jpg"
+                                   data-src-720="/video/vaa-stimme-lisa.mp4"
+                                   aria-label="Lisa über ihre Erfahrung in Von Anfang an spielen, 1 Minute 48 Sekunden">
+                                <track kind="captions" srclang="de" label="Deutsch" src="/video/vaa-stimme-lisa.vtt" default>
+                            </video>
+                            <button class="hero-video-play" type="button" aria-label="Video abspielen: Lisa über Von Anfang an spielen, 1 Minute 48 Sekunden">
+                                <span class="hero-video-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                                <span class="vaa-voice__quote">„Eine überraschend tiefe Reise in mich selbst hinein.“</span>
+                            </button>
+                        </div>
+                        <figcaption>Lisa <span>· 1:48</span></figcaption>
+                    </figure>
+                </div>
+                <style>
+                    .vaa-voices{margin-top:var(--spacing-lg);text-align:center;}
+                    .vaa-voices__overline{font-family:var(--font-logo);letter-spacing:0.22em;text-transform:uppercase;font-size:0.8rem;color:var(--color-accent);margin-bottom:var(--spacing-md);}
+                    .vaa-voice{margin:0 auto;width:300px;max-width:78%;}
+                    .vaa-voice .vaa-voice__video{aspect-ratio:9/16;max-width:none;margin:0;border:1px solid rgba(212,165,116,0.28);}
+                    .vaa-voice .hero-video-play{justify-content:flex-end;gap:0.9rem;padding:0 1.1rem 1.6rem;}
+                    .vaa-voice .hero-video-btn{width:58px;height:58px;}
+                    .vaa-voice .hero-video-btn svg{width:22px;height:22px;margin-left:4px;}
+                    .vaa-voice__quote{font-family:var(--font-serif);font-style:italic;font-size:1.05rem;line-height:1.45;color:#F5F0E8;text-align:center;text-shadow:0 1px 12px rgba(0,0,0,0.8);}
+                    .vaa-voice figcaption{margin-top:0.7rem;text-align:center;font-family:var(--font-logo);letter-spacing:0.22em;text-transform:uppercase;font-size:0.8rem;color:var(--color-accent);}
+                    .vaa-voice figcaption span{font-family:var(--font-sans);letter-spacing:0.04em;color:var(--color-text-muted);}
+                </style>
             </div>
         </section>
 
