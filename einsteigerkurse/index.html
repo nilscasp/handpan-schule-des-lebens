@@ -60,60 +60,10 @@
     <link rel="preconnect" href="https://asset-tidycal.b-cdn.net" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="https://f66d0849.sibforms.com">
-    <link rel="stylesheet" href="/css/style.css?v=2026-10-16-termine">
+    <link rel="stylesheet" href="/css/style.css?v=2026-10-19-newsletter">
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-07-05b">
 
     <!-- "Der Weg zum ersten Klang" — Pfad-Motiv + leuchtende Ankunft (nur Einsteigerkurse) -->
-    <style>
-    #page-einsteigerkurse .section-light > .container-narrow,
-    #page-einsteigerkurse .section-dark > .container-narrow { position: relative; }
-
-    /* durchgehender goldener Faden */
-    #page-einsteigerkurse .section-light > .container-narrow::before,
-    #page-einsteigerkurse .section-dark > .container-narrow::before {
-        content: ''; position: absolute; left: 50%;
-        top: calc(-1 * var(--spacing-xl)); bottom: calc(-1 * var(--spacing-xl));
-        width: 1px; transform: translateX(-50%);
-        background: rgba(212, 165, 116, 0.13);
-        pointer-events: none; z-index: 2;
-    }
-    /* Meilenstein-Knoten an jeder Nahtstelle */
-    #page-einsteigerkurse .section-light > .container-narrow::after,
-    #page-einsteigerkurse .section-dark > .container-narrow::after {
-        content: ''; position: absolute; left: 50%;
-        top: calc(-1 * var(--spacing-xl)); width: 9px; height: 9px;
-        transform: translate(-50%, -50%); border-radius: 50%;
-        background: var(--color-accent);
-        box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.10), 0 0 11px rgba(212, 165, 116, 0.5);
-        pointer-events: none; z-index: 5;
-    }
-    /* Inhalt über dem Faden */
-    #page-einsteigerkurse .section-light > .container-narrow > *,
-    #page-einsteigerkurse .section-dark > .container-narrow > * { position: relative; z-index: 3; }
-
-    /* "Dein Einstieg" = leuchtende Ankunft (Hero-Resonanz + größerer Knoten) */
-    #page-einsteigerkurse #anmelden {
-        background-image:
-            radial-gradient(ellipse 80% 62% at 50% 54%, rgba(212,165,116,0.15) 0%, rgba(212,165,116,0.05) 44%, transparent 72%),
-            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='760' viewBox='0 0 1200 760'%3E%3Cg fill='none' stroke='%23D4A574' stroke-width='1'%3E%3Ccircle cx='600' cy='400' r='80' stroke-opacity='0.15'/%3E%3Ccircle cx='600' cy='400' r='150' stroke-opacity='0.11'/%3E%3Ccircle cx='600' cy='400' r='230' stroke-opacity='0.08'/%3E%3Ccircle cx='600' cy='400' r='320' stroke-opacity='0.055'/%3E%3Ccircle cx='600' cy='400' r='420' stroke-opacity='0.035'/%3E%3C/g%3E%3C/svg%3E");
-        background-position: center 54%, center 54%;
-        background-repeat: no-repeat, no-repeat;
-        background-size: cover, 1100px 700px;
-    }
-    #page-einsteigerkurse #anmelden > .container-narrow::after {
-        width: 14px; height: 14px;
-        box-shadow: 0 0 0 6px rgba(212,165,116,0.16), 0 0 24px rgba(212,165,116,0.62);
-    }
-
-    @media (max-width: 600px) {
-        #page-einsteigerkurse .section-light > .container-narrow::before,
-        #page-einsteigerkurse .section-dark > .container-narrow::before { bottom: calc(-1 * var(--spacing-lg)); }
-        #page-einsteigerkurse .section-light > .container-narrow::before,
-        #page-einsteigerkurse .section-dark > .container-narrow::before,
-        #page-einsteigerkurse .section-light > .container-narrow::after,
-        #page-einsteigerkurse .section-dark > .container-narrow::after { top: calc(-1 * var(--spacing-lg)); }
-    }
-    </style>
 </head>
 <body>
 
@@ -164,7 +114,7 @@
                 <div class="logo-flipper">
                     <div class="logo-flipper-inner" id="logoFlipper">
                         <div class="logo-face logo-face-front">
-                            <img src="/images/logo-grail.svg" alt="" width="42" height="42">
+                            <img src="/images/logo-mandala.svg" alt="" width="42" height="42">
                         </div>
                         <div class="logo-face logo-face-back">
                             <svg viewBox="900 900 3100 3100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
@@ -211,7 +161,6 @@
                     </ul>
                 </li>
                 <li><a href="/instrumente/" class="nav-link">Instrumente</a></li>
-                <li><a href="/dabei-sein/" class="nav-link">Dabei sein</a></li>
             </ul>
         </div>
     </nav>
@@ -220,7 +169,7 @@
          HOME PAGE
          ============================================ -->
     <main id="main-content">
-    <div id="page-einsteigerkurse" class="page-content active">
+    <div id="page-einsteigerkurse" class="page-content active gravur">
 
         <section class="page-hero">
             <div class="hero-content container-narrow">
@@ -427,8 +376,8 @@
                 </div>
 
                 <!-- Preis-Anzeige (Stil wie Rhythmus Fundament) -->
-                <div style="max-width: 460px; margin: 0 auto var(--spacing-lg); padding: 1.3rem 1.6rem; border: 1px solid rgba(212, 165, 116, 0.35); border-radius: 16px; background: rgba(212, 165, 116, 0.06);">
-                    <p id="price-amount" style="margin: 0; font-size: 2.4rem; font-weight: 700; color: var(--color-accent); line-height: 1.1;">105&nbsp;€</p>
+                <div style="max-width: 460px; margin: 0 auto var(--spacing-lg); padding: 1.3rem 1.6rem; border-top: 1px solid rgba(212, 165, 116, 0.35); border-bottom: 1px solid rgba(212, 165, 116, 0.35);">
+                    <p id="price-amount" style="margin: 0; font-family: var(--font-serif); font-size: 2.4rem; font-weight: 300; color: var(--color-accent); line-height: 1.1;">105&nbsp;€</p>
                     <p style="margin: 0.4rem 0 0; color: var(--color-text-muted); font-size: 0.95rem;">einmalig — alles oben ist enthalten</p>
                     <p style="margin: 0.45rem 0 0; color: var(--color-accent); font-size: 0.9rem; font-weight: 600;">inkl. Kauf- &amp; Marktberatung</p>
                 </div>
@@ -467,7 +416,7 @@
                 </div>
                 <script src="/js/interessentenliste.js?v=2026-09-28a" defer></script>
                 <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: var(--spacing-lg);">
-                    Lieber erst ein unverbindliches Gespräch? <a href="/dabei-sein/" style="color: var(--color-accent); text-decoration: none;">→ Gespräch vereinbaren</a>
+                    Lieber erst ein unverbindliches Gespräch? <a href="/programm/#kennenlernen" style="color: var(--color-accent); text-decoration: none;">→ Gespräch vereinbaren</a>
                 </p>
                 <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: var(--spacing-sm);">
                     Du willst nicht nur schnuppern, sondern richtig eintauchen?
@@ -484,8 +433,8 @@
 
     <footer>
         <div class="container">
-            <div class="newsletter-signup newsletter-klang">
-                <div class="newsletter-art" aria-hidden="true"></div>
+            <div class="newsletter-signup newsletter-still">
+                <div class="newsletter-zeichen" aria-hidden="true"><span></span><img src="/images/logo-mandala-konstruiert.svg" alt="" width="64" height="64"><span></span></div>
                 <p class="newsletter-kicker">Post von Nils</p>
                 <p class="newsletter-title">Kurze Briefe von mir</p>
                 <p class="newsletter-personal">„Manchmal ist es nur ein Satz, der dich wieder an die Handpan bringt. Den schreibe ich dir.“<span>Nils</span></p>
@@ -544,7 +493,6 @@
                         <li><a href="/nils-caspar/">Nils Caspar</a></li>
                         <li><a href="/ekstatisches-lernen/">Ekstatisches Lernen</a></li>
                         <li><a href="/blog/">Blog</a></li>
-                        <li><a href="/dabei-sein/">Dabei sein</a></li>
                     </ul>
                 </div>
 

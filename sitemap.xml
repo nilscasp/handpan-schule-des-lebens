@@ -39,12 +39,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://handpan.schule/dabei-sein/</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://handpan.schule/handpan-path/</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
@@ -94,12 +88,6 @@
   </url>
   <url>
     <loc>https://handpan.schule/instrumente/</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://handpan.schule/ueber/</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -203,15 +191,15 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://handpan.schule/community-roadmap.html</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://handpan.schule/von-anfang-an-handpan-spielen/</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://handpan.schule/feuer/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

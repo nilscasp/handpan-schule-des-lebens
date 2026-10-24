@@ -157,7 +157,7 @@
           type="image/webp"
           fetchpriority="high">
 
-    <link rel="stylesheet" href="/css/style.css?v=2026-10-17-newsletter">
+    <link rel="stylesheet" href="/css/style.css?v=2026-10-19-newsletter">
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-07-05b">
     <link rel="stylesheet" href="/css/home.css?v=2026-10-16a">
     <link rel="stylesheet" href="/css/stimmen.css?v=2026-10-16a">
@@ -210,7 +210,7 @@
                 <div class="logo-flipper">
                     <div class="logo-flipper-inner" id="logoFlipper">
                         <div class="logo-face logo-face-front">
-                            <img src="/images/logo-grail.svg" alt="" width="42" height="42">
+                            <img src="/images/logo-mandala.svg" alt="" width="42" height="42">
                         </div>
                         <div class="logo-face logo-face-back">
                             <svg viewBox="900 900 3100 3100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
@@ -257,7 +257,6 @@
                     </ul>
                 </li>
                 <li><a href="/instrumente/" class="nav-link">Instrumente</a></li>
-                <li><a href="/dabei-sein/" class="nav-link">Dabei sein</a></li>
             </ul>
         </div>
     </nav>
@@ -330,19 +329,19 @@
                 <div class="feature-grid home-pains">
                     <div class="feature">
                         <h4>Der innere Kritiker</h4>
-                        <p>Du sitzt an der Handpan und spielst die Muster, die du kannst. Aber eine Stimme fragt dich ständig: Ist das richtig so? Und das Üben fühlt sich an wie eine Aufgabe, die du abhaken musst.</p>
+                        <p>Du sitzt an der Handpan und möchtest dich freier bewegen beim Spielen, möchtest freier spielen. Aber eine Stimme fragt dich ständig: Ist das richtig so?</p>
                     </div>
                     <div class="feature">
                         <h4>Die fremde Richtung</h4>
-                        <p>Du folgst Tutorials, Kursplänen und Stücken, die andere ausgesucht haben. Was du selbst lernen willst, hat dich lange niemand gefragt.</p>
+                        <p>Du folgst YouTube-Videos, Kursplänen und Stücken, die andere ausgesucht haben. Wer du selber bist und was du lernen willst, hat dich noch niemand gefragt. Und das Üben fühlt sich an wie eine Aufgabe, die du abhaken musst.</p>
                     </div>
                     <div class="feature">
                         <h4>Nur für dich allein</h4>
-                        <p>Du spielst, wenn keiner zuhört. Sagt jemand „Spiel doch mal was vor“, findest du einen Grund, warum es gerade nicht passt.</p>
+                        <p>Du tendierst dazu, dich nicht zeigen zu wollen mit dem, wer und wie du bist. Denn das würde bedeuten, dich mit deinen Fehlern zu zeigen.</p>
                     </div>
                 </div>
                 <p class="moment-promise home-pains-close">
-                    Das liegt nicht an deinem Talent. Die meisten von uns haben gelernt, zu folgen und zu funktionieren: in der Schule, im Beruf, in ihren Rollen. <em>Darum bewerten wir uns, statt zu fühlen.</em>
+                    Das liegt nicht an deinen Fähigkeiten oder mangelnder Absicht. Wir alle haben gelernt, zu folgen und zu funktionieren: in der Schule, im Beruf und in unseren Rollen. <em>Darum bewerten wir uns, wenn wir anfangen zu fühlen und nicht dem vorgegebenen Weg zu folgen.</em>
                 </p>
             </div>
         </section>
@@ -436,7 +435,7 @@
         <!-- Poetische Pause: Ausklang der persönlichen Worte, vor den Stimmen der Community -->
         <div class="section-divider section-divider--on-dark" aria-hidden="true">
             <span class="section-divider__line"></span>
-            <img src="/images/logo-grail.svg" class="section-divider__ornament" alt="" loading="lazy" decoding="async" width="120" height="120">
+            <img src="/images/logo-mandala.svg" class="section-divider__ornament" alt="" loading="lazy" decoding="async" width="120" height="120">
             <span class="section-divider__line"></span>
         </div>
 
@@ -635,7 +634,6 @@
                         <li><a href="/nils-caspar/">Nils Caspar</a></li>
                         <li><a href="/ekstatisches-lernen/">Ekstatisches Lernen</a></li>
                         <li><a href="/blog/">Blog</a></li>
-                        <li><a href="/dabei-sein/">Dabei sein</a></li>
                     </ul>
                 </div>
 
@@ -670,10 +668,10 @@
     (function() {
         if (window.location.hash && window.location.hash !== '#home') {
             var route = window.location.hash.slice(1);
-            var validRoutes = ['philosophie','lernziele','programm','community','dabei-sein','impressum','datenschutz','handpan-path','rhythmus-fundament','retreats','mentoring','ueber','nils-caspar','peter-aumueller','einsteigerkurse','instrumente'];
+            var validRoutes = ['philosophie','lernziele','programm','community','impressum','datenschutz','handpan-path','rhythmus-fundament','retreats','mentoring','ueber','nils-caspar','peter-aumueller','einsteigerkurse','instrumente'];
             // Handle redirects
             if (route === 'gruender' || route === 'lehrer') route = 'nils-caspar';
-            if (route === 'einzelunterricht' || route === 'kinderunterricht') route = 'dabei-sein';
+            if (route === 'einzelunterricht' || route === 'kinderunterricht' || route === 'dabei-sein') { window.location.replace('/programm/#kennenlernen'); return; }
             if (validRoutes.indexOf(route) !== -1) {
                 window.location.replace('/' + route + '/');
             }

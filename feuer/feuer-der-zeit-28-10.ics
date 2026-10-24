@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//handpan.schule//Feuer der Zeit//DE
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:feuer-2026-10-28@handpan.schule
+DTSTAMP:20261013T120000Z
+DTSTART:20261028T180000Z
+DTEND:20261028T193000Z
+SUMMARY:Das Feuer der Zeit · Den Funken finden
+DESCRIPTION:Live-Abend mit Nils Caspar auf Zoom. Den Zoom-Link bekommst du per Mail. Bring eine Kerze\, Papier und Stift und deine Handpan mit.
+LOCATION:Zoom (Link per Mail)
+URL:https://handpan.schule/feuer/
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:Gleich geht es los: Das Feuer der Zeit
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -49,19 +49,6 @@
             padding: 3rem 1.5rem 2rem;
         }
 
-        /* Grain texture */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            z-index: 9999;
-            pointer-events: none;
-            opacity: 0.028;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 256px 256px;
-        }
-
         .linktree {
             width: 100%;
             max-width: 420px;
@@ -79,11 +66,11 @@
         }
 
         .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 0;
+            width: 88px;
+            height: 88px;
             object-fit: contain;
-            margin-bottom: 1.25rem;
+            opacity: 0.85;
+            margin-bottom: 1.75rem;
         }
 
         .ornament {
@@ -112,7 +99,7 @@
             text-align: center;
         }
 
-        /* Link buttons */
+        /* Links: Goldrahmen statt getönter, gerundeter Flächen (Gestaltung „Gravur“) */
         .links {
             width: 100%;
             display: flex;
@@ -121,64 +108,54 @@
             margin-bottom: 1.5rem;
         }
 
-        .link-button {
+        .link-button,
+        .whatsapp-button {
             display: block;
             width: 100%;
-            padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
+            padding: 1.1rem 1.5rem;
+            background: transparent;
+            border: 1px solid rgba(212, 165, 116, 0.28);
+            border-radius: 2px;
             color: var(--color-text);
             text-decoration: none;
             text-align: center;
             font-family: 'Spectral', Georgia, serif;
             font-size: 0.95rem;
             font-weight: 400;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
+            transition: border-color .4s ease, box-shadow .4s ease, color .4s ease;
         }
 
         .link-button .link-label {
             display: block;
-            font-weight: 500;
-            margin-bottom: 0.15rem;
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 0.2rem;
         }
 
         .link-button .link-desc {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
+            line-height: 1.6;
             color: var(--color-text-muted);
             font-weight: 300;
             font-style: italic;
-            letter-spacing: 0.01em;
         }
 
-        .link-button:hover {
-            background: rgba(255, 255, 255, 0.10);
-            border-color: rgba(212, 165, 116, 0.35);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.08);
+        .link-button:hover,
+        .link-button:focus-visible,
+        .whatsapp-button:hover,
+        .whatsapp-button:focus-visible {
+            border-color: var(--color-accent);
+            box-shadow: inset 0 0 28px rgba(212, 165, 116, 0.16), 0 0 24px rgba(212, 165, 116, 0.10);
+            outline: none;
         }
 
-        /* Featured link (Rhythmus Fundament) */
-        .link-button.featured {
-            border-color: rgba(212, 165, 116, 0.35);
-            background: rgba(212, 165, 116, 0.08);
-            font-weight: 500;
-        }
+        /* Hervorgehobener Link: kräftigerer Rahmen, goldene Zeile */
+        .link-button.featured { border-color: rgba(212, 165, 116, 0.6); }
+        .link-button.featured .link-label { color: var(--color-accent); }
 
-        .link-button.featured .link-label {
-            color: var(--color-accent);
-        }
-
-        .link-button.featured:hover {
-            background: rgba(212, 165, 116, 0.15);
-            border-color: rgba(212, 165, 116, 0.5);
-        }
-
-        /* WhatsApp button */
+        /* WhatsApp: gesperrte Zeile im Goldrahmen */
         .whatsapp-section {
             width: 100%;
             margin-bottom: 2.5rem;
@@ -188,35 +165,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6rem;
-            width: 100%;
-            padding: 0.9rem 1.5rem;
-            background: rgba(212, 165, 116, 0.12);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 165, 116, 0.3);
-            border-radius: 50px;
-            color: var(--color-accent);
-            text-decoration: none;
-            text-align: center;
-            font-family: 'Spectral', Georgia, serif;
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-button:hover {
-            background: rgba(212, 165, 116, 0.22);
-            border-color: rgba(212, 165, 116, 0.5);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 24px rgba(212, 165, 116, 0.12);
+            gap: 0.7rem;
+            padding: 0.95rem 1.5rem;
+            border-color: rgba(212, 165, 116, 0.6);
+            color: #EAD7BE;
+            font-size: 0.8rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
         }
 
         .whatsapp-button svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             flex-shrink: 0;
+            color: var(--color-accent);
         }
 
         /* Social icons */
@@ -273,7 +235,7 @@
     <main class="linktree">
         <!-- Profile -->
         <div class="profile">
-            <img src="../images/logo-linktree.png" alt="Handpan Schule des Lebens" class="profile-image" loading="lazy" decoding="async" width="300" height="300">
+            <img src="../images/logo-mandala.svg" alt="Handpan Schule des Lebens" class="profile-image" decoding="async" width="88" height="88">
 
             <h1>Handpan Schule des Lebens</h1>
             <p class="subtitle">Finde deinen eigenen Klang</p>

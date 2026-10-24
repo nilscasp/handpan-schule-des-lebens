@@ -6,7 +6,8 @@
     <title>Seite nicht gefunden – Handpan Schule des Lebens</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="theme-color" content="#0A0E14">
-    <link rel="icon" type="image/png" href="og-logo.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" href="/og-logo.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -32,19 +33,6 @@
             padding: 2rem;
         }
 
-        /* Grain texture */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            z-index: 9999;
-            pointer-events: none;
-            opacity: 0.028;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 256px 256px;
-        }
-
         .logo-link {
             text-decoration: none;
             color: var(--color-text);
@@ -57,9 +45,9 @@
         .logo-link:hover { opacity: 0.8; }
 
         .logo-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            opacity: 0.85;
         }
 
         .logo-text {
@@ -67,15 +55,15 @@
             font-size: 1.1rem;
             font-weight: 400;
             letter-spacing: 0.04em;
-            color: var(--color-accent);
+            color: var(--color-text);
         }
 
         .error-code {
             font-family: 'Fraunces', Georgia, serif;
             font-size: clamp(4rem, 12vw, 8rem);
-            font-weight: 400;
+            font-weight: 300;
             color: var(--color-accent);
-            opacity: 0.15;
+            opacity: 0.35;
             line-height: 1;
             margin-bottom: 1rem;
         }
@@ -87,6 +75,16 @@
             margin-bottom: 1rem;
             color: var(--color-text);
         }
+        /* Feine Goldlinie unter der Überschrift */
+        h1::after {
+            content: '';
+            display: block;
+            width: 56px;
+            height: 1px;
+            margin: 1.5rem auto 0;
+            background: var(--color-accent);
+            opacity: 0.5;
+        }
 
         p {
             color: var(--color-text-muted);
@@ -95,24 +93,26 @@
             margin-bottom: 2.5rem;
         }
 
+        /* Knopf: Goldrahmen statt Fläche (Gestaltung „Gravur“) */
         .home-link {
             display: inline-block;
-            padding: 0.75rem 2rem;
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 165, 116, 0.25);
-            color: var(--color-accent);
+            padding: 0.95rem 2.1rem;
+            background: transparent;
+            border: 1px solid rgba(212, 165, 116, 0.6);
+            border-radius: 2px;
+            color: #EAD7BE;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+            font-size: 0.82rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            transition: border-color .4s ease, box-shadow .4s ease, color .4s ease;
         }
-        .home-link:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(212, 165, 116, 0.5);
+        .home-link:hover,
+        .home-link:focus-visible {
+            color: #F5E6D3;
+            border-color: var(--color-accent);
+            box-shadow: inset 0 0 28px rgba(212, 165, 116, 0.16), 0 0 24px rgba(212, 165, 116, 0.10);
         }
 
         /* Lang badge */
@@ -124,23 +124,20 @@
             display: flex;
             align-items: center;
             gap: 0.4rem;
-            padding: 0.55rem 1rem;
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 50px;
+            padding: 0.5rem 0.95rem;
+            background: var(--color-bg);
+            border: 1px solid rgba(212, 165, 116, 0.25);
+            border-radius: 2px;
             color: var(--color-text-muted);
             text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: border-color .4s ease, color .4s ease;
         }
         .lang-badge:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(212, 165, 116, 0.3);
+            border-color: rgba(212, 165, 116, 0.6);
             color: var(--color-accent);
         }
         .lang-badge-icon {
@@ -168,7 +165,7 @@
 </head>
 <body>
     <a href="/" class="logo-link">
-        <img src="/images/logo-grail.svg" alt="Handpan Schule des Lebens Logo" class="logo-icon" loading="lazy" decoding="async" width="512" height="512">
+        <img src="/images/logo-mandala.svg" alt="Handpan Schule des Lebens Logo" class="logo-icon" decoding="async" width="40" height="40">
         <span class="logo-text">Handpan Schule des Lebens</span>
     </a>
 

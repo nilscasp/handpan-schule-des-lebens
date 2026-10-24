@@ -57,7 +57,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" href="/og-logo.png">
 
-    <link rel="stylesheet" href="/css/style.css?v=2026-10-16-termine">
+    <link rel="stylesheet" href="/css/style.css?v=2026-10-19-newsletter">
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-07-05b">
 
     <!-- Structured Data: Course + FAQPage -->
@@ -482,6 +482,9 @@
         0%, 100% { transform: scale(1); fill-opacity: 0.6; }
         50% { transform: scale(1.6); fill-opacity: 0.35; }
     }
+
+    /* === GRAVUR (17.10.2026): ruhige Fassung wie die Startseite — keine gezeichnete Linie im Kopf === */
+    #page-von-anfang-an.gravur .vaa-hero-art { display: none; }
     </style>
     <noscript><style>.scroll-reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
@@ -523,7 +526,7 @@
                 <div class="logo-flipper">
                     <div class="logo-flipper-inner" id="logoFlipper">
                         <div class="logo-face logo-face-front">
-                            <img src="/images/logo-grail.svg" alt="" width="42" height="42">
+                            <img src="/images/logo-mandala.svg" alt="" width="42" height="42">
                         </div>
                     </div>
                 </div>
@@ -557,13 +560,12 @@
                     </ul>
                 </li>
                 <li><a href="/instrumente/" class="nav-link">Instrumente</a></li>
-                <li><a href="/dabei-sein/" class="nav-link">Dabei sein</a></li>
             </ul>
         </div>
     </nav>
 
     <main id="main-content">
-    <div id="page-von-anfang-an" class="page-content active">
+    <div id="page-von-anfang-an" class="page-content active gravur">
 
         <!-- Hero -->
         <section class="page-hero">
@@ -951,8 +953,8 @@
 
     <footer>
         <div class="container">
-            <div class="newsletter-signup newsletter-klang">
-                <div class="newsletter-art" aria-hidden="true"></div>
+            <div class="newsletter-signup newsletter-still">
+                <div class="newsletter-zeichen" aria-hidden="true"><span></span><img src="/images/logo-mandala-konstruiert.svg" alt="" width="64" height="64"><span></span></div>
                 <p class="newsletter-kicker">Post von Nils</p>
                 <p class="newsletter-title">Kurze Briefe von mir</p>
                 <p class="newsletter-personal">„Manchmal ist es nur ein Satz, der dich wieder an die Handpan bringt. Den schreibe ich dir.“<span>Nils</span></p>
@@ -1008,7 +1010,6 @@
                         <li><a href="/nils-caspar/">Nils Caspar</a></li>
                         <li><a href="/ekstatisches-lernen/">Ekstatisches Lernen</a></li>
                         <li><a href="/blog/">Blog</a></li>
-                        <li><a href="/dabei-sein/">Dabei sein</a></li>
                     </ul>
                 </div>
 
