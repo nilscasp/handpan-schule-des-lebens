@@ -21,10 +21,10 @@
     } catch(e) {}
     </script>
 
-    <title>Die zwei Stufen · Community der Handpan Schule des Lebens</title>
+    <title>Community · Dranbleiben und klingen, wie du bist · Handpan Schule des Lebens</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Zwei Wege in der Community der Handpan Schule des Lebens: Stufe 1 Persönlichkeit, das Fundament, und Stufe 2 Seele, was darauf wächst. Finde heraus, welcher Weg deiner ist.">
+    <meta name="description" content="Die Community der Handpan Schule des Lebens: zwei Stufen, ein Weg. Live-Calls, Videos und Kurse für alle, die mit der Handpan langfristig wachsen wollen. Ab 70 € im Monat.">
     <meta name="author" content="Nils Caspar">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="DE-BY">
@@ -34,7 +34,7 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="Die zwei Stufen · Community der Handpan Schule des Lebens">
-    <meta property="og:description" content="Zwei Wege in der Community der Handpan Schule des Lebens: Stufe 1 Persönlichkeit, das Fundament, und Stufe 2 Seele, was darauf wächst. Finde heraus, welcher Weg deiner ist.">
+    <meta property="og:description" content="Die Community der Handpan Schule des Lebens: zwei Stufen, ein Weg. Live-Calls, Videos und Kurse für alle, die mit der Handpan langfristig wachsen wollen. Ab 70 € im Monat.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://handpan.schule/mitgliedschaft/">
     <meta property="og:image" content="https://handpan.schule/og-logo.png">
@@ -47,7 +47,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Die zwei Stufen · Community der Handpan Schule des Lebens">
-    <meta name="twitter:description" content="Zwei Wege in der Community der Handpan Schule des Lebens: Stufe 1 Persönlichkeit, das Fundament, und Stufe 2 Seele, was darauf wächst. Finde heraus, welcher Weg deiner ist.">
+    <meta name="twitter:description" content="Die Community der Handpan Schule des Lebens: zwei Stufen, ein Weg. Live-Calls, Videos und Kurse für alle, die mit der Handpan langfristig wachsen wollen. Ab 70 € im Monat.">
     <meta name="twitter:image" content="https://handpan.schule/og-logo.png">
     <meta name="theme-color" content="#0A0E14">
     <link rel="apple-touch-icon" href="/og-logo.png">
@@ -62,12 +62,27 @@
     <link rel="stylesheet" href="/css/style.css?v=2026-10-19-newsletter">
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-07-05b">
     <style>
-        /* /mitgliedschaft/ — die zwei Stufen der Community, nach der Grafik
-           „Die zwei Stufen · der Weg“ (Schul-OS Projekte/abo-namen/stufen-angebot.html) */
+        /* /mitgliedschaft/ — die zwei Stufen der Community. Aufbau nach _VERKAUFSSEITE:
+           Versprechen + Video, Kennst du das + Stimmen, der Weg, zwei Stufen nebeneinander,
+           Für wen, Wer dich begleitet, Fragen, Abschluss. */
         .ms-kicker { font-family: var(--font-nav); text-transform: uppercase; letter-spacing: 0.28em; font-size: 0.72rem; color: var(--color-accent); margin-bottom: 0.8rem; }
         .ms-gold { color: var(--color-accent); font-style: italic; }
-        .ms-hell { color: var(--color-text); font-style: normal; }
         .ms-label { font-family: var(--font-nav); text-transform: uppercase; letter-spacing: 0.24em; font-size: 0.7rem; font-weight: 500; color: var(--color-accent); margin: 0 0 0.6rem; }
+        .gravur .page-hero h1, .ms-leitsatz, .ms-zu-satz, .ms-schluss, .hero-subtitle { text-wrap-style: balance; }
+        .ms-fakten { color: var(--color-text-muted); font-family: var(--font-nav); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; margin: 0.6rem 0 var(--spacing-md); }
+        .ms-fakten span { white-space: nowrap; }
+
+        /* Kennst du das? */
+        .ms-von-kurz { list-style: none; padding: 0; margin: 0 auto var(--spacing-md); max-width: 560px; display: flex; flex-direction: column; gap: 0.9rem; }
+        .ms-von-kurz li { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 1.35rem; line-height: 1.35; color: #D8D3CB; text-align: center; text-wrap-style: balance; }
+        .ms-leitsatz { text-align: center; font-size: 1.15rem; color: var(--color-text); max-width: 560px; margin: 0 auto var(--spacing-lg); line-height: 1.6; }
+        .ms-stimmen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+        .ms-stimme { margin: 0; padding: 1.5rem; border: 1px solid rgba(212, 165, 116, 0.28); background: linear-gradient(180deg, #111722, #0E131B); display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; }
+        .ms-stimme p { margin: 0; line-height: 1.6; color: #D8D3CB; font-style: italic; }
+        .ms-stimme footer { font-family: var(--font-nav); font-size: 0.82rem; color: var(--color-accent); letter-spacing: 0.04em; }
+        .ms-stimme footer span { display: block; color: var(--color-text-muted); font-size: 0.74rem; margin-top: 0.2rem; }
+        .ms-mehr { text-align: center; margin-top: var(--spacing-md); }
+        .ms-mehr a, .ms-mehr-link { color: var(--color-accent); }
 
         /* Der Weg */
         .ms-weg { margin: 0 auto; max-width: 440px; text-align: center; }
@@ -75,57 +90,68 @@
         .ms-svg-wort { font-family: var(--font-serif); font-size: 30px; fill: #D4A574; }
         .ms-svg-satz { font-family: var(--font-sans); font-style: italic; font-size: 20px; fill: #D8D3CB; }
         .ms-svg-mitte { font-family: var(--font-serif); font-size: 34px; fill: #D4A574; }
-        .ms-weg figcaption { margin-top: var(--spacing-md); color: var(--color-text-muted); line-height: 1.7; font-size: 1.02rem; }
-        .ms-weg figcaption strong { color: var(--color-text); font-weight: 400; }
+        .ms-weg figcaption { margin-top: var(--spacing-md); color: var(--color-text-muted); line-height: 1.7; font-size: 1.02rem; text-wrap-style: pretty; }
         .ms-weg figcaption em { color: var(--color-accent); }
 
-        /* Eine Stufe */
-        .ms-stufe .container { max-width: 1080px; }
-        .ms-tab { text-align: center; font-family: var(--font-nav); text-transform: uppercase; letter-spacing: 0.26em; font-size: 0.78rem; font-weight: 500; color: var(--color-accent); margin-bottom: var(--spacing-md); }
-        .ms-tab em { font-family: var(--font-serif); font-style: italic; text-transform: none; letter-spacing: 0; font-size: 1.7rem; font-weight: 300; color: var(--color-text); margin: 0 0.4rem; }
+        /* Zwei Stufen nebeneinander */
+        .ms-stufen-section .container { max-width: 1080px; }
+        .ms-stufen { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; align-items: stretch; }
+        .ms-stufe { display: flex; flex-direction: column; border: 1px solid rgba(212, 165, 116, 0.3); background: linear-gradient(180deg, #111722, #0E131B); padding: 2rem 1.9rem; }
+        .ms-stufe--seele { border-color: rgba(212, 165, 116, 0.6); background: linear-gradient(180deg, rgba(212, 165, 116, 0.07), #0E131B 60%); }
+        .ms-tab { font-family: var(--font-nav); text-transform: uppercase; letter-spacing: 0.26em; font-size: 0.72rem; font-weight: 500; color: var(--color-accent); margin: 0; }
         .ms-tab span { color: var(--color-text-muted); font-weight: 400; letter-spacing: 0.14em; }
-
-        .ms-vonzu { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-        .ms-karte { border: 1px solid rgba(212, 165, 116, 0.28); background: linear-gradient(180deg, #111722, #0E131B); padding: 1.8rem 1.8rem 2rem; }
-        .ms-zu { border-color: rgba(212, 165, 116, 0.5); }
-        .ms-karte h2 { font-family: var(--font-serif); font-weight: 300; font-size: 1.6rem; line-height: 1.2; margin: 0 0 1.4rem; text-align: left; }
-        .ms-karte h2 em { color: var(--color-accent); }
-        .ms-karte ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
-        .ms-karte li { position: relative; padding-left: 2rem; line-height: 1.5; color: #D8D3CB; }
-        .ms-karte li::before { content: ''; position: absolute; left: 0; top: 0.3em; width: 15px; height: 15px; border-radius: 50%; }
-        .ms-von li::before { border: 1px solid rgba(212, 165, 116, 0.55); }
-        .ms-zu li::before { background: var(--color-accent); box-shadow: 0 0 12px rgba(212, 165, 116, 0.5); }
-        .ms-zu li b { font-weight: 400; color: var(--color-text); }
-
-        .ms-band { margin-top: 1.4rem; border: 1px solid rgba(212, 165, 116, 0.5); background: linear-gradient(180deg, #111722, #0E131B); padding: 1.8rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: center; }
-        .ms-traegt ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.7rem; }
-        .ms-traegt li { position: relative; padding-left: 1.8rem; color: #D8D3CB; line-height: 1.45; }
+        .ms-stufe h3 { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 2.2rem; margin: 0.3rem 0 0.8rem; color: var(--color-text); }
+        .ms-zu-satz { font-family: var(--font-serif); font-weight: 300; font-size: 1.25rem; line-height: 1.35; color: var(--color-accent); margin: 0 0 1.3rem; }
+        .ms-stufe ul { list-style: none; margin: 0 0 1.5rem; padding: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+        .ms-stufe li { position: relative; padding-left: 1.8rem; line-height: 1.5; color: #D8D3CB; }
+        .ms-stufe li b { font-weight: 400; color: var(--color-text); }
+        .ms-zu li::before { content: ''; position: absolute; left: 0; top: 0.4em; width: 12px; height: 12px; border-radius: 50%; background: var(--color-accent); box-shadow: 0 0 12px rgba(212, 165, 116, 0.5); }
         .ms-traegt li::before { content: '☆'; position: absolute; left: 0; top: -0.05em; color: var(--color-accent); }
-        .ms-traegt b { font-weight: 400; color: var(--color-text); }
-        .ms-preis { border-left: 1px solid rgba(212, 165, 116, 0.28); padding-left: 2rem; }
-        .ms-betrag { font-family: var(--font-serif); font-weight: 300; font-size: 2.6rem; line-height: 1; margin: 0 0 0.6rem; }
+        .ms-preis { margin-top: auto; padding-top: 1.2rem; border-top: 1px solid rgba(212, 165, 116, 0.25); }
+        .ms-betrag { font-family: var(--font-serif); font-weight: 300; font-size: 2.6rem; line-height: 1; margin: 0 0 0.3rem; }
         .ms-betrag small { font-family: var(--font-sans); font-style: italic; font-size: 1rem; color: var(--color-text-muted); }
-        .ms-raten { font-style: italic; color: var(--color-text-muted); margin: 0 0 1.2rem; }
-        .ms-raten b { font-style: normal; font-weight: 400; color: var(--color-text); }
-        .ms-btn { display: inline-block; text-decoration: none; }
+        .ms-jahr { font-style: italic; color: var(--color-text-muted); margin: 0 0 1.2rem; }
+        .ms-btn { display: block; text-align: center; text-decoration: none; }
+        .ms-jahresabo { text-align: center; color: var(--color-text-muted); margin: var(--spacing-md) auto 0; max-width: 560px; font-style: italic; text-wrap-style: balance; }
 
-        .ms-slogan { text-align: center; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 1.5rem; color: var(--color-accent); margin: var(--spacing-md) 0 0; }
-
-        /* Welcher Weg ist deiner? */
+        /* Für wen */
         .ms-wahl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: var(--spacing-md); }
         .ms-wahl-karte { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.5rem; border: 1px solid rgba(212, 165, 116, 0.35); text-decoration: none; transition: border-color 0.25s ease, background 0.25s ease; }
         .ms-wahl-karte:hover, .ms-wahl-karte:focus-visible { border-color: var(--color-accent); background: rgba(212, 165, 116, 0.06); }
         .ms-wahl-satz { color: var(--color-text); line-height: 1.55; }
+        .ms-nicht { margin-top: var(--spacing-md); color: var(--color-text-muted); line-height: 1.7; }
+        .ms-nicht strong { color: var(--color-accent); font-weight: 400; }
+        .ms-nicht a, .ms-wahl-hinweis a, .ms-faq a { color: var(--color-accent); }
         .ms-wahl-hinweis { text-align: center; color: var(--color-text-muted); margin-top: var(--spacing-md); }
-        .ms-wahl-hinweis a { color: var(--color-accent); }
 
+        /* Wer dich begleitet */
+        .ms-guide { display: grid; grid-template-columns: 220px 1fr; gap: 1.8rem; align-items: center; }
+        .ms-guide img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border: 1px solid rgba(212, 165, 116, 0.3); }
+        .ms-guide p { color: var(--color-text-muted); line-height: 1.7; margin: 0 0 0.8rem; }
+        .ms-guide .ms-guide-lead { color: var(--color-text); }
+
+        /* Fragen */
+        .ms-faq { border-bottom: 1px solid rgba(212, 165, 116, 0.15); padding: 1rem 0; }
+        .ms-faq summary { cursor: pointer; color: var(--color-text); font-size: 1.05rem; list-style: none; position: relative; padding-right: 2rem; }
+        .ms-faq summary::-webkit-details-marker { display: none; }
+        .ms-faq summary::after { content: '+'; position: absolute; right: 0.2rem; top: 0; color: var(--color-accent); font-size: 1.3rem; line-height: 1; }
+        .ms-faq[open] summary::after { content: '–'; }
+        .ms-faq p { color: var(--color-text-muted); line-height: 1.7; margin: 0.8rem 0 0; }
+
+        /* Abschluss */
+        .ms-tor { text-align: center; }
+        .ms-schluss { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 1.7rem; color: var(--color-accent); margin: 0 0 var(--spacing-md); }
+        .ms-tor-knoepfe { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        @media (max-width: 860px) {
+            .ms-stimmen { grid-template-columns: 1fr; }
+        }
         @media (max-width: 760px) {
-            .ms-vonzu, .ms-band, .ms-wahl-grid { grid-template-columns: 1fr; }
-            .ms-karte, .ms-band { padding: 1.4rem 1.2rem; }
-            .ms-karte h2 { font-size: 1.4rem; }
-            .ms-preis { border-left: 0; border-top: 1px solid rgba(212, 165, 116, 0.28); padding: 1.4rem 0 0; }
-            .ms-tab em { display: block; margin: 0.3rem 0; }
-            .ms-tab span { display: block; }
+            .ms-stufen, .ms-wahl-grid { grid-template-columns: 1fr; }
+            .ms-stufe { padding: 1.6rem 1.3rem; }
+            .ms-guide { grid-template-columns: 1fr; }
+            .ms-guide img { max-width: 220px; margin: 0 auto; }
+            .ms-von-kurz li { font-size: 1.2rem; }
             .ms-svg-wort { font-size: 36px; }
             .ms-svg-satz { font-size: 21px; }
             .ms-svg-mitte { font-size: 40px; }
@@ -238,17 +264,61 @@
     <main id="main-content">
     <div id="page-mitgliedschaft" class="page-content active gravur">
 
+        <!-- 1 · Hero: Versprechen, Video, ein Knopf -->
         <section class="page-hero">
             <div class="hero-content container-narrow">
-                <p class="ms-kicker">Community</p>
-                <h1>Die zwei Stufen <em class="ms-gold">· der Weg</em></h1>
-                <p class="hero-subtitle">Stufe 2 baut auf Stufe 1 auf. Schau, wo du gerade stehst, und welcher Weg deiner ist.<br><span class="ms-hell">Online, ab 1. November 2026.</span></p>
+                <p class="ms-kicker">Community · ab 1. November 2026</p>
+                <h1>Dranbleiben. <em class="ms-gold">Und klingen, wie&nbsp;du&nbsp;bist.</em></h1>
+                <div class="hero-video" data-hero-video data-name="Mitgliedschaft">
+                    <video playsinline preload="none" poster="/video/schule-poster.jpg"
+                           data-src-720="/video/schule-720.mp4" data-src-540="/video/schule-540.mp4"
+                           aria-label="Nils Caspar erzählt, was die Handpan Schule des Lebens ist, 3 Minuten">
+                        <track kind="captions" srclang="de" label="Deutsch" src="/video/schule.vtt">
+                    </video>
+                    <button class="hero-video-play" type="button" aria-label="Video abspielen: Nils erzählt, was die Schule ist, 3 Minuten">
+                        <span class="hero-video-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        <span class="hero-video-label">Was die Schule ist · 3 Min</span>
+                    </button>
+                </div>
+                <p class="hero-subtitle">Zwei Stufen, ein Weg: für alle, die mit der Handpan langfristig wachsen wollen.</p>
+                <p class="ms-fakten"><span>Online</span> · <span>Live-Calls jeden Monat</span> · <span>ab 70&nbsp;€ im&nbsp;Monat</span></p>
+                <a class="cta cta--primary" href="#stufen">Deine Stufe finden</a>
             </div>
         </section>
 
-        <!-- Der Weg: zwei Dreiecke, die sich in der Emotion treffen -->
+        <!-- 2 · Worum es geht: VON in Nils' Worten, dann Stimmen -->
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Kennst du das?</h2>
+                <ul class="ms-von-kurz">
+                    <li>„Ich fange immer wieder an und höre wieder auf.“</li>
+                    <li>„Ich übe allein vor mich hin und weiß nicht, wohin es führt.“</li>
+                    <li>„Was ich spiele, hat keinen Wert.“</li>
+                </ul>
+                <p class="ms-leitsatz">Hier bleibst du dran: mit Richtung, Woche für Woche, und mit Menschen, die denselben Weg gehen.</p>
+
+                <div class="ms-stimmen">
+                    <blockquote class="ms-stimme">
+                        <p>„Ich spiele täglich, meist nicht nur einmal, voller Freude und ideenreich Handpan. Ich habe eine innige Gemeinschaft mit neuen, tollen Menschen mit gleichem Ziel gefunden.“</p>
+                        <footer>Sonja A. <span>nach ca. 6 Monaten · Nachricht in der Community</span></footer>
+                    </blockquote>
+                    <blockquote class="ms-stimme">
+                        <p>„Jedes Mal, wenn ein neues Video erscheint, freue ich mich darauf. Es fühlt sich ein wenig wie Ankommen an.“</p>
+                        <footer>Anja S. <span>Rhythmus Fundament · Google</span></footer>
+                    </blockquote>
+                    <blockquote class="ms-stimme">
+                        <p>„Ich bin sehr dankbar, dass ich auf dem Weg bin, mich nun selber zu hören, mir zuzuhören und zu berühren.“</p>
+                        <footer>Regina <span>Handpan Path · Video</span></footer>
+                    </blockquote>
+                </div>
+                <p class="ms-mehr"><a href="/stimmen/">Alle Stimmen →</a></p>
+            </div>
+        </section>
+
+        <!-- 3 · Der Weg -->
         <section class="section-dark ms-weg-section">
             <div class="container-narrow">
+                <h2 class="section-title">Der Weg in fünf Schritten</h2>
                 <figure class="ms-weg" aria-labelledby="ms-weg-text">
                     <svg viewBox="0 0 640 790" role="img" aria-hidden="true">
                         <defs>
@@ -279,131 +349,133 @@
                         <text class="ms-svg-satz" x="398" y="450">Freude am Üben entwickeln</text>
                     </svg>
                     <figcaption id="ms-weg-text">
-                        Der Weg in fünf Schritten: <strong>Regelmäßigkeit · Ausrichtung · Emotion · Freiheit · Wahrhaftigkeit.</strong>
-                        Das untere Dreieck ist <em>Persönlichkeit</em>, das Fundament. Das obere ist <em>Seele</em>, was darauf wächst.
-                        Beide treffen sich in der Emotion.
+                        Unten das Fundament, <em>Persönlichkeit</em>: Regelmäßigkeit und Ausrichtung.
+                        Oben, was darauf wächst, <em>Seele</em>: Freiheit und Wahrhaftigkeit. Beide treffen sich in der Emotion.
                     </figcaption>
                 </figure>
             </div>
         </section>
 
-        <!-- Stufe 1 -->
-        <section id="stufe-1" class="section-dark ms-stufe">
+        <!-- 4 · Die zwei Stufen -->
+        <section id="stufen" class="section-dark ms-stufen-section">
             <div class="container">
-                <p class="ms-tab">Stufe 1 · <em>Persönlichkeit</em> <span>· das Fundament</span></p>
-
-                <div class="ms-vonzu">
-                    <div class="ms-karte ms-von">
-                        <p class="ms-label">Von</p>
-                        <h2>Unsicherheit <em>und die Frage, was das Richtige ist</em></h2>
-                        <ul>
-                            <li>Ich setze mich an die Handpan und weiß nicht recht, was ich üben soll.</li>
-                            <li>Ich übe mal dies, mal das, aber eine eigene Praxis entsteht daraus nicht.</li>
-                            <li>Am Instrument fühle ich mich oft noch unsicher.</li>
-                            <li>Ich stoße immer wieder an dieselben Lernblockaden.</li>
-                            <li>Meinen eigenen Weg mit dem Instrument habe ich noch nicht gefunden.</li>
-                        </ul>
-                    </div>
-                    <div class="ms-karte ms-zu">
-                        <p class="ms-label">Zu</p>
-                        <h2>Dein eigener, <em>authentischer Spielstil</em></h2>
-                        <ul>
+                <h2 class="section-title">Zwei Stufen</h2>
+                <div class="ms-stufen">
+                    <article id="stufe-1" class="ms-stufe">
+                        <p class="ms-tab">Stufe 1 <span>· das Fundament</span></p>
+                        <h3>Persönlichkeit</h3>
+                        <p class="ms-zu-satz">„Ich bleibe dran, Woche für Woche, und freue mich darauf.“</p>
+                        <ul class="ms-zu">
                             <li>Ich weiß, <b>was ich übe und warum</b>.</li>
-                            <li>Ich verstehe, <b>wie Lernen funktioniert</b>, und komme über Blockaden hinweg.</li>
-                            <li>Ich spüre, was mich interessiert und was mir gefällt: <b>meinen eigenen Geschmack</b>.</li>
-                            <li>Ich kann die <b>Freude am Üben selbst entstehen lassen</b>, leicht, regelmäßig, ganz ausgerichtet.</li>
-                            <li>Ich spiele <b>selbstbewusst in meinem eigenen Stil</b>, und er berührt mich und andere.</li>
+                            <li>Ich kann die <b>Freude am Üben selbst entstehen lassen</b>.</li>
+                            <li>Ich spiele <b>selbstbewusst in meinem eigenen Stil</b>.</li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="ms-band">
-                    <div class="ms-traegt">
                         <p class="ms-label">Was dich trägt</p>
-                        <ul>
+                        <ul class="ms-traegt">
                             <li><b>Ein Live-Call im Monat</b>: die Kompass Session</li>
                             <li><b>Jede Woche ein Video</b> mit Impulsen</li>
                             <li><b>Die Kurse</b> Kompass, Elemente und Kreativ</li>
                             <li><b>Alle Lektionen und Materialien</b> der Community</li>
                         </ul>
-                    </div>
-                    <div class="ms-preis">
-                        <p class="ms-betrag">700 € <small>im Jahr</small></p>
-                        <p class="ms-raten">auch in 3 Raten, oder <b>70 € im Monat</b></p>
+                        <div class="ms-preis">
+                            <p class="ms-betrag">70&nbsp;€ <small>im Monat</small></p>
+                            <p class="ms-jahr">oder 700&nbsp;€ im Jahr</p>
+                        </div>
                         <a href="https://lernen.handpan.schule/" class="cta cta--primary ms-btn">Stufe 1 wählen</a>
-                    </div>
-                </div>
+                    </article>
 
-                <p class="ms-slogan">Der direkteste Weg zum eigenen Stil.</p>
-            </div>
-        </section>
-
-        <!-- Stufe 2 -->
-        <section id="stufe-2" class="section-dark ms-stufe ms-stufe-2">
-            <div class="container">
-                <p class="ms-tab">Stufe 2 · <em>Seele</em> <span>· was darauf wächst</span></p>
-
-                <div class="ms-vonzu">
-                    <div class="ms-karte ms-von">
-                        <p class="ms-label">Von</p>
-                        <h2>Viel verinnerlicht <em>und die Sehnsucht nach dem eigenen Ausdruck</em></h2>
-                        <ul>
-                            <li>Ich habe schon vieles verinnerlicht, Patterns und mehr.</li>
-                            <li>Aber wenn ich spiele, bin ich wenig mit meinem Gefühl verbunden.</li>
-                            <li>Meinen eigenen Stil und den Zugang zu meiner Kreativität habe ich noch nicht gefunden.</li>
-                            <li>Tief in mir sind Zweifel, Unsicherheit und Blockaden.</li>
-                            <li>Und da ist eine Sehnsucht: zu verstehen, wer ich bin, und mich über mein Instrument so auszudrücken, dass ich mich selbst darin finde.</li>
-                        </ul>
-                    </div>
-                    <div class="ms-karte ms-zu">
-                        <p class="ms-label">Zu</p>
-                        <h2>Totaler Fluss <em>und Hingabe</em></h2>
-                        <ul>
+                    <article id="stufe-2" class="ms-stufe ms-stufe--seele">
+                        <p class="ms-tab">Stufe 2 <span>· was darauf wächst</span></p>
+                        <h3>Seele</h3>
+                        <p class="ms-zu-satz">„Was ich spiele, berührt mich und andere.“</p>
+                        <ul class="ms-zu">
                             <li>Beim Spielen komme ich in einen <b>Fluss und gebe mich ganz hinein</b>.</li>
                             <li>Ich bringe <b>meine Seele und meinen Selbstwert</b> authentisch ins Spiel.</li>
-                            <li>Mein Ausdruck wird <b>harmonisch</b> und berührt mich und andere.</li>
                             <li>Eine tiefe, spielerische, <b>forschende Kraft</b> trägt mich immer weiter.</li>
-                            <li>Ich verleihe der Schönheit Ausdruck und <b>werde selbst zu ihrem Quell</b>.</li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="ms-band">
-                    <div class="ms-traegt">
                         <p class="ms-label">Was dich trägt</p>
-                        <ul>
+                        <ul class="ms-traegt">
                             <li><b>Alles aus Stufe 1</b></li>
                             <li><b>Ein zweiter Live-Call im Monat</b>, der tiefer geht</li>
                             <li><b>Blockaden lösen</b>, die dich vom Spielfluss abhalten</li>
                             <li><b>Die eigene Seele mit dem Spiel verbinden</b></li>
                         </ul>
-                    </div>
-                    <div class="ms-preis">
-                        <p class="ms-betrag">1.500 € <small>im Jahr</small></p>
-                        <p class="ms-raten">auch in 4 Raten, oder <b>150 € im Monat</b></p>
+                        <div class="ms-preis">
+                            <p class="ms-betrag">150&nbsp;€ <small>im Monat</small></p>
+                            <p class="ms-jahr">oder 1.500&nbsp;€ im Jahr</p>
+                        </div>
                         <a href="https://lernen.handpan.schule/" class="cta cta--primary ms-btn">Stufe 2 wählen</a>
-                    </div>
+                    </article>
                 </div>
-
-                <p class="ms-slogan">Werde selbst zum Quell der Schönheit.</p>
+                <p class="ms-jahresabo">Im Jahresabo schenke ich dir zwei Monate. Das Jahresabo kannst du auch in Raten zahlen.</p>
             </div>
         </section>
 
-        <!-- Welcher Weg ist deiner? -->
-        <section class="section-dark ms-wahl">
+        <!-- 5 · Für wen -->
+        <section class="section-dark">
             <div class="container-narrow">
-                <h2 class="section-title">Welcher Weg ist deiner?</h2>
+                <h2 class="section-title">Welche Stufe passt zu dir?</h2>
                 <div class="ms-wahl-grid">
                     <a href="#stufe-1" class="ms-wahl-karte">
                         <span class="ms-label">Stufe 1 · Persönlichkeit</span>
-                        <span class="ms-wahl-satz">Du weißt oft nicht, was du üben sollst, und willst eine eigene, regelmäßige Praxis.</span>
+                        <span class="ms-wahl-satz">Du setzt dich an die Handpan und weißt nicht recht, was du üben sollst. Eine eigene Praxis ist daraus noch nicht entstanden.</span>
                     </a>
                     <a href="#stufe-2" class="ms-wahl-karte">
                         <span class="ms-label">Stufe 2 · Seele</span>
-                        <span class="ms-wahl-satz">Du hast schon viel gelernt und sehnst dich danach, dich selbst in deinem Spiel zu finden.</span>
+                        <span class="ms-wahl-satz">Du hast schon vieles verinnerlicht. Aber wenn du spielst, bist du wenig mit deinem Gefühl verbunden.</span>
                     </a>
                 </div>
-                <p class="ms-wahl-hinweis">Unsicher, welcher Weg passt? <a href="/programm/#kennenlernen">Lass uns kurz sprechen.</a></p>
+                <p class="ms-nicht"><strong>Nicht der richtige Weg</strong> ist die Community, wenn du schnelle Tricks suchst oder Technik ohne Ausdruck üben willst. Und wenn du ganz am Anfang stehst, ist <a href="/von-anfang-an-handpan-spielen/">Von Anfang an spielen</a> der bessere erste Schritt.</p>
+                <p class="ms-wahl-hinweis">Unsicher, welche Stufe passt? <a href="/programm/#kennenlernen">Lass uns kurz sprechen.</a></p>
+            </div>
+        </section>
+
+        <!-- 6 · Wer dich begleitet -->
+        <section class="section-dark">
+            <div class="container-narrow">
+                <h2 class="section-title">Wer dich begleitet</h2>
+                <div class="ms-guide">
+                    <img src="/images/optimized/portrait-frontal.webp" alt="Nils Caspar" loading="lazy" decoding="async" width="480" height="320">
+                    <div>
+                        <p class="ms-guide-lead">Ich bin Nils Caspar, Schlagzeuger und Percussionist seit über 20&nbsp;Jahren und Bachelor of Arts in Expressive Arts.</p>
+                        <p>Ich habe die Handpan Schule des Lebens gegründet, damit du hier sein darfst, wie du bist, und deinen eigenen Ausdruck findest.</p>
+                        <p><a href="/nils-caspar/" class="ms-mehr-link">Mehr über mich →</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7 · Fragen -->
+        <section class="section-dark ms-faq-section">
+            <div class="container-narrow">
+                <h2 class="section-title">Fragen</h2>
+                <details class="ms-faq">
+                    <summary>Wo findet die Community statt?</summary>
+                    <p>Kurse, Live-Calls und Aufnahmen findest du auf der Lernplattform der Schule, lernen.handpan.schule. Dort buchst du auch deine Stufe. Der Austausch untereinander läuft in einer WhatsApp-Community.</p>
+                </details>
+                <details class="ms-faq">
+                    <summary>Was, wenn ich einen Live-Call verpasse?</summary>
+                    <p>Alle Live-Calls werden aufgezeichnet. In Stufe 1 siehst du auch die Aufnahmen der Calls aus Stufe 2.</p>
+                </details>
+                <details class="ms-faq">
+                    <summary>Gibt es eine Testphase?</summary>
+                    <p>Nein. Schau dir das Video oben an, und wenn du unsicher bist, <a href="/programm/#kennenlernen">lass uns kurz sprechen</a>.</p>
+                </details>
+                <details class="ms-faq">
+                    <summary>Ich habe schon einen Kurs bei dir gemacht.</summary>
+                    <p>Dann gibt es für dein erstes Jahresabo einen eigenen Preis, wenn du innerhalb von vier Wochen nach Kursende einsteigst. Schreib mir, dann schicke ich ihn dir.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- 8 · Abschluss -->
+        <section class="section-dark ms-tor">
+            <div class="container-narrow">
+                <p class="ms-schluss">Ein Ort, an dem du ankommen darfst.</p>
+                <div class="ms-tor-knoepfe">
+                    <a href="#stufe-1" class="cta cta--primary">Stufe 1 · Persönlichkeit</a>
+                    <a href="#stufe-2" class="cta cta--primary">Stufe 2 · Seele</a>
+                </div>
             </div>
         </section>
     </div>
@@ -561,6 +633,27 @@
         setTimeout(function() {
             flipper.classList.add('flipped');
         }, 30000);
+    })();
+    </script>
+<script>
+    // Hero-Video: Click-to-Play. Quelle je nach Viewport (540p ≤ 640px), lädt erst beim Klick.
+    (function () {
+        document.querySelectorAll('[data-hero-video]').forEach(function (box) {
+            var video = box.querySelector('video'), btn = box.querySelector('.hero-video-play');
+            if (!video || !btn) return;
+            btn.addEventListener('click', function () {
+                if (!video.getAttribute('src')) {
+                    var s720 = video.getAttribute('data-src-720'), s540 = video.getAttribute('data-src-540');
+                    var w = window.innerWidth || 0;
+                    video.setAttribute('src', (w > 0 && w <= 640 && s540) ? s540 : s720);
+                }
+                video.controls = true;
+                box.classList.add('is-playing');
+                var p = video.play();
+                if (p && p.catch) { p.catch(function () {}); }
+                if (window.fbq) { fbq('trackCustom', 'HeroVideoPlay', { content_name: box.dataset.name || document.title }); }
+            });
+        });
     })();
     </script>
 </body>
