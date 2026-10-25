@@ -4728,14 +4728,37 @@ nav a.nav-login:focus-visible {
     border-color: var(--color-accent);
     background: rgba(212, 165, 116, 0.08);
 }
+/* Daneben „Einloggen“ als schlichter Textlink, dasselbe Wort wie auf der
+   Lernplattform; Recherche 25.10.2026: Verb fürs Einloggen, gerahmter
+   Knopf für Neue. */
+nav .nav-konto { display: flex; align-items: center; gap: 0.2rem; }
+nav .nav-konto a.nav-login { margin-left: 0.4rem; }
+nav a.nav-einloggen {
+    font-family: var(--font-nav);
+    text-transform: uppercase;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    color: rgba(232, 230, 227, 0.6);
+    white-space: nowrap;
+}
+nav a.nav-einloggen:hover,
+nav a.nav-einloggen:focus-visible { color: var(--color-text); }
 .nav-login-mobil { display: none; }
 @media (max-width: 1100px) {
-    nav a.nav-login { margin-left: auto; margin-right: 52px; }
+    nav .nav-konto { margin-left: auto; margin-right: 52px; }
 }
-/* Am Handy ist neben dem Schriftzug kein Platz: dort steht der Knopf
-   gerahmt als erster Eintrag im aufgeklappten Menü. */
-@media (max-width: 600px) {
-    nav .container > a.nav-login { display: none; }
-    .nav-login-mobil { display: block; margin-bottom: 0.4rem; }
+/* Am Handy ist neben dem Schriftzug kein Platz: dort stehen beide
+   als erster Eintrag im aufgeklappten Menü. */
+@media (max-width: 720px) {
+    nav .container > .nav-konto { display: none; }
+    .nav-login-mobil { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 0.4rem; }
     .nav-login-mobil a.nav-login { display: inline-block; margin: 0; font-size: 0.8rem; padding: 0.6rem 1.1rem; }
+    .nav-login-mobil a.nav-einloggen { font-size: 0.8rem; padding: 0.6rem 0; }
+}
+/* Knapp über dem Handy-Menü wird die Leiste eng: Abstände dort verdichten */
+@media (min-width: 1101px) and (max-width: 1200px) {
+    nav ul#nav-menu { gap: 0.1rem; }
+    nav ul#nav-menu a.nav-link { padding-left: 7px; padding-right: 7px; letter-spacing: 0.16em; }
+    nav a.nav-einloggen, nav .nav-konto a.nav-login { letter-spacing: 0.12em; }
+    nav .nav-konto a.nav-login { padding: 0.45rem 0.65rem; }
 }
