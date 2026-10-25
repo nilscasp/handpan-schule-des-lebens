@@ -26,6 +26,7 @@
                 '/einsteigerkurse/',
                 '/retreats/',
                 '/mentoring/',
+                '/mitgliedschaft/',
                 '/handpan-path/',
                 '/workshopleiter/'
             ];
