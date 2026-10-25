@@ -532,7 +532,7 @@
                         <h3 class="card-title">Community</h3>
                         <p class="card-subtitle">Der Einstieg · Monatliches Abonnement</p>
                         <p>Hier lernst du mich und meine Arbeit kostenlos kennen. Wenn du tiefer gehen willst, buchst du ganz einfach monatlich im Abo dazu.</p>
-                        <a href="/community/" class="journey-link home-card-link">→ Community</a>
+                        <a href="/mitgliedschaft/" class="journey-link home-card-link">→ Community</a>
                     </article>
                     <article class="card">
                         <h3 class="card-title">Kurse</h3>
@@ -671,6 +671,7 @@
             var validRoutes = ['philosophie','lernziele','programm','community','impressum','datenschutz','handpan-path','rhythmus-fundament','retreats','mentoring','ueber','nils-caspar','peter-aumueller','einsteigerkurse','instrumente'];
             // Handle redirects
             if (route === 'gruender' || route === 'lehrer') route = 'nils-caspar';
+            if (route === 'community') { window.location.replace('/mitgliedschaft/'); return; }
             if (route === 'einzelunterricht' || route === 'kinderunterricht' || route === 'dabei-sein') { window.location.replace('/programm/#kennenlernen'); return; }
             if (validRoutes.indexOf(route) !== -1) {
                 window.location.replace('/' + route + '/');
