@@ -656,11 +656,12 @@
                     <p class="mirror-wish">Und kennst du diesen Wunsch — <strong>deiner Seele beim Spielen einfach freien Lauf zu lassen?</strong></p>
                     <p class="mirror-close">Dann bist du hier richtig.</p>
                 </div>
-                <!-- Weitere Stimmen „Ich fange bei null an“ ergänzen; ab der zweiten zum Karussell wie auf /handpan-path/ ausbauen.
+                <!-- Weitere Stimmen „Ich fange bei null an“ ergänzen; ab der dritten zum Karussell mit Pfeilen wie auf /handpan-path/ ausbauen.
                      Video-Stimmen nur mit Nils' Freigabe (Regeln/Verkaufsseite.md, Skill _VERKAUFSSEITE/References/Testimonials.md). -->
-                <!-- Stimme aus dem Kurs (Video mit Einverständnis, Nils 24.10.2026) -->
+                <!-- Stimmen aus dem Kurs (Videos mit Einverständnis: Lisa, Nils 24.10.2026; Tanja, Nils 29.10.2026) -->
                 <div class="vaa-voices">
-                    <p class="vaa-voices__overline">Eine Stimme aus dem Kurs</p>
+                    <p class="vaa-voices__overline">Stimmen aus dem Kurs</p>
+                    <div class="vaa-voices__track" tabindex="0" aria-label="Stimmen aus dem Kurs, auf dem Handy seitlich wischen">
                     <figure class="vaa-voice">
                         <div class="hero-video vaa-voice__video" data-hero-video data-name="VAA-Stimme Lisa">
                             <video playsinline preload="none" poster="/video/vaa-stimme-lisa-poster.jpg"
@@ -675,11 +676,32 @@
                         </div>
                         <figcaption>Lisa <span>· 1:48</span></figcaption>
                     </figure>
+                    <figure class="vaa-voice">
+                        <div class="hero-video vaa-voice__video" data-hero-video data-name="VAA-Stimme Tanja">
+                            <video playsinline preload="none" poster="/video/vaa-stimme-tanja-poster.jpg"
+                                   data-src-720="/video/vaa-stimme-tanja.mp4"
+                                   aria-label="Tanja über ihre Erfahrung in Von Anfang an spielen, 3 Minuten 36 Sekunden">
+                                <track kind="captions" srclang="de" label="Deutsch" src="/video/vaa-stimme-tanja.vtt" default>
+                            </video>
+                            <button class="hero-video-play" type="button" aria-label="Video abspielen: Tanja über Von Anfang an spielen, 3 Minuten 36 Sekunden">
+                                <span class="hero-video-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                                <span class="vaa-voice__quote">„Von der allerersten Stunde an erweckt er eine Neugier.“</span>
+                            </button>
+                        </div>
+                        <figcaption>Tanja <span>· 3:36</span></figcaption>
+                    </figure>
+                    </div>
                 </div>
                 <style>
                     .vaa-voices{margin-top:var(--spacing-lg);text-align:center;}
                     .vaa-voices__overline{font-family:var(--font-logo);letter-spacing:0.22em;text-transform:uppercase;font-size:0.8rem;color:var(--color-accent);margin-bottom:var(--spacing-md);}
-                    .vaa-voice{margin:0 auto;width:300px;max-width:78%;}
+                    .vaa-voices__track{display:flex;justify-content:center;gap:var(--spacing-md);outline:none;}
+                    .vaa-voice{margin:0;width:300px;max-width:78%;flex:0 0 auto;}
+                    @media (max-width:680px){
+                        .vaa-voices__track{justify-content:flex-start;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(50% - 50vw);padding:4px 15vw 6px;}
+                        .vaa-voices__track::-webkit-scrollbar{display:none;}
+                        .vaa-voice{width:70vw;max-width:300px;scroll-snap-align:center;}
+                    }
                     .vaa-voice .vaa-voice__video{aspect-ratio:9/16;max-width:none;margin:0;border:1px solid rgba(212,165,116,0.28);}
                     .vaa-voice .hero-video-play{justify-content:flex-end;gap:0.9rem;padding:0 1.1rem 1.6rem;}
                     .vaa-voice .hero-video-btn{width:58px;height:58px;}
