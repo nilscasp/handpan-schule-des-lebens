@@ -63,7 +63,7 @@
     <link rel="stylesheet" href="/fonts/fonts.css?v=2026-07-05b">
     <style>
         /* /mitgliedschaft/ — die zwei Stufen der Community. Aufbau nach _VERKAUFSSEITE:
-           Versprechen + Video, Kennst du das + Stimmen, der Weg, zwei Stufen nebeneinander,
+           Versprechen + Video, Kennst du das + Stimmen, Themenbaum, zwei Stufen nebeneinander,
            Für wen, Wer dich begleitet, Fragen, Abschluss. */
         .ms-kicker { font-family: var(--font-nav); text-transform: uppercase; letter-spacing: 0.28em; font-size: 0.72rem; color: var(--color-accent); margin-bottom: 0.8rem; }
         .ms-gold { color: var(--color-accent); font-style: italic; }
@@ -92,6 +92,13 @@
         .ms-svg-mitte { font-family: var(--font-serif); font-size: 34px; fill: #D4A574; }
         .ms-weg figcaption { margin-top: var(--spacing-md); color: var(--color-text-muted); line-height: 1.7; font-size: 1.02rem; text-wrap-style: pretty; }
         .ms-weg figcaption em { color: var(--color-accent); }
+        .ms-baum { margin: 0 auto; max-width: 760px; text-align: center; }
+        .ms-baum img { width: 100%; height: auto; display: block; border: 1px solid rgba(212, 165, 116, 0.25); }
+        .ms-baum figcaption { margin-top: var(--spacing-md); color: var(--color-text-muted); line-height: 1.7; font-size: 1.02rem; text-wrap-style: pretty; }
+        .ms-baum figcaption em { color: var(--color-accent); }
+        .ms-baum figcaption a { display: block; margin-top: 0.6rem; }
+        .ms-themen li::before { content: ''; position: absolute; left: 0.15rem; top: 0.55em; width: 8px; height: 8px; transform: rotate(45deg); border: 1px solid var(--color-accent); }
+        .ms-verantwortung { text-align: center; color: var(--color-text); margin: var(--spacing-md) auto 0; max-width: 560px; text-wrap-style: balance; }
 
         /* Zwei Stufen nebeneinander */
         .ms-stufen-section .container { max-width: 1080px; }
@@ -313,42 +320,20 @@
             </div>
         </section>
 
-        <!-- 3 · Der Weg -->
+        <!-- 3 · Der Themenbaum -->
         <section class="section-dark ms-weg-section">
             <div class="container-narrow">
-                <h2 class="section-title">Der Weg in fünf Schritten</h2>
-                <figure class="ms-weg" aria-labelledby="ms-weg-text">
-                    <svg viewBox="0 0 640 790" role="img" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="ms-ab" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D4A574" stop-opacity=".22"/><stop offset="1" stop-color="#D4A574" stop-opacity=".04"/></linearGradient>
-                            <linearGradient id="ms-auf" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#D4A574" stop-opacity=".22"/><stop offset="1" stop-color="#D4A574" stop-opacity=".04"/></linearGradient>
-                        </defs>
-                        <polygon points="170,150 470,150 320,410" fill="url(#ms-ab)" stroke="#D4A574" stroke-opacity=".85" stroke-width="1.6" stroke-linejoin="round"/>
-                        <polygon points="320,410 170,670 470,670" fill="url(#ms-auf)" stroke="#D4A574" stroke-opacity=".85" stroke-width="1.6" stroke-linejoin="round"/>
-                        <g fill="#D4A574"><circle cx="170" cy="150" r="6"/><circle cx="470" cy="150" r="6"/><circle cx="320" cy="410" r="7"/><circle cx="170" cy="670" r="6"/><circle cx="470" cy="670" r="6"/></g>
-                        <g class="ms-svg-wort" text-anchor="middle">
-                            <text x="170" y="122">Freiheit</text>
-                            <text x="470" y="122">Wahrhaftigkeit</text>
-                            <text x="170" y="718">Regelmäßigkeit</text>
-                            <text x="470" y="718">Ausrichtung</text>
-                        </g>
-                        <g class="ms-svg-satz" text-anchor="middle">
-                            <text x="170" y="82">Absolute kreative Freiheit</text>
-                            <text x="470" y="62">Transformation der</text>
-                            <text x="470" y="84">eigenen Identität</text>
-                            <text x="170" y="748">Eine regelmäßige</text>
-                            <text x="170" y="770">Praxis entwickeln</text>
-                            <text x="470" y="748">Klarheit in der Ausrichtung,</text>
-                            <text x="470" y="770">was geübt wird</text>
-                        </g>
-                        <path d="M334 410 L388 410" stroke="#D4A574" stroke-opacity=".6" stroke-width="1"/>
-                        <text class="ms-svg-satz" x="398" y="384">Deine Gefühle verkörpern</text>
-                        <text class="ms-svg-mitte" x="398" y="422">Emotion</text>
-                        <text class="ms-svg-satz" x="398" y="450">Freude am Üben entwickeln</text>
-                    </svg>
-                    <figcaption id="ms-weg-text">
-                        Unten das Fundament, <em>Persönlichkeit</em>: Regelmäßigkeit und Ausrichtung.
-                        Oben, was darauf wächst, <em>Seele</em>: Freiheit und Wahrhaftigkeit. Beide treffen sich in der Emotion.
+                <h2 class="section-title">Der Themenbaum</h2>
+                <figure class="ms-baum" aria-labelledby="ms-baum-text">
+                    <a href="/images/community/themenbaum-gross.jpg" target="_blank" rel="noopener">
+                        <img src="/images/community/themenbaum.jpg" width="1104" height="1500" loading="lazy"
+                             alt="Themenbaum der zwei Stufen: unten Regelmäßigkeit, Ausrichtung und Freude am Spielen, in der Mitte das ekstatische Lernen, oben Emotionen, Freiheit und Wahrhaftigkeit">
+                    </a>
+                    <figcaption id="ms-baum-text">
+                        Unten das Fundament, <em>Persönlichkeit</em>: Regelmäßigkeit, Ausrichtung und Freude am Spielen.
+                        Oben, was darauf wächst, <em>Seele</em>: Emotionen, Freiheit und Wahrhaftigkeit.
+                        In der Mitte trägt beide Stufen das <em>ekstatische Lernen</em>, allem voran das Forschen: So wird aus Wissen Erfahrung.
+                        <a class="ms-mehr-link" href="/images/community/themenbaum-gross.jpg" target="_blank" rel="noopener">Themenbaum groß ansehen →</a>
                     </figcaption>
                 </figure>
             </div>
@@ -368,12 +353,18 @@
                             <li>Ich kann die <b>Freude am Üben selbst entstehen lassen</b>.</li>
                             <li>Ich spiele <b>selbstbewusst in meinem eigenen Stil</b>.</li>
                         </ul>
-                        <p class="ms-label">Was dich trägt</p>
+                        <p class="ms-label">Deine drei Themen</p>
+                        <ul class="ms-themen">
+                            <li><b>Regelmäßigkeit</b>: eine Praxis, die bleibt</li>
+                            <li><b>Ausrichtung</b>: wissen, was du übst und warum</li>
+                            <li><b>Freude am Spielen</b>: dein Warum</li>
+                        </ul>
+                        <p class="ms-label">So läuft dein Jahr</p>
                         <ul class="ms-traegt">
-                            <li><b>Ein Live-Call im Monat</b>: die Kompass Session</li>
-                            <li><b>Jede Woche ein Video</b> mit Impulsen</li>
-                            <li><b>Die Kurse</b> Kompass, Elemente und Kreativ</li>
-                            <li><b>Alle Lektionen und Materialien</b> der Community</li>
+                            <li><b>Ein Jahresweg</b> durch die Themen, Schritt für Schritt per Video</li>
+                            <li><b>Gruppenaufgaben und Challenges</b> mit den anderen</li>
+                            <li><b>Eigene Forschungsaufgaben</b>, oft über mehrere Wochen</li>
+                            <li><b>Ein Live-Call im Monat</b> mit mir</li>
                         </ul>
                         <div class="ms-preis">
                             <p class="ms-betrag">70&nbsp;€ <small>im Monat</small></p>
@@ -391,12 +382,18 @@
                             <li>Ich bringe <b>meine Seele und meinen Selbstwert</b> authentisch ins Spiel.</li>
                             <li>Eine tiefe, spielerische, <b>forschende Kraft</b> trägt mich immer weiter.</li>
                         </ul>
-                        <p class="ms-label">Was dich trägt</p>
+                        <p class="ms-label">Deine drei Themen</p>
+                        <ul class="ms-themen">
+                            <li><b>Emotionen</b>: deine Gefühle verkörpern</li>
+                            <li><b>Freiheit</b>: kreativ ohne Grenzen</li>
+                            <li><b>Wahrhaftigkeit</b>: die Seele spielt mit</li>
+                        </ul>
+                        <p class="ms-label">So läuft dein Jahr</p>
                         <ul class="ms-traegt">
-                            <li><b>Alles aus Stufe 1</b></li>
-                            <li><b>Ein zweiter Live-Call im Monat</b>, der tiefer geht</li>
-                            <li><b>Blockaden lösen</b>, die dich vom Spielfluss abhalten</li>
-                            <li><b>Die eigene Seele mit dem Spiel verbinden</b></li>
+                            <li><b>Ein Jahresweg</b> durch die Themen, Schritt für Schritt per Video</li>
+                            <li><b>Gruppenaufgaben und Challenges</b> mit den anderen</li>
+                            <li><b>Eigene Forschungsaufgaben</b>, oft über mehrere Wochen</li>
+                            <li><b>Zwei Live-Calls im Monat</b> mit mir</li>
                         </ul>
                         <div class="ms-preis">
                             <p class="ms-betrag">150&nbsp;€ <small>im Monat</small></p>
@@ -405,6 +402,7 @@
                         <a href="https://lernen.handpan.schule/" class="cta cta--primary ms-btn">Stufe 2 wählen</a>
                     </article>
                 </div>
+                <p class="ms-verantwortung">Du übernimmst Verantwortung für dein Üben und teilst dir deine Zeit selbst ein. Live wachsen wir gemeinsam.</p>
                 <p class="ms-jahresabo">Im Jahresabo schenke ich dir zwei Monate. Das Jahresabo kannst du auch in Raten zahlen.</p>
             </div>
         </section>
