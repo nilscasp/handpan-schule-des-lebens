@@ -73,9 +73,12 @@
         .ms-von-kurz { list-style: none; padding: 0; margin: 0 auto var(--spacing-md); max-width: 560px; display: flex; flex-direction: column; gap: 0.9rem; }
         .ms-von-kurz li { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 1.3rem; line-height: 1.35; color: #D8D3CB; text-align: center; text-wrap-style: balance; }
         .ms-leitsatz { text-align: center; font-size: 1.15rem; color: var(--color-text); max-width: 600px; margin: 0 auto var(--spacing-lg); line-height: 1.6; }
-        .ms-stimmen { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
-        .ms-stimme { margin: 0; padding: 1.5rem; border: 1px solid rgba(212, 165, 116, 0.28); background: linear-gradient(180deg, #111722, #0E131B); display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; }
-        .ms-stimme p { margin: 0; line-height: 1.6; color: #D8D3CB; font-style: italic; }
+        .ms-stimmen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; align-items: stretch; }
+        .ms-stimme { margin: 0; padding: 1.7rem 1.6rem; border: 1px solid rgba(212, 165, 116, 0.28); background: linear-gradient(180deg, #111722, #0E131B); display: flex; flex-direction: column; gap: 0.9rem; }
+        .ms-stimme-zitat { font-family: var(--font-serif); font-weight: 300; font-size: 1.3rem; line-height: 1.3; color: var(--color-accent); margin: 0; text-wrap-style: balance; }
+        .ms-stimme p { margin: 0; line-height: 1.65; color: #D8D3CB; font-size: 0.98rem; }
+        .ms-stimme footer { margin-top: auto; padding-top: 0.6rem; }
+        .ms-stimme footer a { color: var(--color-text-muted); }
         .ms-stimme footer { font-family: var(--font-nav); font-size: 0.82rem; color: var(--color-accent); letter-spacing: 0.04em; }
         .ms-stimme footer span { display: block; color: var(--color-text-muted); font-size: 0.74rem; margin-top: 0.2rem; }
         .ms-mehr { text-align: center; margin-top: var(--spacing-md); }
@@ -155,7 +158,7 @@
         .ms-andere span { display: block; color: var(--color-text); line-height: 1.5; }
         .ms-andere em { color: var(--color-accent); font-style: normal; }
         @media (max-width: 900px) {
-            .ms-themen-grid { grid-template-columns: 1fr; }
+            .ms-themen-grid, .ms-stimmen { grid-template-columns: 1fr; }
         }
         @media (max-width: 760px) {
             .ms-wahl, .ms-jahr-liste { grid-template-columns: 1fr; }
@@ -294,8 +297,9 @@
             </div>
         </section>
         <!-- 2 · Kennst du das? VON in Nils' Worten, dann Stimmen -->
-        <section class="section-dark">
-            <div class="container-narrow">
+        <section class="section-dark ms-themen-section">
+            <div class="container">
+                <div class="container-narrow" style="padding: 0;">
                 <h2 class="section-title">Kennst du das?</h2>
                 <p class="ms-von-titel">Du kannst viel, <em>aber es ist noch nicht ganz deins</em></p>
                 <ul class="ms-von-kurz">
@@ -306,15 +310,23 @@
                     <li>Du willst tiefer und weißt nicht, wie.</li>
                 </ul>
                 <p class="ms-leitsatz">Hier setzt Stufe 2 an: Zuerst kommen dein Spiel und dein inneres Gefühl in Einklang, dann die absolute kreative Freiheit, und schließlich spielt deine Seele mit.</p>
+                </div>
                 <div class="ms-stimmen">
-                    <blockquote class="ms-stimme">
-                        <p>„Ich bin sehr dankbar, dass ich auf dem Weg bin, mich nun selber zu hören, mir zuzuhören und zu berühren.“</p>
-                        <footer>Regina <span>Handpan Path · Video</span></footer>
-                    </blockquote>
-                    <blockquote class="ms-stimme">
-                        <p>„Ich spiele täglich, meist nicht nur einmal, voller Freude und ideenreich Handpan. Ich habe eine innige Gemeinschaft mit neuen, tollen Menschen mit gleichem Ziel gefunden.“</p>
-                        <footer>Sonja A. <span>nach ca. 6 Monaten · Nachricht in der Community</span></footer>
-                    </blockquote>
+                    <article class="ms-stimme">
+                        <p class="ms-stimme-zitat">„Mich nun selber zu hören, mir zuzuhören und zu berühren.“</p>
+                        <p>Ich war auf der Suche und hatte den Wunsch, mehr Verbindung und Tiefe zur Handpan zu bekommen. In meinem bisherigen Spiel war ich zeitweise sogar eher blockiert. Im Handpan Path wurden mir dann Türen gezeigt und auch geöffnet, wo ich nicht mal wusste, dass sie in meinem Raum existieren. Die Impulse und Prozesse, die über mehrere Monate von Nils begleitet wurden, haben eine neue Verbindung erlebbar gemacht. Ich bin sehr dankbar, dass ich auf dem Weg bin, mich nun selber zu hören, mir zuzuhören und zu berühren.</p>
+                        <footer>Regina <span>Handpan Path · <a href="/stimmen/">Video auf der Stimmen-Seite</a></span></footer>
+                    </article>
+                    <article class="ms-stimme">
+                        <p class="ms-stimme-zitat">„Es ist ein Erinnern. An Freude. An Vertrauen. An den eigenen inneren Klang.“</p>
+                        <p>Meine Handpan stand fast zwei Jahre still bei mir. Nicht, weil sie nichts in mir berührt hätte, sondern weil ein alter, leiser Glaubenssatz zwischen uns stand: „Ich bin nicht musikalisch.“ Schon in den ersten drei Sitzungen mit Nils begann sich genau dieser Satz aufzulösen. Nicht durch Druck, nicht durch Technik, nicht durch „Üben“, sondern durch seine feine, ruhige und zutiefst menschliche Art.</p>
+                        <footer>Petra B. <span>Handpan Path · Stadtbranchenbuch München</span></footer>
+                    </article>
+                    <article class="ms-stimme">
+                        <p class="ms-stimme-zitat">„Er begleitet die Reise, die wir selbst antreten müssen.“</p>
+                        <p>Wer bin ich als Künstlerin? Was ist mein ureigenster Weg, den ich begehen mag? Dafür gibt Nils zahlreiche Anstöße, Beispiele und Übungen. Begegne dir selbst und nutze die Handpan als Vehikel, um dich auszudrücken, dich zu spüren und mit deinen Gefühlen auf der Handpan zu experimentieren. Dabei lehrt Nils auch musikalisches Fachwissen und stellt verschiedene Künstler und deren Herangehensweise an Musik vor. Ein Potpourri an Erforschung und Übung.</p>
+                        <footer>Birgit <span>Handpan Path · Nachricht an Nils</span></footer>
+                    </article>
                 </div>
                 <p class="ms-mehr"><a href="/stimmen/">Alle Stimmen →</a></p>
             </div>

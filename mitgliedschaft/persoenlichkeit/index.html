@@ -73,9 +73,12 @@
         .ms-von-kurz { list-style: none; padding: 0; margin: 0 auto var(--spacing-md); max-width: 560px; display: flex; flex-direction: column; gap: 0.9rem; }
         .ms-von-kurz li { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 1.3rem; line-height: 1.35; color: #D8D3CB; text-align: center; text-wrap-style: balance; }
         .ms-leitsatz { text-align: center; font-size: 1.15rem; color: var(--color-text); max-width: 600px; margin: 0 auto var(--spacing-lg); line-height: 1.6; }
-        .ms-stimmen { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
-        .ms-stimme { margin: 0; padding: 1.5rem; border: 1px solid rgba(212, 165, 116, 0.28); background: linear-gradient(180deg, #111722, #0E131B); display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; }
-        .ms-stimme p { margin: 0; line-height: 1.6; color: #D8D3CB; font-style: italic; }
+        .ms-stimmen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; align-items: stretch; }
+        .ms-stimme { margin: 0; padding: 1.7rem 1.6rem; border: 1px solid rgba(212, 165, 116, 0.28); background: linear-gradient(180deg, #111722, #0E131B); display: flex; flex-direction: column; gap: 0.9rem; }
+        .ms-stimme-zitat { font-family: var(--font-serif); font-weight: 300; font-size: 1.3rem; line-height: 1.3; color: var(--color-accent); margin: 0; text-wrap-style: balance; }
+        .ms-stimme p { margin: 0; line-height: 1.65; color: #D8D3CB; font-size: 0.98rem; }
+        .ms-stimme footer { margin-top: auto; padding-top: 0.6rem; }
+        .ms-stimme footer a { color: var(--color-text-muted); }
         .ms-stimme footer { font-family: var(--font-nav); font-size: 0.82rem; color: var(--color-accent); letter-spacing: 0.04em; }
         .ms-stimme footer span { display: block; color: var(--color-text-muted); font-size: 0.74rem; margin-top: 0.2rem; }
         .ms-mehr { text-align: center; margin-top: var(--spacing-md); }
@@ -155,7 +158,7 @@
         .ms-andere span { display: block; color: var(--color-text); line-height: 1.5; }
         .ms-andere em { color: var(--color-accent); font-style: normal; }
         @media (max-width: 900px) {
-            .ms-themen-grid { grid-template-columns: 1fr; }
+            .ms-themen-grid, .ms-stimmen { grid-template-columns: 1fr; }
         }
         @media (max-width: 760px) {
             .ms-wahl, .ms-jahr-liste { grid-template-columns: 1fr; }
@@ -294,8 +297,9 @@
             </div>
         </section>
         <!-- 2 · Kennst du das? VON in Nils' Worten, dann Stimmen -->
-        <section class="section-dark">
-            <div class="container-narrow">
+        <section class="section-dark ms-themen-section">
+            <div class="container">
+                <div class="container-narrow" style="padding: 0;">
                 <h2 class="section-title">Kennst du das?</h2>
                 <p class="ms-von-titel">Du übst, <em>aber kommst nicht voran</em></p>
                 <ul class="ms-von-kurz">
@@ -306,15 +310,23 @@
                     <li>Du zweifelst, ob du überhaupt schön spielen kannst.</li>
                 </ul>
                 <p class="ms-leitsatz">Hier bekommst du zuerst genau das, was du brauchst: eine Praxis, die wiederkehrt, die auf das richtige Lernziel ausgerichtet ist und die von innerer Motivation und Freude getragen wird.</p>
+                </div>
                 <div class="ms-stimmen">
-                    <blockquote class="ms-stimme">
-                        <p>„Ich spiele täglich, meist nicht nur einmal, voller Freude und ideenreich Handpan. Ich habe eine innige Gemeinschaft mit neuen, tollen Menschen mit gleichem Ziel gefunden.“</p>
-                        <footer>Sonja A. <span>nach ca. 6 Monaten · Nachricht in der Community</span></footer>
-                    </blockquote>
-                    <blockquote class="ms-stimme">
-                        <p>„Jedes Mal, wenn ein neues Video erscheint, freue ich mich darauf. Es fühlt sich ein wenig wie Ankommen an.“</p>
+                    <article class="ms-stimme">
+                        <p class="ms-stimme-zitat">„Ich werte mich und mein Spiel nicht ab.“</p>
+                        <p>Ich sage nie mehr, ich kann noch nicht an die Öffentlichkeit mit der Handpan, sondern tu es. Ich spiele täglich, meist nicht nur einmal, voller Freude und ideenreich Handpan. Ich habe eine innige Gemeinschaft mit neuen, tollen Menschen mit gleichem Ziel gefunden und den Eindruck von deutlich spürbarem Fortschritt. Keine Handpan an der Wand erinnert mich mehr schmerzhaft täglich daran, dass ich sie gekauft habe, um meine Gefühle auszudrücken. Denn heute spiele ich mein unerschöpfliches Inneres nach außen und bringe es zum Klingen.</p>
+                        <footer>Sonja A. <span>nach ca. 6 Monaten in der Schule · Nachricht in der Community</span></footer>
+                    </article>
+                    <article class="ms-stimme">
+                        <p class="ms-stimme-zitat">„Ich spiele nichts nach, ich spiele nur Eigenes.“</p>
+                        <p>Vor drei Jahren habe ich mir den Traum erfüllt und mir ein Instrument gekauft. Und genauso ist es leider wieder im Sande verlaufen. Ich habe einige Kurse gemacht, jedoch immer wieder angefangen und wieder aufgehört. Ich hatte keine Idee, was ich zu Hause üben kann. Hier hatte ich jeden Tag eine kleine Übungseinheit, und ich habe es wirklich geschafft, die Handpan in mein tägliches Leben zu integrieren. Ich habe so viele Ideen. Ich spiele und ich höre mir zu. Diese innere Ruhe und diese Idee, zu sich selbst zu finden, das ist für mich das große Geschenk.</p>
+                        <footer>Anja <span>Rhythmus Fundament · <a href="/stimmen/">Video auf der Stimmen-Seite</a></span></footer>
+                    </article>
+                    <article class="ms-stimme">
+                        <p class="ms-stimme-zitat">„Es gibt keinen Druck und keinen Zwang.“</p>
+                        <p>Nils macht Angebote, motiviert und begleitet jeden in seinem eigenen Tempo. Dadurch entsteht eine entspannte Atmosphäre, in der Lernen wirklich Freude macht. Jedes Mal, wenn ein neues Video erscheint, freue ich mich darauf. Es fühlt sich ein wenig wie Ankommen an. Für mich ist das Lernen hier eine Reise weit über die Musik hinaus. Ich habe nicht nur den Beginn vom Handpan spielen gelernt, sondern auch viel über mich selbst und für mein Leben mitgenommen.</p>
                         <footer>Anja S. <span>Rhythmus Fundament · Google</span></footer>
-                    </blockquote>
+                    </article>
                 </div>
                 <p class="ms-mehr"><a href="/stimmen/">Alle Stimmen →</a></p>
             </div>
