@@ -1,0 +1,245 @@
+/* ============================================
+   DEIN KLANGPROFIL (/klangprofil/)
+   Ergänzt /css/style.css (Gravur-Stil). Inhalt baut klangprofil.js.
+   Antwortflächen mindestens 48 px hoch, Schrift mindestens 16 px.
+   ============================================ */
+
+#klangprofil { min-height: 60vh; }
+
+#klangprofil .kp-hero { min-height: auto; padding-bottom: var(--spacing-md); }
+#klangprofil .kp-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+#klangprofil .kp-hero h1:focus,
+#klangprofil .kp-frage:focus { outline: none; }
+
+#klangprofil .kp-start-zeile { margin: var(--spacing-md) 0 var(--spacing-xs); }
+#klangprofil .kp-mitte { text-align: center; }
+#klangprofil .kp-hinweis {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin-top: var(--spacing-xs);
+}
+#klangprofil .kp-text {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+}
+#klangprofil .kp-mitte .kp-text { text-align: left; }
+
+#klangprofil button.cta {
+    font-family: var(--font-sans);
+    min-height: 48px;
+    line-height: 1.3;
+    max-width: 100%;
+    white-space: normal;
+}
+#klangprofil a.cta { min-height: 48px; line-height: 1.3; }
+#klangprofil button.cta:disabled { opacity: 0.45; cursor: default; box-shadow: none; }
+
+/* Worauf das Klangprofil schaut */
+#klangprofil .kp-schaut {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+#klangprofil .kp-schaut h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: var(--spacing-xs); color: var(--color-accent); }
+#klangprofil .kp-schaut p { font-size: 1.05rem; line-height: 1.6; }
+#klangprofil .kp-ohne { color: var(--color-text-muted); margin-top: var(--spacing-xs); }
+
+/* ---------- Fragen ---------- */
+#klangprofil .kp-buehne {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    padding: 130px 0 var(--spacing-lg);
+}
+#klangprofil .kp-buehne > .container-narrow { width: 100%; }
+
+#klangprofil .kp-punkte {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 var(--spacing-md);
+    padding: 0;
+}
+#klangprofil .kp-punkte li {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(212, 165, 116, 0.5);
+}
+#klangprofil .kp-punkte li.kp-fertig { background: rgba(212, 165, 116, 0.55); }
+#klangprofil .kp-punkte li.kp-jetzt { background: var(--color-accent); border-color: var(--color-accent); transform: scale(1.35); }
+
+#klangprofil .kp-frage {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: clamp(1.45rem, 3.6vw, 2.1rem);
+    line-height: 1.35;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+}
+
+#klangprofil .kp-antworten {
+    display: grid;
+    gap: 12px;
+    max-width: 560px;
+    margin: 0 auto;
+}
+#klangprofil .kp-antworten.kp-drei { grid-template-columns: repeat(3, 1fr); }
+
+#klangprofil .kp-antwort {
+    min-height: 56px;
+    padding: 0.9rem 1.2rem;
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: var(--color-text);
+    background: transparent;
+    border: 1px solid rgba(212, 165, 116, 0.4);
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color .3s ease, box-shadow .3s ease, color .3s ease;
+}
+#klangprofil .kp-drei .kp-antwort { text-align: center; }
+#klangprofil .kp-antwort:hover,
+#klangprofil .kp-antwort:focus-visible {
+    border-color: var(--color-accent);
+    box-shadow: inset 0 0 22px rgba(212, 165, 116, 0.12);
+    outline: none;
+}
+#klangprofil .kp-antwort[aria-pressed="true"] {
+    border-color: var(--color-accent);
+    color: #F5E6D3;
+    box-shadow: inset 0 0 28px rgba(212, 165, 116, 0.22);
+}
+
+#klangprofil .kp-freitext,
+#klangprofil .kp-formular input {
+    width: 100%;
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--color-text);
+    background: var(--color-bg-lighter);
+    border: 1px solid rgba(212, 165, 116, 0.35);
+    border-radius: 2px;
+    padding: 0.8rem 1rem;
+}
+#klangprofil .kp-formular input { min-height: 52px; }
+#klangprofil .kp-freitext { display: block; max-width: 560px; margin: 0 auto; resize: vertical; }
+#klangprofil .kp-freitext:focus,
+#klangprofil .kp-formular input:focus { outline: none; border-color: var(--color-accent); }
+#klangprofil .kp-buehne .kp-hinweis { max-width: 560px; margin: var(--spacing-xs) auto 0; }
+
+#klangprofil .kp-meldung {
+    min-height: 1.5em;
+    max-width: 560px;
+    margin: var(--spacing-sm) auto 0;
+    color: #E8B98A;
+    font-size: 1rem;
+    text-align: center;
+}
+#klangprofil .kp-meldung:empty { min-height: 0; margin: 0; }
+
+#klangprofil .kp-leiste {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: 560px;
+    margin: var(--spacing-md) auto 0;
+}
+#klangprofil .kp-weiter { margin-left: auto; }
+#klangprofil .kp-zurueck {
+    min-height: 48px;
+    padding: 0.6rem 0.2rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(212, 165, 116, 0.4);
+}
+#klangprofil .kp-zurueck:hover { color: var(--color-text); }
+
+/* ---------- Formular ---------- */
+#klangprofil .kp-formular {
+    display: grid;
+    gap: 6px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+#klangprofil .kp-formular label {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-xs);
+}
+#klangprofil .kp-honig { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; opacity: 0 !important; }
+#klangprofil .kp-einwilligung {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: var(--spacing-sm) 0 var(--spacing-xs);
+}
+#klangprofil .kp-absenden { width: 100%; }
+#klangprofil .kp-unter {
+    max-width: 480px;
+    margin: var(--spacing-sm) auto 0;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+}
+#klangprofil .kp-unter a { color: var(--color-accent); }
+
+/* ---------- Ergebnis ---------- */
+#klangprofil .kp-mailhinweis {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #EAD7BE;
+    border: 1px solid rgba(212, 165, 116, 0.35);
+    padding: 0.7rem 1rem;
+    margin-bottom: var(--spacing-md);
+    max-width: 560px;
+}
+#klangprofil .kp-saeulen {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+#klangprofil .kp-saeule h3 {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+#klangprofil .kp-saeule p { font-size: 1.08rem; line-height: 1.65; }
+#klangprofil .kp-saeule .kp-saeule-name {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    line-height: 1.4;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+@media (max-width: 768px) {
+    #klangprofil .kp-buehne { padding: 110px 0 var(--spacing-md); align-items: flex-start; }
+    #klangprofil .kp-antworten.kp-drei { grid-template-columns: 1fr; }
+    #klangprofil .kp-drei .kp-antwort { text-align: left; }
+    #klangprofil .kp-leiste .cta { padding-left: 1.6rem; padding-right: 1.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #klangprofil .kp-antwort { transition: none; }
+}
