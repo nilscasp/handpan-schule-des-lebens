@@ -305,3 +305,45 @@
     margin-bottom: 0.2rem;
 }
 @media (max-width: 768px) { #klangprofil .kp-karte { padding: var(--spacing-sm); } }
+
+/* Sprung zur Empfehlung, Jahresweg, Empfehlungskasten (Empfehlung.md, Nils 21.11.2026) */
+#klangprofil .kp-sprung {
+    background: none; border: 0; padding: 0; cursor: pointer;
+    font: inherit; font-size: 1rem; color: var(--color-accent);
+    text-decoration: underline; text-underline-offset: 3px;
+}
+#klangprofil .kp-sprung:hover { color: var(--color-text); }
+#klangprofil .kp-jahresweg { margin: var(--spacing-lg) 0; }
+#klangprofil .kp-jw-stufen { display: grid; gap: var(--spacing-sm); margin: var(--spacing-md) 0; }
+#klangprofil .kp-jw-stufe { border-top: 1px solid rgba(212, 165, 116, 0.25); padding-top: var(--spacing-xs); }
+#klangprofil .kp-jw-stufe-name {
+    font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--color-text-muted); margin: 0 0 0.4rem;
+}
+#klangprofil .kp-jw-stufe ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+#klangprofil .kp-jw-stufe li {
+    border: 1px solid rgba(255, 255, 255, 0.15); padding: 0.35rem 0.8rem;
+    font-size: 1rem; color: var(--color-text-muted);
+}
+#klangprofil .kp-jw-stufe li.kp-jw-an { border-color: var(--color-accent); color: var(--color-text); background: rgba(212, 165, 116, 0.12); }
+#klangprofil .kp-jw-satz { margin-top: var(--spacing-sm); }
+#klangprofil .kp-empfehlung {
+    border: 2px solid var(--color-accent);
+    background: linear-gradient(180deg, rgba(212, 165, 116, 0.10), rgba(212, 165, 116, 0.02));
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+    scroll-margin-top: var(--spacing-md);
+}
+#klangprofil .kp-empf-name { font-family: var(--font-serif); font-size: clamp(1.7rem, 4.5vw, 2.4rem); line-height: 1.25; margin: 0 0 var(--spacing-md); color: var(--color-text); }
+#klangprofil .kp-empf-teil h4 {
+    font-family: var(--font-sans); font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--color-accent); margin: var(--spacing-sm) 0 0.3rem;
+}
+#klangprofil .kp-empf-teil .kp-text { margin-top: 0; }
+#klangprofil .kp-empf-knopf { margin: var(--spacing-md) 0 0; }
+#klangprofil .kp-empf-knopf .cta { display: block; width: 100%; text-align: center; box-sizing: border-box; }
+#klangprofil .kp-empf-gespraech { margin: var(--spacing-sm) 0 0; text-align: center; font-size: 1rem; color: var(--color-text-muted); }
+#klangprofil .kp-empf-gespraech a { color: var(--color-accent); }
+@media (max-width: 768px) { #klangprofil .kp-empfehlung { padding: var(--spacing-md) var(--spacing-sm); } }
+#klangprofil .kp-empf-knopf .cta { background: var(--color-accent); color: #0E131B; border-color: var(--color-accent); font-weight: 600; padding-top: 1.1rem; padding-bottom: 1.1rem; }
+#klangprofil .kp-empf-knopf .cta:hover { background: #E3BC90; color: #0E131B; }

@@ -421,6 +421,82 @@
     vielBewegt: "Gerade bewegt sich bei dir viel. Das kann sich unruhig anfühlen. Es heißt aber vor allem, dass du ehrlich hingeschaut hast. Was sich bewegt, ist nicht festgefahren.",
     gemischt: "Dein Bild ist gemischt: An manchen Stellen stehst du fest, an anderen ist es noch offen. Lies die fünf Säulen in Ruhe. Meist erkennt man sich in einer davon besonders wieder."
   };
+  var EMPFEHLUNG_TEXTE = {
+    titel: "Meine Empfehlung für dich",
+    sprung: "Direkt zu meiner Empfehlung für dich ↓",
+    warum: "Warum das zu dir passt",
+    veraendern: "Was sich für dich verändern kann",
+    ablauf: "So läuft es"
+  };
+  var GESPRAECH_ZEILE = {
+    vor: "Du bist unsicher, ob das passt? Lass uns ",
+    link: "15 Minuten sprechen",
+    nach: ", auf Zoom und unverbindlich."
+  };
+  var JAHRESWEG_STUFEN = [
+    {
+      stufe: "Stufe 1 · Persönlichkeit",
+      themen: [
+        { id: "regelmaessigkeit", name: "Regelmäßigkeit" },
+        { id: "ausrichtung", name: "Ausrichtung" },
+        { id: "freude", name: "Freude am Spielen" }
+      ]
+    },
+    {
+      stufe: "Stufe 2 · Seele",
+      themen: [
+        { id: "emotionen", name: "Emotionen" },
+        { id: "freiheit", name: "Freiheit" },
+        { id: "wahrhaftigkeit", name: "Wahrhaftigkeit" }
+      ]
+    }
+  ];
+  var EMPFEHLUNG = {
+    1: {
+      name: "die Kaufberatung",
+      warum: "Du hast noch keine Handpan. Bevor du den ersten Ton spielst, steht eine Entscheidung, die viel Geld kostet und lange nachklingt: welches Instrument zu dir passt. Der Markt ist unübersichtlich, Qualität und Preis schwanken stark.",
+      veraendern: "Du kaufst nicht irgendeine Handpan, sondern eine, die zu deinem Klang und deinen Zielen passt. Du weißt, was ein fairer Preis ist und was du besser meidest.",
+      ablauf: "Ich berate dich herstellerunabhängig und verkaufe dir nichts. Die Beratung läuft per Video-Call oder vor Ort in Wasserburg am Inn, ohne Kaufverpflichtung."
+    },
+    2: {
+      name: "„Von Anfang an spielen“",
+      warum: "Du hast eine Handpan und spielst selten. Meist fehlt nicht der Wille, sondern ein Anfang, der trägt: zu wissen, womit man beginnt, und jemanden, mit dem man dranbleibt.",
+      veraendern: "Du kommst vom Davorsitzen ins Spielen. Du beginnst beim allerersten Ton und spielst von Anfang an aus dem Gefühl heraus, ohne Noten und ohne Theorie. Ein intuitives, ruhiges Spiel, das sich aus dem Moment entfaltet. Und du bleibst dran, weil jede Woche ein fester Termin auf dich wartet.",
+      ablauf: "Zehn Wochen live in einer kleinen Gruppe mit höchstens 13 Plätzen, jeden Samstag um 10 Uhr. Alles wird aufgezeichnet. Du brauchst keine Vorkenntnisse. Die nächste Runde beginnt am 30. Januar 2027."
+    },
+    3: {
+      name: "das Rhythmus Fundament",
+      warum: "Du spielst schon, und beim Rhythmus bist du noch unsicher, so hast du es angegeben. Ein unsicherer Rhythmus bremst alles andere, denn wer mit dem Takt kämpft, kann nicht frei spielen.",
+      veraendern: "Du bekommst einen stabilen Groove und verstehst, wie Rhythmus aufgebaut ist, statt Muster nachzuspielen. So kannst du eigene Grooves entwickeln, und dein Spiel wird freier.",
+      ablauf: "6,5 Wochen, täglich 15 bis 30 Minuten Praxis und einmal pro Woche eine Live-Session von etwa 90 Minuten. Alles wird aufgezeichnet. Ein Termin für die nächste Runde steht noch nicht fest. Auf der Seite kannst du dich eintragen, dann erfährst du ihn zuerst."
+    },
+    4: {
+      name: "ein Gespräch mit mir",
+      warum: "Du spielst schon und möchtest nicht allein weitergehen, so hast du es angegeben. Welcher Weg dann passt, hängt von dir ab: wo du stehst, was du dir wünschst und wie viel Zeit du hast. Das klärt man am besten im Gespräch.",
+      veraendern: "Du gehst mit einer klaren Richtung aus dem Gespräch, auch wenn du dich danach für nichts entscheidest.",
+      ablauf: "15 Minuten auf Zoom, unverbindlich. Wir schauen zusammen, was zu dir passt, zum Beispiel meine Mitgliedschaft, die am 7. Januar 2027 beginnt."
+    },
+    5: {
+      name: "mein YouTube-Kanal",
+      warum: "Du lernst am liebsten allein, in deinem Tempo. Dann brauchst du Material, das du dir nehmen kannst, wann du willst.",
+      veraendern: "Du findest Anregungen für dein eigenes Spiel, ohne dich festzulegen.",
+      ablauf: "Auf meinem YouTube-Kanal findest du Videos von mir. Schau dich um, wenn du magst."
+    }
+  };
+  var JAHRESWEG = {
+    titel: "Dein Profil im Jahresweg",
+    einleitung: "In meiner Mitgliedschaft arbeiten wir ein Jahr lang an sechs Themen, in zwei Stufen. Stufe 1 heißt Persönlichkeit: Regelmäßigkeit, Ausrichtung und Freude am Spielen. Stufe 2 heißt Seele: Emotionen, Freiheit und Wahrhaftigkeit. Die Stufen sind keine Noten, sondern zwei Programme für verschiedene Abschnitte auf dem Weg.",
+    zeileVor: "Am meisten berührt dein Profil gerade:",
+    saetze: {
+      regelmaessigkeit: "eine Praxis, die wiederkehrt und dich trägt, auch an Tagen ohne Lust.",
+      ausrichtung: "zu wissen, was du als Nächstes lernst, und das selbst zu entscheiden.",
+      freude: "spielen, weil es dich erfüllt, und nicht, um alles korrekt zu machen.",
+      emotionen: "dein Spiel und dein inneres Gefühl in Einklang bringen.",
+      wahrhaftigkeit: "so zu klingen, wie du bist, auch vor anderen.",
+      freiheit: "über das Fundament hinaus, in die kreative Freiheit."
+    },
+    keins: "Dein Profil berührt alle sechs Themen ein wenig. Welches gerade dran ist, zeigt sich meist erst beim Spielen."
+  };
 
   // src/klangprofil/logik.ts
   var PUNKTE = { ja: 2, teils: 1, "eher-nicht": 0 };
@@ -679,6 +755,18 @@
     if (T <= 2 && Z >= 3)
       return "vielBewegt";
     return "gemischt";
+  }
+  function jahreswegThemen(p, weg2) {
+    const zieht = (s) => (p.zieht[SAEULEN.indexOf(s)] ?? 0) >= 2;
+    const kandidaten = [
+      [weg2 === 2, "regelmaessigkeit"],
+      [zieht("gezielt-lernen"), "ausrichtung"],
+      [zieht("freilegen"), "freude"],
+      [zieht("ersehnen"), "emotionen"],
+      [zieht("erklingen-lassen"), "wahrhaftigkeit"],
+      [deutlich(p.traegt).length >= 3, "freiheit"]
+    ];
+    return kandidaten.filter(([ja]) => ja).map(([, t]) => t).slice(0, 2);
   }
 
   // src/klangprofil/browser.ts
@@ -1015,21 +1103,31 @@
       };
       const extern = /^https?:\/\//.test(w.knopf.link) && !w.knopf.link.startsWith("https://handpan.schule/");
       const kopf = p ? KOPF_SAEULEN : KOPF;
+      const em = EMPFEHLUNG[e.weg];
+      const teil = (titel, text) => el("div", { class: "kp-empf-teil" }, el("h4", {}, titel), el("p", { class: "kp-text" }, text));
+      const empfehlung = el("section", { class: "kp-empfehlung", id: "kp-empfehlung", "aria-labelledby": "kp-empf-titel" }, el("p", { class: "kp-zustand", id: "kp-empf-titel" }, EMPFEHLUNG_TEXTE.titel), el("h2", { class: "kp-empf-name" }, em.name.charAt(0).toUpperCase() + em.name.slice(1)), teil(EMPFEHLUNG_TEXTE.warum, em.warum), teil(EMPFEHLUNG_TEXTE.veraendern, em.veraendern), teil(EMPFEHLUNG_TEXTE.ablauf, em.ablauf), el("p", { class: "kp-empf-knopf" }, el("a", { class: "cta", href: w.knopf.link, target: extern ? "_blank" : undefined, rel: extern ? "noopener" : undefined }, w.knopf.text)), e.weg <= 3 ? el("p", { class: "kp-empf-gespraech" }, GESPRAECH_ZEILE.vor, el("a", { href: LINKS.tidycal15min, target: "_blank", rel: "noopener" }, GESPRAECH_ZEILE.link), GESPRAECH_ZEILE.nach) : null);
+      const jahresweg = (pr) => {
+        const themen = jahreswegThemen(pr, e.weg);
+        return el("section", { class: "kp-jahresweg" }, el("h2", { class: "section-title" }, JAHRESWEG.titel), el("p", { class: "kp-text" }, JAHRESWEG.einleitung), el("div", { class: "kp-jw-stufen" }, ...[...JAHRESWEG_STUFEN].reverse().map((st) => el("div", { class: "kp-jw-stufe" }, el("p", { class: "kp-jw-stufe-name" }, st.stufe), el("ul", {}, ...st.themen.map((t) => el("li", { class: themen.includes(t.id) ? "kp-jw-an" : undefined }, t.name)))))), themen.length ? el("div", { class: "kp-jw-satz" }, el("p", { class: "kp-zustand" }, JAHRESWEG.zeileVor), ...themen.map((t) => {
+          const name = JAHRESWEG_STUFEN.flatMap((st) => st.themen).find((x) => x.id === t).name;
+          return el("p", { class: "kp-text" }, el("strong", {}, name + ": "), JAHRESWEG.saetze[t]);
+        })) : el("p", { class: "kp-text kp-jw-satz" }, JAHRESWEG.keins));
+      };
       const mitte = p ? [
         el("h2", { class: "section-title" }, GESAMTBILD.titel),
         el("p", { class: "kp-text" }, GESAMTBILD[gesamtbild(p)]),
+        el("p", {}, knopf(EMPFEHLUNG_TEXTE.sprung, "kp-sprung", () => empfehlung.scrollIntoView({ behavior: "smooth", block: "start" }))),
         el("h2", { class: "section-title kp-saeulen-titel" }, ERGEBNIS_TITEL.saeulen),
         el("div", { class: "kp-karten" }, ...SAEULEN.map((s, i) => {
           const z = zustand(p, i);
           const d = DEUTUNGEN[s][z];
           return el("article", { class: "kp-karte", "data-zustand": z }, el("p", { class: "kp-zustand" }, ZUSTAND_TITEL[z]), el("h3", { class: "kp-saeule-name" }, SAEULEN_TEXTE[s].mitAlltagswort), el("p", { class: "kp-text" }, d.text), el("p", { class: "kp-mitnehmen" }, el("span", { class: "kp-mitnehmen-titel" }, ERGEBNIS_TITEL.frage), d.frage));
         })),
-        el("hr", { class: "kp-trenner" }),
-        el("p", { class: "kp-zustand" }, ERGEBNIS_TITEL.schritt)
-      ] : [abschnitt("traegt"), abschnitt("zieht"), el("hr", { class: "kp-trenner" })];
+        jahresweg(p)
+      ] : [abschnitt("traegt"), abschnitt("zieht")];
       return [
         el("section", { class: "page-hero kp-hero" }, el("div", { class: "hero-content container-narrow" }, hinweis === "gesendet" ? el("p", { class: "kp-mailhinweis", role: "status" }, MELDUNGEN.hinweisNachAbschicken) : null, hinweis === "nicht-gesendet" ? el("p", { class: "kp-mailhinweis", role: "status" }, MELDUNGEN.mailNichtVerschickt) : null, el("h1", { tabindex: "-1" }, kopf.titel), el("p", { class: "hero-subtitle" }, kopf.text))),
-        el("section", { class: "section-dark" }, el("div", { class: "container-narrow" }, ...mitte, el("h2", { class: "section-title" }, w.titel), ...w.absaetze.map((a) => el("p", { class: "kp-text" }, a)), el("p", { class: "kp-start-zeile kp-mitte" }, el("a", { class: "cta", href: w.knopf.link, target: extern ? "_blank" : undefined, rel: extern ? "noopener" : undefined }, w.knopf.text))))
+        el("section", { class: "section-dark" }, el("div", { class: "container-narrow" }, ...mitte, empfehlung))
       ];
     }
     function zeichnen() {
