@@ -263,3 +263,45 @@
 #klangprofil .kp-abschnitt { margin: var(--spacing-md) 0; }
 #klangprofil .kp-saeule-zeile { margin: var(--spacing-sm) 0; }
 #klangprofil .kp-trenner { border: 0; border-top: 1px solid rgba(255,255,255,0.12); margin: var(--spacing-lg) 0; }
+
+/* Deutungen je Säule als Karten (Deutungen.md, Nils 21.11.2026) */
+#klangprofil .kp-saeulen-titel { margin-top: var(--spacing-lg); }
+#klangprofil .kp-karten { display: grid; gap: var(--spacing-md); margin: var(--spacing-md) 0; }
+#klangprofil .kp-karte {
+    border: 1px solid rgba(212, 165, 116, 0.25);
+    border-left: 3px solid rgba(212, 165, 116, 0.55);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.02);
+}
+#klangprofil .kp-karte[data-zustand="still"] { border-left-color: rgba(255, 255, 255, 0.2); }
+#klangprofil .kp-zustand {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 var(--spacing-xs);
+}
+#klangprofil .kp-karte .kp-saeule-name {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    line-height: 1.4;
+    color: var(--color-text);
+    margin: 0 0 var(--spacing-xs);
+}
+#klangprofil .kp-mitnehmen {
+    margin: var(--spacing-sm) 0 0;
+    font-style: italic;
+    color: #EAD7BE;
+    line-height: 1.6;
+}
+#klangprofil .kp-mitnehmen-titel {
+    display: block;
+    font-style: normal;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 0.2rem;
+}
+@media (max-width: 768px) { #klangprofil .kp-karte { padding: var(--spacing-sm); } }

@@ -307,6 +307,120 @@
     hinweisNachAbschicken: "Dein Klangprofil kommt gleich per Mail. Nichts gefunden? Schau auch im Spam-Ordner nach."
   };
   var FREITEXT_HINWEIS = "Freiwillig. Es wird mit deinen Antworten, deinem Vornamen und deiner Mail gespeichert und nach 180 Tagen gelöscht. Bitte schreib hier nichts Gesundheitliches auf.";
+  var KOPF_SAEULEN = {
+    titel: "Dein Klangprofil",
+    text: "Das ist dein Standort, keine Note. Für jede der fünf Säulen siehst du, wo du gerade stehst und was das für dein Spielen bedeuten kann. Am Ende steht ein nächster Schritt."
+  };
+  var ERGEBNIS_TITEL = {
+    saeulen: "Deine fünf Säulen",
+    schritt: "Dein nächster Schritt",
+    frage: "Frage zum Mitnehmen"
+  };
+  var ZUSTAND_TITEL = {
+    fest: "Hier stehst du fest",
+    bewegt: "Hier bewegt sich gerade etwas",
+    beides: "Hier ist Bewegung auf festem Grund",
+    still: "Hier ist es gerade still"
+  };
+  var DEUTUNGEN = {
+    verorten: {
+      fest: {
+        text: "Du kannst ruhig beschreiben, wo du gerade bist, ohne dich kleiner oder größer zu machen. Das ist seltener, als es klingt. Wer seinen Standort kennt, muss nicht ständig nachmessen, ob er schon weit genug ist. So hast du den Kopf frei für das Spielen selbst.",
+        frage: "Was kannst du heute, das du vor einem Jahr noch nicht konntest?"
+      },
+      bewegt: {
+        text: "Der Blick auf andere beschäftigt dich, und manchmal entsteht dabei der Gedanke: So werde ich nie klingen. Das stimmt wahrscheinlich. Du wirst nie so klingen wie jemand anderes, weil dein Klang nur einmal da ist. Der Vergleich misst dich an einem Weg, der nicht deiner ist.",
+        frage: "Was gefällt dir an deinem eigenen Spiel, wenn du kurz niemanden zum Vergleich hast?"
+      },
+      beides: {
+        text: "Meistens weißt du, wo du stehst. Trotzdem schleicht sich der Vergleich mit anderen immer wieder ein. Das ist kein Widerspruch: Der feste Boden ist da, und der Vergleich zieht dich gelegentlich davon weg. Du kannst immer wieder zu dem zurückkehren, was du über dich schon weißt.",
+        frage: "Woran merkst du, dass du gerade vergleichst statt hörst?"
+      },
+      still: {
+        text: "Wo du stehst, lässt sich für dich gerade nicht leicht beschreiben, und der Vergleich mit anderen spielt keine große Rolle. Vielleicht hast du darüber noch nicht viel nachgedacht. Hinzuschauen, ohne zu bewerten, ist der erste Schritt in jedem Lernen.",
+        frage: "Wie würdest du einem Freund in drei Sätzen erzählen, wo du gerade stehst?"
+      }
+    },
+    ersehnen: {
+      fest: {
+        text: "Du hast ein Gefühl dafür, wohin du willst, oder kannst sagen, warum du spielen möchtest. Das ist dein Kompass. Wer weiß, wofür er spielt, muss sich nicht jeden Tag neu motivieren, denn der Wunsch zieht von selbst. Halte dieses Gefühl lebendig, es führt dich weiter als jeder Plan.",
+        frage: "Wenn du dein Ziel in einem Klang beschreiben müsstest, wie würde er klingen?"
+      },
+      bewegt: {
+        text: "Da ist ein Wunsch, der sich zu groß anfühlt, um ihn laut zu sagen. Solche Wünsche sind oft die wichtigsten. Sie zeigen, was dir wirklich etwas bedeutet. Ein Wunsch muss nicht realistisch klingen, um ernst genommen zu werden. Es reicht, ihn dir selbst gegenüber auszusprechen.",
+        frage: "Was würdest du spielen, wenn niemand zuhört und nichts schiefgehen kann?"
+      },
+      beides: {
+        text: "Du weißt, wohin du willst, und trotzdem gibt es einen Wunsch, der noch größer ist und den du lieber leise hältst. Beides gehört zusammen: Das Ziel, das du benennen kannst, und das, was dahinter liegt. Oft ist das Große der eigentliche Grund für das Kleine.",
+        frage: "Was steckt hinter dem Ziel, das du schon kennst?"
+      },
+      still: {
+        text: "Was du dir mit der Handpan wünschst, ist gerade noch nicht deutlich. Das ist kein Mangel. Viele Wünsche zeigen sich erst beim Tun. Manchmal merkt man erst nach dem Spielen, was einen berührt hat.",
+        frage: "Bei welchem Klang oder Moment hast du zuletzt gedacht: Das will ich auch?"
+      }
+    },
+    freilegen: {
+      fest: {
+        text: "Es gibt Momente, in denen du spielst oder Neues ausprobierst, ohne dich ständig zu prüfen. Das ist kostbar. In diesen Momenten entsteht dein eigener Ausdruck, weil gerade nichts dazwischen steht. Je öfter du sie erlebst, desto leichter findest du wieder hinein.",
+        frage: "Was ist anders an den Tagen, an denen du dich beim Spielen vergisst?"
+      },
+      bewegt: {
+        text: "Der innere Kritiker meldet sich deutlich: Du bewertest schnell oder willst erst genau wissen, wie etwas geht, bevor du anfängst. Das ist kein Charakterfehler. Die meisten von uns haben so gelernt: erst können, dann spielen. Beim Spielen hilft das wenig, denn der Kritiker hört nicht zu, er urteilt. Ein schiefer Ton ist kein Beweis, dass du es nicht kannst. Er zeigt, dass du mitten im Lernen bist.",
+        frage: "Was würde passieren, wenn du einen Ton einfach ausklingen lässt, bevor du ihn beurteilst?"
+      },
+      beides: {
+        text: "Du kennst beides: Momente, in denen du dich vergisst, und Momente, in denen der Kritiker laut wird. Das ist normal, und es ist ermutigend. Du weißt schon, wie es sich ohne Kontrolle anfühlt. Es geht nicht darum, den Kritiker loszuwerden, sondern öfter dorthin zurückzufinden.",
+        frage: "Was bringt dich zurück in den freien Moment, wenn der Kritiker sich meldet?"
+      },
+      still: {
+        text: "Weder das freie Sich-Vergessen noch der laute Kritiker sind bei dir gerade deutlich. Vielleicht spielst du noch nicht oft genug, um das zu merken, oder es fällt dir schwer, es zu benennen. Achte beim nächsten Mal darauf, was in dir passiert, während du spielst oder etwas Neues ausprobierst.",
+        frage: "Was sagst du dir selbst, wenn etwas beim ersten Versuch nicht klappt?"
+      }
+    },
+    "gezielt-lernen": {
+      fest: {
+        text: "Du weißt, was du als Nächstes lernen willst. Das heißt, du lernst aus eigenem Willen und nicht nur, weil dir jemand eine Reihenfolge vorgibt. So lernt man am tiefsten: Wer selbst wissen will, behält, was er findet.",
+        frage: "Was davon würdest du sofort anfangen, wenn du heute eine Stunde Zeit hättest?"
+      },
+      bewegt: {
+        text: "Du übst nach Vorgaben von anderen, spielst immer wieder dieselben Muster oder wünschst dir, dass dir jemand sagt, womit du anfangen sollst. Für den Anfang hilft das, aber auf Dauer bleibt es ein fremder Weg. Dein eigener Lernweg entsteht aus der Lücke zwischen dem, wo du stehst, und dem, was du dir wünschst. Begleitung, die dich weiterbringt, gibt dir nicht nur Stücke, sondern hilft dir, diese Lücke selbst zu sehen.",
+        frage: "Was davon, was du gerade übst, hast du dir selbst ausgesucht?"
+      },
+      beides: {
+        text: "Du weißt, was du lernen willst, und trotzdem landest du oft bei Vorgaben von anderen oder bei vertrauten Mustern. Das passiert, wenn der eigene Wunsch da ist, aber der Weg dorthin noch unklar. Dein Ziel ist kein Problem. Es fehlt eher eine Brücke von dort, wo du stehst, zu dem, was du willst.",
+        frage: "Was ist der kleinste Schritt, der dich näher an das bringt, was du lernen willst?"
+      },
+      still: {
+        text: "Was du als Nächstes lernen willst, ist gerade offen, und fremde Vorgaben bestimmen dich auch nicht stark. Vielleicht bist du einfach neugierig und schaust, was kommt. Dieser offene Zustand trägt, solange die Neugier dich auch wirklich ans Instrument bringt.",
+        frage: "Was hat dich zuletzt so neugierig gemacht, dass du es sofort ausprobieren wolltest?"
+      }
+    },
+    "erklingen-lassen": {
+      fest: {
+        text: "Du lässt andere teilhaben, an deinem Spiel oder daran, dass dich die Handpan beschäftigt. Damit schließt sich ein Kreis. Was du zeigst, wird wirklich, und wer zuhört, gibt dir etwas zurück. Oft ist genau das der Moment, in dem das nächste Lernen beginnt.",
+        frage: "Wem würdest du als Nächstes gern etwas vorspielen?"
+      },
+      bewegt: {
+        text: "Dich zu zeigen, fällt dir gerade schwer. Lieber wartest du, bis etwas fertig ist, oder sagst: „Ich bin da noch nicht so weit.“ Das kennt fast jeder, der etwas Eigenes macht. Doch Musik wird nie fertig, und wer auf den passenden Moment wartet, wartet oft lange. Angst löst sich selten durch Warten. Sie wird kleiner mit dem ersten kleinen Schritt.",
+        frage: "Wem könntest du etwas Unfertiges vorspielen, ohne dass es sich gefährlich anfühlt?"
+      },
+      beides: {
+        text: "Du zeigst schon, was du tust, und trotzdem ist da die Stimme, die sagt: noch nicht so weit. Beides darf sein. Dass du dich zeigst, obwohl die Stimme da ist, ist Mut. Es braucht nicht weniger Zweifel, sondern das Vertrauen, dass auch Unfertiges klingen darf.",
+        frage: "Was hat sich verändert, als du dich das letzte Mal gezeigt hast?"
+      },
+      still: {
+        text: "Dich zu zeigen ist gerade weder ein Thema, das dich trägt, noch eines, das dich drückt. Vielleicht spielst du vor allem für dich, und das ist ein schöner Ort. Irgendwann kommt oft der Wunsch, etwas zu teilen. Dann darf er klein anfangen.",
+        frage: "Gibt es jemanden, der gar nicht weiß, dass dich die Handpan beschäftigt?"
+      }
+    }
+  };
+  var GESAMTBILD = {
+    titel: "Dein Gesamtbild",
+    vielFest: "Vieles trägt dich schon. Du hast einen festen Boden, auf dem du weitergehen kannst. Für dich geht es weniger darum, etwas zu reparieren, als darum, das, was schon da ist, mehr zu nutzen.",
+    vielBeides: "Vieles trägt dich schon, und gleichzeitig bewegt sich einiges. Das ist eine lebendige Mischung: Du hast Boden unter den Füßen und spürst trotzdem, wo es dich weiterzieht. Genau an solchen Stellen wächst man am schnellsten.",
+    vielBewegt: "Gerade bewegt sich bei dir viel. Das kann sich unruhig anfühlen. Es heißt aber vor allem, dass du ehrlich hingeschaut hast. Was sich bewegt, ist nicht festgefahren.",
+    gemischt: "Dein Bild ist gemischt: An manchen Stellen stehst du fest, an anderen ist es noch offen. Lies die fünf Säulen in Ruhe. Meist erkennt man sich in einer davon besonders wieder."
+  };
 
   // src/klangprofil/logik.ts
   var PUNKTE = { ja: 2, teils: 1, "eher-nicht": 0 };
@@ -550,6 +664,22 @@
   function deutlich(werte) {
     return SAEULEN.filter((_, i) => (werte[i] ?? 0) >= 2);
   }
+  function zustand(p, i) {
+    const t = (p.traegt[i] ?? 0) >= 2;
+    const z = (p.zieht[i] ?? 0) >= 2;
+    return t && z ? "beides" : t ? "fest" : z ? "bewegt" : "still";
+  }
+  function gesamtbild(p) {
+    const T = deutlich(p.traegt).length;
+    const Z = deutlich(p.zieht).length;
+    if (T >= 3 && Z <= 1)
+      return "vielFest";
+    if (T >= 3 && Z >= 2)
+      return "vielBeides";
+    if (T <= 2 && Z >= 3)
+      return "vielBewegt";
+    return "gemischt";
+  }
 
   // src/klangprofil/browser.ts
   var KP_ID_ERSATZ = "ohne-id";
@@ -697,16 +827,16 @@
     const quelle = quelleAusSuche(suche);
     let antworten = {};
     let startZeit = null;
-    let zustand = { art: "start" };
+    let zustand2 = { art: "start" };
     let formWerte = { vorname: "", mail: "" };
     const code = codeAusHash(location.hash);
     if (code)
-      zustand = { art: "ergebnis", ...ausVollCode(code), hinweis: null };
+      zustand2 = { art: "ergebnis", ...ausVollCode(code), hinweis: null };
     window.addEventListener("hashchange", () => {
       const c = codeAusHash(location.hash);
       if (!c)
         return;
-      if (zustand.art === "ergebnis" && vollCode(zustand.e, zustand.p) === c)
+      if (zustand2.art === "ergebnis" && vollCode(zustand2.e, zustand2.p) === c)
         return;
       wechseln({ art: "ergebnis", ...ausVollCode(c), hinweis: null });
     });
@@ -714,7 +844,7 @@
       return typeof antworten.f1 === "string" ? fragenDesZweigs(zweig(antworten.f1)) : [FRAGE_1];
     }
     function wechseln(z, scrollen = true) {
-      zustand = z;
+      zustand2 = z;
       zeichnen();
       if (scrollen) {
         try {
@@ -883,16 +1013,27 @@
         const saeulen2 = liste(art);
         return el("div", { class: "kp-abschnitt" }, el("h3", {}, SAEULEN_UEBERSCHRIFT[art]), ...saeulen2.length ? saeulen2.map((s) => el("div", { class: "kp-saeule-zeile" }, el("p", { class: "kp-saeule-name" }, SAEULEN_TEXTE[s].mitAlltagswort), el("p", { class: "kp-text" }, art === "zieht" && e.vertiefen && s === e.zieht && !p ? SAEULEN_TEXTE[s].vertiefen : SAEULEN_TEXTE[s][art]))) : [el("p", { class: "kp-text" }, art === "traegt" ? SONDERSATZ.nichtsTraegt : SONDERSATZ.nichtsZieht)]);
       };
-      const traegt = abschnitt("traegt");
-      const zieht = abschnitt("zieht");
       const extern = /^https?:\/\//.test(w.knopf.link) && !w.knopf.link.startsWith("https://handpan.schule/");
+      const kopf = p ? KOPF_SAEULEN : KOPF;
+      const mitte = p ? [
+        el("h2", { class: "section-title" }, GESAMTBILD.titel),
+        el("p", { class: "kp-text" }, GESAMTBILD[gesamtbild(p)]),
+        el("h2", { class: "section-title kp-saeulen-titel" }, ERGEBNIS_TITEL.saeulen),
+        el("div", { class: "kp-karten" }, ...SAEULEN.map((s, i) => {
+          const z = zustand(p, i);
+          const d = DEUTUNGEN[s][z];
+          return el("article", { class: "kp-karte", "data-zustand": z }, el("p", { class: "kp-zustand" }, ZUSTAND_TITEL[z]), el("h3", { class: "kp-saeule-name" }, SAEULEN_TEXTE[s].mitAlltagswort), el("p", { class: "kp-text" }, d.text), el("p", { class: "kp-mitnehmen" }, el("span", { class: "kp-mitnehmen-titel" }, ERGEBNIS_TITEL.frage), d.frage));
+        })),
+        el("hr", { class: "kp-trenner" }),
+        el("p", { class: "kp-zustand" }, ERGEBNIS_TITEL.schritt)
+      ] : [abschnitt("traegt"), abschnitt("zieht"), el("hr", { class: "kp-trenner" })];
       return [
-        el("section", { class: "page-hero kp-hero" }, el("div", { class: "hero-content container-narrow" }, hinweis === "gesendet" ? el("p", { class: "kp-mailhinweis", role: "status" }, MELDUNGEN.hinweisNachAbschicken) : null, hinweis === "nicht-gesendet" ? el("p", { class: "kp-mailhinweis", role: "status" }, MELDUNGEN.mailNichtVerschickt) : null, el("h1", { tabindex: "-1" }, KOPF.titel), el("p", { class: "hero-subtitle" }, KOPF.text))),
-        el("section", { class: "section-dark" }, el("div", { class: "container-narrow" }, traegt, zieht, el("hr", { class: "kp-trenner" }), el("h2", { class: "section-title" }, w.titel), ...w.absaetze.map((a) => el("p", { class: "kp-text" }, a)), el("p", { class: "kp-start-zeile kp-mitte" }, el("a", { class: "cta", href: w.knopf.link, target: extern ? "_blank" : undefined, rel: extern ? "noopener" : undefined }, w.knopf.text))))
+        el("section", { class: "page-hero kp-hero" }, el("div", { class: "hero-content container-narrow" }, hinweis === "gesendet" ? el("p", { class: "kp-mailhinweis", role: "status" }, MELDUNGEN.hinweisNachAbschicken) : null, hinweis === "nicht-gesendet" ? el("p", { class: "kp-mailhinweis", role: "status" }, MELDUNGEN.mailNichtVerschickt) : null, el("h1", { tabindex: "-1" }, kopf.titel), el("p", { class: "hero-subtitle" }, kopf.text))),
+        el("section", { class: "section-dark" }, el("div", { class: "container-narrow" }, ...mitte, el("h2", { class: "section-title" }, w.titel), ...w.absaetze.map((a) => el("p", { class: "kp-text" }, a)), el("p", { class: "kp-start-zeile kp-mitte" }, el("a", { class: "cta", href: w.knopf.link, target: extern ? "_blank" : undefined, rel: extern ? "noopener" : undefined }, w.knopf.text))))
       ];
     }
     function zeichnen() {
-      const z = zustand;
+      const z = zustand2;
       const teile = z.art === "start" ? startSeite() : z.art === "frage" ? frageSeite(z.i, z.meldung) : z.art === "formular" ? formularSeite() : ergebnisSeite(z.e, z.p, z.hinweis);
       wurzel.replaceChildren(...teile);
       wurzel.dataset.zustand = z.art;
