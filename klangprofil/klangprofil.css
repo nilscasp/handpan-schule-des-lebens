@@ -243,3 +243,18 @@
 @media (prefers-reduced-motion: reduce) {
     #klangprofil .kp-antwort { transition: none; }
 }
+
+/* Eigenständige Seite: nur Logo oben, Pflichtzeile unten (Nils, 21.11.2026) */
+.kp-kopf {
+  display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+  padding: var(--spacing-md) 16px var(--spacing-sm);
+}
+.kp-kopf img { width: 40px; height: 40px; opacity: 0.9; }
+.kp-kopf-name {
+  font-family: var(--font-logo); color: var(--color-text);
+  font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase;
+}
+.kp-fuss { padding: var(--spacing-lg) 16px var(--spacing-md); text-align: center; }
+.kp-fuss p { margin: 0; font-size: 0.8rem; color: var(--color-text-muted); }
+.kp-fuss a { color: var(--color-text-muted); }
+.kp-fuss a:hover { color: var(--color-accent); }
