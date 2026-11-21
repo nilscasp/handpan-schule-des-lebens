@@ -286,7 +286,8 @@
   var EINWILLIGUNG_KEINE = "0.0";
   var EINWILLIGUNG_TEXT = "Ich möchte mein Klangprofil per Mail bekommen. Nils darf mir danach weitere Mails schicken, mit Gedanken zum Spielen und mit seinen Angeboten. Ich kann mich jederzeit mit einem Klick abmelden. Mehr dazu in der {link_datenschutz}.";
   var FORMULAR = {
-    ueberschrift: "Wohin soll ich dir dein Klangprofil schicken?",
+    ueberschrift: "Dein Klangprofil ist fertig",
+    kopf: "Trag noch deinen Vornamen und deine Mailadresse ein, dann zeige ich es dir.",
     feldVorname: "Vorname",
     feldMail: "E-Mail-Adresse",
     einwilligung: EINWILLIGUNG_TEXT,
@@ -1056,8 +1057,13 @@
         absenden.textContent = MELDUNGEN.knopfSendet;
         abschicken(vorname.value, mail.value, honig.value, perMail.checked);
       });
+      const pv = profil(antworten);
+      const vorschau = el("div", { class: "kp-vorschau", "aria-hidden": "true" }, el("p", { class: "section-title" }, GESAMTBILD.titel), el("p", { class: "kp-text" }, GESAMTBILD[gesamtbild(pv)]), el("div", { class: "kp-karten" }, ...SAEULEN.map((s, i) => {
+        const z = zustand(pv, i);
+        return el("div", { class: "kp-karte", "data-zustand": z }, el("p", { class: "kp-zustand" }, ZUSTAND_TITEL[z]), el("p", { class: "kp-saeule-name" }, SAEULEN_TEXTE[s].mitAlltagswort), el("p", { class: "kp-text" }, DEUTUNGEN[s][z].text));
+      })));
       return [
-        el("section", { class: "kp-buehne" }, el("div", { class: "container-narrow" }, el("h2", { class: "kp-frage", tabindex: "-1" }, FORMULAR.ueberschrift), form, el("p", { class: "kp-unter" }, vorLink ?? "", el("a", { href: LINKS.datenschutz }, FORMULAR.linktextDatenschutz), nachLink ?? ""), el("div", { class: "kp-leiste" }, knopf(MELDUNGEN.zurueck, "kp-zurueck", () => zurueck(fragen().length)))))
+        el("section", { class: "kp-buehne kp-mit-vorschau" }, vorschau, el("div", { class: "container-narrow kp-vor-vorschau" }, el("h2", { class: "kp-frage", tabindex: "-1" }, FORMULAR.ueberschrift), el("p", { class: "kp-text kp-formular-kopf" }, FORMULAR.kopf), form, el("p", { class: "kp-unter" }, vorLink ?? "", el("a", { href: LINKS.datenschutz }, FORMULAR.linktextDatenschutz), nachLink ?? ""), el("div", { class: "kp-leiste" }, knopf(MELDUNGEN.zurueck, "kp-zurueck", () => zurueck(fragen().length)))))
       ];
     }
     async function abschicken(vorname, mail, hp, mitMail) {
