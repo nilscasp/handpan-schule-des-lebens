@@ -649,12 +649,13 @@
       return null;
     }
   }
-  async function brevoSenden(k, f, felder) {
+  async function brevoSenden(k, f, felder, mitMail = true) {
     try {
       const fd = new FormData;
       for (const [n, w] of felder)
         fd.append(n, w);
-      const r = await mitZeitlimit(f, `${k.brevoAction}?isAjax=1`, { method: "POST", body: fd });
+      const ziel = mitMail ? k.brevoAction : k.brevoActionOhne;
+      const r = await mitZeitlimit(f, `${ziel}?isAjax=1`, { method: "POST", body: fd });
       return brevoErfolg(await r.json());
     } catch {
       return false;
@@ -856,11 +857,10 @@
         } catch {
           id = null;
         }
-        if (mitMail) {
-          const attr = brevoAttribute(e, { stand: stand2, id: id ?? KP_ID_ERSATZ });
-          const ok = await brevoSenden(konfig, f, brevoFelder({ mail, vorname, hp }, attr));
+        const attr = brevoAttribute(e, { stand: stand2, id: id ?? KP_ID_ERSATZ });
+        const ok = await brevoSenden(konfig, f, brevoFelder({ mail, vorname, hp }, attr), mitMail);
+        if (mitMail)
           hinweis = ok ? "gesendet" : "nicht-gesendet";
-        }
       }
       try {
         history.replaceState(null, "", `${location.pathname}${location.search}#e=${vollCode(e, p)}`);
@@ -903,7 +903,7 @@
     const los = () => {
       const w = document.getElementById("klangprofil");
       if (w)
-        starten(w, { supabaseUrl: "https://nffjqbuzqcdxvnteryms.supabase.co", supabaseKey: "sb_publishable__8OliXLjIGRE8W8GVPCnSg_plwwMxyd", brevoAction: "https://f66d0849.sibforms.com/serve/MUIFAANzF1XYNU5dAK7-HaPuTCAZhMa2E-ew-DNUK1LGJQXuj-rW_SnNzyvdhx-qPSqsLtx4Vh-81Viht-OM4omplARTGq4mXb8MdAMzS4i0p4XvM5Cp8FEbibiy7n9yFqPjNLW_VjU7Uv0-dtJYY2GiWqrpd4zJqedioCefoulBHFwYCo4Q_rHlnNRPgg__bybx2zO7jkfJdoEo" });
+        starten(w, { supabaseUrl: "https://nffjqbuzqcdxvnteryms.supabase.co", supabaseKey: "sb_publishable__8OliXLjIGRE8W8GVPCnSg_plwwMxyd", brevoAction: "https://f66d0849.sibforms.com/serve/MUIFAANzF1XYNU5dAK7-HaPuTCAZhMa2E-ew-DNUK1LGJQXuj-rW_SnNzyvdhx-qPSqsLtx4Vh-81Viht-OM4omplARTGq4mXb8MdAMzS4i0p4XvM5Cp8FEbibiy7n9yFqPjNLW_VjU7Uv0-dtJYY2GiWqrpd4zJqedioCefoulBHFwYCo4Q_rHlnNRPgg__bybx2zO7jkfJdoEo", brevoActionOhne: "https://f66d0849.sibforms.com/serve/MUIFAIuV4NmzhfrjWBQq1bnyxNSuQXp7enVBowz6y8LG2Yoq7wK1GHT9LvBuatV1E62uGvchNHJvxnlvIHKHJXOwOP43-yswmooq7bAbZpbgxIdq_89foGCk11kGkt7Hujedqw6l_gOoNijmuOneYCGH9JSwPh1-BvWCJlEEVQwxKU6SOcT-My0yYfLmdujrOZwmRWOWmGdYo0eu" });
     };
     if (document.readyState === "loading")
       document.addEventListener("DOMContentLoaded", los);
