@@ -197,7 +197,7 @@
     vonAnfangAn: "https://handpan.schule/von-anfang-an-handpan-spielen/",
     rhythmusFundament: "https://handpan.schule/rhythmus-fundament/",
     tidycal15min: "https://tidycal.com/handpanschule/15-minuten-kennenlernen",
-    youtube: "https://www.youtube.com/@nilscaspar36",
+    youtube: "https://www.youtube.com/@handpan.schule",
     datenschutz: "/datenschutz/"
   };
   var WEGE = {
@@ -486,7 +486,7 @@
   };
   var JAHRESWEG = {
     titel: "Dein Profil im Jahresweg",
-    einleitung: "In meiner Mitgliedschaft arbeiten wir ein Jahr lang an sechs Themen, in zwei Stufen. Stufe 1 heißt Persönlichkeit: Regelmäßigkeit, Ausrichtung und Freude am Spielen. Stufe 2 heißt Seele: Emotionen, Freiheit und Wahrhaftigkeit. Die Stufen sind keine Noten, sondern zwei Programme für verschiedene Abschnitte auf dem Weg.",
+    einleitung: "In meiner Mitgliedschaft arbeiten wir ein Jahr lang an sechs Themen, in zwei Stufen. Stufe 1 heißt Persönlichkeit: Regelmäßigkeit, Ausrichtung und Freude am Spielen. Stufe 2 heißt Seele: Emotionen, Freiheit und Wahrhaftigkeit. Welche Stufe gerade zu dir passt, finden wir im Gespräch heraus.",
     zeileVor: "Am meisten berührt dein Profil gerade:",
     saetze: {
       regelmaessigkeit: "eine Praxis, die wiederkehrt und dich trägt, auch an Tagen ohne Lust.",
