@@ -960,3 +960,98 @@
             // If 'decline'/'declined' → do nothing, no tracking
         });
 
+        // ============================================
+        // KLANGPROFIL-HINWEIS (Pop-up, Zusatztexte T5, Regeln E10)
+        // Frühestens nach 30 s oder halber Seite, höchstens einmal in 30 Tagen,
+        // erst nach der Cookie-Wahl, nicht auf Klangprofil-, Rechts-, Kauf- und fremdsprachigen Seiten.
+        // localStorage merkt sich nur den Zeitpunkt (technisch notwendig, kein Tracking).
+        // ============================================
+        (function() {
+            var SCHLUESSEL = 'hps-klangprofil-hinweis';
+            var PAUSE_MS = 30 * 24 * 60 * 60 * 1000;
+            var NICHT_AUF = [
+                '/klangprofil/', '/datenschutz/', '/impressum/', '/quiz/', '/links/', '/dabei-sein/', '/geschenk/', '/feuer/',
+                '/von-anfang-an-handpan-spielen/', '/rhythmus-fundament/', '/handpan-path/', '/mitgliedschaft/', '/retreats/',
+                '/en/', '/es/', '/fr/', '/pt/', '/zh/', '/ja/'
+            ];
+            var pfad = location.pathname.replace(/\/?$/, '/'); // „/klangprofil“ wie „/klangprofil/“
+            for (var i = 0; i < NICHT_AUF.length; i++) {
+                if (pfad.indexOf(NICHT_AUF[i]) === 0) return;
+            }
+
+            function lesen() {
+                try { return Number(localStorage.getItem(SCHLUESSEL)) || 0; } catch (e) { return Date.now(); }
+            }
+            function merken() {
+                try { localStorage.setItem(SCHLUESSEL, String(Date.now())); } catch (e) { /* ohne Speicher: nur diese Seite */ }
+            }
+            function cookieWahlGetroffen() {
+                try { return !!localStorage.getItem('cookie-consent'); } catch (e) { return false; }
+            }
+            if (Date.now() - lesen() < PAUSE_MS) return;
+
+            var gezeigt = false;
+            var zeitgeber = null;
+
+            function zeigen() {
+                if (gezeigt) return;
+                // Nicht über dem Cookie-Banner: erst nach der Wahl, sonst später nochmal prüfen.
+                if (!cookieWahlGetroffen()) { clearTimeout(zeitgeber); zeitgeber = setTimeout(zeigen, 5000); return; }
+                gezeigt = true;
+                window.removeEventListener('scroll', beimScrollen);
+                merken();
+
+                var stil = document.createElement('style');
+                stil.textContent =
+                    '.hps-kp-popup{position:fixed;right:16px;bottom:16px;z-index:190;max-width:360px;width:calc(100% - 32px);box-sizing:border-box;' +
+                    'background:rgba(10,14,20,0.97);border:1px solid rgba(212,165,116,0.35);padding:1.25rem 1.25rem 1rem;' +
+                    'color:var(--color-text);font-family:var(--font-sans);box-shadow:0 12px 40px rgba(0,0,0,0.45);' +
+                    'opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s ease}' +
+                    '.hps-kp-popup.sichtbar{opacity:1;transform:none}' +
+                    '.hps-kp-popup h2{font-family:var(--font-serif);font-size:1.15rem;line-height:1.3;margin:0 1.5rem .5rem 0;color:var(--color-text)}' +
+                    '.hps-kp-popup p{font-size:.95rem;line-height:1.5;margin:0 0 1rem;color:var(--color-text-muted)}' +
+                    '.hps-kp-popup .hps-kp-popup-los{display:block;text-align:center;padding:.8rem 1rem;border:1px solid var(--color-accent);' +
+                    'color:var(--color-bg);background:var(--color-accent);text-decoration:none;font-family:var(--font-nav);font-size:.85rem;letter-spacing:.08em}' +
+                    '.hps-kp-popup .hps-kp-popup-nein{display:block;margin:.6rem auto 0;background:none;border:0;color:var(--color-text-muted);' +
+                    'font-family:var(--font-nav);font-size:.8rem;cursor:pointer;padding:.4rem .8rem;min-height:44px}' +
+                    '.hps-kp-popup .hps-kp-popup-x{position:absolute;top:.4rem;right:.4rem;background:none;border:0;color:var(--color-text-muted);' +
+                    'font-size:1.4rem;line-height:1;cursor:pointer;width:44px;height:44px}' +
+                    '@media (prefers-reduced-motion:reduce){.hps-kp-popup{transition:none}}';
+                document.head.appendChild(stil);
+
+                var kasten = document.createElement('aside');
+                kasten.className = 'hps-kp-popup';
+                kasten.setAttribute('role', 'dialog');
+                kasten.setAttribute('aria-labelledby', 'hps-kp-popup-titel');
+                kasten.innerHTML =
+                    '<button type="button" class="hps-kp-popup-x" aria-label="Schließen">×</button>' +
+                    '<h2 id="hps-kp-popup-titel">Wo stehst du gerade mit der Handpan?</h2>' +
+                    '<p>Dein Klangprofil zeigt dir in etwa fünf Minuten, was dich schon trägt und wohin es dich gerade zieht.</p>' +
+                    '<a class="hps-kp-popup-los" href="/klangprofil/?utm_source=website&amp;utm_content=popup">Zu meinem Klangprofil</a>' +
+                    '<button type="button" class="hps-kp-popup-nein">Nicht jetzt</button>';
+
+                function schliessen() {
+                    kasten.classList.remove('sichtbar');
+                    document.removeEventListener('keydown', beiTaste);
+                    setTimeout(function() { if (kasten.parentNode) kasten.parentNode.removeChild(kasten); }, 400);
+                }
+                function beiTaste(e) { if (e.key === 'Escape') schliessen(); }
+                kasten.querySelector('.hps-kp-popup-x').addEventListener('click', schliessen);
+                kasten.querySelector('.hps-kp-popup-nein').addEventListener('click', schliessen);
+                document.addEventListener('keydown', beiTaste);
+
+                document.body.appendChild(kasten);
+                requestAnimationFrame(function() { requestAnimationFrame(function() { kasten.classList.add('sichtbar'); }); });
+            }
+
+            function beimScrollen() {
+                var hoehe = document.documentElement.scrollHeight - window.innerHeight;
+                if (hoehe > 0 && window.scrollY / hoehe >= 0.5) { clearTimeout(zeitgeber); zeigen(); }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                zeitgeber = setTimeout(zeigen, 30000);
+                window.addEventListener('scroll', beimScrollen, { passive: true });
+            });
+        })();
+
