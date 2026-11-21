@@ -42,6 +42,7 @@
   // src/klangprofil/browser.ts
   var exports_browser = {};
   __export(exports_browser, {
+    vollCode: () => vollCode,
     supabaseAbgeben: () => supabaseAbgeben,
     starten: () => starten,
     quelleAusSuche: () => quelleAusSuche,
@@ -51,6 +52,7 @@
     brevoSenden: () => brevoSenden,
     brevoFelder: () => brevoFelder,
     brevoErfolg: () => brevoErfolg,
+    ausVollCode: () => ausVollCode,
     antwortSetzen: () => antwortSetzen,
     MINDEST_SEK: () => MINDEST_SEK,
     KP_ID_ERSATZ: () => KP_ID_ERSATZ
@@ -280,8 +282,9 @@
       ]
     }
   };
-  var EINWILLIGUNG_FASSUNG = "2.3";
-  var EINWILLIGUNG_TEXT = "Mit dem Klick bekommst du dein Klangprofil per Mail und ab und zu weitere Mails zu meinem Programm.";
+  var EINWILLIGUNG_FASSUNG = "2.4";
+  var EINWILLIGUNG_KEINE = "0.0";
+  var EINWILLIGUNG_TEXT = "Ich möchte mein Klangprofil per Mail bekommen. Nils darf mir danach weitere Mails schicken, mit Gedanken zum Spielen und mit seinen Angeboten. Ich kann mich jederzeit mit einem Klick abmelden. Mehr dazu in der {link_datenschutz}.";
   var FORMULAR = {
     ueberschrift: "Wohin soll ich dir dein Klangprofil schicken?",
     feldVorname: "Vorname",
@@ -506,7 +509,7 @@
       saeule_traegt: nummer(sa.traegt),
       saeule_zieht: nummer(sa.zieht),
       vertiefen: sa.vertiefen,
-      einwilligung_fassung: EINWILLIGUNG_FASSUNG,
+      einwilligung_fassung: extras.einwilligung === false ? EINWILLIGUNG_KEINE : EINWILLIGUNG_FASSUNG,
       dauer_sek: Number.isFinite(extras.dauer_sek) ? Math.max(0, Math.round(extras.dauer_sek)) : 0,
       quelle: quelleWert(extras.quelle),
       quelle_inhalt: quelleWert(extras.quelle_inhalt),
@@ -531,6 +534,22 @@
       KP_ID: kontext.id
     };
   }
+  function profil(antworten) {
+    const a = anteile(antworten);
+    return { traegt: SAEULEN.map((s) => a.traegt[s]), zieht: SAEULEN.map((s) => a.zieht[s]) };
+  }
+  function profilCode(p) {
+    return [...p.traegt, ...p.zieht].map((n) => String(Math.max(0, Math.min(4, Math.round(n))))).join("");
+  }
+  function ausProfilCode(c) {
+    if (!/^[0-4]{10}$/.test(c))
+      return null;
+    const z = [...c].map(Number);
+    return { traegt: z.slice(0, 5), zieht: z.slice(5) };
+  }
+  function deutlich(werte) {
+    return SAEULEN.filter((_, i) => (werte[i] ?? 0) >= 2);
+  }
 
   // src/klangprofil/browser.ts
   var KP_ID_ERSATZ = "ohne-id";
@@ -541,8 +560,18 @@
     return h === "1" || h === "2" || h === "3" ? Number(h) : LANDINGPAGE.ueberschriftStandard;
   }
   function codeAusHash(hash) {
-    const m = /^#e=([a-z0-9-]+)$/.exec(hash);
-    return m && ausCode(m[1]) ? m[1] : null;
+    const m = /^#e=([a-z0-9-]+?)(-p[0-4]{10})?$/.exec(hash);
+    return m && ausCode(m[1]) ? m[1] + (m[2] ?? "") : null;
+  }
+  function ausVollCode(c) {
+    const m = /^([a-z0-9-]+?)(?:-p([0-4]{10}))?$/.exec(c);
+    const e = m ? ausCode(m[1]) : null;
+    if (!m || !e)
+      return null;
+    return { e, p: m[2] ? ausProfilCode(m[2]) : null };
+  }
+  function vollCode(e, p) {
+    return ergebnisCode(e) + (p ? `-p${profilCode(p)}` : "");
   }
   function quelleWert2(v) {
     if (v === null)
@@ -660,7 +689,7 @@
     return b;
   }
   function starten(wurzel, konfig, umgebung = {}) {
-    const f = umgebung.fetch ?? ((...a) => fetch(...a));
+    const f = umgebung.fetch ?? ((url, init) => fetch(url, init));
     const jetzt = umgebung.jetzt ?? (() => Date.now());
     const suche = location.search;
     const variante = hVariante(suche);
@@ -671,14 +700,14 @@
     let formWerte = { vorname: "", mail: "" };
     const code = codeAusHash(location.hash);
     if (code)
-      zustand = { art: "ergebnis", e: ausCode(code), hinweis: null };
+      zustand = { art: "ergebnis", ...ausVollCode(code), hinweis: null };
     window.addEventListener("hashchange", () => {
       const c = codeAusHash(location.hash);
       if (!c)
         return;
-      if (zustand.art === "ergebnis" && ergebnisCode(zustand.e) === c)
+      if (zustand.art === "ergebnis" && vollCode(zustand.e, zustand.p) === c)
         return;
-      wechseln({ art: "ergebnis", e: ausCode(c), hinweis: null });
+      wechseln({ art: "ergebnis", ...ausVollCode(c), hinweis: null });
     });
     function fragen() {
       return typeof antworten.f1 === "string" ? fragenDesZweigs(zweig(antworten.f1)) : [FRAGE_1];
@@ -792,7 +821,9 @@
       const honig = el("input", { type: "text", name: "email_address_check", value: "", tabindex: "-1", autocomplete: "off", "aria-hidden": "true", class: "kp-honig" });
       const absenden = el("button", { type: "submit", class: "cta kp-absenden" }, FORMULAR.knopf);
       const [vorLink, nachLink] = FORMULAR.zeileUnterFormular.split("{link_datenschutz}");
-      const form = el("form", { class: "kp-formular", novalidate: true }, el("label", { for: "kp-vorname" }, FORMULAR.feldVorname), vorname, el("label", { for: "kp-mail" }, FORMULAR.feldMail), mail, honig, meldung, el("p", { class: "kp-einwilligung" }, FORMULAR.einwilligung), absenden);
+      const perMail = el("input", { type: "checkbox", id: "kp-einwilligung", name: "einwilligung" });
+      const [einwVor, einwNach] = FORMULAR.einwilligung.split("{link_datenschutz}");
+      const form = el("form", { class: "kp-formular", novalidate: true }, el("label", { for: "kp-vorname" }, FORMULAR.feldVorname), vorname, el("label", { for: "kp-mail" }, FORMULAR.feldMail), mail, honig, meldung, el("label", { class: "kp-einwilligung kp-kaestchen", for: "kp-einwilligung" }, perMail, el("span", {}, einwVor ?? "", el("a", { href: LINKS.datenschutz, target: "_blank", rel: "noopener" }, FORMULAR.linktextDatenschutz), einwNach ?? "")), absenden);
       form.addEventListener("submit", (ev) => {
         ev.preventDefault();
         formWerte = { vorname: vorname.value, mail: mail.value };
@@ -804,14 +835,15 @@
         }
         absenden.disabled = true;
         absenden.textContent = MELDUNGEN.knopfSendet;
-        abschicken(vorname.value, mail.value, honig.value);
+        abschicken(vorname.value, mail.value, honig.value, perMail.checked);
       });
       return [
         el("section", { class: "kp-buehne" }, el("div", { class: "container-narrow" }, el("h2", { class: "kp-frage", tabindex: "-1" }, FORMULAR.ueberschrift), form, el("p", { class: "kp-unter" }, vorLink ?? "", el("a", { href: LINKS.datenschutz }, FORMULAR.linktextDatenschutz), nachLink ?? ""), el("div", { class: "kp-leiste" }, knopf(MELDUNGEN.zurueck, "kp-zurueck", () => zurueck(fragen().length)))))
       ];
     }
-    async function abschicken(vorname, mail, hp) {
+    async function abschicken(vorname, mail, hp, mitMail) {
       const e = ergebnis(antworten);
+      const p = profil(antworten);
       const stand2 = antworten.f1;
       const dauer = startZeit === null ? 0 : (jetzt() - startZeit) / 1000;
       const verwerfen = hp !== "" || dauer < MINDEST_SEK;
@@ -819,37 +851,49 @@
       if (!verwerfen) {
         let id = null;
         try {
-          const paket = abgabe(antworten, { dauer_sek: dauer, ...quelle, mail, vorname, hp });
+          const paket = abgabe(antworten, { dauer_sek: dauer, ...quelle, mail, vorname, hp, einwilligung: mitMail });
           id = await supabaseAbgeben(konfig, f, paket);
         } catch {
           id = null;
         }
-        const attr = brevoAttribute(e, { stand: stand2, id: id ?? KP_ID_ERSATZ });
-        const ok = await brevoSenden(konfig, f, brevoFelder({ mail, vorname, hp }, attr));
-        hinweis = ok ? "gesendet" : "nicht-gesendet";
+        if (mitMail) {
+          const attr = brevoAttribute(e, { stand: stand2, id: id ?? KP_ID_ERSATZ });
+          const ok = await brevoSenden(konfig, f, brevoFelder({ mail, vorname, hp }, attr));
+          hinweis = ok ? "gesendet" : "nicht-gesendet";
+        }
       }
       try {
-        history.replaceState(null, "", `${location.pathname}${location.search}#e=${ergebnisCode(e)}`);
+        history.replaceState(null, "", `${location.pathname}${location.search}#e=${vollCode(e, p)}`);
       } catch {}
       pixel("trackCustom", "KlangprofilAbgeschlossen");
       if (hinweis === "gesendet")
         pixel("track", "Lead", { content_name: "Klangprofil" });
-      wechseln({ art: "ergebnis", e, hinweis });
+      wechseln({ art: "ergebnis", e, p, hinweis });
     }
-    function ergebnisSeite(e, hinweis) {
+    function ergebnisSeite(e, p, hinweis) {
       const w = WEGE[e.weg];
-      const block = (titel, name, satz) => el("div", { class: "feature-card kp-saeule" }, el("h3", {}, titel), el("p", { class: "kp-saeule-name" }, name), el("p", {}, satz));
-      const traegt = e.traegt ? block(SAEULEN_UEBERSCHRIFT.traegt, SAEULEN_TEXTE[e.traegt].mitAlltagswort, SAEULEN_TEXTE[e.traegt].traegt) : el("div", { class: "feature-card kp-saeule" }, el("p", {}, SONDERSATZ.nichtsTraegt));
-      const zieht = e.zieht ? block(SAEULEN_UEBERSCHRIFT.zieht, SAEULEN_TEXTE[e.zieht].mitAlltagswort, e.vertiefen ? SAEULEN_TEXTE[e.zieht].vertiefen : SAEULEN_TEXTE[e.zieht].zieht) : el("div", { class: "feature-card kp-saeule" }, el("p", {}, SONDERSATZ.nichtsZieht));
+      const liste = (art) => {
+        const eine = art === "traegt" ? e.traegt : e.zieht;
+        if (!p)
+          return eine ? [eine] : [];
+        const viele = deutlich(p[art]);
+        return viele.length ? viele : eine ? [eine] : [];
+      };
+      const abschnitt = (art) => {
+        const saeulen2 = liste(art);
+        return el("div", { class: "kp-abschnitt" }, el("h3", {}, SAEULEN_UEBERSCHRIFT[art]), ...saeulen2.length ? saeulen2.map((s) => el("div", { class: "kp-saeule-zeile" }, el("p", { class: "kp-saeule-name" }, SAEULEN_TEXTE[s].mitAlltagswort), el("p", { class: "kp-text" }, art === "zieht" && e.vertiefen && s === e.zieht && !p ? SAEULEN_TEXTE[s].vertiefen : SAEULEN_TEXTE[s][art]))) : [el("p", { class: "kp-text" }, art === "traegt" ? SONDERSATZ.nichtsTraegt : SONDERSATZ.nichtsZieht)]);
+      };
+      const traegt = abschnitt("traegt");
+      const zieht = abschnitt("zieht");
       const extern = /^https?:\/\//.test(w.knopf.link) && !w.knopf.link.startsWith("https://handpan.schule/");
       return [
         el("section", { class: "page-hero kp-hero" }, el("div", { class: "hero-content container-narrow" }, hinweis === "gesendet" ? el("p", { class: "kp-mailhinweis", role: "status" }, MELDUNGEN.hinweisNachAbschicken) : null, hinweis === "nicht-gesendet" ? el("p", { class: "kp-mailhinweis", role: "status" }, MELDUNGEN.mailNichtVerschickt) : null, el("h1", { tabindex: "-1" }, KOPF.titel), el("p", { class: "hero-subtitle" }, KOPF.text))),
-        el("section", { class: "section-dark" }, el("div", { class: "container-narrow" }, el("h2", { class: "section-title" }, w.titel), ...w.absaetze.map((a) => el("p", { class: "kp-text" }, a)), el("div", { class: "kp-saeulen" }, traegt, zieht), el("p", { class: "kp-start-zeile kp-mitte" }, el("a", { class: "cta", href: w.knopf.link, target: extern ? "_blank" : undefined, rel: extern ? "noopener" : undefined }, w.knopf.text))))
+        el("section", { class: "section-dark" }, el("div", { class: "container-narrow" }, traegt, zieht, el("hr", { class: "kp-trenner" }), el("h2", { class: "section-title" }, w.titel), ...w.absaetze.map((a) => el("p", { class: "kp-text" }, a)), el("p", { class: "kp-start-zeile kp-mitte" }, el("a", { class: "cta", href: w.knopf.link, target: extern ? "_blank" : undefined, rel: extern ? "noopener" : undefined }, w.knopf.text))))
       ];
     }
     function zeichnen() {
       const z = zustand;
-      const teile = z.art === "start" ? startSeite() : z.art === "frage" ? frageSeite(z.i, z.meldung) : z.art === "formular" ? formularSeite() : ergebnisSeite(z.e, z.hinweis);
+      const teile = z.art === "start" ? startSeite() : z.art === "frage" ? frageSeite(z.i, z.meldung) : z.art === "formular" ? formularSeite() : ergebnisSeite(z.e, z.p, z.hinweis);
       wurzel.replaceChildren(...teile);
       wurzel.dataset.zustand = z.art;
     }

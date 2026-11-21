@@ -258,3 +258,8 @@
 .kp-fuss p { margin: 0; font-size: 0.8rem; color: var(--color-text-muted); }
 .kp-fuss a { color: var(--color-text-muted); }
 .kp-fuss a:hover { color: var(--color-accent); }
+#klangprofil .kp-kaestchen { display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer; }
+#klangprofil .kp-kaestchen input { flex: none; width: 1.2rem; height: 1.2rem; margin-top: 0.3rem; accent-color: var(--color-accent); }
+#klangprofil .kp-abschnitt { margin: var(--spacing-md) 0; }
+#klangprofil .kp-saeule-zeile { margin: var(--spacing-sm) 0; }
+#klangprofil .kp-trenner { border: 0; border-top: 1px solid rgba(255,255,255,0.12); margin: var(--spacing-lg) 0; }
