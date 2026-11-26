@@ -23,7 +23,7 @@
 
     <title>Die zwei Stufen · Dranbleiben und klingen, wie du bist · Handpan Schule des Lebens</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Die Handpan Schule des Lebens: zwei Stufen, ein Weg. Stufe 1 Persönlichkeit, das Fundament. Stufe 2 Seele, was darauf wächst. Ein Jahresweg per Video, Challenges, Forschungsaufgaben und Live-Calls mit Nils Caspar.">
+    <meta name="description" content="Die Handpan Schule des Lebens: zwei Stufen, ein Weg. Stufe 1 Persönlichkeit, das Fundament. Stufe 2 Seele, die Entfaltung. Ein Jahresweg per Video, Challenges, Forschungsaufgaben und Live-Calls mit Nils Caspar.">
     <meta name="author" content="Nils Caspar">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="DE-BY">
@@ -32,7 +32,7 @@
     <link rel="alternate" hreflang="de" href="https://handpan.schule/mitgliedschaft/">
     <!-- Open Graph -->
     <meta property="og:title" content="Die zwei Stufen · Handpan Schule des Lebens">
-    <meta property="og:description" content="Die Handpan Schule des Lebens: zwei Stufen, ein Weg. Stufe 1 Persönlichkeit, das Fundament. Stufe 2 Seele, was darauf wächst. Ein Jahresweg per Video, Challenges, Forschungsaufgaben und Live-Calls mit Nils Caspar.">
+    <meta property="og:description" content="Die Handpan Schule des Lebens: zwei Stufen, ein Weg. Stufe 1 Persönlichkeit, das Fundament. Stufe 2 Seele, die Entfaltung. Ein Jahresweg per Video, Challenges, Forschungsaufgaben und Live-Calls mit Nils Caspar.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://handpan.schule/mitgliedschaft/">
     <meta property="og:image" content="https://handpan.schule/og-logo.png">
@@ -44,7 +44,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Die zwei Stufen · Handpan Schule des Lebens">
-    <meta name="twitter:description" content="Die Handpan Schule des Lebens: zwei Stufen, ein Weg. Stufe 1 Persönlichkeit, das Fundament. Stufe 2 Seele, was darauf wächst. Ein Jahresweg per Video, Challenges, Forschungsaufgaben und Live-Calls mit Nils Caspar.">
+    <meta name="twitter:description" content="Die Handpan Schule des Lebens: zwei Stufen, ein Weg. Stufe 1 Persönlichkeit, das Fundament. Stufe 2 Seele, die Entfaltung. Ein Jahresweg per Video, Challenges, Forschungsaufgaben und Live-Calls mit Nils Caspar.">
     <meta name="twitter:image" content="https://handpan.schule/og-logo.png">
     <meta name="theme-color" content="#0A0E14">
     <link rel="apple-touch-icon" href="/og-logo.png">
@@ -67,6 +67,19 @@
         .ms-fakten { color: var(--color-text-muted); font-family: var(--font-nav); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; margin: 0.6rem 0 var(--spacing-md); }
         .ms-fakten span { white-space: nowrap; }
         .ms-slogan { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 1.3rem; color: var(--color-accent); margin: 0 0 var(--spacing-sm); }
+        /* Kopf mit Foto (übergangsweise, bis ein eigenes Video da ist), wie auf den Stufenseiten */
+        #main-content .gravur .page-hero-photo.ms-kopf { min-height: min(88vh, 780px); padding: 150px 0 var(--spacing-xl); overflow: hidden; }
+        .ms-kopf .page-hero-photo__img { object-position: center 45%; }
+        .ms-kopf .bg-overlay { background: linear-gradient(to bottom, rgba(10,14,20,0.66) 0%, rgba(10,14,20,0.46) 38%, rgba(10,14,20,0.6) 72%, #0A0E14 100%); }
+        .ms-kopf .page-hero-photo__content { padding: 0 var(--spacing-md); }
+        .ms-kopf h1 { color: var(--color-text); margin-bottom: var(--spacing-md); text-shadow: 0 2px 18px rgba(0,0,0,0.55); }
+        .ms-kopf .ms-kicker { text-shadow: 0 1px 10px rgba(0,0,0,0.7); }
+        .ms-kopf .hero-subtitle { color: var(--color-text); font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.55; max-width: 34em; margin: 0 auto var(--spacing-md); text-shadow: 0 1px 12px rgba(0,0,0,0.8); }
+        .ms-kopf .ms-fakten { color: rgba(232,230,227,0.82); text-shadow: 0 1px 8px rgba(0,0,0,0.8); }
+        @media (max-width: 768px) {
+            #main-content .gravur .page-hero-photo.ms-kopf { min-height: 92vh; padding: 120px 0 var(--spacing-lg); }
+            .ms-kopf .page-hero-photo__img { object-position: center 50%; }
+        }
         /* Kennst du das? */
         .ms-von-titel { text-align: center; font-family: var(--font-serif); font-weight: 300; font-size: 1.6rem; color: var(--color-text); margin: 0 auto var(--spacing-md); max-width: 560px; }
         .ms-von-titel em { color: var(--color-accent); }
@@ -273,22 +286,18 @@
          ============================================ -->
     <main id="main-content">
     <div id="page-mitgliedschaft" class="page-content active gravur">
-        <!-- 1 · Hero: Versprechen, Video, die Frage nach der Stufe -->
-        <section class="page-hero">
-            <div class="hero-content container-narrow">
-                <p class="ms-kicker">Zwei Stufen · Start am 7. Januar 2027</p>
+        <!-- 1 · Hero mit Foto (übergangsweise, bis ein eigenes Video da ist): Versprechen, die Frage nach der Stufe -->
+        <section class="page-hero-photo ms-kopf">
+            <picture>
+                <source type="image/webp" srcset="/images/optimized/hero-handpan-2-768.webp 768w, /images/optimized/hero-handpan-2-1280.webp 1280w, /images/optimized/hero-handpan-2-1920.webp 1920w" sizes="100vw">
+                <img src="/images/optimized/hero-handpan-2-1280.jpg" srcset="/images/optimized/hero-handpan-2-768.jpg 768w, /images/optimized/hero-handpan-2-1280.jpg 1280w, /images/optimized/hero-handpan-2-1920.jpg 1920w" sizes="100vw" width="1920" height="1280" class="page-hero-photo__img" alt="Zwei Hände über einer Handpan, Licht auf dem Metall" fetchpriority="high" decoding="async">
+            </picture>
+            <div class="bg-overlay"></div>
+            <div class="page-hero-photo__content container-narrow">
+                <p class="ms-kicker">Der Jahresweg · zwei Stufen · Start am 7. Januar 2027</p>
                 <h1>Dranbleiben. <em class="ms-gold">Und klingen, wie&nbsp;du&nbsp;bist.</em></h1>
-                <div class="hero-video" data-hero-video data-name="Mitgliedschaft">
-                    <video playsinline preload="none" poster="/video/mitgliedschaft-path-poster.jpg"
-                           data-src-720="/video/mitgliedschaft-path-720.mp4" data-src-540="/video/mitgliedschaft-path-540.mp4"
-                           aria-label="Nils Caspar über den Weg nach innen, mit Stimmen von Teilnehmenden, 2 Minuten"></video>
-                    <button class="hero-video-play" type="button" aria-label="Video abspielen: Nils über den Weg nach innen, 2 Minuten">
-                        <span class="hero-video-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-                        <span class="hero-video-label">Nils über den Weg · 2 Min</span>
-                    </button>
-                </div>
                 <p class="hero-subtitle">Zwei Stufen, ein Weg: für alle, die mit der Handpan langfristig wachsen wollen.</p>
-                <p class="ms-fakten"><span>Online</span> · <span>Live-Calls jeden Monat</span> · <span>ein Jahr mit mir</span></p>
+                <p class="ms-fakten"><span>Online</span> · <span>ein Jahr lang begleitet</span> · <span>ab 725&nbsp;€</span></p>
                 <a class="cta cta--primary" href="#stufen">Deine Stufe finden</a>
             </div>
         </section>
@@ -303,7 +312,7 @@
                     </a>
                     <figcaption id="ms-baum-text">
                         Unten das Fundament, <em>Persönlichkeit</em>: Regelmäßigkeit, Ausrichtung und Freude am Spielen.
-                        Oben, was darauf wächst, <em>Seele</em>: Emotionen, Freiheit und Wahrhaftigkeit.
+                        Oben die Entfaltung, <em>Seele</em>: Emotionen, Freiheit und Wahrhaftigkeit.
                         In der Mitte trägt beide Stufen das <em>ekstatische Lernen</em>, allem voran das Forschen: So wird aus Wissen Erfahrung.
                         <a class="ms-mehr-link" href="/images/community/themenbaum-gross.jpg" target="_blank" rel="noopener">Themenbaum groß ansehen →</a>
                     </figcaption>
@@ -321,16 +330,16 @@
                         <p class="ms-wahl-von">Du übst, <em>aber kommst nicht voran</em></p>
                         <p class="ms-wahl-satz">Du setzt dich an die Handpan und weißt nicht recht, was du üben sollst. Eine eigene Praxis ist daraus noch nicht entstanden.</p>
                         <p class="ms-wahl-themen">Regelmäßigkeit · Ausrichtung · Freude am Spielen</p>
-                        <p class="ms-wahl-preis">725&nbsp;€ <small>im Jahr · Ein Live-Call im Monat</small></p>
+                        <p class="ms-wahl-preis">725&nbsp;€ <small>ein Jahr lang begleitet</small></p>
                         <p class="ms-wahl-weiter">Zur Stufe 1 →</p>
                     </a>
                     <a href="/mitgliedschaft/seele/" class="ms-wahl-karte ms-wahl-karte--seele">
-                        <p class="ms-tab">Stufe 2 <span>· was darauf wächst</span></p>
+                        <p class="ms-tab">Stufe 2 <span>· die Entfaltung</span></p>
                         <h3>Seele</h3>
-                        <p class="ms-wahl-von">Du kannst viel, <em>aber es ist noch nicht ganz deins</em></p>
-                        <p class="ms-wahl-satz">Du hast schon vieles verinnerlicht, Patterns, Rhythmen, vielleicht spielst du schon meditativ. Aber du spürst, dass dein eigener Ausdruck noch fehlt.</p>
+                        <p class="ms-wahl-von">Du möchtest noch mehr Feingefühl <em>in deinen Ausdruck bringen</em></p>
+                        <p class="ms-wahl-satz">Du spürst, wie viel Kraft und Kreativität in dir steckt. Aber du kommst an die Grenzen deiner Ausdrucksmöglichkeiten.</p>
                         <p class="ms-wahl-themen">Emotionen · Freiheit · Wahrhaftigkeit</p>
-                        <p class="ms-wahl-preis">1.525&nbsp;€ <small>im Jahr · Zwei Live-Calls im Monat</small></p>
+                        <p class="ms-wahl-preis">1.525&nbsp;€ <small>ein Jahr lang begleitet</small></p>
                         <p class="ms-wahl-weiter">Zur Stufe 2 →</p>
                     </a>
                 </div>
