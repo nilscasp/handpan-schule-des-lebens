@@ -74,7 +74,7 @@
           "name": "Welches Programm passt zu mir als Anfänger?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Für den sanften Einstieg eignen sich die Einsteigerkurse oder einzelne Workshops. Wenn du dich ernsthaft auf den Weg machen willst, ist das Rhythmus Fundament (6,5 Wochen, 399 €) der beste Start."
+            "text": "Wenn du dich ernsthaft auf den Weg machen willst, ist das Rhythmus Fundament (6,5 Wochen, 399 €) der beste Start."
           }
         },
         {
@@ -219,6 +219,8 @@
             animation-delay: calc(3.2s + var(--i, 0) * 1.6s);
         }
         .orb-node--h { --fw: 42px; --fh: 30px; }
+        .orb-node--sw .orb-dot { rotate: 60deg; }
+        .orb-node--se .orb-dot { rotate: -60deg; }
         /* Klangwelle beim Anschlag */
         .orb-dot::after {
             content: ''; position: absolute; inset: -2px; border-radius: 50%;
@@ -533,7 +535,6 @@
                     <ul class="nav-dropdown nav-dropdown--groups" role="menu">
                         <li class="nav-dd-col" role="none">
                             <p class="nav-dd-heading" aria-hidden="true">Gemeinsam lernen</p>
-                            <a href="/einsteigerkurse/" class="nav-dropdown-link" role="menuitem"><span class="nav-dd-title">Einsteigerkurs</span><span class="nav-dd-meta">2 Std · erster Kontakt</span></a>
                             <a href="/von-anfang-an-handpan-spielen/" class="nav-dropdown-link" role="menuitem"><span class="nav-dd-title">Von Anfang an spielen</span><span class="nav-dd-meta">10 Wochen · Anfänger</span></a>
                             <a href="/rhythmus-fundament/" class="nav-dropdown-link" role="menuitem"><span class="nav-dd-title">Rhythmus Fundament</span><span class="nav-dd-meta">6,5 Wochen · Fundament</span></a>
                         </li>
@@ -593,9 +594,9 @@
                             <ellipse class="orb-far orb-far--2" cx="50" cy="50" rx="45" ry="13" transform="rotate(24 50 50)"/>
                             <!-- Speichen vom Zentrum zu den Wegen -->
                             <g class="orb-spokes">
-                                <line x1="35" y1="50" x2="17" y2="50"/>
                                 <line x1="50" y1="35" x2="50" y2="17"/>
-                                <line x1="65" y1="50" x2="83" y2="50"/>
+                                <line x1="63" y1="57.5" x2="78.6" y2="66.5"/>
+                                <line x1="37" y1="57.5" x2="21.4" y2="66.5"/>
                             </g>
                             <!-- der Kreis der Gruppenwege -->
                             <circle class="orb-ring" cx="50" cy="50" r="33" pathLength="100" transform="rotate(180 50 50)"/>
@@ -614,17 +615,17 @@
                             <span class="orb-center-meta">kostenlos · 5 Minuten</span>
                         </a>
 
-                        <a href="/einsteigerkurse/" class="orb-node orb-node--below orb-node--h" style="--x:17%; --y:50%; --i:0">
-                            <span class="orb-dot"></span>
-                            <span class="orb-label"><span class="orb-title">Einsteigerkurs</span><span class="orb-meta">2 Std · erster Kontakt</span></span>
-                        </a>
-                        <a href="/von-anfang-an-handpan-spielen/" class="orb-node orb-node--above" style="--x:50%; --y:17%; --i:1">
+                        <a href="/von-anfang-an-handpan-spielen/" class="orb-node orb-node--above" style="--x:50%; --y:17%; --i:0">
                             <span class="orb-dot"></span>
                             <span class="orb-label"><span class="orb-title">Von Anfang an spielen</span><span class="orb-meta">10 Wochen · Anfänger</span></span>
                         </a>
-                        <a href="/rhythmus-fundament/" class="orb-node orb-node--below orb-node--h" style="--x:83%; --y:50%; --i:2">
+                        <a href="/rhythmus-fundament/" class="orb-node orb-node--below orb-node--se" style="--x:78.6%; --y:66.5%; --i:1">
                             <span class="orb-dot"></span>
                             <span class="orb-label"><span class="orb-title">Rhythmus Fundament</span><span class="orb-meta">6,5 Wochen · Fundament</span></span>
+                        </a>
+                        <a href="/mitgliedschaft/" class="orb-node orb-node--below orb-node--sw" style="--x:21.4%; --y:66.5%; --i:2">
+                            <span class="orb-dot"></span>
+                            <span class="orb-label"><span class="orb-title">Die zwei Stufen</span><span class="orb-meta">ein Jahr mit mir</span></span>
                         </a>
                     </div>
 
@@ -847,7 +848,6 @@
                 <div class="footer-col">
                     <p class="footer-col-heading">Angebote</p>
                     <ul>
-                        <li><a href="/einsteigerkurse/">Einsteigerkurse</a></li>
                         <li><a href="/von-anfang-an-handpan-spielen/">Von Anfang an spielen</a></li>
                         <li><a href="/rhythmus-fundament/">Rhythmus Fundament</a></li>
                         <li><a href="/handpan-path/">Jahreskurs</a></li>
