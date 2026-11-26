@@ -136,6 +136,18 @@
         .ms-stimme footer { margin-top: auto; padding-top: 0.6rem; font-family: var(--font-nav); font-size: 0.82rem; color: var(--color-accent); letter-spacing: 0.04em; }
         .ms-stimme footer a { color: var(--color-text-muted); }
         .ms-stimme footer span { display: block; color: var(--color-text-muted); font-size: 0.74rem; margin-top: 0.2rem; }
+        /* Sonjas Fazit nach sechs Monaten: ihre Ich-Sätze links, ihr Schluss rechts */
+        .ms-fazit { margin: 0 0 1.2rem; padding: 2.4rem 2.4rem 2.2rem; border: 1px solid rgba(212, 165, 116, 0.34); border-top: 2px solid var(--color-accent); background: linear-gradient(180deg, #111722, #0E131B); display: grid; grid-template-columns: 1.25fr 1fr; gap: 1rem 3rem; }
+        .ms-fazit-kopf { grid-column: 1 / -1; margin: 0 0 0.6rem; font-family: var(--font-nav); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent); }
+        .ms-fazit-liste { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.62rem; }
+        .ms-fazit-liste li { position: relative; padding-left: 1.3rem; line-height: 1.55; color: #D8D3CB; font-size: 1rem; }
+        .ms-fazit-liste li::before { content: ''; position: absolute; left: 0.1rem; top: 0.62em; width: 6px; height: 6px; background: var(--color-accent); transform: rotate(45deg); }
+        .ms-fazit-schluss { margin: 0; display: flex; flex-direction: column; justify-content: center; gap: 1.1rem; border-left: 1px solid rgba(212, 165, 116, 0.22); padding-left: 2.4rem; }
+        .ms-fazit-schluss p { margin: 0; color: #D8D3CB; line-height: 1.65; }
+        .ms-fazit-schluss .ms-fazit-klang { font-family: var(--font-serif); font-weight: 300; font-size: 1.75rem; line-height: 1.28; color: var(--color-accent); text-wrap-style: balance; }
+        .ms-fazit-schluss footer { position: relative; padding: 0; margin-top: 0.3rem; text-align: left; font-family: var(--font-nav); font-size: 0.82rem; color: var(--color-accent); letter-spacing: 0.04em; }
+        .ms-fazit-schluss footer::before { display: none; }
+        .ms-fazit-schluss footer span { display: block; color: var(--color-text-muted); font-size: 0.74rem; margin-top: 0.2rem; }
         /* 6 · Wer dich begleitet */
         .ms-guide { display: grid; grid-template-columns: 220px 1fr; gap: 1.8rem; align-items: center; }
         .ms-guide img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border: 1px solid rgba(212, 165, 116, 0.3); }
@@ -169,6 +181,10 @@
             .ms-stufe--2::after { display: none; }
             .ms-stufe--2::before { top: calc(-2.4rem - 2px); left: 50%; width: 1px; height: 2.4rem; }
             .ms-jahr-liste { grid-template-columns: 1fr; }
+            .ms-fazit { grid-template-columns: 1fr; padding: 1.8rem 1.35rem 1.6rem; gap: 1.6rem; }
+            .ms-fazit-kopf { margin-bottom: -0.4rem; }
+            .ms-fazit-schluss { border-left: 0; padding-left: 0; border-top: 1px solid rgba(212, 165, 116, 0.22); padding-top: 1.6rem; }
+            .ms-fazit-schluss .ms-fazit-klang { font-size: 1.5rem; }
             .ms-guide { grid-template-columns: 1fr; }
             .ms-guide img { max-width: 220px; margin: 0 auto; }
             .ms-schluss { font-size: 1.6rem; }
@@ -417,12 +433,29 @@
         <section class="section-dark ms-stimmen-section">
             <div class="container">
                 <h2 class="section-title">Stimmen</h2>
-                <div class="ms-stimmen">
-                    <article class="ms-stimme">
-                        <p class="ms-stimme-zitat">„Ich werte mich und mein Spiel nicht ab.“</p>
-                        <p>Ich sage nie mehr, ich kann noch nicht an die Öffentlichkeit mit der Handpan, sondern tu es. Ich spiele täglich, meist nicht nur einmal, voller Freude und ideenreich Handpan. Ich habe eine innige Gemeinschaft mit neuen, tollen Menschen mit gleichem Ziel gefunden und den Eindruck von deutlich spürbarem Fortschritt. Keine Handpan an der Wand erinnert mich mehr schmerzhaft täglich daran, dass ich sie gekauft habe, um meine Gefühle auszudrücken. Denn heute spiele ich mein unerschöpfliches Inneres nach außen und bringe es zum Klingen.</p>
+                <!-- Sonjas Fazit nach ca. 6 Monaten, wörtlich aus ihrer Nachricht in der Community; die Sätze zum Elementekurs sind ausgelassen, weil er nicht zu den Stufen gehört -->
+                <figure class="ms-fazit">
+                    <p class="ms-fazit-kopf">Ein persönliches Fazit nach ca. 6 Monaten</p>
+                    <ul class="ms-fazit-liste">
+                        <li>Ich sage nie mehr, ich kann noch nicht an die Öffentlichkeit mit der Handpan, sondern tu es.</li>
+                        <li>Ich werte mich und mein Spiel nicht ab.</li>
+                        <li>Ich drehe den Wasserhahn beim Zähneputzen zu.</li>
+                        <li>Ich habe eine innige Gemeinschaft mit neuen, tollen Menschen mit gleichem Ziel gefunden, dazu eine neue Freundin, mit der ich gemeinsam spielen kann, sogar aus meinem Wohnort.</li>
+                        <li>Ich habe bereits mehrere wunderschöne Meditationen erfühlen dürfen.</li>
+                        <li>Ich spiele täglich, meist nicht nur einmal, voller Freude und ideenreich Handpan.</li>
+                        <li>Ich habe den Eindruck von deutlich spürbarem Fortschritt.</li>
+                        <li>Ich erzähle heute, ca. 150 Tage nach meinem Beginn hier, meine ersten Märchen und Geschichten, während ich dazu Handpan spiele.</li>
+                        <li>Ich schreibe nach über 25 Jahren wieder: Gedichte, Liedtexte, Musik.</li>
+                        <li>Ich bin noch ausgeglichener und dankbarer wie vorher.</li>
+                    </ul>
+                    <blockquote class="ms-fazit-schluss">
+                        <p>Vielleicht auch deshalb: Keine Handpan an der Wand erinnert mich mehr schmerzhaft täglich daran, dass ich sie gekauft habe, um meine Gefühle auszudrücken, ans Universum abzugeben und zu spielen.</p>
+                        <p class="ms-fazit-klang">Denn heute spiele ich mein unerschöpfliches Inneres nach außen und bringe es zum Klingen.</p>
                         <footer>Sonja A. <span>nach ca. 6 Monaten in der Schule · Nachricht in der Community</span></footer>
-                    </article>
+                    </blockquote>
+                </figure>
+                <div class="ms-stimmen">
+
                     <article class="ms-stimme">
                         <p class="ms-stimme-zitat">„Es gibt keinen Druck und keinen Zwang.“</p>
                         <p>Nils macht Angebote, motiviert und begleitet jeden in seinem eigenen Tempo. Dadurch entsteht eine entspannte Atmosphäre, in der Lernen wirklich Freude macht. Jedes Mal, wenn ein neues Video erscheint, freue ich mich darauf. Es fühlt sich ein wenig wie Ankommen an. Für mich ist das Lernen hier eine Reise weit über die Musik hinaus. Ich habe nicht nur den Beginn vom Handpan spielen gelernt, sondern auch viel über mich selbst und für mein Leben mitgenommen.</p>
