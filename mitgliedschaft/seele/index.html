@@ -67,6 +67,20 @@
         .ms-fakten { color: var(--color-text-muted); font-family: var(--font-nav); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; margin: 0.6rem 0 var(--spacing-md); }
         .ms-fakten span { white-space: nowrap; }
         .ms-slogan { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 1.3rem; color: var(--color-accent); margin: 0 0 var(--spacing-sm); }
+        /* Kopf mit Foto (übergangsweise statt Video): Text hell auf dunklem Verlauf, unten nahtlos in den Seitengrund */
+        #main-content .gravur .page-hero-photo.ms-kopf { min-height: min(88vh, 780px); padding: 150px 0 var(--spacing-xl); overflow: hidden; }
+        .ms-kopf .page-hero-photo__img { object-position: center 40%; }
+        .ms-kopf .bg-overlay { background: linear-gradient(to bottom, rgba(10,14,20,0.62) 0%, rgba(10,14,20,0.38) 38%, rgba(10,14,20,0.55) 72%, #0A0E14 100%); }
+        .ms-kopf .page-hero-photo__content { padding: 0 var(--spacing-md); }
+        .ms-kopf h1 { color: var(--color-text); margin-bottom: var(--spacing-sm); text-shadow: 0 2px 18px rgba(0,0,0,0.55); }
+        .ms-kopf .ms-kicker, .ms-kopf .ms-slogan { text-shadow: 0 1px 10px rgba(0,0,0,0.7); }
+        .ms-kopf .ms-slogan { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin-bottom: var(--spacing-md); }
+        .ms-kopf .hero-subtitle { color: var(--color-text); font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.55; max-width: 34em; margin: 0 auto var(--spacing-md); text-shadow: 0 1px 12px rgba(0,0,0,0.8); }
+        .ms-kopf .ms-fakten { color: rgba(232,230,227,0.82); text-shadow: 0 1px 8px rgba(0,0,0,0.8); }
+        @media (max-width: 768px) {
+            #main-content .gravur .page-hero-photo.ms-kopf { min-height: 92vh; padding: 120px 0 var(--spacing-lg); }
+            .ms-kopf .page-hero-photo__img { object-position: center 30%; }
+        }
         /* Kennst du das? */
         .ms-von-titel { text-align: center; font-family: var(--font-serif); font-weight: 300; font-size: 1.6rem; color: var(--color-text); margin: 0 auto var(--spacing-md); max-width: 560px; }
         .ms-von-titel em { color: var(--color-accent); }
@@ -277,13 +291,27 @@
          ============================================ -->
     <main id="main-content">
     <div id="page-stufe-2" class="page-content active gravur">
-        <!-- 1 · Hero: Stufe, Versprechen, ein Knopf (eigenes Stufen-Video folgt, das Path-Video ist raus) -->
-        <section class="page-hero">
-            <div class="hero-content container-narrow">
+        <!-- 1 · Hero mit Foto (übergangsweise, bis das eigene Stufen-Video da ist): Stufe, Satz, Versprechen, ein Knopf -->
+        <section class="page-hero-photo ms-kopf">
+            <picture>
+                <source type="image/webp"
+                        srcset="/images/optimized/hero-handpan-makro-768.webp 768w, /images/optimized/hero-handpan-makro-1280.webp 1280w, /images/optimized/hero-handpan-makro-1920.webp 1920w"
+                        sizes="100vw">
+                <img src="/images/optimized/hero-handpan-makro-1280.jpg"
+                     srcset="/images/optimized/hero-handpan-makro-768.jpg 768w, /images/optimized/hero-handpan-makro-1280.jpg 1280w, /images/optimized/hero-handpan-makro-1920.jpg 1920w"
+                     sizes="100vw"
+                     width="1920" height="1280"
+                     class="page-hero-photo__img"
+                     alt="Nahaufnahme einer Handpan: der Ding in der Mitte, Licht auf dem Metall"
+                     fetchpriority="high"
+                     decoding="async">
+            </picture>
+            <div class="bg-overlay"></div>
+            <div class="page-hero-photo__content container-narrow">
                 <p class="ms-kicker">Der Jahresweg · die Entfaltung · Start am 7. Januar 2027</p>
                 <h1>Stufe 2 · <em class="ms-gold">Seele</em></h1>
-                <p class="ms-slogan">Spiel, was nur du spielen kannst.</p>
-                <p class="hero-subtitle">Für alle, die schon viel können und spüren, dass in ihnen noch mehr klingt, als ihre Hände bisher erzählen.</p>
+                <p class="ms-slogan">In meinem Klang zuhause.</p>
+                <p class="hero-subtitle">Für alle, die spüren, dass eine Kraft in ihrem Herzen wohnt, für die es sich lohnt, einen Ausdruck zu finden.</p>
                 <p class="ms-fakten"><span>Online</span> · <span>ein Jahr lang begleitet</span> · <span>1.525&nbsp;€</span></p>
                 <a class="cta cta--primary" href="https://buy.stripe.com/4gMdR80zgbvP4TTcHl1ZS0d" onclick="if(window.fbq){fbq('track','InitiateCheckout',{value:1525.00,currency:'EUR',content_name:'Stufe 2 Seele'});}">Stufe 2 buchen</a>
             </div>
