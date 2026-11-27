@@ -600,7 +600,7 @@
             // Program details
             const programs = {
                 'rhythmus': {
-                    name: 'Rhythmus Fundament',
+                    name: 'Rhythmus Fundament 1.0',
                     tag: '6,5 Wochen • 299 €',
                     desc: 'Der ideale Einstieg, um ein solides rhythmisches Fundament aufzubauen. Puls, Subdivisions, Handsatz – die Grundlagen, die alles andere ermöglichen.',
                     icon: '🎯',

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Willkommen im Rhythmus Fundament · handpan.schule</title>
-<meta name="description" content="Danke für deine Anmeldung zum Rhythmus Fundament.">
+<title>Willkommen im Rhythmus Fundament 1.0 · handpan.schule</title>
+<meta name="description" content="Danke für deine Anmeldung zum Rhythmus Fundament 1.0.">
 <meta name="theme-color" content="#0A0E14">
 <!-- Diese Seite wird nur nach erfolgreichem Kauf über Stripe angezeigt, daher nicht indexieren. -->
 <meta name="robots" content="noindex, nofollow">
@@ -27,7 +27,8 @@ fbq('track', 'PageView');
   if (!sid) return;
   var key = 'hps_purchase_' + sid;
   try { if (localStorage.getItem(key)) return; } catch(e) {}
-  fbq('track', 'Purchase', {value: 279.00, currency: 'EUR', content_name: 'Rhythmus Fundament'}, {eventID: sid});
+  var bundle = new URLSearchParams(window.location.search).get('angebot') === 'bundle';
+  fbq('track', 'Purchase', {value: bundle ? 379.00 : 279.00, currency: 'EUR', content_name: bundle ? 'Rhythmus Fundament Bundle' : 'Rhythmus Fundament'}, {eventID: sid});
   try { localStorage.setItem(key, '1'); } catch(e) {}
 })();
 </script>
@@ -40,7 +41,7 @@ src="https://www.facebook.com/tr?id=1509510120659478&ev=PageView&noscript=1"
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://handpan.schule/rhythmus-fundament/danke/">
 <meta property="og:site_name" content="handpan.schule">
-<meta property="og:title" content="Willkommen im Rhythmus Fundament">
+<meta property="og:title" content="Willkommen im Rhythmus Fundament 1.0">
 <meta property="og:description" content="Danke, dass du dabei bist.">
 
 <!-- Schriften: identisch zur Website (Fraunces für Headlines, Spectral für Fließtext). -->
@@ -245,7 +246,7 @@ footer a:hover { text-decoration: underline; }
   <h1>Du bist <em>dabei</em>.</h1>
 
   <p class="lead">
-    Danke für dein Vertrauen — deine Anmeldung zum <strong>Rhythmus Fundament</strong> ist eingegangen.
+    Danke für dein Vertrauen — deine Anmeldung zum <strong>Rhythmus Fundament 1.0</strong> ist eingegangen.
     Ich freue mich riesig, dich auf der Rhythmus-Fundament-Handpan-Reise begleiten zu dürfen.
   </p>
 
